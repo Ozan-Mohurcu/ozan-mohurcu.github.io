@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content />
         <meta name="author" content />
-        <title></title>
+        <title>Contact</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Custom Google font-->
@@ -44,23 +44,21 @@
                             <h1 class="fw-bolder">Get in touch</h1>
                             <p class="lead fw-normal text-muted mb-0">Let's work together!</p>
                         </div>
-                        <form action="send-email.php" method="POST">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                                <div class="text-center">
+                                    <h2>Contact</h2>
+                                    <p>You can reach me by filling out the form below</p>
+                                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdeF8KmUzU4VwRMvtRTaFE3F_IiXZV1oLbPjhfWD6EdvdMgOg/viewform?embedded=true" width="100%" height="689" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                            </div>
-                            <div class="d-grid">
-                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
-                            </div>
-                        </form>
+                        </div>
+                        
+                        <!-- Success message -->
+                        <div id="successMessage" style="display: none;">
+                            <p>Your message has been successfully submitted.</p>
+                        </div>
+                        
                         
                             </div>
                         </div>
