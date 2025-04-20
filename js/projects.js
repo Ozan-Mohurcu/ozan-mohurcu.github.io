@@ -2,18 +2,18 @@ console.log("JavaScript kodu çalışıyor! Dosya yolu doğru.");
 
 // Firebase yapılandırması
 const firebaseConfig = {
-    apiKey: "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w",
-    authDomain: "ozanprojects.firebaseapp.com",
-    databaseURL: "https://ozanprojects-default-rtdb.firebaseio.com",
-    projectId: "ozanprojects",
-    storageBucket: "ozanprojects.appspot.com",
-    messagingSenderId: "508217082371",
-    appId: "1:508217082371:web:32ff717d0f3efd79714436"
-};
-
-// Firebase'i başlat
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: "https://ozanprojects-default-rtdb.firebaseio.com",  // (Alternatif olarak burada da .env kullanabilirsiniz)
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  };
+  
+  // Firebase başlatma
+  const app = initializeApp(firebaseConfig);
 console.log("Firebase bağlantısı kuruldu!");
 
 // Sayfadaki tüm beğeni butonlarını bul
