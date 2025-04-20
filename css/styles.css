@@ -11577,11 +11577,11 @@ html {
   font-size: 1.5rem;
 }
 
-/* Profil kutusunun boyutlarını küçültme */
+/* Profil kutusunun boyutlarını %50 küçültme */
 .profile {
   position: relative;
-  width: 200px;      /* Profil kutusunun genişliği */
-  height: 200px;     /* Profil kutusunun yüksekliği */
+  width: 50px;       /* 100px'den 50px'e küçültüldü (%50) */
+  height: 50px;      /* 100px'den 50px'e küçültüldü (%50) */
   border-radius: 50%; /* Yuvarlak profil kutusu */
   margin-top: 20px;   /* Üstten boşluk */
   overflow: hidden;   /* Fotoğraf taşarsa gizlenir */
@@ -11589,8 +11589,8 @@ html {
 
 /* Profil resminin boyutlarını küçültme */
 .profile .profile-img {
-  width: 80%;        /* Fotoğraf kutuya göre genişler */
-  height: 80%;       /* Fotoğraf kutuya göre yükseklik alır */
+  width: 100%;        /* Fotoğraf kutunun tamamen genişliğini alacak şekilde */
+  height: 100%;       /* Fotoğraf kutusunun tamamen yüksekliğini alacak şekilde */
   object-fit: cover;  /* Fotoğraf kutuyu tamamen doldurur, oran bozulmaz */
   position: absolute;
   top: 0;
@@ -11600,36 +11600,36 @@ html {
 
 .profile .dots-1 {
   position: absolute;
-  width: 3vw;
-  right: 1.5vw;
-  top: 4vw;
+  width: 1.5vw;       /* %50 küçültüldü */
+  right: 0.75vw;      /* %50 küçültüldü */
+  top: 2vw;           /* %50 küçültüldü */
 }
 .profile .dots-1 svg {
   fill: #fff;
 }
 .profile .dots-2 {
   position: absolute;
-  width: 3vw;
-  right: -4vw;
-  top: 6.05vw;
+  width: 1.5vw;       /* %50 küçültüldü */
+  right: -2vw;        /* %50 küçültüldü */
+  top: 3vw;           /* %50 küçültüldü */
 }
 .profile .dots-2 svg {
   fill: #1e30f3;
 }
 .profile .dots-3 {
   position: absolute;
-  width: 3vw;
-  left: 1.5vw;
-  bottom: 6.05vw;
+  width: 1.5vw;       /* %50 küçültüldü */
+  left: 0.75vw;       /* %50 küçültüldü */
+  bottom: 3vw;        /* %50 küçültüldü */
 }
 .profile .dots-3 svg {
   fill: #fff;
 }
 .profile .dots-4 {
   position: absolute;
-  width: 3vw;
-  left: -4vw;
-  bottom: 4vw;
+  width: 1.5vw;       /* %50 küçültüldü */
+  left: -2vw;         /* %50 küçültüldü */
+  bottom: 2vw;        /* %50 küçültüldü */
 }
 .profile .dots-4 svg {
   fill: #1e30f3;
@@ -11637,101 +11637,282 @@ html {
 
 @media (min-width: 576px) {
   .profile {
-    height: 60vw;
-    width: 60vw;
+    height: 30vw;     /* 60vw'den 30vw'ye küçültüldü (%50) */
+    width: 30vw;      /* 60vw'den 30vw'ye küçültüldü (%50) */
   }
   .profile .profile-img {
-    height: 65vw;
+    height: 32.5vw;   /* 65vw'den 32.5vw'ye küçültüldü (%50) */
   }
   .profile .dots-1 {
-    width: 3vw;
-    right: 1.5vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    right: 0.75vw;    /* %50 küçültüldü */
   }
   .profile .dots-2 {
-    width: 3vw;
-    right: -4vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    right: -2vw;      /* %50 küçültüldü */
   }
   .profile .dots-3 {
-    width: 3vw;
-    left: 1.5vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    left: 0.75vw;     /* %50 küçültüldü */
   }
   .profile .dots-4 {
-    width: 3vw;
-    left: -4vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    left: -2vw;       /* %50 küçültüldü */
   }
 }
+
 @media (min-width: 768px) {
   .profile {
-    height: 50vw;
-    width: 50vw;
+    height: 25vw;     /* 50vw'den 25vw'ye küçültüldü (%50) */
+    width: 25vw;      /* 50vw'den 25vw'ye küçültüldü (%50) */
   }
   .profile .profile-img {
-    height: 55vw;
+    height: 27.5vw;   /* 55vw'den 27.5vw'ye küçültüldü (%50) */
   }
   .profile .dots-1 {
-    width: 3vw;
-    right: 1.5vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    right: 0.75vw;    /* %50 küçültüldü */
   }
   .profile .dots-2 {
-    width: 3vw;
-    right: -4vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    right: -2vw;      /* %50 küçültüldü */
   }
   .profile .dots-3 {
-    width: 3vw;
-    left: 1.5vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    left: 0.75vw;     /* %50 küçültüldü */
   }
   .profile .dots-4 {
-    width: 3vw;
-    left: -4vw;
+    width: 1.5vw;     /* %50 küçültüldü */
+    left: -2vw;       /* %50 küçültüldü */
   }
 }
+
 @media (min-width: 992px) {
   .profile {
-    height: 40vw;
-    width: 40vw;
+    height: 20vw;     /* 40vw'den 20vw'ye küçültüldü (%50) */
+    width: 20vw;      /* 40vw'den 20vw'ye küçültüldü (%50) */
   }
   .profile .profile-img {
-    height: 45vw;
+    height: 22.5vw;   /* 45vw'den 22.5vw'ye küçültüldü (%50) */
   }
   .profile .dots-1 {
-    width: 1.5vw;
-    right: 0.75vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    right: 0.375vw;   /* %50 küçültüldü */
   }
   .profile .dots-2 {
-    width: 1.5vw;
-    right: -2vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    right: -1vw;      /* %50 küçültüldü */
   }
   .profile .dots-3 {
-    width: 1.5vw;
-    left: 0.75vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    left: 0.375vw;    /* %50 küçültüldü */
   }
   .profile .dots-4 {
-    width: 1.5vw;
-    left: -2vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    left: -1vw;       /* %50 küçültüldü */
   }
 }
+
 @media (min-width: 1200px) {
   .profile {
-    height: 35vw;
-    width: 35vw;
+    height: 17.5vw;   /* 35vw'den 17.5vw'ye küçültüldü (%50) */
+    width: 17.5vw;    /* 35vw'den 17.5vw'ye küçültüldü (%50) */
   }
   .profile .profile-img {
-    height: 40vw;
+    height: 20vw;     /* 40vw'den 20vw'ye küçültüldü (%50) */
   }
   .profile .dots-1 {
-    width: 1.5vw;
-    right: 0.75vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    right: 0.375vw;   /* %50 küçültüldü */
   }
   .profile .dots-2 {
-    width: 1.5vw;
-    right: -2vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    right: -1vw;      /* %50 küçültüldü */
   }
   .profile .dots-3 {
-    width: 1.5vw;
-    left: 0.75vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    left: 0.375vw;    /* %50 küçültüldü */
   }
   .profile .dots-4 {
-    width: 1.5vw;
-    left: -2vw;
+    width: 0.75vw;    /* %50 küçültüldü */
+    left: -1vw;       /* %50 küçültüldü */
   }
+}
+
+#chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 28px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+#chat-box.open {
+  display: flex;
+}
+
+#chat-header {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#chat-input {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.chat-message {
+  margin: 5px 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.chat-message.user {
+  background: #f1f1f1;
+  align-self: flex-end;
+}
+
+.chat-message.bot {
+  background: #e0f0ff;
+  align-self: flex-start;
+}
+
+/* Projeler Bölümü */
+.projects {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.project {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.project h2 {
+  margin-top: 0;
+}
+
+.like-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.like-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.like-count {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Diğer Sayfalar için Temel Stiller (Varsa Üzerine Yazmaz) */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+.like-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.like-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.like-count {
+  font-size: 14px;
+  color: #555;
+  vertical-align: middle;
 }
