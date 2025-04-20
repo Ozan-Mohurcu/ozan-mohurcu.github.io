@@ -1,39 +1,54 @@
-// Beğenileri localStorage'dan yükle
-function loadLikes() {
-    const likes = localStorage.getItem('projectLikes');
-    return likes ? JSON.parse(likes) : {};
-}
+console.log("JavaScript kodu çalışıyor! Dosya yolu doğru.");
 
-// Beğenileri localStorage'a kaydet
-function saveLikes(likes) {
-    localStorage.setItem('projectLikes', JSON.stringify(likes));
-}
+// Firebase yapılandırması
+const firebaseConfig = {
+    apiKey: "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w",
+    authDomain: "ozanprojects.firebaseapp.com",
+    databaseURL: "https://ozanprojects-default-rtdb.firebaseio.com",
+    projectId: "ozanprojects",
+    storageBucket: "ozanprojects.appspot.com",
+    messagingSenderId: "508217082371",
+    appId: "1:508217082371:web:32ff717d0f3efd79714436"
+};
 
-// Beğeni sayısını güncelle ve ekranda göster
-function updateLikeCount(projectId, count) {
-    const likeCountElement = document.querySelector(`.card[data-id="${projectId}"] .like-count`);
-    likeCountElement.textContent = `${count} beğeni`;
-}
+// Firebase'i başlat
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+console.log("Firebase bağlantısı kuruldu!");
 
-// Beğeni butonlarına tıklama olayını ekle
+// Sayfadaki tüm beğeni butonlarını bul
 document.querySelectorAll('.like-button').forEach(button => {
-    const project = button.closest('.card');
-    const projectId = project.dataset.id;
+    const card = button.closest('.card');
+    const projectId = card.dataset.id;
+    const likeText = card.querySelector('.like-count');
+    const likesRef = db.ref('likes/' + projectId);
 
-    // Başlangıçta beğeni sayısını yükle
-    const likes = loadLikes();
-    const likeCount = likes[projectId] || 0;
-    updateLikeCount(projectId, likeCount);
+    // Firebase'den beğeni verisini al ve göster
+    likesRef.on('value', snapshot => {
+        const data = snapshot.val();
+        const count = data ? data.count : 0;
+        likeText.textContent = `${count} beğeni`;
 
-    // Butona tıklama olayını ekle
+        const userLikes = JSON.parse(localStorage.getItem('userLikes') || '{}');
+        if (userLikes[projectId]) {
+            button.disabled = true;
+            button.textContent = "Beğenildi";
+        }
+    });
+
+    // Butona tıklanınca sayacı artır
     button.addEventListener('click', () => {
-        const currentLikes = loadLikes();
-        currentLikes[projectId] = (currentLikes[projectId] || 0) + 1;
-        saveLikes(currentLikes);
-        updateLikeCount(projectId, currentLikes[projectId]);
+        likesRef.once('value').then(snapshot => {
+            const data = snapshot.val();
+            const current = data ? data.count : 0;
+            likesRef.update({ count: current + 1 });
 
-        // Butonu devre dışı bırak (tekrar beğenmeyi önlemek için)
-        button.disabled = true;
-        button.textContent = 'Beğenildi';
+            const userLikes = JSON.parse(localStorage.getItem('userLikes') || '{}');
+            userLikes[projectId] = true;
+            localStorage.setItem('userLikes', JSON.stringify(userLikes));
+
+            button.disabled = true;
+            button.textContent = "Beğenildi";
+        });
     });
 });
