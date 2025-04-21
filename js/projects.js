@@ -1,54 +1,71 @@
-console.log("JavaScript kodu çalışıyor! Dosya yolu doğru.");
+console.log("JavaScript kodu çalışıyor!");
 
 // Firebase yapılandırması
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    databaseURL: "https://ozanprojects-default-rtdb.firebaseio.com",  // (Alternatif olarak burada da .env kullanabilirsiniz)
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-  };
-  
-  // Firebase başlatma
-  const app = initializeApp(firebaseConfig);
-console.log("Firebase bağlantısı kuruldu!");
+    apiKey: window.FIREBASE_API_KEY,
+    authDomain: "ozanprojects.firebaseapp.com",
+    databaseURL: "https://ozanprojects-default-rtdb.firebaseio.com",
+    projectId: "ozanprojects",
+    storageBucket: "ozanprojects.appspot.com",
+    messagingSenderId: "508217082371",
+    appId: "1:508217082371:web:32ff717d0f3efd79714436"
+};
 
-// Sayfadaki tüm beğeni butonlarını bul
-document.querySelectorAll('.like-button').forEach(button => {
-    const card = button.closest('.card');
-    const projectId = card.dataset.id;
-    const likeText = card.querySelector('.like-count');
-    const likesRef = db.ref('likes/' + projectId);
+// Firebase'i başlat
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-    // Firebase'den beğeni verisini al ve göster
-    likesRef.on('value', snapshot => {
-        const data = snapshot.val();
-        const count = data ? data.count : 0;
-        likeText.textContent = `${count} beğeni`;
+// Beğeni sayısını güncelleyen fonksiyon
+function updateLikeCount(projectId, count) {
+    const likeCountElement = document.querySelector(`.card[data-id="${projectId}"] .like-count`);
+    if (likeCountElement) {
+        likeCountElement.textContent = `${count} beğeni`;
+    }
+}
 
-        const userLikes = JSON.parse(localStorage.getItem('userLikes') || '{}');
-        if (userLikes[projectId]) {
-            button.disabled = true;
-            button.textContent = "Beğenildi";
+// Sayfa yüklendiğinde tüm butonları kontrol et
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.like-button').forEach(button => {
+        const project = button.closest('.card');
+        const projectId = project.dataset.id;
+
+        if (!projectId) {
+            console.warn('Proje ID’si eksik!');
+            return;
         }
-    });
 
-    // Butona tıklanınca sayacı artır
-    button.addEventListener('click', () => {
-        likesRef.once('value').then(snapshot => {
-            const data = snapshot.val();
-            const current = data ? data.count : 0;
-            likesRef.update({ count: current + 1 });
+        const likesRef = db.ref(`likes/${projectId}`);
+
+        // Firebase'dan beğeni verisini dinle
+        likesRef.on('value', snapshot => {
+            const likeCount = snapshot.val() ? snapshot.val().count : 0;
+            updateLikeCount(projectId, likeCount);
 
             const userLikes = JSON.parse(localStorage.getItem('userLikes') || '{}');
-            userLikes[projectId] = true;
-            localStorage.setItem('userLikes', JSON.stringify(userLikes));
+            if (userLikes[projectId]) {
+                button.disabled = true;
+                button.textContent = 'Beğenildi';
+            }
+        });
 
-            button.disabled = true;
-            button.textContent = "Beğenildi";
+        // Butona tıklama işlemi
+        button.addEventListener('click', () => {
+            const userLikes = JSON.parse(localStorage.getItem('userLikes') || '{}');
+
+            // Eğer daha önce beğendiyse engelle
+            if (userLikes[projectId]) return;
+
+            // Beğeni sayısını artır
+            likesRef.once('value', snapshot => {
+                const currentCount = snapshot.val() ? snapshot.val().count : 0;
+                likesRef.set({ count: currentCount + 1 });
+
+                userLikes[projectId] = true;
+                localStorage.setItem('userLikes', JSON.stringify(userLikes));
+
+                button.disabled = true;
+                button.textContent = 'Beğenildi';
+            });
         });
     });
 });
