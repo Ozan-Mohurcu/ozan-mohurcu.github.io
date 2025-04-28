@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "selam": "Selam dostum! Nasıl yardımcı olabilirim?",
         "slm": "Selam! Nasıl yardımcı olabilirim?",
         "selamlar": "Selam! Nasıl yardımcı olabilirim?",
-        "projelerin ne": "Aşağı kaydır, projeler orada seni bekliyor! 🚀",
         "sen kimsin": "Ben AI Kardeşim, bu sitenin dijital ruhuyum 🤖",
         "görüşürüz": "Görüşmek üzere, kendine iyi bak! ✌️",
         "merhaba": "Merhaba! 😊 Size nasıl yardımcı olabilirim?",
