@@ -11916,3 +11916,30 @@ footer a:hover {
   color: #555;
   vertical-align: middle;
 }
+
+.project-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.project-horizontal img {
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.project-description {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
