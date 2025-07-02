@@ -1,207 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Project Page</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XL6YG0LSV2');
-        </script>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="css/styles.css">
-        <!-- Firebase SDK -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-        <script>
-            window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
-        </script>
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Welcome to the Power BI Project Page</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Projects Section -->
-<section class="py-5">
-    <div class="container px-5 mb-5">
-        <div class="text-center mb-5">
-            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
-        </div>
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-11 col-xl-9 col-xxl-8">
-                <!-- New Project Card 8 -->
-    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-8">
-      <div class="card-body p-0">
-        <div class="d-flex align-items-center">
-          <div class="p-5">
-            <h2 class="fw-bolder">Coffee Sales Dashboard</h2>
-            <p>Interactive Power BI dashboard for analyzing coffee sales performance, trends, and category distributions with a clean, visual design.</p>
-            <button class="like-button">Beğen</button>
-            <span class="like-count">0 beğeni</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Power BI dashboards & reports portfolio by Ozan" />
+    <meta name="author" content="Ozan M." />
+    <title>Power BI Projects – Ozan M.</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-XL6YG0LSV2");
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Font & icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- =====  THEME OVERRIDE (neon‑AI)  ===== -->
+    <style>
+      :root {
+        --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+        --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
+        --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+        --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
+        --neon-blue: #00ffff; --neon-purple:#bf00ff; --neon-orange:#ff8c00;
+      }
+      html,body{font-family:"Plus Jakarta Sans",sans-serif;background:var(--gradient-matrix);min-height:100vh;overflow-x:hidden;}
+      /* bg grid */
+      .ai-background{position:fixed;inset:0;z-index:-1;opacity:.1;background-image:radial-gradient(circle at 20% 50%,var(--neon-blue) 2px,transparent 2px),radial-gradient(circle at 80% 50%,var(--neon-purple) 1px,transparent 1px),radial-gradient(circle at 40% 80%,var(--neon-orange) 1px,transparent 1px);background-size:100px 100px,150px 150px,200px 200px;animation:circuit-flow 15s linear infinite;}@keyframes circuit-flow{0%{transform:translate(-50px,-50px);}100%{transform:translate(50px,50px);}}
+      /* navbar */
+      .navbar{backdrop-filter:blur(20px);background:rgba(13,20,33,.9)!important;border-bottom:1px solid rgba(0,255,255,.3);box-shadow:0 8px 32px rgba(0,255,255,.2);transition:.3s;}
+      .navbar-brand{font-weight:800;font-size:1.5rem;background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;}
+      .navbar-brand::after{content:"⚡";position:absolute;right:-25px;color:var(--neon-orange);animation:pulse-glow 2s infinite;}@keyframes pulse-glow{0%,100%{text-shadow:0 0 5px var(--neon-orange);transform:scale(1);}50%{text-shadow:0 0 20px var(--neon-orange),0 0 30px var(--neon-orange);transform:scale(1.1);}}
+      .navbar-nav .nav-link{color:var(--neon-blue)!important;font-weight:600;margin:0 10px;position:relative;transition:.3s;}
+      .navbar-nav .nav-link:hover{color:#fff!important;text-shadow:0 0 10px var(--neon-blue);transform:translateY(-3px);}
+      .navbar-nav .nav-link::after{content:"";position:absolute;width:0;height:2px;bottom:-5px;left:50%;background:var(--gradient-accent);transition:.3s;transform:translateX(-50%);box-shadow:0 0 10px var(--neon-blue);} .navbar-nav .nav-link:hover::after{width:100%;}
+      /* hero */
+      .hero-section{padding-top:120px;min-height:60vh;}
+      .hero-title{font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,#00ffff 0%,#ffffff 50%,#ff8c00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 30px rgba(0,255,255,.5);}
+      .hero-description{color:rgba(255,255,255,.9);font-size:1.1rem;}
+      .badge-modern{background:rgba(0,255,255,.2);backdrop-filter:blur(10px);border:2px solid var(--neon-blue);color:#fff;padding:10px 25px;border-radius:50px;font-weight:600;animation:neon-pulse 2s infinite;box-shadow:0 0 20px rgba(0,255,255,.5),inset 0 0 20px rgba(0,255,255,.1);}@keyframes neon-pulse{0%,100%{box-shadow:0 0 20px rgba(0,255,255,.5),0 0 40px rgba(0,255,255,.3),inset 0 0 20px rgba(0,255,255,.1);}50%{box-shadow:0 0 30px rgba(0,255,255,.8),0 0 60px rgba(0,255,255,.5),inset 0 0 30px rgba(0,255,255,.2);}}
+      /* project cards */
+      .project-card {
+  display: flex !important;
+  gap: 25px !important;
+  padding: 25px !important;
+  border-radius: 20px !important;
+  background: rgba(13, 20, 33, .85) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(0, 255, 255, .2) !important;
+  margin-bottom: 35px !important;
+  box-shadow: 0 6px 20px rgba(0, 255, 255, .15) !important;
+  transition: .3s !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  width: auto !important;
+}
+      .project-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 40px rgba(0,255,255,.35),0 0 30px rgba(0,255,255,.4);border-color:var(--neon-orange);}
+      .project-card img{width:160px;height:160px;object-fit:contain;border-radius:15px;border:3px solid var(--neon-blue);box-shadow:0 0 15px rgba(0,255,255,.4);}
+      .project-card h3{background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;margin-top:0;}
+      .project-card p{color:rgba(255,255,255,.85);line-height:1.6;}
+      .like-button{background:rgba(0,255,255,.1);border:1px solid var(--neon-blue);color:#fff;border-radius:30px;padding:6px 18px;font-size:.9rem;cursor:pointer;transition:.3s;}
+      .like-button:hover{background:var(--gradient-accent);}
+      .like-count{color:var(--neon-blue);margin-left:6px;font-size:.9rem;}
+      @media(max-width:991px){.project-card{flex-direction:column;align-items:center;text-align:center;} .project-card img{width:220px;height:220px;}}
+      /* scrollbar */
+      ::-webkit-scrollbar{width:12px;}::-webkit-scrollbar-track{background:rgba(13,20,33,.8);border-radius:6px;}::-webkit-scrollbar-thumb{background:var(--gradient-accent);border-radius:6px;border:2px solid rgba(0,255,255,.3);box-shadow:0 0 10px rgba(0,255,255,.5);}::-webkit-scrollbar-thumb:hover{background:var(--gradient-secondary);}    
+    </style>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>window.FIREBASE_API_KEY="AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";</script>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <div class="ai-background"></div>
+    <main class="flex-shrink-0">
+      <!-- NAV -->
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container px-5">
+          <a class="navbar-brand" href="index.html"><span class="fw-bolder">Data Analyst & Data Scientist</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
           </div>
-          <img class="img-fluid" src="page1.png" alt="Coffee Sales Dashboard" style="width:450px; height:200px; object-fit:contain;" />
+        </div>
+      </nav>
+      <section class="hero-section text-center text-white">
+        <div class="container px-5">
+          <h1 class="hero-title mb-3">Power BI Dashboards</h1>
+            <p class="text-muted mt-2">Click an image to open the full PDF report.</p>
+            <p class="hero-description">Interactive insights, real‑time KPIs & striking visuals</p>
+            <div class="mt-4"><span class="badge-modern">Business Intelligence in Action</span></div>
+          </div>
+
+      <!-- PROJECTS -->
+      <section class="py-5">
+        <div class="container px-5">
+          <!-- Coffee Sales -->
+          <div class="project-card" data-id="project-8">
+            <div class="project-img-wrap"><img src="page1.png" alt="Coffee dashboard" /></div>
+            <div>
+              <h3>Coffee Sales Dashboard</h3>
+              <p>Interactive dashboard analysing sales performance, trends & category splits – roasted to perfection ☕.</p>
+              <button class="like-button">Like</button><span class="like-count">0 likes</span>
+            </div>
+          </div>
+          <!-- Smartwatch -->
+          <div class="project-card" data-id="project-7">
+            <div class="project-img-wrap"><img src="smarwatch.png" alt="Smartwatch" /></div>
+            <div>
+              <h3>Smartwatch Performance Tracker</h3>
+              <p>Real‑time sales metrics highlight growth levers across models, channels and regions.</p>
+              <button class="like-button">Like</button><span class="like-count">0 likes</span>
+            </div>
+          </div>
+          <!-- Car Sales -->
+          <div class="project-card" data-id="project-1">
+            <div class="project-img-wrap"><img src="Car Dashboard.png" alt="Car sales" /></div>
+            <div>
+              <h3>Car Sales Dashboard</h3>
+              <p>Revenue, targets & product mix presented through dynamic slicers and KPI cards – fuel for strategy.</p>
+              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
+            </div>
+          </div>
+          <!-- Superstore -->
+          <div class="project-card" data-id="project-2">
+            <div class="project-img-wrap"><img src="SuperStore.png" alt="Global superstore" /></div>
+            <div>
+              <h3>Global Superstore Analysis</h3>
+              <p>End‑to‑end retail analytics: trends, customer behaviour & bestselling categories.</p>
+              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
+            </div>
+          </div>
+          <!-- DC Crimes -->
+          <div class="project-card" data-id="project-3">
+            <div class="project-img-wrap"><img src="crime.png" alt="DC crimes" /></div>
+            <div>
+              <h3>Washington D.C. Crime</h3>
+              <p>Geospatial heat‑maps & temporal charts drive safety initiatives and resource allocation.</p>
+              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
+            </div>
+          </div>
+          <!-- Titanic -->
+          <div class="project-card" data-id="project-4">
+            <div class="project-img-wrap"><img src="Titanic.png" alt="Titanic" /></div>
+            <div>
+              <h3>Titanic Passenger Analysis</h3>
+              <p>Demographics, class & survival metrics retold via storytelling visuals.</p>
+              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
+            </div>
+          </div>
+          <!-- Laptop Price -->
+          <div class="project-card" data-id="project-5">
+            <div class="project-img-wrap"><img src="laptop.png" alt="Laptop price" /></div>
+            <div>
+              <h3>Laptop Price Explorers</h3>
+              <p>Specs vs price interactive matrix – identify sweet‑spots for different budgets.</p>
+              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
+            </div>
+          </div>
+          <!-- Supermarket -->
+          <div class="project-card" data-id="project-6">
+            <div class="project-img-wrap"><img src="Supermarketsales.png" alt="Supermarket sales" /></div>
+            <div>
+              <h3>Supermarket Sales Analysis</h3>
+              <p>Payment methods, customer segments & time‑based trends distilled into actionable visuals.</p>
+              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-5" style="background:var(--gradient-primary);color:#fff;">
+        <div class="container px-5 text-center"><h2 class="display-4 fw-bolder mb-4">Let's build something together</h2><a class="btn btn-outline-light btn-lg px-5 py-3" href="contact.html">Contact me</a></div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-4 mt-auto" style="background:rgba(13,20,33,.95);backdrop-filter:blur(10px);border-top:2px solid var(--neon-blue);color:#fff;box-shadow:0 -5px 20px rgba(0,255,255,.3);">
+      <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto"><div class="small m-0">© Ozan M. | Portfolio</div></div>
+          <div class="col-auto"><a class="small" href="#">Privacy</a><span class="mx-1">&middot;</span><a class="small" href="#">Terms</a><span class="mx-1">&middot;</span><a class="small" href="contact.html">Contact</a></div>
         </div>
       </div>
-    </div>
-                <!-- Project Card 7 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-7">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Smartwatch Performance Tracker</h2>
-                                <p>Smartwatch Performance Tracker Dashboard visualizes smartwatch sales data, allowing you to track sales performance in real-time. By analyzing sales trends with various metrics and charts, it helps you make strategic decisions and discover growth opportunities.</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="smarwatch.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 1 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-1">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">CAR SALES DASHBOARD</h2>
-                                <p>The Sales Dashboard (Power BI) visualizes sales data for real-time analysis. Key metrics like sales targets, revenue, product performance, and customer count are displayed through impactful visuals, supporting decision-making for improved sales strategies.</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="Car Dashboard.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 2 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mb-0" data-id="project-2">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">GLOBAL SUPERSTORE PROJECT</h2>
-                                <p>The Global Superstore Project is a project where we used Power BI to analyze and visualize sales data of a retail store. The goal was to identify sales trends, customer behaviors, and popular products to support business decisions!</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="SuperStore.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 3 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-3">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">WASHINGTON D.C. CRIMES</h2>
-                                <p>The Washington D.C. Crime Power BI Dashboard visualizes crime data by type, location, and time, providing insights to enhance security strategies.</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="crime.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 4 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-4">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">TITANIC PASSENGER ANALYSIS</h2>
-                                <p>The Titanic Passenger Analysis (Power BI) project visualizes key passenger data, such as age, class, gender, and survival rates. It provides insights into the factors influencing survival and helps in understanding passenger demographics during the tragic Titanic disaster.</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="Titanic.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 5 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">LAPTOP PRICE</h2>
-                                <p>Laptop Price Analysis Project: In this project, Python was used to analyze laptop price data. Data cleaning and outlier detection were performed. The data was processed with libraries like pandas and numpy, and visualizations were created using tools like matplotlib and seaborn. The results were visualized to provide a better understanding of laptop prices.</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="laptop.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 6 -->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-6">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">SUPERMARKET SALES ANALYSIS</h2>
-                                <p>In this Python project, I performed data cleaning, outlier detection, and exploratory data analysis (EDA) on supermarket sales data. Using libraries like Pandas, Seaborn, and Matplotlib, key insights such as sales trends, payment methods, and customer segments were visualized effectively.</p>
-                                <button class="like-button">Beğen</button>
-                                <span class="like-count">0 beğeni</span>
-                            </div>
-                            <img class="img-fluid" src="Supermarketsales.png" alt="..." />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-            <!-- Call to action section-->
-            <section class="py-5 bg-gradient-primary-to-secondary text-white">
-                <div class="container px-5 my-5">
-                    <div class="text-center">
-                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Ozan M.</div></div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-<script src="js/projects.js"></script>
-</body>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/projects.js"></script>
+  </body>
 </html>

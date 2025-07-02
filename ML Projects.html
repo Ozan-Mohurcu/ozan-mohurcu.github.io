@@ -1,141 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Project Page</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XL6YG0LSV2');
-        </script>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="css/styles.css">
-        <!-- Firebase SDK -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-        <script>
-            window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
-        </script>
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Welcome to the Machine Learning Project Page</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Projects Section -->
-<section class="py-5">
-    <div class="container px-5 mb-5">
-        <div class="text-center mb-5">
-            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Machine Learning Projects</span></h1>
-            <p class="text-muted mt-3">Click on the image to access the PDF of the relevant study.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Machine‑Learning portfolio projects by Ozan" />
+    <meta name="author" content="Ozan M." />
+    <title>Machine Learning Projects – Ozan M.</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-XL6YG0LSV2");
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Font & icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ================  THEME OVERRIDE (neon‑AI) ================ -->
+    <style>
+      :root {
+        --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+        --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
+        --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+        --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
+        --neon-blue: #00ffff;
+        --neon-purple: #bf00ff;
+        --neon-orange: #ff8c00;
+      }
+
+      html, body { font-family: "Plus Jakarta Sans", sans-serif; background: var(--gradient-matrix); min-height: 100vh; overflow-x: hidden; }
+
+      /* background grid */
+      .ai-background { position: fixed; inset: 0; z-index: -1; opacity: .1; background-image: radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px), radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px), radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px); background-size: 100px 100px, 150px 150px, 200px 200px; animation: circuit-flow 15s linear infinite; }
+      @keyframes circuit-flow { 0% { transform: translate(-50px,-50px);} 100% { transform: translate(50px,50px);} }
+
+      /* navbar */
+      .navbar { backdrop-filter: blur(20px); background: rgba(13,20,33,.9)!important; border-bottom:1px solid rgba(0,255,255,.3); box-shadow:0 8px 32px rgba(0,255,255,.2); transition:.3s; }
+      .navbar-brand { font-weight:800; font-size:1.5rem; background:var(--gradient-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; position:relative; }
+      .navbar-brand::after { content:"⚡"; position:absolute; right:-25px; color:var(--neon-orange); animation:pulse-glow 2s infinite; }
+      @keyframes pulse-glow { 0%,100%{text-shadow:0 0 5px var(--neon-orange); transform:scale(1);} 50%{text-shadow:0 0 20px var(--neon-orange),0 0 30px var(--neon-orange); transform:scale(1.1);} }
+      .navbar-nav .nav-link { color:var(--neon-blue)!important; font-weight:600; margin:0 10px; position:relative; transition:.3s; }
+      .navbar-nav .nav-link:hover { color:#fff!important; text-shadow:0 0 10px var(--neon-blue); transform:translateY(-3px); }
+      .navbar-nav .nav-link::after { content:""; position:absolute; width:0; height:2px; bottom:-5px; left:50%; background:var(--gradient-accent); transition:.3s; transform:translateX(-50%); box-shadow:0 0 10px var(--neon-blue); }
+      .navbar-nav .nav-link:hover::after { width:100%; }
+
+      /* hero */
+      .hero-section { padding-top:120px; min-height:60vh; }
+      .hero-title { font-size:3.5rem; font-weight:900; background:linear-gradient(135deg,#00ffff 0%,#ffffff 50%,#ff8c00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-shadow:0 0 30px rgba(0,255,255,.5); }
+      .hero-description { color:rgba(255,255,255,.9); font-size:1.1rem; }
+      .badge-modern { background:rgba(0,255,255,.2); backdrop-filter:blur(10px); border:2px solid var(--neon-blue); color:#fff; padding:10px 25px; border-radius:50px; font-weight:600; animation:neon-pulse 2s infinite; box-shadow:0 0 20px rgba(0,255,255,.5),inset 0 0 20px rgba(0,255,255,.1); }
+      @keyframes neon-pulse { 0%,100%{box-shadow:0 0 20px rgba(0,255,255,.5),0 0 40px rgba(0,255,255,.3),inset 0 0 20px rgba(0,255,255,.1);} 50%{box-shadow:0 0 30px rgba(0,255,255,.8),0 0 60px rgba(0,255,255,.5),inset 0 0 30px rgba(0,255,255,.2);} }
+
+      /* projects */
+      .project-horizontal { display:flex; gap:25px; padding:25px; border-radius:20px; background:rgba(13,20,33,.85); backdrop-filter:blur(15px); border:2px solid rgba(0,255,255,.2); margin-bottom:35px; box-shadow:0 6px 20px rgba(0,255,255,.15); transition:.3s; }
+      .project-horizontal:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 20px 40px rgba(0,255,255,.35),0 0 30px rgba(0,255,255,.4); border-color:var(--neon-orange); }
+      .project-horizontal img { width:160px; height:160px; object-fit:cover; border-radius:15px; border:3px solid var(--neon-blue); box-shadow:0 0 15px rgba(0,255,255,.4); }
+      .project-description h3 { background:var(--gradient-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:800; margin-top:0; }
+      .project-description p { color:rgba(255,255,255,.85); line-height:1.6; }
+
+      @media (max-width:991px) { .project-horizontal{flex-direction:column; align-items:center; text-align:center;} .project-horizontal img{width:220px;height:220px;} }
+
+      ::-webkit-scrollbar{width:12px;} ::-webkit-scrollbar-track{background:rgba(13,20,33,.8);border-radius:6px;} ::-webkit-scrollbar-thumb{background:var(--gradient-accent);border-radius:6px;border:2px solid rgba(0,255,255,.3);box-shadow:0 0 10px rgba(0,255,255,.5);} ::-webkit-scrollbar-thumb:hover{background:var(--gradient-secondary);}  
+    </style>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>window.FIREBASE_API_KEY="AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";</script>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <div class="ai-background"></div>
+    <main class="flex-shrink-0">
+      <!-- NAV -->
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container px-5">
+          <a class="navbar-brand" href="index.html"><span class="fw-bolder">Data Analyst & Data Scientist</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-11 col-xl-9 col-xxl-8">
-        <!-- Proje 1 -->
-<div class="project-horizontal">
-  <a href="pdf/smoker.pdf" target="_blank">
-    <img src="img/smoker.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Kaggle Winner: Smoker Prediction Model</h3>
-    <p>In the binary classification problem of smoker prediction, advanced feature engineering, outlier cleaning and balanced sampling techniques were used in the Kaggle competition solution that came in first. In the modeling phase, LightGBM and CatBoost from ensemble methods stood out and high accuracy was achieved with ROC-AUC optimization. Especially feature interactions and SHAP analyses strengthened the model interpretability.</p>
-  </div>
-</div>
-        <!-- Proje 2 -->
-<div class="project-horizontal">
-  <a href="pdf/cancer.pdf" target="_blank">
-    <img src="img/cancer.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3> Breast Cancer Classification</h3>
-    <p>The aim was to classify breast cancer cells as malignant or benign. In the study, various classification models were compared after data scaling, correlation analysis and feature selection. The model that achieved the highest success was interpreted with detailed evaluation metrics. In particular, improvements in error type analysis and class balance are at the forefront.</p>
-  </div>
-</div>
-        <!-- Proje 3 -->
-<div class="project-horizontal">
-  <a href="pdf/automl.pdf" target="_blank">
-    <img src="img/auto.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Calories Burnt Prediction with AutoML</h3>
-    <p>The aim is to estimate the amount of calories burned using physical activity data. Different regression models were automatically tested with AutoML, and the structure that gave the best performance was selected. In particular, steps such as model selection and hyperparameter tuning were performed without human intervention. Estimation results were visualized and the error tolerance of the model was analyzed.</p>
-  </div>
-</div>
-        <!-- Proje 4 -->
-<div class="project-horizontal">
-  <a href="pdf/unsuper.pdf" target="_blank">
-    <img src="img/unsuper1.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Customer Segmentation with RFM & Clustering</h3>
-    <p>Customer segmentation was performed using unsupervised learning techniques on online retail data. Customer value groups were extracted by calculating RFM (Recency, Frequency, Monetary) metrics, then segments were created using K-Means and hierarchical clustering algorithms. Intra-segment behavioral differences were visualized, and high-value customer clusters were identified. The study provides data-based insights for marketing strategies and targeted campaigns.</p>
-  </div>
-</div>
-        <!-- Proje 5 -->
-<div class="project-horizontal">
-    <img src="img/super.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Body Measurement Prediction with Supervised Learning</h3>
-    <p>The ANSUR II dataset was used to estimate body measurements based on demographic and physical measurements. Regression and classification models were applied with gender, age, height and various anthropometric data. After feature selection and scaling, algorithms such as Random Forest and XGBoost were tried; model performance was evaluated with MAE, RMSE and classification accuracy. The study provides predictive analysis especially for ergonomic design and defense industry applications..</p>
-  </div>
-</div>
-        <!-- Proje 6 -->
-<div class="project-horizontal">
-  <a href="pdf/cost.pdf" target="_blank">
-    <img src="img/medical.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Medical Cost Prediction</h3>
-    <p>Based on age, gender, BMI, smoking and other demographic factors, healthcare expenditures of individuals were estimated. Data cleaning, feature engineering and regression models were used to analyze the effects on costs. Model performance was evaluated with MAE and RMSE, and significant variables were identified.</p>
-  </div>
-</div>
-        <!-- Proje 7 -->
-<div class="project-horizontal">
-  <a href="pdf/calories.pdf" target="_blank">
-    <img src="img/calories.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3> Calories Burned Prediction – EDA & Modeling</h3>
-    <p>Extensive exploratory data analysis (EDA) was performed on physical activity data to reveal the main factors affecting calorie burning. Anomalies, distributions and correlations between variables in the data were examined. Then, different regression models (Linear Regression, Random Forest, XGBoost) were tested in a competition format and model performances were compared. The best model was developed with hyperparameter optimization.</p>
-  </div>
-</div>
-        <!-- Proje 8 -->
-<div class="project-horizontal">
-  <a href="pdf/gübre.pdf" target="_blank">
-    <img src="img/gübre.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3> Fertilizer Recommendation System</h3>
-    <p>Appropriate fertilizer recommendation system was developed using soil and plant analysis data. Optimal fertilizer mixtures that will increase plant yield were modeled by considering the nutrients (nitrogen, phosphorus, potassium, etc.) and environmental factors in the data. Data pre-processing, feature engineering and regression/multiclass classification algorithms were used. The results provide practical solutions in agricultural applications.</p>
-  </div>
-</div>
+      </nav>
+      <section class="hero-section text-center text-white">
+        <div class="container px-5">
+          <h1 class="hero-title mb-3">Machine Learning Projects</h1>
+            <p class="text-muted mt-2">Click an image to open the full PDF report.</p>
+            <p class="hero-description">Supervised, Unsupervised, Ensemble, AutoML – end‑to‑end solutions</p>
+            <div class="mt-4"><span class="badge-modern">From EDA to Deployment</span></div>
+          </div>
+
+      <!-- PROJECT LIST -->
+      <section class="py-5">
+        <div class="container px-5">
+          <!-- Project 1 -->
+          <div class="project-horizontal">
+            <a href="pdf/smoker.pdf" target="_blank"><img src="img/smoker.png" alt="Smoker prediction" /></a>
+            <div class="project-description"><h3>Kaggle Winner: Smoker Prediction</h3><p>Top‑ranking binary classifier using LightGBM & CatBoost with extensive feature engineering, balanced sampling and SHAP interpretability.</p></div>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-horizontal">
+            <a href="pdf/cancer.pdf" target="_blank"><img src="img/cancer.png" alt="Breast cancer" /></a>
+            <div class="project-description"><h3>Breast Cancer Classification</h3><p>Malignant‑vs‑benign detection; multiple models benchmarked, best performer explained with ROC, confusion matrix & feature importance.</p></div>
+          </div>
+          <!-- Project 3 -->
+          <div class="project-horizontal">
+            <a href="pdf/automl.pdf" target="_blank"><img src="img/auto.png" alt="AutoML calories" /></a>
+            <div class="project-description"><h3>Calories Burned Prediction – AutoML</h3><p>Physical activity dataset fed into AutoML search; optimal regression pipeline selected & tuned autonomously.</p></div>
+          </div>
+          <!-- Project 4 -->
+          <div class="project-horizontal">
+            <a href="pdf/unsuper.pdf" target="_blank"><img src="img/unsuper1.png" alt="RFM clustering" /></a>
+            <div class="project-description"><h3>Customer Segmentation with RFM & Clustering</h3><p>K‑Means + hierarchical clustering on RFM metrics to surface high‑value cohorts for targeted marketing.</p></div>
+          </div>
+          <!-- Project 5 -->
+          <div class="project-horizontal">
+            <img src="img/super.png" alt="ANSUR body" />
+            <div class="project-description"><h3>Body Measurement Prediction</h3><p>ANSUR II anthropometrics modelled via Random Forest / XGBoost for ergonomic design use‑cases; MAE & RMSE evaluated.</p></div>
+          </div>
+          <!-- Project 6 -->
+          <div class="project-horizontal">
+            <a href="pdf/cost.pdf" target="_blank"><img src="img/medical.png" alt="Medical cost" /></a>
+            <div class="project-description"><h3>Medical Cost Prediction</h3><p>Regression analysis of demographic & lifestyle factors on healthcare expenditure; key drivers identified.</p></div>
+          </div>
+          <!-- Project 7 -->
+          <div class="project-horizontal">
+            <a href="pdf/calories.pdf" target="_blank"><img src="img/calories.png" alt="Calorie EDA" /></a>
+            <div class="project-description"><h3>Calories Burned EDA & Modeling</h3><p>Comprehensive EDA followed by Linear, RF, XGBoost regression contest; hyperparameter‑tuned champion highlighted.</p></div>
+          </div>
+          <!-- Project 8 -->
+          <div class="project-horizontal">
+            <a href="pdf/gübre.pdf" target="_blank"><img src="img/gübre.png" alt="Fertilizer recommender" /></a>
+            <div class="project-description"><h3>Fertilizer Recommendation System</h3><p>Soil & crop data leveraged to predict optimal N‑P‑K mix; regression + multiclass models underpin agronomic decisions.</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-4 mt-auto" style="background:rgba(13,20,33,.95); backdrop-filter:blur(10px); border-top:2px solid var(--neon-blue); color:#fff; box-shadow:0 -5px 20px rgba(0,255,255,.3);">
+      <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto"><div class="small m-0">© Ozan M.|  Portfolio</div></div>
+          <div class="col-auto">
+            <a class="small" href="#">Privacy</a><span class="mx-1">&middot;</span><a class="small" href="#">Terms</a><span class="mx-1">&middot;</span><a class="small" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+<!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          nav.style.background = "rgba(13, 20, 33, 0.98)";
+          nav.style.boxShadow = "0 5px 30px rgba(0, 255, 255, 0.4)";
+        } else {
+          nav.style.background = "rgba(13, 20, 33, 0.9)";
+          nav.style.boxShadow = "0 8px 32px rgba(0, 255, 255, 0.2)";
+        }
+      });
+
+      // smooth internal links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // simple fade‑in load
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.8s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
 </html>

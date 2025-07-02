@@ -1,162 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Project Page</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XL6YG0LSV2');
-        </script>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="css/styles.css">
-        <!-- Firebase SDK -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-        <script>
-            window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
-        </script>
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Welcome to the Python Project Page</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Projects Section -->
-<section class="py-5">
-    <div class="container px-5 mb-5">
-        <div class="text-center mb-5">
-            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Python EDA Projects</span></h1>
-            <p class="text-muted mt-3">Click on the image to access the PDF of the relevant study.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Python EDA portfolio projects by Ozan" />
+    <meta name="author" content="Ozan M." />
+    <title>Python EDA Projects – Ozan M.</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XL6YG0LSV2");
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Custom Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap icons & core CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ================  THEME OVERRIDE ================ -->
+    <style>
+      :root {
+        /* colour schema */
+        --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+        --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
+        --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+        --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
+        --neon-blue: #00ffff;
+        --neon-purple: #bf00ff;
+        --neon-orange: #ff8c00;
+        --dark-bg: #0d1421;
+        --dark-surface: #1a2332;
+      }
+
+      /* page setup */
+      html,
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--gradient-matrix);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* AI Circuit Background Animation */
+      .ai-background {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        opacity: 0.1;
+        background-image: radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
+          radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
+          radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px);
+        background-size: 100px 100px, 150px 150px, 200px 200px;
+        animation: circuit-flow 15s linear infinite;
+      }
+
+      @keyframes circuit-flow {
+        0% {
+          transform: translate(-50px, -50px);
+        }
+        100% {
+          transform: translate(50px, 50px);
+        }
+      }
+
+      /* glassy navbar */
+      .navbar {
+        backdrop-filter: blur(20px);
+        background: rgba(13, 20, 33, 0.9) !important;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.5rem;
+        background: var(--gradient-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+      }
+      .navbar-brand::after {
+        content: "⚡";
+        position: absolute;
+        right: -25px;
+        color: var(--neon-orange);
+        animation: pulse-glow 2s infinite;
+      }
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          text-shadow: 0 0 5px var(--neon-orange);
+          transform: scale(1);
+        }
+        50% {
+          text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange);
+          transform: scale(1.1);
+        }
+      }
+      .navbar-nav .nav-link {
+        color: var(--neon-blue) !important;
+        font-weight: 600;
+        margin: 0 10px;
+        position: relative;
+        transition: 0.3s;
+      }
+      .navbar-nav .nav-link:hover {
+        color: white !important;
+        text-shadow: 0 0 10px var(--neon-blue);
+        transform: translateY(-3px);
+      }
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background: var(--gradient-accent);
+        transition: 0.3s;
+        transform: translateX(-50%);
+        box-shadow: 0 0 10px var(--neon-blue);
+      }
+      .navbar-nav .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* hero */
+      .hero-section {
+        padding-top: 120px;
+        min-height: 60vh;
+        position: relative;
+      }
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #00ffff 0%, #ffffff 50%, #ff8c00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+      }
+      .hero-description {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+      }
+      .badge-modern {
+        background: rgba(0, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 2px solid var(--neon-blue);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        animation: neon-pulse 2s infinite;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.1);
+      }
+      @keyframes neon-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+      }
+
+      /* project cards horizontal */
+      .project-horizontal {
+        display: flex;
+        gap: 25px;
+        padding: 25px;
+        border-radius: 20px;
+        background: rgba(13, 20, 33, 0.8);
+        backdrop-filter: blur(15px);
+        border: 2px solid rgba(0, 255, 255, 0.2);
+        transition: 0.3s ease;
+        margin-bottom: 35px;
+        box-shadow: 0 6px 20px rgba(0, 255, 255, 0.15);
+      }
+      .project-horizontal:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.35), 0 0 30px rgba(0, 255, 255, 0.4);
+        border-color: var(--neon-orange);
+      }
+      .project-horizontal img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 15px;
+        border: 3px solid var(--neon-blue);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+      }
+      .project-description h3 {
+        background: var(--gradient-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+      }
+      .project-description p {
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+      }
+
+      /* scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(13, 20, 33, 0.8);
+        border-radius: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gradient-accent);
+        border-radius: 6px;
+        border: 2px solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--gradient-secondary);
+      }
+
+      /* responsive */
+      @media (max-width: 991px) {
+        .project-horizontal {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .project-horizontal img {
+          width: 220px;
+          height: 220px;
+        }
+      }
+    </style>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+      window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
+    </script>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <!-- AI background grid -->
+    <div class="ai-background"></div>
+
+    <main class="flex-shrink-0">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container px-5">
+          <a class="navbar-brand" href="index.html"><span class="fw-bolder">Data Analyst & Data Scientist</span></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="row gx-5 justify-content-center">
+      </nav>
+      <section class="hero-section text-center text-white">
+        <div class="container px-5">
+          <h1 class="hero-title mb-3">Python Exploratory Data Analysis</h1>
+            <p class="text-muted mt-2">Click an image to open the full PDF report.</p>
+            <p class="hero-description">Comprehensive analysis of datasets using Python libraries such as pandas, matplotlib, and seaborn</p>
+            <div class="mt-4"><span class="badge-modern">Exploratory Data Analysis</span></div>
+          </div>
+    
+
+          <div class="row gx-5 justify-content-center">
             <div class="col-lg-11 col-xl-9 col-xxl-8">
-        <!-- Proje 1 -->
-<div class="project-horizontal">
-  <a href="pdf/Stroke.pdf" target="_blank">
-    <img src="img/stroke.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Stroke Analysis</h3>
-    <p>Missing data, variable types and distributions on the Stroke dataset were examined in detail; especially the interactions of factors such as age, gender and medical history were analyzed with visualizations. The study presents a comprehensive exploratory analysis process to understand the data structure before modeling.</p>
-  </div>
-</div>
-        <!-- Proje 2 -->
-<div class="project-horizontal">
-  <a href="pdf/laptop.pdf" target="_blank">
-    <img src="img/laptop.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Laptop Price Analysis</h3>
-    <p>Variables affecting prices were analyzed on the laptop dataset. The effects of RAM, CPU brand, SSD capacity and screen resolution on prices were visualized. Outlier cleaning and categorical variable transformations were performed.</p>
-  </div>
-</div>
-        <!-- Proje 3 -->
-<div class="project-horizontal">
-  <a href="pdf/store.pdf" target="_blank">
-    <img src="img/bike.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Bike Sharing Analysis</h3>
-    <p>The factors affecting the daily rental number in the bike sharing system were analyzed. The effects of environmental variables such as weather, temperature, humidity on demand were visualized, and the usage density was examined on an hourly basis. Time series features and correlation structure were extracted..</p>
-  </div>
-</div>
-        <!-- Proje 4 -->
-<div class="project-horizontal">
-  <a href="pdf/diabets.pdf" target="_blank">
-    <img src="img/diabets.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Diabetes Analysis</h3>
-    <p>The effects of variables such as glucose, insulin, BMI and age on diabetes risk were examined. Missing data control, correlation analysis and feature distribution according to the target variable were visualized.</p>
-  </div>
-</div>
-        <!-- Proje 5 -->
-<div class="project-horizontal">
-  <a href="pdf/sleep.pdf" target="_blank">
-    <img src="img/sleep.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Sleep Health Analysis</h3>
-    <p>The relationship between sleep patterns and health was examined, the effects of sleep duration and quality on metabolic health, immune system and mental functions were analyzed. Correlations were extracted by cleaning missing data, and the connections between sleep problems and chronic disease risks were visualized.</p>
-  </div>
-</div>
-        <!-- Proje 6 -->
-<div class="project-horizontal">
-  <a href="pdf/netfilix.pdf" target="_blank">
-    <img src="img/netflix.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Netflix Trend Analysis</h3>
-    <p>Netflix user data was analyzed to examine viewing habits, content preferences and subscription behaviors. Viewer demographics and hourly usage density were determined, and findings that would contribute to popular genres and content recommendation systems were visualized.</p>
-  </div>
-</div>
-        <!-- Proje 7 -->
-<div class="project-horizontal">
-  <a href="pdf/student.pdf" target="_blank">
-    <img src="img/student.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Student Performance Analysis</h3>
-    <p>The relationships between exam results and demographic and social factors were analyzed on student performance data. The effects of study habits, family support, and school environment on achievement were examined, and key inferences for performance prediction were visualized.</p>
-  </div>
-</div>
-        <!-- Proje 8 -->
-<div class="project-horizontal">
-  <a href="pdf/market.pdf" target="_blank">
-    <img src="img/market.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Supermarket Analysis</h3>
-    <p>Product-based revenue, seasonal trends and regional sales differences were analyzed on supermarket sales data. Campaign effects and best-selling categories were determined and implications for stock management and marketing strategies were visualized.</p>
-  </div>
-</div>
-        <!-- Proje 9 -->
-<div class="project-horizontal">
-  <a href="pdf/medical.pdf" target="_blank">
-    <img src="img/medical.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Health Expenditure Analysis</h3>
-    <p>Individuals' health expenditures were analyzed and the effects of age, BMI, insurance status and chronic diseases on costs were examined. Distribution analyses, group comparisons and basic regression-based inferences were made on the data.</p>
-  </div>
-</div>
-        <!-- Proje 10 -->
-<div class="project-horizontal">
-  <a href="pdf/emlak.pdf" target="_blank">
-    <img src="img/emlak.png" alt="Stroke Analizi">
-  </a>
-  <div class="project-description">
-    <h3>Real Estate Analysis</h3>
-    <p>Intensive data cleaning operations were performed on the housing market data for 2001–2022. Missing values, inconsistent formats, and outliers were edited; then periodic price changes, the impact of economic fluctuations, and regional trends were analyzed. Reliable trend inferences and visualizations were made with the structure obtained after cleaning.</p>
-  </div>
-</div>
+              <!-- Project items injected as‑is from original HTML -->
+              <!-- 1 Stroke -->
+              <div class="project-horizontal">
+                <a href="pdf/Stroke.pdf" target="_blank"><img src="img/stroke.png" alt="Stroke analysis" /></a>
+                <div class="project-description">
+                  <h3>Stroke Analysis</h3>
+                  <p>Detailed EDA of stroke dataset: missing‑value architecture, variable types, age/gender/medical‑history interactions. Builds the foundation before modelling.</p>
+                </div>
+              </div>
+              <!-- 2 Laptop -->
+              <div class="project-horizontal">
+                <a href="pdf/laptop.pdf" target="_blank"><img src="img/laptop.png" alt="Laptop price analysis" /></a>
+                <div class="project-description">
+                  <h3>Laptop Price Analysis</h3>
+                  <p>Price drivers—RAM, CPU, SSD, resolution—visualised. Outliers removed, categoricals encoded.</p>
+                </div>
+              </div>
+              <!-- 3 Bike sharing -->
+              <div class="project-horizontal">
+                <a href="pdf/store.pdf" target="_blank"><img src="img/bike.png" alt="Bike sharing" /></a>
+                <div class="project-description">
+                  <h3>Bike Sharing Analysis</h3>
+                  <p>Demand versus weather, temperature, humidity. Hourly usage heatmaps, temporal features and correlations.</p>
+                </div>
+              </div>
+              <!-- 4 Diabetes -->
+              <div class="project-horizontal">
+                <a href="pdf/diabets.pdf" target="_blank"><img src="img/diabets.png" alt="Diabetes analysis" /></a>
+                <div class="project-description">
+                  <h3>Diabetes Analysis</h3>
+                  <p>Impact of glucose, insulin, BMI, age. Missing‑value checks, distributions and target‑wise comparisons.</p>
+                </div>
+              </div>
+              <!-- 5 Sleep -->
+              <div class="project-horizontal">
+                <a href="pdf/sleep.pdf" target="_blank"><img src="img/sleep.png" alt="Sleep analysis" /></a>
+                <div class="project-description">
+                  <h3>Sleep Health Analysis</h3>
+                  <p>Sleep patterns vs metabolic, immune & mental health. Cleaned data, correlation webs, chronic‑risk visuals.</p>
+                </div>
+              </div>
+              <!-- 6 Netflix -->
+              <div class="project-horizontal">
+                <a href="pdf/netfilix.pdf" target="_blank"><img src="img/netflix.png" alt="Netflix trends" /></a>
+                <div class="project-description">
+                  <h3>Netflix Trend Analysis</h3>
+                  <p>User demographics, hourly density, content preferences—all feeding recommendation insights.</p>
+                </div>
+              </div>
+              <!-- 7 Student -->
+              <div class="project-horizontal">
+                <a href="pdf/student.pdf" target="_blank"><img src="img/student.png" alt="Student performance" /></a>
+                <div class="project-description">
+                  <h3>Student Performance Analysis</h3>
+                  <p>Exam results cross‑tabbed with study habits, family support, school environment. Predictive factors illuminated.</p>
+                </div>
+              </div>
+              <!-- 8 Supermarket -->
+              <div class="project-horizontal">
+                <a href="pdf/market.pdf" target="_blank"><img src="img/market.png" alt="Supermarket analysis" /></a>
+                <div class="project-description">
+                  <h3>Supermarket Analysis</h3>
+                  <p>Revenue by product, seasonality, region. Campaign lift and stocking guidance derived.</p>
+                </div>
+              </div>
+              <!-- 9 Health expenditure -->
+              <div class="project-horizontal">
+                <a href="pdf/medical.pdf" target="_blank"><img src="img/medical.png" alt="Health spending" /></a>
+                <div class="project-description">
+                  <h3>Health Expenditure Analysis</h3>
+                  <p>Cost effects of age, BMI, insurance, chronic disease. Distribution exploration & regression takeaways.</p>
+                </div>
+              </div>
+              <!-- 10 Real estate -->
+              <div class="project-horizontal">
+                <a href="pdf/emlak.pdf" target="_blank"><img src="img/emlak.png" alt="Real estate" /></a>
+                <div class="project-description">
+                  <h3>Real Estate Analysis</h3>
+                  <p>2001‑2022 data cleansed → price trends, economic shocks, regional patterns. Visual narrative of housing market.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-auto" style="background: rgba(13, 20, 33, 0.95); backdrop-filter: blur(10px); border-top: 2px solid var(--neon-blue); color: white; box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);">
+      <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto"><div class="small m-0">© Ozan M. |  Portfolio</div></div>
+          <div class="col-auto">
+            <a class="small" href="#">Privacy</a>
+            <span class="mx-1">&middot;</span>
+            <a class="small" href="#">Terms</a>
+            <span class="mx-1">&middot;</span>
+            <a class="small" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          nav.style.background = "rgba(13, 20, 33, 0.98)";
+          nav.style.boxShadow = "0 5px 30px rgba(0, 255, 255, 0.4)";
+        } else {
+          nav.style.background = "rgba(13, 20, 33, 0.9)";
+          nav.style.boxShadow = "0 8px 32px rgba(0, 255, 255, 0.2)";
+        }
+      });
+
+      // smooth internal links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // simple fade‑in load
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.8s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
 </html>
