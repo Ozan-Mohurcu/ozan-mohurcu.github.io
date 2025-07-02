@@ -202,6 +202,14 @@
         box-shadow: 0 20px 40px rgba(0, 255, 255, 0.35), 0 0 30px rgba(0, 255, 255, 0.4);
         border-color: var(--neon-orange);
       }
+      
+      /* Enhanced Image with Hover Effect */
+      .project-horizontal a {
+        text-decoration: none;
+        display: block;
+        position: relative;
+      }
+
       .project-horizontal img {
         width: 160px;
         height: 160px;
@@ -209,7 +217,40 @@
         border-radius: 15px;
         border: 3px solid var(--neon-blue);
         box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        transition: all 0.3s ease;
       }
+
+      /* Hover overlay effect */
+      .project-horizontal a::before {
+        content: '🚀 Click to Explore Python Analysis';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 255, 255, 0.9);
+        color: #0d1421;
+        padding: 15px 25px;
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        border: 2px solid var(--neon-orange);
+        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
+        white-space: nowrap;
+      }
+
+      .project-horizontal a:hover::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .project-horizontal a:hover img {
+        filter: brightness(0.7) blur(2px);
+      }
+
       .project-description h3 {
         background: var(--gradient-accent);
         -webkit-background-clip: text;
@@ -250,6 +291,14 @@
         .project-horizontal img {
           width: 220px;
           height: 220px;
+        }
+        
+        .project-horizontal a::before {
+          font-size: 0.8rem;
+          padding: 12px 20px;
+          white-space: normal;
+          text-align: center;
+          max-width: 200px;
         }
       }
     </style>

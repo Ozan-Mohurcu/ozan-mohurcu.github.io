@@ -1,211 +1,1544 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Power BI dashboards & reports portfolio by Ozan" />
-    <meta name="author" content="Ozan M." />
-    <title>Power BI Projects – Ozan M.</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Project Page</title>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XL6YG0LSV2');
+        </script>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="css/styles.css">
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+        <script>
+            window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
+        </script>
+        
+        <style>
+            :root {
+                --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+                --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
+                --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+                --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+                --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
+                --gradient-data: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
+                --neon-blue: #00ffff;
+                --neon-purple: #bf00ff;
+                --neon-orange: #ff8c00;
+                --neon-green: #00ff41;
+                --dark-bg: #0d1421;
+                --dark-surface: #1a2332;
+            }
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-XL6YG0LSV2");
-    </script>
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                background: var(--gradient-matrix);
+                min-height: 100vh;
+                overflow-x: hidden;
+            }
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+            /* AI Circuit Background Animation */
+            .ai-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                opacity: 0.1;
+                background-image: 
+                    radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
+                    radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
+                    radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px),
+                    radial-gradient(circle at 60% 20%, var(--neon-green) 1px, transparent 1px);
+                background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px;
+                animation: data-flow 20s infinite linear;
+            }
 
-    <!-- Font & icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css" />
+            @keyframes data-flow {
+                0% { transform: translateX(-50px) translateY(-50px); }
+                100% { transform: translateX(50px) translateY(50px); }
+            }
 
-    <!-- =====  THEME OVERRIDE (neon‑AI)  ===== -->
-    <style>
-      :root {
-        --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
-        --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
-        --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-        --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
-        --neon-blue: #00ffff; --neon-purple:#bf00ff; --neon-orange:#ff8c00;
-      }
-      html,body{font-family:"Plus Jakarta Sans",sans-serif;background:var(--gradient-matrix);min-height:100vh;overflow-x:hidden;}
-      /* bg grid */
-      .ai-background{position:fixed;inset:0;z-index:-1;opacity:.1;background-image:radial-gradient(circle at 20% 50%,var(--neon-blue) 2px,transparent 2px),radial-gradient(circle at 80% 50%,var(--neon-purple) 1px,transparent 1px),radial-gradient(circle at 40% 80%,var(--neon-orange) 1px,transparent 1px);background-size:100px 100px,150px 150px,200px 200px;animation:circuit-flow 15s linear infinite;}@keyframes circuit-flow{0%{transform:translate(-50px,-50px);}100%{transform:translate(50px,50px);}}
-      /* navbar */
-      .navbar{backdrop-filter:blur(20px);background:rgba(13,20,33,.9)!important;border-bottom:1px solid rgba(0,255,255,.3);box-shadow:0 8px 32px rgba(0,255,255,.2);transition:.3s;}
-      .navbar-brand{font-weight:800;font-size:1.5rem;background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;}
-      .navbar-brand::after{content:"⚡";position:absolute;right:-25px;color:var(--neon-orange);animation:pulse-glow 2s infinite;}@keyframes pulse-glow{0%,100%{text-shadow:0 0 5px var(--neon-orange);transform:scale(1);}50%{text-shadow:0 0 20px var(--neon-orange),0 0 30px var(--neon-orange);transform:scale(1.1);}}
-      .navbar-nav .nav-link{color:var(--neon-blue)!important;font-weight:600;margin:0 10px;position:relative;transition:.3s;}
-      .navbar-nav .nav-link:hover{color:#fff!important;text-shadow:0 0 10px var(--neon-blue);transform:translateY(-3px);}
-      .navbar-nav .nav-link::after{content:"";position:absolute;width:0;height:2px;bottom:-5px;left:50%;background:var(--gradient-accent);transition:.3s;transform:translateX(-50%);box-shadow:0 0 10px var(--neon-blue);} .navbar-nav .nav-link:hover::after{width:100%;}
-      /* hero */
-      .hero-section{padding-top:120px;min-height:60vh;}
-      .hero-title{font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,#00ffff 0%,#ffffff 50%,#ff8c00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 30px rgba(0,255,255,.5);}
-      .hero-description{color:rgba(255,255,255,.9);font-size:1.1rem;}
-      .badge-modern{background:rgba(0,255,255,.2);backdrop-filter:blur(10px);border:2px solid var(--neon-blue);color:#fff;padding:10px 25px;border-radius:50px;font-weight:600;animation:neon-pulse 2s infinite;box-shadow:0 0 20px rgba(0,255,255,.5),inset 0 0 20px rgba(0,255,255,.1);}@keyframes neon-pulse{0%,100%{box-shadow:0 0 20px rgba(0,255,255,.5),0 0 40px rgba(0,255,255,.3),inset 0 0 20px rgba(0,255,255,.1);}50%{box-shadow:0 0 30px rgba(0,255,255,.8),0 0 60px rgba(0,255,255,.5),inset 0 0 30px rgba(0,255,255,.2);}}
-      /* project cards */
-      .project-card {
-  display: flex !important;
-  gap: 25px !important;
-  padding: 25px !important;
-  border-radius: 20px !important;
-  background: rgba(13, 20, 33, .85) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 2px solid rgba(0, 255, 255, .2) !important;
-  margin-bottom: 35px !important;
-  box-shadow: 0 6px 20px rgba(0, 255, 255, .15) !important;
-  transition: .3s !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  text-align: left !important;
-  width: auto !important;
-}
-      .project-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 40px rgba(0,255,255,.35),0 0 30px rgba(0,255,255,.4);border-color:var(--neon-orange);}
-      .project-card img{width:160px;height:160px;object-fit:contain;border-radius:15px;border:3px solid var(--neon-blue);box-shadow:0 0 15px rgba(0,255,255,.4);}
-      .project-card h3{background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;margin-top:0;}
-      .project-card p{color:rgba(255,255,255,.85);line-height:1.6;}
-      .like-button{background:rgba(0,255,255,.1);border:1px solid var(--neon-blue);color:#fff;border-radius:30px;padding:6px 18px;font-size:.9rem;cursor:pointer;transition:.3s;}
-      .like-button:hover{background:var(--gradient-accent);}
-      .like-count{color:var(--neon-blue);margin-left:6px;font-size:.9rem;}
-      @media(max-width:991px){.project-card{flex-direction:column;align-items:center;text-align:center;} .project-card img{width:220px;height:220px;}}
-      /* scrollbar */
-      ::-webkit-scrollbar{width:12px;}::-webkit-scrollbar-track{background:rgba(13,20,33,.8);border-radius:6px;}::-webkit-scrollbar-thumb{background:var(--gradient-accent);border-radius:6px;border:2px solid rgba(0,255,255,.3);box-shadow:0 0 10px rgba(0,255,255,.5);}::-webkit-scrollbar-thumb:hover{background:var(--gradient-secondary);}    
-    </style>
+            /* Modern Glassmorphism Navigation */
+            .navbar {
+                background: rgba(13, 20, 33, 0.9) !important;
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+                box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            }
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script>window.FIREBASE_API_KEY="AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";</script>
-  </head>
+            .navbar-brand {
+                font-weight: 800;
+                font-size: 1.3rem;
+                background: var(--gradient-data);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                position: relative;
+            }
 
-  <body class="d-flex flex-column h-100">
-    <div class="ai-background"></div>
-    <main class="flex-shrink-0">
-      <!-- NAV -->
-      <nav class="navbar navbar-expand-lg py-3">
-        <div class="container px-5">
-          <a class="navbar-brand" href="index.html"><span class="fw-bolder">Data Analyst & Data Scientist</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-              <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <section class="hero-section text-center text-white">
-        <div class="container px-5">
-          <h1 class="hero-title mb-3">Power BI Dashboards</h1>
-            <p class="text-muted mt-2">Click an image to open the full PDF report.</p>
-            <p class="hero-description">Interactive insights, real‑time KPIs & striking visuals</p>
-            <div class="mt-4"><span class="badge-modern">Business Intelligence in Action</span></div>
-          </div>
+            .navbar-brand::after {
+                content: '📊';
+                position: absolute;
+                right: -35px;
+                top: 0;
+                color: var(--neon-orange);
+                animation: chart-pulse 2s infinite;
+            }
 
-      <!-- PROJECTS -->
-      <section class="py-5">
-        <div class="container px-5">
-          <!-- Coffee Sales -->
-          <div class="project-card" data-id="project-8">
-            <div class="project-img-wrap"><img src="page1.png" alt="Coffee dashboard" /></div>
-            <div>
-              <h3>Coffee Sales Dashboard</h3>
-              <p>Interactive dashboard analysing sales performance, trends & category splits – roasted to perfection ☕.</p>
-              <button class="like-button">Like</button><span class="like-count">0 likes</span>
+            @keyframes chart-pulse {
+                0%, 100% { 
+                    text-shadow: 0 0 5px var(--neon-orange);
+                    transform: scale(1) rotate(0deg);
+                }
+                50% { 
+                    text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange);
+                    transform: scale(1.1) rotate(5deg);
+                }
+            }
+
+            .navbar-nav .nav-link {
+                color: var(--neon-blue) !important;
+                font-weight: 600;
+                margin: 0 10px;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .navbar-nav .nav-link:hover {
+                transform: translateY(-3px);
+                color: white !important;
+                text-shadow: 0 0 10px var(--neon-blue);
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 50%;
+                background: var(--gradient-data);
+                transition: all 0.3s ease;
+                transform: translateX(-50%);
+                box-shadow: 0 0 10px var(--neon-blue);
+            }
+
+            .navbar-nav .nav-link:hover::after {
+                width: 100%;
+            }
+
+            /* AI Floating Elements */
+            .floating-element {
+                position: fixed;
+                border-radius: 50%;
+                animation: floatUpDown 8s ease-in-out infinite;
+                z-index: -1;
+            }
+
+            .floating-element:nth-child(1) {
+                width: 90px;
+                height: 90px;
+                top: 20%;
+                left: 5%;
+                background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
+                animation-delay: 0s;
+                box-shadow: 0 0 40px var(--neon-blue);
+            }
+
+            .floating-element:nth-child(2) {
+                width: 70px;
+                height: 70px;
+                top: 60%;
+                right: 8%;
+                background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+                animation-delay: 2s;
+                box-shadow: 0 0 35px var(--neon-purple);
+            }
+
+            .floating-element:nth-child(3) {
+                width: 110px;
+                height: 110px;
+                bottom: 20%;
+                left: 2%;
+                background: radial-gradient(circle, var(--neon-orange) 0%, transparent 70%);
+                animation-delay: 4s;
+                box-shadow: 0 0 45px var(--neon-orange);
+            }
+
+            .floating-element:nth-child(4) {
+                width: 80px;
+                height: 80px;
+                top: 40%;
+                right: 15%;
+                background: radial-gradient(circle, var(--neon-green) 0%, transparent 70%);
+                animation-delay: 6s;
+                box-shadow: 0 0 35px var(--neon-green);
+            }
+
+            @keyframes floatUpDown {
+                0%, 100% { 
+                    transform: translateY(0px) scale(1) rotate(0deg);
+                    opacity: 0.7;
+                }
+                50% { 
+                    transform: translateY(-40px) scale(1.1) rotate(180deg);
+                    opacity: 1;
+                }
+            }
+
+            /* Projects Section with AI Theme */
+            .projects-section {
+                padding-top: 120px;
+                background: linear-gradient(135deg, 
+                    rgba(13, 20, 33, 0.95) 0%, 
+                    rgba(26, 35, 50, 0.95) 30%,
+                    rgba(30, 60, 114, 0.95) 70%, 
+                    rgba(15, 52, 117, 0.95) 100%);
+                backdrop-filter: blur(20px);
+                position: relative;
+                min-height: 100vh;
+            }
+
+            .projects-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    radial-gradient(circle at 15% 25%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 85% 75%, rgba(191, 0, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 45% 45%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 20%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
+                animation: data-glow 12s ease-in-out infinite;
+                pointer-events: none;
+            }
+
+            @keyframes data-glow {
+                0%, 100% { opacity: 0.4; }
+                50% { opacity: 0.7; }
+            }
+
+            .projects-title {
+                background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-green) 30%, var(--neon-purple) 70%, var(--neon-orange) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 900;
+                text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+                position: relative;
+                animation: slideInUp 1s ease-out;
+            }
+
+            .projects-title::after {
+                content: '💹';
+                position: absolute;
+                right: -60px;
+                top: 0;
+                font-size: 0.8em;
+                animation: analytics-bounce 3s ease-in-out infinite;
+            }
+
+            @keyframes analytics-bounce {
+                0%, 100% { 
+                    transform: translateY(0px) scale(1) rotateY(0deg);
+                    filter: hue-rotate(0deg);
+                }
+                33% { 
+                    transform: translateY(-8px) scale(1.05) rotateY(120deg);
+                    filter: hue-rotate(120deg);
+                }
+                66% { 
+                    transform: translateY(-4px) scale(1.1) rotateY(240deg);
+                    filter: hue-rotate(240deg);
+                }
+            }
+
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* AI Power BI Project Cards - Yeniden Tasarlandı */
+            .card {
+                background: rgba(26, 35, 50, 0.8) !important;
+                backdrop-filter: blur(15px);
+                border: 2px solid rgba(0, 255, 255, 0.3) !important;
+                box-shadow: 
+                    0 20px 40px rgba(0, 255, 255, 0.2),
+                    0 0 60px rgba(191, 0, 255, 0.1);
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                animation: slideInUp 1s ease-out;
+                border-radius: 20px !important;
+                margin-bottom: 40px !important;
+            }
+
+            .card::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: conic-gradient(
+                    var(--neon-blue) 0deg,
+                    var(--neon-green) 90deg,
+                    var(--neon-purple) 180deg,
+                    var(--neon-orange) 270deg,
+                    var(--neon-blue) 360deg
+                );
+                border-radius: 20px;
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                animation: data-rotate 10s linear infinite;
+            }
+
+            .card:hover::before {
+                opacity: 0.7;
+            }
+
+            @keyframes data-rotate {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            .card:hover {
+                transform: translateY(-15px) scale(1.01);
+                border-color: var(--neon-green) !important;
+                box-shadow: 
+                    0 30px 60px rgba(0, 255, 255, 0.3),
+                    0 0 80px rgba(0, 255, 65, 0.2);
+            }
+
+            /* Card Layout - Flex Container */
+            .card-body {
+                position: relative;
+                z-index: 2;
+                background: transparent;
+                padding: 0 !important;
+            }
+
+            .card .d-flex {
+                display: flex !important;
+                align-items: center !important;
+                gap: 30px !important;
+                padding: 30px !important;
+                min-height: 280px !important;
+            }
+
+            /* Text Content Area */
+            .card .content-area {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding-right: 20px;
+            }
+
+            /* Image Container */
+            .card .image-container {
+                flex-shrink: 0;
+                width: 380px;
+                height: 220px;
+                border-radius: 15px;
+                overflow: hidden;
+                border: 3px solid var(--neon-blue);
+                box-shadow: 
+                    0 15px 30px rgba(0, 255, 255, 0.3),
+                    0 0 40px rgba(0, 255, 255, 0.2);
+                transition: all 0.4s ease;
+                position: relative;
+            }
+
+            .card .image-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, 
+                    rgba(0, 255, 255, 0.1) 0%, 
+                    transparent 50%, 
+                    rgba(0, 255, 255, 0.1) 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: 1;
+            }
+
+            .card:hover .image-container {
+                transform: scale(1.05) rotateY(5deg);
+                border-color: var(--neon-green);
+                box-shadow: 
+                    0 20px 40px rgba(0, 255, 65, 0.4),
+                    0 0 60px rgba(0, 255, 65, 0.3);
+            }
+
+            .card:hover .image-container::before {
+                opacity: 1;
+            }
+
+            /* Image Styling */
+            .card img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                transition: all 0.4s ease;
+                position: relative;
+                z-index: 0;
+            }
+
+            .card:hover img {
+                transform: scale(1.1);
+                filter: brightness(1.1) contrast(1.05) saturate(1.1);
+            }
+
+            /* AI Project Titles */
+            .card h2 {
+                background: linear-gradient(135deg, var(--neon-orange) 0%, var(--neon-blue) 50%, var(--neon-green) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 800;
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+                position: relative;
+                animation: slideInUp 1s ease-out 0.2s both;
+                line-height: 1.3;
+            }
+
+            .card h2::after {
+                content: '🎯';
+                position: absolute;
+                right: -30px;
+                top: 0;
+                font-size: 0.7em;
+                animation: target-analysis 4s linear infinite;
+            }
+
+            @keyframes target-analysis {
+                0% { 
+                    transform: rotate(0deg) scale(1);
+                    filter: hue-rotate(0deg);
+                }
+                25% { 
+                    transform: rotate(90deg) scale(1.05);
+                    filter: hue-rotate(90deg);
+                }
+                50% { 
+                    transform: rotate(180deg) scale(1.1);
+                    filter: hue-rotate(180deg);
+                }
+                75% { 
+                    transform: rotate(270deg) scale(1.05);
+                    filter: hue-rotate(270deg);
+                }
+                100% { 
+                    transform: rotate(360deg) scale(1);
+                    filter: hue-rotate(360deg);
+                }
+            }
+
+            .card p {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1rem;
+                line-height: 1.6;
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+                animation: slideInUp 1s ease-out 0.4s both;
+                margin-bottom: 20px;
+                text-align: justify;
+            }
+
+            /* Button Container */
+            .card .button-container {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-top: auto;
+            }
+
+            /* Enhanced Like Button with AI Theme */
+            .like-button {
+                background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+                border: 2px solid var(--neon-green);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                transition: all 0.4s ease;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 
+                    0 8px 20px rgba(0, 255, 255, 0.3),
+                    0 0 30px rgba(191, 0, 255, 0.2);
+                animation: slideInUp 1s ease-out 0.6s both;
+            }
+
+            .like-button::before {
+                content: '💖';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                transition: transform 0.3s ease;
+                font-size: 1.1em;
+            }
+
+            .like-button:hover {
+                transform: translateY(-3px) scale(1.05);
+                background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-orange) 100%);
+                border-color: var(--neon-blue);
+                box-shadow: 
+                    0 15px 30px rgba(0, 255, 65, 0.4),
+                    0 0 50px rgba(255, 140, 0, 0.3);
+                text-shadow: 0 0 10px white;
+            }
+
+            .like-button:hover::before {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            .like-button:active {
+                transform: translateY(-1px) scale(1.02);
+                animation: like-pulse 0.3s ease;
+            }
+
+            @keyframes like-pulse {
+                0%, 100% { transform: translateY(-1px) scale(1.02); }
+                50% { transform: translateY(-3px) scale(1.08); }
+            }
+
+            /* AI Like Counter */
+            .like-count {
+                color: var(--neon-green);
+                font-weight: 700;
+                font-size: 0.95rem;
+                text-shadow: 0 0 10px var(--neon-green);
+                position: relative;
+                animation: slideInUp 1s ease-out 0.8s both;
+            }
+
+            .like-count::before {
+                content: '📊 ';
+                font-size: 0.9em;
+                animation: count-glow 2s ease-in-out infinite;
+            }
+
+            @keyframes count-glow {
+                0%, 100% { 
+                    text-shadow: 0 0 5px var(--neon-green);
+                }
+                50% { 
+                    text-shadow: 0 0 15px var(--neon-green), 0 0 25px var(--neon-green);
+                }
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .card .d-flex {
+                    flex-direction: column !important;
+                    gap: 20px !important;
+                    padding: 25px !important;
+                    min-height: auto !important;
+                }
+
+                .card .content-area {
+                    padding-right: 0;
+                    text-align: center;
+                }
+
+                .card .image-container {
+                    width: 100%;
+                    height: 200px;
+                    order: -1;
+                }
+
+                .card h2 {
+                    font-size: 1.4rem;
+                }
+
+                .card h2::after {
+                    right: -25px;
+                    font-size: 0.6em;
+                }
+
+                .projects-section {
+                    padding-top: 100px;
+                }
+
+                .button-container {
+                    justify-content: center;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .card .d-flex {
+                    padding: 20px !important;
+                }
+
+                .card h2 {
+                    font-size: 1.3rem;
+                }
+
+                .card p {
+                    font-size: 0.95rem;
+                }
+
+                .like-button {
+                    padding: 8px 16px;
+                    font-size: 0.85rem;
+                }
+            }
+
+            /* CTA Section AI Theme */
+            .bg-gradient-primary-to-secondary {
+                background: var(--gradient-data) !important;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .bg-gradient-primary-to-secondary::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 30%, rgba(191, 0, 255, 0.2) 0%, transparent 50%);
+                animation: cta-glow 6s ease-in-out infinite;
+                pointer-events: none;
+            }
+
+            @keyframes cta-glow {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 0.8; }
+            }
+
+            .bg-gradient-primary-to-secondary h2 {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+                animation: slideInUp 1s ease-out;
+            }
+
+            .btn-outline-light {
+                border: 3px solid var(--neon-blue) !important;
+                color: var(--neon-blue) !important;
+                background: rgba(0, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                transition: all 0.4s ease;
+                box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+                animation: slideInUp 1s ease-out 0.2s both;
+            }
+
+            .btn-outline-light:hover {
+                background: var(--neon-blue) !important;
+                color: var(--dark-bg) !important;
+                border-color: var(--neon-green) !important;
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 
+                    0 20px 40px rgba(0, 255, 255, 0.5),
+                    0 0 60px rgba(0, 255, 65, 0.4);
+            }
+
+            /* AI Footer */
+            footer {
+                background: rgba(13, 20, 33, 0.95) !important;
+                backdrop-filter: blur(10px);
+                border-top: 2px solid var(--neon-blue);
+                color: white !important;
+                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
+            }
+
+            footer .small {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            footer a {
+                color: var(--neon-blue) !important;
+                transition: all 0.3s ease;
+            }
+
+            footer a:hover {
+                color: var(--neon-orange) !important;
+                text-shadow: 0 0 10px var(--neon-orange);
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .card .d-flex {
+                    flex-direction: column !important;
+                    gap: 20px !important;
+                    padding: 25px !important;
+                    min-height: auto !important;
+                }
+
+                .card .content-area {
+                    padding-right: 0;
+                    text-align: center;
+                }
+
+                .card .image-container {
+                    width: 100%;
+                    height: 200px;
+                    order: -1;
+                }
+
+                .card h2 {
+                    font-size: 1.4rem;
+                }
+
+                .card h2::after {
+                    right: -25px;
+                    font-size: 0.6em;
+                }
+
+                .projects-section {
+                    padding-top: 100px;
+                }
+
+                .button-container {
+                    justify-content: center;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .card .d-flex {
+                    padding: 20px !important;
+                }
+
+                .card h2 {
+                    font-size: 1.3rem;
+                }
+
+                .card p {
+                    font-size: 0.95rem;
+                }
+
+                .like-button {
+                    padding: 8px 16px;
+                    font-size: 0.85rem;
+                }
+            }
+
+            /* CTA Section AI Theme */
+            .bg-gradient-primary-to-secondary {
+                background: var(--gradient-data) !important;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .bg-gradient-primary-to-secondary::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 30%, rgba(191, 0, 255, 0.2) 0%, transparent 50%);
+                animation: cta-glow 6s ease-in-out infinite;
+                pointer-events: none;
+            }
+
+            @keyframes cta-glow {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 0.8; }
+            }
+
+            .bg-gradient-primary-to-secondary h2 {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+                animation: slideInUp 1s ease-out;
+            }
+
+            .btn-outline-light {
+                border: 3px solid var(--neon-blue) !important;
+                color: var(--neon-blue) !important;
+                background: rgba(0, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                transition: all 0.4s ease;
+                box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+                animation: slideInUp 1s ease-out 0.2s both;
+            }
+
+            .btn-outline-light:hover {
+                background: var(--neon-blue) !important;
+                color: var(--dark-bg) !important;
+                border-color: var(--neon-green) !important;
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 
+                    0 20px 40px rgba(0, 255, 255, 0.5),
+                    0 0 60px rgba(0, 255, 65, 0.4);
+            }
+
+            /* AI Footer */
+            footer {
+                background: rgba(13, 20, 33, 0.95) !important;
+                backdrop-filter: blur(10px);
+                border-top: 2px solid var(--neon-blue);
+                color: white !important;
+                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
+            }
+
+            footer .small {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            footer a {
+                color: var(--neon-blue) !important;
+                transition: all 0.3s ease;
+            }
+
+            footer a:hover {
+                color: var(--neon-orange) !important;
+                text-shadow: 0 0 10px var(--neon-orange);
+            }
+
+            /* Custom AI Scrollbar */
+            ::-webkit-scrollbar {
+                width: 14px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: rgba(13, 20, 33, 0.8);
+                border-radius: 7px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: var(--gradient-data);
+                border-radius: 7px;
+                border: 2px solid rgba(0, 255, 255, 0.3);
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--gradient-secondary);
+                box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
+            }
+
+            /* Data Visualization Effects */
+            .data-particle {
+                position: fixed;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                animation: data-stream 10s infinite linear;
+            }
+
+            @keyframes data-stream {
+                0% {
+                    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                    transform: translateY(90vh) translateX(10px) rotate(36deg) scale(1);
+                }
+                90% {
+                    opacity: 1;
+                    transform: translateY(-10vh) translateX(100px) rotate(324deg) scale(1);
+                }
+                100% {
+                    transform: translateY(-20vh) translateX(120px) rotate(360deg) scale(0);
+                    opacity: 0;
+                }
+            }
+
+            /* Loading Animation */
+            .card {
+                opacity: 0;
+                animation: cardFadeIn 0.8s ease-out forwards;
+            }
+
+            @keyframes cardFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Holographic Text Effect */
+            .holographic-text {
+                background: linear-gradient(45deg, #ff0080, #00ffff, #ff8000, #8000ff);
+                background-size: 300% 300%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: holographic 3s ease-in-out infinite;
+            }
+
+            @keyframes holographic {
+                0%, 100% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+            }
+
+            /* Custom AI Scrollbar */
+            ::-webkit-scrollbar {
+                width: 14px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: rgba(13, 20, 33, 0.8);
+                border-radius: 7px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: var(--gradient-data);
+                border-radius: 7px;
+                border: 2px solid rgba(0, 255, 255, 0.3);
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--gradient-secondary);
+                box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
+            }
+
+            /* Data Visualization Effects */
+            .data-particle {
+                position: fixed;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                animation: data-stream 10s infinite linear;
+            }
+
+            @keyframes data-stream {
+                0% {
+                    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                    transform: translateY(90vh) translateX(10px) rotate(36deg) scale(1);
+                }
+                90% {
+                    opacity: 1;
+                    transform: translateY(-10vh) translateX(100px) rotate(324deg) scale(1);
+                }
+                100% {
+                    transform: translateY(-20vh) translateX(120px) rotate(360deg) scale(0);
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <!-- AI Background -->
+        <div class="ai-background"></div>
+        
+        <!-- AI Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html">
+                        <span class="fw-bolder text-primary">Welcome to the Power BI Project Page</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Projects Section -->
+            <section class="projects-section py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0 projects-title">
+                            <span class="text-gradient d-inline">Projects</span>
+                        </h1>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <!-- New Project Card 8 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-8">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">Coffee Sales Dashboard</h2>
+                                            <p>Interactive Power BI dashboard for analyzing coffee sales performance, trends, and category distributions with a clean, visual design.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="page1.png" alt="Coffee Sales Dashboard" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 7 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-7">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">Smartwatch Performance Tracker</h2>
+                                            <p>Smartwatch Performance Tracker Dashboard visualizes smartwatch sales data, allowing you to track sales performance in real-time. By analyzing sales trends with various metrics and charts, it helps you make strategic decisions and discover growth opportunities.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="smarwatch.png" alt="Smartwatch Performance Tracker" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 1 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-1">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">CAR SALES DASHBOARD</h2>
+                                            <p>The Sales Dashboard (Power BI) visualizes sales data for real-time analysis. Key metrics like sales targets, revenue, product performance, and customer count are displayed through impactful visuals, supporting decision-making for improved sales strategies.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="Car Dashboard.png" alt="Car Sales Dashboard" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 2 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-0" data-id="project-2">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">GLOBAL SUPERSTORE PROJECT</h2>
+                                            <p>The Global Superstore Project is a project where we used Power BI to analyze and visualize sales data of a retail store. The goal was to identify sales trends, customer behaviors, and popular products to support business decisions!</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="SuperStore.png" alt="Global Superstore Project" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 3 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-3">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">WASHINGTON D.C. CRIMES</h2>
+                                            <p>The Washington D.C. Crime Power BI Dashboard visualizes crime data by type, location, and time, providing insights to enhance security strategies.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="crime.png" alt="Washington D.C. Crimes" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 4 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-4">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">TITANIC PASSENGER ANALYSIS</h2>
+                                            <p>The Titanic Passenger Analysis (Power BI) project visualizes key passenger data, such as age, class, gender, and survival rates. It provides insights into the factors influencing survival and helps in understanding passenger demographics during the tragic Titanic disaster.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="Titanic.png" alt="Titanic Passenger Analysis" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 5 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">LAPTOP PRICE</h2>
+                                            <p>Laptop Price Analysis Project: In this project, Python was used to analyze laptop price data. Data cleaning and outlier detection were performed. The data was processed with libraries like pandas and numpy, and visualizations were created using tools like matplotlib and seaborn. The results were visualized to provide a better understanding of laptop prices.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="laptop.png" alt="Laptop Price Analysis" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Project Card 6 -->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-6">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="content-area">
+                                            <h2 class="fw-bolder">SUPERMARKET SALES ANALYSIS</h2>
+                                            <p>In this Python project, I performed data cleaning, outlier detection, and exploratory data analysis (EDA) on supermarket sales data. Using libraries like Pandas, Seaborn, and Matplotlib, key insights such as sales trends, payment methods, and customer segments were visualized effectively.</p>
+                                            <div class="button-container">
+                                                <button class="like-button">Beğen</button>
+                                                <span class="like-count">0 beğeni</span>
+                                            </div>
+                                        </div>
+                                        <div class="image-container">
+                                            <img class="img-fluid" src="Supermarketsales.png" alt="Supermarket Sales Analysis" />
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                    </div>
+                                </div>
+                            </div
+            <!-- Call to action section-->
+            <section class="py-5 bg-gradient-primary-to-secondary text-white">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer-->
+        <footer class="py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto">
+                        <div class="small m-0">Copyright &copy; Ozan M.</div>
+                    </div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Smartwatch -->
-          <div class="project-card" data-id="project-7">
-            <div class="project-img-wrap"><img src="smarwatch.png" alt="Smartwatch" /></div>
-            <div>
-              <h3>Smartwatch Performance Tracker</h3>
-              <p>Real‑time sales metrics highlight growth levers across models, channels and regions.</p>
-              <button class="like-button">Like</button><span class="like-count">0 likes</span>
-            </div>
-          </div>
-          <!-- Car Sales -->
-          <div class="project-card" data-id="project-1">
-            <div class="project-img-wrap"><img src="Car Dashboard.png" alt="Car sales" /></div>
-            <div>
-              <h3>Car Sales Dashboard</h3>
-              <p>Revenue, targets & product mix presented through dynamic slicers and KPI cards – fuel for strategy.</p>
-              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
-            </div>
-          </div>
-          <!-- Superstore -->
-          <div class="project-card" data-id="project-2">
-            <div class="project-img-wrap"><img src="SuperStore.png" alt="Global superstore" /></div>
-            <div>
-              <h3>Global Superstore Analysis</h3>
-              <p>End‑to‑end retail analytics: trends, customer behaviour & bestselling categories.</p>
-              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
-            </div>
-          </div>
-          <!-- DC Crimes -->
-          <div class="project-card" data-id="project-3">
-            <div class="project-img-wrap"><img src="crime.png" alt="DC crimes" /></div>
-            <div>
-              <h3>Washington D.C. Crime</h3>
-              <p>Geospatial heat‑maps & temporal charts drive safety initiatives and resource allocation.</p>
-              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
-            </div>
-          </div>
-          <!-- Titanic -->
-          <div class="project-card" data-id="project-4">
-            <div class="project-img-wrap"><img src="Titanic.png" alt="Titanic" /></div>
-            <div>
-              <h3>Titanic Passenger Analysis</h3>
-              <p>Demographics, class & survival metrics retold via storytelling visuals.</p>
-              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
-            </div>
-          </div>
-          <!-- Laptop Price -->
-          <div class="project-card" data-id="project-5">
-            <div class="project-img-wrap"><img src="laptop.png" alt="Laptop price" /></div>
-            <div>
-              <h3>Laptop Price Explorers</h3>
-              <p>Specs vs price interactive matrix – identify sweet‑spots for different budgets.</p>
-              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
-            </div>
-          </div>
-          <!-- Supermarket -->
-          <div class="project-card" data-id="project-6">
-            <div class="project-img-wrap"><img src="Supermarketsales.png" alt="Supermarket sales" /></div>
-            <div>
-              <h3>Supermarket Sales Analysis</h3>
-              <p>Payment methods, customer segments & time‑based trends distilled into actionable visuals.</p>
-              <button class="like-button">Like</button><span class="like-count">0 Likes</span>
-            </div>
-          </div>
-        </div>
-      </section>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS - ORİJİNAL BEĞEN BUTONU SCRIPTI KORUNDU -->
+        <script src="js/projects.js"></script>
+        
+        <script>
+            // Enhanced navbar scroll effect with AI theme
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(13, 20, 33, 0.98)';
+                    navbar.style.boxShadow = '0 5px 30px rgba(0, 255, 255, 0.4)';
+                } else {
+                    navbar.style.background = 'rgba(13, 20, 33, 0.9)';
+                    navbar.style.boxShadow = '0 8px 32px rgba(0, 255, 255, 0.2)';
+                }
+            });
 
-      <!-- CTA -->
-      <section class="py-5" style="background:var(--gradient-primary);color:#fff;">
-        <div class="container px-5 text-center"><h2 class="display-4 fw-bolder mb-4">Let's build something together</h2><a class="btn btn-outline-light btn-lg px-5 py-3" href="contact.html">Contact me</a></div>
-      </section>
-    </main>
+            // AI-themed loading animation
+            window.addEventListener('load', function() {
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.8s ease-in-out';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                }, 100);
+            });
 
-    <!-- FOOTER -->
-    <footer class="py-4 mt-auto" style="background:rgba(13,20,33,.95);backdrop-filter:blur(10px);border-top:2px solid var(--neon-blue);color:#fff;box-shadow:0 -5px 20px rgba(0,255,255,.3);">
-      <div class="container px-5">
-        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-          <div class="col-auto"><div class="small m-0">© Ozan M. | Portfolio</div></div>
-          <div class="col-auto"><a class="small" href="#">Privacy</a><span class="mx-1">&middot;</span><a class="small" href="#">Terms</a><span class="mx-1">&middot;</span><a class="small" href="contact.html">Contact</a></div>
-        </div>
-      </div>
-    </footer>
+            // Dynamic Data Visualization Particles
+            function createDataParticle() {
+                const particle = document.createElement('div');
+                const colors = ['#00ffff', '#bf00ff', '#ff8c00', '#00ff41'];
+                const shapes = ['📊', '📈', '📉', '💹', '🔢', '📋'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+                
+                particle.className = 'data-particle';
+                particle.innerHTML = randomShape;
+                particle.style.fontSize = Math.random() * 10 + 15 + 'px';
+                particle.style.color = randomColor;
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.textShadow = `0 0 ${Math.random() * 20 + 10}px ${randomColor}`;
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 10000);
+            }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/projects.js"></script>
-  </body>
+            // Create data particles periodically
+            setInterval(createDataParticle, 400);
+
+            // Parallax effect for floating elements
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.3;
+                
+                document.querySelectorAll('.floating-element').forEach((element, index) => {
+                    const speed = (index + 1) * 0.4;
+                    element.style.transform = `translateY(${parallax * speed}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            });
+
+            // Enhanced card hover effects with 3D transforms
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-20px) scale(1.02) rotateX(2deg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
+                });
+            });
+
+            // AI Processing indicator for interactions
+            function showAIProcessing(message = '🤖 AI Processing Data...') {
+                const indicator = document.createElement('div');
+                indicator.innerHTML = message;
+                indicator.style.position = 'fixed';
+                indicator.style.top = '50%';
+                indicator.style.left = '50%';
+                indicator.style.transform = 'translate(-50%, -50%)';
+                indicator.style.background = 'rgba(0, 255, 255, 0.95)';
+                indicator.style.color = '#0d1421';
+                indicator.style.padding = '20px 40px';
+                indicator.style.borderRadius = '30px';
+                indicator.style.fontSize = '1.2rem';
+                indicator.style.fontWeight = 'bold';
+                indicator.style.zIndex = '9999';
+                indicator.style.backdropFilter = 'blur(10px)';
+                indicator.style.border = '3px solid #00ff41';
+                indicator.style.boxShadow = '0 20px 40px rgba(0, 255, 255, 0.6)';
+                indicator.style.animation = 'ai-processing 1.5s ease-in-out infinite';
+                
+                document.body.appendChild(indicator);
+                
+                setTimeout(() => {
+                    indicator.remove();
+                }, 2000);
+            }
+
+            // Add AI processing animation
+            const aiStyle = document.createElement('style');
+            aiStyle.textContent = `
+                @keyframes ai-processing {
+                    0%, 100% { 
+                        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+                        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.6);
+                    }
+                    50% { 
+                        transform: translate(-50%, -50%) scale(1.05) rotateY(5deg);
+                        box-shadow: 0 25px 50px rgba(0, 255, 65, 0.8);
+                    }
+                }
+            `;
+            document.head.appendChild(aiStyle);
+
+            // Enhanced like button effects with AI processing
+            document.querySelectorAll('.like-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    showAIProcessing('💖 Processing Like...');
+                    
+                    // Add special like effect
+                    const rect = this.getBoundingClientRect();
+                    const x = rect.left + rect.width / 2;
+                    const y = rect.top + rect.height / 2;
+                    
+                    for (let i = 0; i < 6; i++) {
+                        setTimeout(() => {
+                            createLikeExplosion(x, y);
+                        }, i * 100);
+                    }
+                });
+            });
+
+            // Like explosion effect
+            function createLikeExplosion(x, y) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'fixed';
+                heart.style.left = x + 'px';
+                heart.style.top = y + 'px';
+                heart.style.fontSize = '24px';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = '9999';
+                heart.style.animation = 'like-explosion 1s ease-out forwards';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000);
+            }
+
+            // Add like explosion animation
+            const likeStyle = document.createElement('style');
+            likeStyle.textContent = `
+                @keyframes like-explosion {
+                    0% {
+                        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translate(-50%, -50%) translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px) scale(2) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(likeStyle);
+
+            // Matrix digital rain effect
+            function createMatrixRain() {
+                const chars = '10101010';
+                const rainDrop = document.createElement('div');
+                rainDrop.textContent = chars[Math.floor(Math.random() * chars.length)];
+                rainDrop.style.position = 'fixed';
+                rainDrop.style.top = '-20px';
+                rainDrop.style.left = Math.random() * window.innerWidth + 'px';
+                rainDrop.style.color = '#00ffff';
+                rainDrop.style.fontSize = Math.random() * 12 + 8 + 'px';
+                rainDrop.style.fontFamily = 'monospace';
+                rainDrop.style.fontWeight = 'bold';
+                rainDrop.style.opacity = Math.random() * 0.7 + 0.3;
+                rainDrop.style.pointerEvents = 'none';
+                rainDrop.style.zIndex = '-1';
+                rainDrop.style.textShadow = '0 0 10px #00ffff';
+                rainDrop.style.animation = `matrix-fall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                document.body.appendChild(rainDrop);
+                
+                setTimeout(() => {
+                    rainDrop.remove();
+                }, 5000);
+            }
+
+            // Add matrix fall animation
+            const matrixStyle = document.createElement('style');
+            matrixStyle.textContent = `
+                @keyframes matrix-fall {
+                    to {
+                        transform: translateY(calc(100vh + 50px));
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(matrixStyle);
+
+            // Create matrix rain periodically
+            setInterval(createMatrixRain, 300);
+
+            // Power BI themed cursor trail
+            let cursorTrail = [];
+            document.addEventListener('mousemove', function(e) {
+                cursorTrail.push({x: e.clientX, y: e.clientY});
+                if (cursorTrail.length > 10) {
+                    cursorTrail.shift();
+                }
+                
+                const trail = document.createElement('div');
+                trail.innerHTML = '📊';
+                trail.style.position = 'fixed';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                trail.style.fontSize = '12px';
+                trail.style.pointerEvents = 'none';
+                trail.style.zIndex = '9999';
+                trail.style.opacity = '0.6';
+                trail.style.animation = 'cursor-trail 0.8s ease-out forwards';
+                
+                document.body.appendChild(trail);
+                
+                setTimeout(() => {
+                    trail.remove();
+                }, 800);
+            });
+
+            // Add cursor trail animation
+            const cursorStyle = document.createElement('style');
+            cursorStyle.textContent = `
+                @keyframes cursor-trail {
+                    0% {
+                        transform: translate(-50%, -50%) scale(1);
+                        opacity: 0.6;
+                    }
+                    100% {
+                        transform: translate(-50%, -50%) scale(0);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(cursorStyle);
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Initialize staggered animations for cards
+            window.addEventListener('load', function() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach((card, index) => {
+                    card.style.animationDelay = (index * 0.2) + 's';
+                });
+                
+                // Intersection Observer for card animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                cards.forEach(card => {
+                    observer.observe(card);
+                });
+            });
+
+            // AI voice simulation (visual feedback)
+            function simulateAIVoice() {
+                const voiceIndicator = document.createElement('div');
+                voiceIndicator.innerHTML = '🔊 AI Analytics Active';
+                voiceIndicator.style.position = 'fixed';
+                voiceIndicator.style.bottom = '30px';
+                voiceIndicator.style.right = '30px';
+                voiceIndicator.style.background = 'rgba(0, 255, 255, 0.9)';
+                voiceIndicator.style.color = '#0d1421';
+                voiceIndicator.style.padding = '15px 25px';
+                voiceIndicator.style.borderRadius = '25px';
+                voiceIndicator.style.fontSize = '0.9rem';
+                voiceIndicator.style.fontWeight = 'bold';
+                voiceIndicator.style.zIndex = '9999';
+                voiceIndicator.style.backdropFilter = 'blur(10px)';
+                voiceIndicator.style.border = '2px solid #00ff41';
+                voiceIndicator.style.boxShadow = '0 10px 30px rgba(0, 255, 255, 0.6)';
+                voiceIndicator.style.animation = 'voice-pulse 2s ease-in-out infinite';
+                
+                document.body.appendChild(voiceIndicator);
+                
+                setTimeout(() => {
+                    voiceIndicator.remove();
+                }, 4000);
+            }
+
+            // Add voice pulse animation
+            const voiceStyle = document.createElement('style');
+            voiceStyle.textContent = `
+                @keyframes voice-pulse {
+                    0%, 100% { 
+                        transform: scale(1);
+                        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
+                    }
+                    50% { 
+                        transform: scale(1.05);
+                        box-shadow: 0 15px 40px rgba(0, 255, 65, 0.8);
+                    }
+                }
+            `;
+            document.head.appendChild(voiceStyle);
+
+            // Trigger AI voice simulation on page interactions
+            setTimeout(simulateAIVoice, 3000);
+            
+            // Holographic project titles
+            document.querySelectorAll('.card h2').forEach(title => {
+                title.addEventListener('mouseenter', function() {
+                    this.style.textShadow = `
+                        2px 0 #ff0000,
+                        -2px 0 #00ffff,
+                        0 2px #ff8c00,
+                        0 -2px #00ff41
+                    `;
+                });
+                
+                title.addEventListener('mouseleave', function() {
+                    this.style.textShadow = '0 0 30px rgba(0, 255, 255, 0.5)';
+                });
+            });
+        </script>
+    </body>
 </html>

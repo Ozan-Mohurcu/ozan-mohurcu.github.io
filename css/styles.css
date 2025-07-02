@@ -11739,26 +11739,104 @@ html {
   }
 }
 
+
 #chat-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(145deg, #0056b3, #0080ff);
-  color: white;
-  font-size: 36px; /* ikon büyüklüğü */
-  padding: 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 999;
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.3),
-    inset 0 2px 4px rgba(255, 255, 255, 0.3);
-  animation: jump 1.5s ease-in-out infinite;
-  transform-style: preserve-3d;
-  perspective: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    border: 2px solid #00ffff !important;
+    border-radius: 50% !important;
+    color: white !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    z-index: 999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5) !important;
+    animation: simple-pulse 2s ease-in-out infinite !important;
+}
+
+@keyframes simple-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+#chat-icon:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8) !important;
+}
+#chat-icon:hover {
+    transform: scale(1.15) !important;
+    background: linear-gradient(135deg, #764ba2, #f093fb) !important;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.9) !important;
+    transition: all 0.3s ease !important;
+}
+#chat-icon {
+    /* mevcut kodlar + */
+    box-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.6),
+        0 0 40px rgba(102, 126, 234, 0.3) !important;
+}
+
+@keyframes simple-pulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 
+            0 0 20px rgba(0, 255, 255, 0.6),
+            0 0 40px rgba(102, 126, 234, 0.3);
+    }
+    50% { 
+        transform: scale(1.08);
+        box-shadow: 
+            0 0 30px rgba(0, 255, 255, 0.8),
+            0 0 60px rgba(102, 126, 234, 0.5);
+    }
+}
+/* Basit dönen efekt */
+#chat-icon {
+    /* mevcut kodlar + */
+    border: 3px solid transparent !important;
+    background: 
+        linear-gradient(135deg, #667eea, #764ba2),
+        conic-gradient(#00ffff, #667eea, #764ba2, #f093fb, #00ffff) !important;
+    background-clip: padding-box, border-box !important;
+    animation: simple-pulse 2s ease-in-out infinite, rotate-simple 4s linear infinite !important;
+}
+
+@keyframes rotate-simple {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+/* Tıklama efekti */
+#chat-icon:active {
+    transform: scale(0.9) !important;
+    transition: transform 0.1s ease !important;
+}
+
+/* Daha smooth hover geçişi */
+#chat-icon {
+    /* mevcut kodlar + */
+    transition: all 0.3s ease !important;
+}
+
+/* Responsive - mobilde küçült */
+@media (max-width: 768px) {
+    #chat-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 20px !important;
+        bottom: 15px !important;
+        right: 15px !important;
+    }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 @keyframes jump {
