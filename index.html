@@ -940,17 +940,14 @@
             
             async function updateVisitorCount() {
                 try {
-                    const response = await fetch('https://api.countapi.xyz/hit/ozan-mohurcu.github.io/visits');
+                    const response = await fetch('https://hits.sh/ozan-mohurcu.github.io.json');
                     const data = await response.json();
-                    document.getElementById('visitorCount').textContent = data.value.toLocaleString();
+                    document.getElementById('visitorCount').textContent = data.hits.toLocaleString();
                 } catch (error) {
-                    console.error('Sayaç güncellenemedi:', error);
-                    
                     document.getElementById('visitorCount').textContent = '1000+';
                 }
             }
 
-            // Sayfa yüklendiğinde çalıştır
             window.addEventListener('load', updateVisitorCount);
                     </script>
                 </body>
