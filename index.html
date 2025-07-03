@@ -938,23 +938,10 @@
                 });
             });
             
-            // Tarih bazlı sahte ama tutarlı sayaç
-            function updateVisitorCount() {
-                const startDate = new Date('2024-01-01').getTime();
-                const currentDate = new Date().getTime();
-                const daysPassed = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
-                
-                // Günlük ortalama 12 ziyaretçi varsayalım
-                const baseCount = 1000;
-                const dailyVisitors = 12;
-                const randomFactor = Math.floor(Math.random() * 50); // 0-49 arası rastgele
-                
-                const visitorCount = baseCount + (daysPassed * dailyVisitors) + randomFactor;
-                
-                document.getElementById('visitorCount').textContent = visitorCount.toLocaleString();
-            }
-
-            window.addEventListener('load', updateVisitorCount);
+            <div class="visitor-counter">
+                <span>Profile Views: </span>
+                <img src="https://komarev.com/ghpvc/?username=ozan-mohurcu&color=0e75b6&style=flat-square" alt="" style="display: inline; vertical-align: middle;" />
+            </div>
                     </script>
                 </body>
             </html>
