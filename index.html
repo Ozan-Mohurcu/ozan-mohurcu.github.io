@@ -598,50 +598,6 @@
                 background: var(--gradient-secondary);
                 box-shadow: 0 0 20px rgba(255, 140, 0, 0.7);
             }
-            /* Ziyaretçi Sayacı - Küçültülmüş versiyon */
-            .visitor-counter {
-                position: fixed;
-                top: 15px;
-                right: 15px;
-                background: rgba(0, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border: 1px solid var(--neon-blue);  /* 2px → 1px */
-                border-radius: 20px;  /* 25px → 20px */
-                padding: 6px 12px;    /* 10px 20px → 6px 12px */
-                z-index: 1001;
-                animation: neon-pulse 2s infinite;
-                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);  /* 20px → 15px */
-            }
-
-            .counter-label {
-                color: var(--neon-blue);
-                font-weight: 600;
-                font-size: 0.75rem;  /* 0.9rem → 0.75rem */
-                margin-right: 6px;   /* 8px → 6px */
-            }
-
-            .counter-number {
-                color: var(--neon-orange);
-                font-weight: 800;
-                font-size: 0.9rem;   /* 1.1rem → 0.9rem */
-                text-shadow: 0 0 8px var(--neon-orange);  /* 10px → 8px */
-            }
-
-            @media (max-width: 768px) {
-                .visitor-counter {
-                    top: 8px;
-                    right: 8px;
-                    padding: 5px 10px;  /* 8px 15px → 5px 10px */
-                }
-                
-                .counter-label {
-                    font-size: 0.7rem;  /* 0.8rem → 0.7rem */
-                }
-                
-                .counter-number {
-                    font-size: 0.8rem;  /* 1rem → 0.8rem */
-                }
-            }
             
         </style>
 
