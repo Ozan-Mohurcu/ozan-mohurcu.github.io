@@ -22,6 +22,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Font Awesome for additional icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         
@@ -381,6 +383,9 @@
                 transition: all 0.3s ease;
                 position: relative;
                 backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
             }
 
             .skill-item:hover {
@@ -405,6 +410,13 @@
 
             .skill-item:hover::before {
                 opacity: 1;
+            }
+
+            .skill-item-icon {
+                font-size: 1.5rem;
+                color: var(--ai-blue);
+                min-width: 30px;
+                text-align: center;
             }
 
             .skill-name {
@@ -433,6 +445,13 @@
                 border: 1px solid rgba(0, 212, 255, 0.3);
                 transition: all 0.3s ease;
                 backdrop-filter: blur(10px);
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .tech-skill i {
+                font-size: 1.1rem;
             }
 
             .tech-skill:hover {
@@ -696,21 +715,27 @@
                                         </div>
                                         <div class="skills-grid">
                                             <div class="skill-item">
+                                                <i class="skill-item-icon bi bi-bar-chart-line"></i>
                                                 <div class="skill-name">Data Analysis & Analytics</div>
                                             </div>
                                             <div class="skill-item">
+                                                <i class="skill-item-icon bi bi-calculator"></i>
                                                 <div class="skill-name">Statistical Analysis & Modeling</div>
                                             </div>
                                             <div class="skill-item">
+                                                <i class="skill-item-icon bi bi-graph-up"></i>
                                                 <div class="skill-name">Data Visualization</div>
                                             </div>
                                             <div class="skill-item">
+                                                <i class="skill-item-icon bi bi-lightbulb"></i>
                                                 <div class="skill-name">Business Intelligence</div>
                                             </div>
                                             <div class="skill-item">
+                                                <i class="skill-item-icon bi bi-cpu"></i>
                                                 <div class="skill-name">Machine Learning & AI</div>
                                             </div>
                                             <div class="skill-item">
+                                                <i class="skill-item-icon bi bi-database"></i>
                                                 <div class="skill-name">Database Management</div>
                                             </div>
                                         </div>
@@ -725,26 +750,26 @@
                                             <h3 class="skill-title">Technical Skills</h3>
                                         </div>
                                         <div class="tech-skills">
-                                            <span class="tech-skill">Python</span>
-                                            <span class="tech-skill">SQL</span>
-                                            <span class="tech-skill">Power BI</span>
-                                            <span class="tech-skill">Tableau</span>
-                                            <span class="tech-skill">Excel</span>
-                                            <span class="tech-skill">SPSS</span>
-                                            <span class="tech-skill">Pandas</span>
-                                            <span class="tech-skill">NumPy</span>
-                                            <span class="tech-skill">Matplotlib</span>
-                                            <span class="tech-skill">Seaborn</span>
-                                            <span class="tech-skill">Plotly</span>
-                                            <span class="tech-skill">Scikit-learn</span>
-                                            <span class="tech-skill">TensorFlow</span>
-                                            <span class="tech-skill">Keras</span>
-                                            <span class="tech-skill">MySQL</span>
-                                            <span class="tech-skill">PostgreSQL</span>
-                                            <span class="tech-skill">Git</span>
-                                            <span class="tech-skill">Docker</span>
-                                            <span class="tech-skill">AWS</span>
-                                            <span class="tech-skill">Azure</span>
+                                            <span class="tech-skill"><i class="fab fa-python"></i> Python</span>
+                                            <span class="tech-skill"><i class="fas fa-database"></i> SQL</span>
+                                            <span class="tech-skill"><i class="fas fa-chart-line"></i> Power BI</span>
+                                            <span class="tech-skill"><i class="fas fa-chart-area"></i> Tableau</span>
+                                            <span class="tech-skill"><i class="fas fa-file-excel"></i> Excel</span>
+                                            <span class="tech-skill"><i class="fas fa-chart-bar"></i> SPSS</span>
+                                            <span class="tech-skill"><i class="fas fa-table"></i> Pandas</span>
+                                            <span class="tech-skill"><i class="fas fa-square-root-alt"></i> NumPy</span>
+                                            <span class="tech-skill"><i class="fas fa-chart-line"></i> Matplotlib</span>
+                                            <span class="tech-skill"><i class="fas fa-chart-pie"></i> Seaborn</span>
+                                            <span class="tech-skill"><i class="fas fa-project-diagram"></i> Plotly</span>
+                                            <span class="tech-skill"><i class="fas fa-brain"></i> Scikit-learn</span>
+                                            <span class="tech-skill"><i class="fas fa-network-wired"></i> TensorFlow</span>
+                                            <span class="tech-skill"><i class="fas fa-layer-group"></i> Keras</span>
+                                            <span class="tech-skill"><i class="fas fa-database"></i> MySQL</span>
+                                            <span class="tech-skill"><i class="fas fa-database"></i> PostgreSQL</span>
+                                            <span class="tech-skill"><i class="fab fa-git-alt"></i> Git</span>
+                                            <span class="tech-skill"><i class="fab fa-docker"></i> Docker</span>
+                                            <span class="tech-skill"><i class="fab fa-aws"></i> AWS</span>
+                                            <span class="tech-skill"><i class="fab fa-microsoft"></i> Azure</span>
                                         </div>
                                     </div>
                                 </div>
