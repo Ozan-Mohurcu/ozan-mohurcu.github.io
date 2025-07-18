@@ -137,7 +137,7 @@
                 background-clip: text;
                 font-weight: 800;
                 font-size: 3rem;
-                margin-bottom: 1rem;
+                margin-bottom: 2rem;
                 position: relative;
                 text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
             }
@@ -162,8 +162,8 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 font-weight: 700;
-                font-size: 2rem;
-                margin-bottom: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
                 position: relative;
                 padding-bottom: 0.5rem;
             }
@@ -173,7 +173,7 @@
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                width: 60px;
+                width: 50px;
                 height: 3px;
                 background: var(--ai-blue);
                 border-radius: 2px;
@@ -188,7 +188,7 @@
                 border-radius: 15px;
                 box-shadow: var(--shadow-medium);
                 transition: all 0.4s ease;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 overflow: hidden;
                 position: relative;
             }
@@ -221,7 +221,7 @@
             }
 
             .card-body {
-                padding: 2rem;
+                padding: 1.5rem;
                 position: relative;
                 z-index: 2;
             }
@@ -231,17 +231,18 @@
                 background: rgba(0, 212, 255, 0.1);
                 border: 2px solid var(--ai-blue);
                 border-radius: 12px;
-                padding: 1.5rem;
+                padding: 1rem;
                 text-align: center;
                 position: relative;
                 backdrop-filter: blur(10px);
                 box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+                margin-bottom: 1rem;
             }
 
             .time-text {
                 color: var(--ai-blue);
                 font-weight: 700;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 margin-bottom: 0.5rem;
                 text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
             }
@@ -249,7 +250,7 @@
             .position-title {
                 color: white;
                 font-weight: 700;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 margin-bottom: 0.5rem;
                 text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
             }
@@ -257,19 +258,19 @@
             .company-name {
                 color: var(--ai-blue);
                 font-weight: 600;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 margin-bottom: 0.25rem;
             }
 
             .location-text {
                 color: rgba(255, 255, 255, 0.7);
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
             .description-text {
                 color: rgba(255, 255, 255, 0.9);
-                line-height: 1.7;
-                font-size: 1rem;
+                line-height: 1.6;
+                font-size: 0.9rem;
                 text-align: justify;
                 text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
             }
@@ -290,6 +291,7 @@
                 gap: 8px;
                 position: relative;
                 overflow: hidden;
+                margin-bottom: 3rem;
             }
 
             .download-btn::before {
@@ -315,123 +317,22 @@
                 left: 100%;
             }
 
-            /* Professional AI Skills Section */
-            .skills-container {
+            /* Skills Section */
+            .skills-section {
                 background: rgba(15, 60, 117, 0.08);
+                backdrop-filter: blur(15px);
                 border: 1px solid var(--card-border);
                 border-radius: 15px;
-                padding: 2.5rem;
+                padding: 2rem;
                 box-shadow: var(--shadow-medium);
-                backdrop-filter: blur(15px);
                 position: relative;
+                margin-bottom: 3rem;
             }
 
-            .skill-category {
-                margin-bottom: 2.5rem;
-            }
-
-            .skill-category:last-child {
-                margin-bottom: 0;
-            }
-
-            .skill-header {
-                display: flex;
-                align-items: center;
-                margin-bottom: 1.5rem;
-            }
-
-            .skill-icon {
-                width: 50px;
-                height: 50px;
-                background: var(--gradient-primary);
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-right: 1rem;
-                box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-                border: 2px solid var(--ai-blue);
-            }
-
-            .skill-icon i {
-                color: white;
-                font-size: 1.2rem;
-            }
-
-            .skill-title {
-                background: linear-gradient(135deg, var(--ai-blue) 0%, white 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 700;
-                font-size: 1.4rem;
-                margin: 0;
-            }
-
-            /* Professional Skills Grid */
-            .skills-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1rem;
-            }
-
-            .skill-item {
-                background: rgba(0, 212, 255, 0.05);
-                border: 1px solid rgba(0, 212, 255, 0.3);
-                border-radius: 10px;
-                padding: 1rem;
-                transition: all 0.3s ease;
-                position: relative;
-                backdrop-filter: blur(10px);
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-            }
-
-            .skill-item:hover {
-                border-color: var(--ai-blue);
-                transform: translateY(-2px);
-                box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-            }
-
-            .skill-item::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 4px;
-                height: 100%;
-                background: var(--ai-blue);
-                border-radius: 4px 0 0 4px;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                box-shadow: 0 0 10px var(--ai-blue);
-            }
-
-            .skill-item:hover::before {
-                opacity: 1;
-            }
-
-            .skill-item-icon {
-                font-size: 1.5rem;
-                color: var(--ai-blue);
-                min-width: 30px;
-                text-align: center;
-            }
-
-            .skill-name {
-                color: white;
-                font-weight: 600;
-                font-size: 1rem;
-                margin: 0;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-            }
-
-            /* Technical Skills */
             .tech-skills {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 0.75rem;
+                gap: 0.5rem;
                 margin-top: 1rem;
             }
 
@@ -440,7 +341,7 @@
                 color: var(--ai-blue);
                 padding: 0.5rem 1rem;
                 border-radius: 20px;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 font-weight: 500;
                 border: 1px solid rgba(0, 212, 255, 0.3);
                 transition: all 0.3s ease;
@@ -451,7 +352,7 @@
             }
 
             .tech-skill i {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .tech-skill:hover {
@@ -459,6 +360,90 @@
                 color: white;
                 transform: translateY(-2px);
                 box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            }
+
+            /* Certificate Section */
+            .certificate-item {
+                background: rgba(15, 60, 117, 0.08);
+                backdrop-filter: blur(15px);
+                border: 1px solid var(--card-border);
+                border-radius: 12px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .certificate-item:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-medium);
+                border-color: var(--ai-blue);
+            }
+
+            .certificate-logo {
+                width: 50px;
+                height: 50px;
+                background: var(--gradient-primary);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                color: white;
+                font-size: 1rem;
+                border: 2px solid var(--ai-blue);
+                box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+                overflow: hidden;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+                object-fit: contain;
+                border-radius: 6px;
+            }
+
+            .certificate-info {
+                flex: 1;
+            }
+
+            .certificate-title {
+                color: white;
+                font-weight: 600;
+                font-size: 0.95rem;
+                margin-bottom: 0.25rem;
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+
+            .certificate-issuer {
+                color: var(--ai-blue);
+                font-weight: 500;
+                font-size: 0.85rem;
+            }
+
+            .certificate-link {
+                color: var(--ai-blue);
+                text-decoration: none;
+                font-size: 0.85rem;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                opacity: 0.8;
+            }
+
+            .certificate-link:hover {
+                color: white;
+                opacity: 1;
+                text-decoration: none;
+            }
+
+            /* Two column layout */
+            .two-column {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
             }
 
             /* Footer */
@@ -487,24 +472,17 @@
                     font-size: 2.5rem;
                 }
 
-                .card-body {
-                    padding: 1.5rem;
-                }
-
-                .time-badge {
-                    padding: 1rem;
-                }
-
-                .skills-container {
-                    padding: 1.5rem;
-                }
-
-                .skills-grid {
+                .two-column {
                     grid-template-columns: 1fr;
+                    gap: 1.5rem;
                 }
 
                 .main-container {
                     padding-top: 80px;
+                }
+
+                .skills-section {
+                    padding: 1.5rem;
                 }
             }
 
@@ -523,24 +501,6 @@
                     opacity: 1;
                     transform: translateY(0);
                 }
-            }
-
-            /* Professional scrollbar */
-            ::-webkit-scrollbar {
-                width: 8px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: var(--light-gray);
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: var(--gray);
-                border-radius: 4px;
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: var(--primary-blue);
             }
         </style>
     </head>
@@ -575,206 +535,213 @@
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
                         <h1 class="page-title">Resume</h1>
+                        <a class="download-btn" href="#!">
+                            <i class="bi bi-download"></i>
+                            Download Resume
+                        </a>
                     </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-11 col-xl-9 col-xxl-8">
-                            <!-- Experience Section-->
-                            <section class="fade-in">
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <h2 class="section-header mb-0">Experience</h2>
-                                    <!-- Download resume button-->
-                                    <a class="download-btn" href="#!">
-                                        <i class="bi bi-download"></i>
-                                        Download Resume
-                                    </a>
-                                </div>
-                                
-                                <!-- Experience Card 1-->
-                                <div class="professional-card fade-in">
-                                    <div class="card-body">
-                                        <div class="row align-items-center gx-5">
-                                            <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-                                                <div class="time-badge">
-                                                    <div class="time-text">01.2025 - 04.2025</div>
-                                                    <div class="position-title">Data Analyst</div>
-                                                    <div class="company-name">E-Commerce Company</div>
-                                                    <div class="location-text">Istanbul, Turkey</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="description-text">
-                                                    • I worked as a freelance data analyst for 2 months. I analyzed and visualized the sales data of the e-commerce platform with Python and provided strategic insights about customer behavior. I provided improvement suggestions for business processes and achieved a 15% increase in sales.
-                                                </div>
-                                            </div>
-                                        </div>
+                    
+                    <!-- Experience & Education -->
+                    <div class="two-column">
+                        <!-- Experience -->
+                        <div class="fade-in">
+                            <h2 class="section-header">Experience</h2>
+                            
+                            <div class="professional-card">
+                                <div class="card-body">
+                                    <div class="time-badge">
+                                        <div class="time-text">01.2025 - 04.2025</div>
+                                        <div class="position-title">Data Analyst</div>
+                                        <div class="company-name">E-Commerce Company</div>
+                                        <div class="location-text">Istanbul, Turkey</div>
+                                    </div>
+                                    <div class="description-text">
+                                        I worked as a freelance data analyst for 2 months. I analyzed and visualized the sales data of the e-commerce platform with Python and provided strategic insights about customer behavior. I provided improvement suggestions for business processes and achieved a 15% increase in sales.
                                     </div>
                                 </div>
-                                
-                                <!-- Experience Card 2-->
-                                <div class="professional-card fade-in">
-                                    <div class="card-body">
-                                        <div class="row align-items-center gx-5">
-                                            <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-                                                <div class="time-badge">
-                                                    <div class="time-text">2019 - 2024</div>
-                                                    <div class="position-title">Combat Medical Specialist</div>
-                                                    <div class="company-name">Naval Forces Command</div>
-                                                    <div class="location-text">Izmir, Turkey</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="description-text">
-                                                    • In addition to my overseas assignments at the Naval Forces Command, I worked in offices preparing official documents such as daily reports and attendance sheets. I analyzed health data and prepared risk assessment reports during operational preparations. Additionally, I conducted situation analyses with field data to support strategic decision-making processes.
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                            
+                            <div class="professional-card">
+                                <div class="card-body">
+                                    <div class="time-badge">
+                                        <div class="time-text">2019 - 2024</div>
+                                        <div class="position-title">Combat Medical Specialist</div>
+                                        <div class="company-name">Naval Forces Command</div>
+                                        <div class="location-text">Izmir, Turkey</div>
+                                    </div>
+                                    <div class="description-text">
+                                        In addition to my overseas assignments at the Naval Forces Command, I worked in offices preparing official documents such as daily reports and attendance sheets. I analyzed health data and prepared risk assessment reports during operational preparations.
                                     </div>
                                 </div>
-                            </section>
+                            </div>
+                        </div>
 
-                            <!-- Education Section-->
-                            <section class="fade-in">
-                                <h2 class="section-header">Education</h2>
-                                
-                                <!-- Education Card 1-->
-                                <div class="professional-card fade-in">
-                                    <div class="card-body">
-                                        <div class="row align-items-center gx-5">
-                                            <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-                                                <div class="time-badge">
-                                                    <div class="time-text">2025 - 06.2026</div>
-                                                    <div class="position-title">Master's Degree</div>
-                                                    <div class="company-name">Beykent University</div>
-                                                    <div class="location-text">Istanbul, Turkey</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="description-text">
-                                                    <strong>Industrial Engineering</strong><br>
-                                                    • In the Master's program in Industrial Engineering at Beykent University, I am focusing on data mining and simulation modeling to deepen my knowledge in data analysis and data science. During this process, I am working on data-driven analysis and optimization of industrial systems, as well as developing advanced techniques for decision support systems.
-                                                </div>
-                                            </div>
-                                        </div>
+                        <!-- Education -->
+                        <div class="fade-in">
+                            <h2 class="section-header">Education</h2>
+                            
+                            <div class="professional-card">
+                                <div class="card-body">
+                                    <div class="time-badge">
+                                        <div class="time-text">2025 - 06.2026</div>
+                                        <div class="position-title">Master's Degree</div>
+                                        <div class="company-name">Beykent University</div>
+                                        <div class="location-text">Istanbul, Turkey</div>
+                                    </div>
+                                    <div class="description-text">
+                                        <strong>Industrial Engineering</strong><br>
+                                        In the Master's program in Industrial Engineering at Beykent University, I am focusing on data mining and simulation modeling to deepen my knowledge in data analysis and data science.
                                     </div>
                                 </div>
-                                
-                                <!-- Education Card 2-->
-                                <div class="professional-card fade-in">
-                                    <div class="card-body">
-                                        <div class="row align-items-center gx-5">
-                                            <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-                                                <div class="time-badge">
-                                                    <div class="time-text">2024 - 08.2025</div>
-                                                    <div class="position-title">Associate Degree</div>
-                                                    <div class="company-name">Anadolu University</div>
-                                                    <div class="location-text">Istanbul, Turkey</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="description-text">
-                                                    <strong>Computer Programming</strong><br>
-                                                    • While studying Computer Programming at Anadolu University, I gained advanced knowledge in database systems, data mining, and web-based coding. During this period, I developed practical skills in software development and data analysis.
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                            
+                            <div class="professional-card">
+                                <div class="card-body">
+                                    <div class="time-badge">
+                                        <div class="time-text">2024 - 08.2025</div>
+                                        <div class="position-title">Associate Degree</div>
+                                        <div class="company-name">Anadolu University</div>
+                                        <div class="location-text">Istanbul, Turkey</div>
+                                    </div>
+                                    <div class="description-text">
+                                        <strong>Computer Programming</strong><br>
+                                        While studying Computer Programming at Anadolu University, I gained advanced knowledge in database systems, data mining, and web-based coding.
                                     </div>
                                 </div>
-                                
-                                <!-- Education Card 3-->
-                                <div class="professional-card fade-in">
-                                    <div class="card-body">
-                                        <div class="row align-items-center gx-5">
-                                            <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-                                                <div class="time-badge">
-                                                    <div class="time-text">2013 - 2017</div>
-                                                    <div class="position-title">Undergraduate</div>
-                                                    <div class="company-name">Mugla Sıtkı Kocman University</div>
-                                                    <div class="location-text">Mugla, Turkey</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="description-text">
-                                                    <strong>Sports Sciences</strong><br>
-                                                    • Studied Sports Sciences, gaining knowledge in areas such as physical performance analysis, sports psychology, and health management. For my thesis, I analyzed the tendency of children aged 7-11 to engage in sports using SPSS.
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                            
+                            <div class="professional-card">
+                                <div class="card-body">
+                                    <div class="time-badge">
+                                        <div class="time-text">2013 - 2017</div>
+                                        <div class="position-title">Undergraduate</div>
+                                        <div class="company-name">Mugla Sıtkı Kocman University</div>
+                                        <div class="location-text">Mugla, Turkey</div>
+                                    </div>
+                                    <div class="description-text">
+                                        <strong>Sports Sciences</strong><br>
+                                        Studied Sports Sciences, gaining knowledge in areas such as physical performance analysis, sports psychology, and health management.
                                     </div>
                                 </div>
-                            </section>
+                            </div>
+                        </div>
+                    </div>
 
-                            <!-- Skills Section-->
-                            <section class="fade-in">
-                                <div class="skills-container">
-                                    <!-- Professional Skills -->
-                                    <div class="skill-category">
-                                        <div class="skill-header">
-                                            <div class="skill-icon">
-                                                <i class="bi bi-graph-up-arrow"></i>
-                                            </div>
-                                            <h3 class="skill-title">Core Competencies</h3>
-                                        </div>
-                                        <div class="skills-grid">
-                                            <div class="skill-item">
-                                                <i class="skill-item-icon bi bi-bar-chart-line"></i>
-                                                <div class="skill-name">Data Analysis & Analytics</div>
-                                            </div>
-                                            <div class="skill-item">
-                                                <i class="skill-item-icon bi bi-calculator"></i>
-                                                <div class="skill-name">Statistical Analysis & Modeling</div>
-                                            </div>
-                                            <div class="skill-item">
-                                                <i class="skill-item-icon bi bi-graph-up"></i>
-                                                <div class="skill-name">Data Visualization</div>
-                                            </div>
-                                            <div class="skill-item">
-                                                <i class="skill-item-icon bi bi-lightbulb"></i>
-                                                <div class="skill-name">Business Intelligence</div>
-                                            </div>
-                                            <div class="skill-item">
-                                                <i class="skill-item-icon bi bi-cpu"></i>
-                                                <div class="skill-name">Machine Learning & AI</div>
-                                            </div>
-                                            <div class="skill-item">
-                                                <i class="skill-item-icon bi bi-database"></i>
-                                                <div class="skill-name">Database Management</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <!-- Skills -->
+                    <div class="fade-in">
+                        <div class="skills-section">
+                            <h2 class="section-header">Technical Skills</h2>
+                            <div class="tech-skills">
+                                <span class="tech-skill"><i class="fab fa-python"></i> Python</span>
+                                <span class="tech-skill"><i class="fas fa-database"></i> SQL</span>
+                                <span class="tech-skill"><i class="fas fa-chart-line"></i> Power BI</span>
+                                <span class="tech-skill"><i class="fas fa-chart-area"></i> Tableau</span>
+                                <span class="tech-skill"><i class="fas fa-file-excel"></i> Excel</span>
+                                <span class="tech-skill"><i class="fas fa-chart-bar"></i> SPSS</span>
+                                <span class="tech-skill"><i class="fas fa-table"></i> Pandas</span>
+                                <span class="tech-skill"><i class="fas fa-square-root-alt"></i> NumPy</span>
+                                <span class="tech-skill"><i class="fas fa-chart-line"></i> Matplotlib</span>
+                                <span class="tech-skill"><i class="fas fa-chart-pie"></i> Seaborn</span>
+                                <span class="tech-skill"><i class="fas fa-project-diagram"></i> Plotly</span>
+                                <span class="tech-skill"><i class="fas fa-brain"></i> Scikit-learn</span>
+                                <span class="tech-skill"><i class="fas fa-network-wired"></i> TensorFlow</span>
+                                <span class="tech-skill"><i class="fas fa-layer-group"></i> Keras</span>
+                                <span class="tech-skill"><i class="fas fa-fire"></i> PyTorch</span>
+                                <span class="tech-skill"><i class="fas fa-language"></i> NLTK</span>
+                                <span class="tech-skill"><i class="fas fa-comments"></i> spaCy</span>
+                                <span class="tech-skill"><i class="fas fa-robot"></i> Transformers</span>
+                                <span class="tech-skill"><i class="fas fa-eye"></i> OpenCV</span>
+                                <span class="tech-skill"><i class="fas fa-brain"></i> Hugging Face</span>
+                                <span class="tech-skill"><i class="fas fa-code"></i> LangChain</span>
+                                <span class="tech-skill"><i class="fas fa-database"></i> MySQL</span>
+                                <span class="tech-skill"><i class="fas fa-database"></i> PostgreSQL</span>
+                                <span class="tech-skill"><i class="fab fa-git-alt"></i> Git</span>
+                                <span class="tech-skill"><i class="fab fa-docker"></i> Docker</span>
+                                <span class="tech-skill"><i class="fab fa-aws"></i> AWS</span>
+                                <span class="tech-skill"><i class="fab fa-microsoft"></i> Azure</span>
+                            </div>
+                        </div>
+                    </div>
 
-                                    <!-- Technical Skills -->
-                                    <div class="skill-category">
-                                        <div class="skill-header">
-                                            <div class="skill-icon">
-                                                <i class="bi bi-code-slash"></i>
-                                            </div>
-                                            <h3 class="skill-title">Technical Skills</h3>
-                                        </div>
-                                        <div class="tech-skills">
-                                            <span class="tech-skill"><i class="fab fa-python"></i> Python</span>
-                                            <span class="tech-skill"><i class="fas fa-database"></i> SQL</span>
-                                            <span class="tech-skill"><i class="fas fa-chart-line"></i> Power BI</span>
-                                            <span class="tech-skill"><i class="fas fa-chart-area"></i> Tableau</span>
-                                            <span class="tech-skill"><i class="fas fa-file-excel"></i> Excel</span>
-                                            <span class="tech-skill"><i class="fas fa-chart-bar"></i> SPSS</span>
-                                            <span class="tech-skill"><i class="fas fa-table"></i> Pandas</span>
-                                            <span class="tech-skill"><i class="fas fa-square-root-alt"></i> NumPy</span>
-                                            <span class="tech-skill"><i class="fas fa-chart-line"></i> Matplotlib</span>
-                                            <span class="tech-skill"><i class="fas fa-chart-pie"></i> Seaborn</span>
-                                            <span class="tech-skill"><i class="fas fa-project-diagram"></i> Plotly</span>
-                                            <span class="tech-skill"><i class="fas fa-brain"></i> Scikit-learn</span>
-                                            <span class="tech-skill"><i class="fas fa-network-wired"></i> TensorFlow</span>
-                                            <span class="tech-skill"><i class="fas fa-layer-group"></i> Keras</span>
-                                            <span class="tech-skill"><i class="fas fa-database"></i> MySQL</span>
-                                            <span class="tech-skill"><i class="fas fa-database"></i> PostgreSQL</span>
-                                            <span class="tech-skill"><i class="fab fa-git-alt"></i> Git</span>
-                                            <span class="tech-skill"><i class="fab fa-docker"></i> Docker</span>
-                                            <span class="tech-skill"><i class="fab fa-aws"></i> AWS</span>
-                                            <span class="tech-skill"><i class="fab fa-microsoft"></i> Azure</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                    <!-- Certificates -->
+                    <div class="fade-in">
+                        <h2 class="section-header">Certificates</h2>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">IBM Data Scientist</div>
+                                <div class="certificate-issuer">IBM</div>
+                            </div>
+                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/MWCG8A71KARH" class="certificate-link">View Certificate</a>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/google.png" alt="Google Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">Google Advanced Data Analytics</div>
+                                <div class="certificate-issuer">Google</div>
+                            </div>
+                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/CDYVK4XQMJI9" class="certificate-link">View Certificate</a>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/google.png" alt="Google Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">Google Data Analytics Capstone</div>
+                                <div class="certificate-issuer">Google</div>
+                            </div>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/QU2LF4VIYQT5?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="certificate-link">View Certificate</a>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">IBM Data Analysis with Python</div>
+                                <div class="certificate-issuer">IBM</div>
+                            </div>
+                            <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/bb79187404414c2d9fcbd62d85ca61d4" class="certificate-link">View Certificate</a>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">Data Analysis Using Python</div>
+                                <div class="certificate-issuer">IBM</div>
+                            </div>
+                            <a href="https://www.credly.com/badges/fcc4b563-50e5-4aa1-b8a2-a7045fb950ed/public_url" class="certificate-link">View Certificate</a>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">Data Fundamentals</div>
+                                <div class="certificate-issuer">IBM</div>
+                            </div>
+                            <a href="https://www.credly.com/badges/cc9dd5a4-9f2b-4e23-9867-f7e470112a17/public_url" class="certificate-link">View Certificate</a>
+                        </div>
+                        
+                        <div class="certificate-item">
+                            <div class="certificate-logo">
+                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                            </div>
+                            <div class="certificate-info">
+                                <div class="certificate-title">Python for Data Science</div>
+                                <div class="certificate-issuer">IBM</div>
+                            </div>
+                            <a href="https://www.credly.com/badges/ee9a1649-5336-4c3a-9c18-0ef7253c3ca2/public_url" class="certificate-link">View Certificate</a>
                         </div>
                     </div>
                 </div>
@@ -831,18 +798,22 @@
             window.addEventListener('scroll', function() {
                 const navbar = document.querySelector('.navbar');
                 if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                    navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+                    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                    navbar.style.boxShadow = '0 4px 12px rgba(0, 212, 255, 0.2)';
                 } else {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                    navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                    navbar.style.boxShadow = '0 8px 32px rgba(0, 212, 255, 0.1)';
                 }
             });
 
             // Professional card hover effects
-            document.querySelectorAll('.professional-card').forEach(card => {
+            document.querySelectorAll('.professional-card, .certificate-item').forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-4px)';
+                    if (this.classList.contains('professional-card')) {
+                        this.style.transform = 'translateY(-5px)';
+                    } else {
+                        this.style.transform = 'translateY(-2px)';
+                    }
                 });
                 
                 card.addEventListener('mouseleave', function() {
@@ -860,14 +831,15 @@
                     position: fixed;
                     top: 20px;
                     right: 20px;
-                    background: #1e40af;
+                    background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
                     color: white;
-                    padding: 12px 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    padding: 15px 25px;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
                     z-index: 9999;
                     font-weight: 500;
-                    animation: slideIn 0.3s ease-out;
+                    animation: slideIn 0.4s ease-out;
+                    border: 1px solid rgba(0, 212, 255, 0.3);
                 `;
                 notification.innerHTML = `
                     <i class="bi bi-check-circle-fill me-2"></i>
@@ -877,7 +849,10 @@
                 document.body.appendChild(notification);
                 
                 setTimeout(() => {
-                    notification.remove();
+                    notification.style.animation = 'slideOut 0.4s ease-out';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 400);
                 }, 3000);
             });
 
@@ -897,12 +872,12 @@
             }, observerOptions);
 
             // Observe all cards and sections
-            document.querySelectorAll('.professional-card, .skills-container').forEach(element => {
+            document.querySelectorAll('.fade-in').forEach(element => {
                 element.style.opacity = '0';
                 observer.observe(element);
             });
 
-            // Add CSS for slideIn animation
+            // Add CSS for slideIn/slideOut animations
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes slideIn {
@@ -913,6 +888,17 @@
                     to {
                         transform: translateX(0);
                         opacity: 1;
+                    }
+                }
+                
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(100%);
+                        opacity: 0;
                     }
                 }
             `;
