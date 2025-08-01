@@ -51,7 +51,7 @@
                 overflow-x: hidden;
             }
 
-            /* AI Circuit Background Animation */
+            /* AI Circuit Background - Static */
             .ai-background {
                 position: fixed;
                 top: 0;
@@ -65,12 +65,6 @@
                     radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
                     radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px);
                 background-size: 100px 100px, 150px 150px, 200px 200px;
-                animation: circuit-flow 15s infinite linear;
-            }
-
-            @keyframes circuit-flow {
-                0% { transform: translateX(-50px) translateY(-50px); }
-                100% { transform: translateX(50px) translateY(50px); }
             }
 
             /* Modern Glassmorphism Navigation */
@@ -198,7 +192,7 @@
 
             /* Projects Section with AI Theme */
             .projects-section {
-                padding-top: 120px;
+                padding-top: 150px; /* 120px'ten 150px'e artırıldı (1cm aşağı) */
                 background: linear-gradient(135deg, 
                     rgba(13, 20, 33, 0.95) 0%, 
                     rgba(26, 35, 50, 0.95) 50%, 
@@ -219,13 +213,7 @@
                     radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
                     radial-gradient(circle at 80% 80%, rgba(191, 0, 255, 0.1) 0%, transparent 50%),
                     radial-gradient(circle at 40% 60%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
-                animation: ai-glow 8s ease-in-out infinite;
                 pointer-events: none;
-            }
-
-            @keyframes ai-glow {
-                0%, 100% { opacity: 0.3; }
-                50% { opacity: 0.6; }
             }
 
             .projects-title {
@@ -236,7 +224,6 @@
                 font-weight: 900;
                 text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
                 position: relative;
-                animation: slideInUp 1s ease-out;
             }
 
             .projects-title::after {
@@ -262,7 +249,6 @@
             .projects-subtitle {
                 color: rgba(255, 255, 255, 0.8);
                 font-size: 1.1rem;
-                animation: slideInUp 1s ease-out 0.2s both;
                 text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
             }
 
@@ -277,23 +263,22 @@
                 }
             }
 
-            /* AI Project Cards */
+            /* AI Project Cards - Küçültülmüş boyutlar */
             .project-horizontal {
                 display: flex;
                 align-items: center;
-                margin-bottom: 60px;
+                margin-bottom: 40px; /* 60px'ten 40px'e küçültüldü */
                 background: rgba(26, 35, 50, 0.6);
                 backdrop-filter: blur(15px);
-                border-radius: 20px;
-                padding: 30px;
+                border-radius: 16px; /* 20px'ten 16px'e küçültüldü */
+                padding: 20px; /* 30px'ten 20px'e küçültüldü */
                 border: 2px solid rgba(0, 255, 255, 0.3);
                 box-shadow: 
-                    0 20px 40px rgba(0, 255, 255, 0.2),
-                    0 0 60px rgba(191, 0, 255, 0.1);
+                    0 15px 30px rgba(0, 255, 255, 0.2), /* Gölge küçültüldü */
+                    0 0 45px rgba(191, 0, 255, 0.1);
                 transition: all 0.4s ease;
                 position: relative;
                 overflow: hidden;
-                animation: slideInUp 1s ease-out;
             }
 
             .project-horizontal::before {
@@ -309,7 +294,6 @@
                     rgba(255, 140, 0, 0.1) 180deg,
                     rgba(0, 255, 255, 0.1) 270deg
                 );
-                animation: rotate-ai 10s linear infinite;
                 z-index: -1;
                 opacity: 0;
                 transition: opacity 0.3s;
@@ -325,34 +309,37 @@
             }
 
             .project-horizontal:hover {
-                transform: translateY(-15px) scale(1.02);
+                transform: translateY(-10px) scale(1.015); /* Hover efekti küçültüldü */
                 border-color: var(--neon-orange);
                 box-shadow: 
-                    0 30px 60px rgba(0, 255, 255, 0.4),
-                    0 0 80px rgba(191, 0, 255, 0.3),
-                    0 0 100px rgba(255, 140, 0, 0.2);
+                    0 20px 40px rgba(0, 255, 255, 0.4),
+                    0 0 60px rgba(191, 0, 255, 0.3),
+                    0 0 80px rgba(255, 140, 0, 0.2);
             }
 
+            /* Fotoğraflar daha belirgin ve küçük */
             .project-horizontal img {
-                width: 300px;
-                height: 200px;
+                width: 240px; /* 300px'ten 240px'e küçültüldü */
+                height: 160px; /* 200px'ten 160px'e küçültüldü */
                 object-fit: cover;
-                border-radius: 15px;
-                margin-right: 30px;
+                border-radius: 12px; /* 15px'ten 12px'e küçültüldü */
+                margin-right: 25px; /* 30px'ten 25px'e küçültüldü */
                 border: 3px solid var(--neon-blue);
                 box-shadow: 
-                    0 15px 30px rgba(0, 255, 255, 0.4),
-                    0 0 40px rgba(0, 255, 255, 0.2);
+                    0 12px 24px rgba(0, 255, 255, 0.5), /* Daha güçlü gölge */
+                    0 0 30px rgba(0, 255, 255, 0.3);
                 transition: all 0.4s ease;
                 position: relative;
+                filter: brightness(1.1) contrast(1.1); /* Fotoğrafı daha belirgin yapar */
             }
 
             .project-horizontal:hover img {
-                transform: scale(1.05) rotateY(5deg);
+                transform: scale(1.08) rotateY(3deg); /* Zoom efekti artırıldı */
                 border-color: var(--neon-orange);
                 box-shadow: 
-                    0 20px 40px rgba(255, 140, 0, 0.5),
-                    0 0 60px rgba(255, 140, 0, 0.3);
+                    0 16px 32px rgba(255, 140, 0, 0.6),
+                    0 0 50px rgba(255, 140, 0, 0.4);
+                filter: brightness(1.2) contrast(1.2); /* Hover'da daha da belirgin */
             }
 
             .project-description {
@@ -367,15 +354,15 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 font-weight: 800;
-                font-size: 1.8rem;
-                margin-bottom: 20px;
+                font-size: 1.6rem; /* 1.8rem'den 1.6rem'e küçültüldü */
+                margin-bottom: 15px; /* 20px'ten 15px'e küçültüldü */
                 position: relative;
             }
 
             .project-description h3::after {
                 content: '🎯';
                 position: absolute;
-                right: -40px;
+                right: -35px; /* -40px'ten -35px'e küçültüldü */
                 top: 0;
                 font-size: 0.7em;
                 animation: target-spin 3s linear infinite;
@@ -389,8 +376,8 @@
 
             .project-description p {
                 color: rgba(255, 255, 255, 0.9);
-                font-size: 1.1rem;
-                line-height: 1.7;
+                font-size: 1rem; /* 1.1rem'den 1rem'e küçültüldü */
+                line-height: 1.6; /* 1.7'den 1.6'ya küçültüldü */
                 text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
             }
 
@@ -409,25 +396,25 @@
                 transform: translate(-50%, -50%);
                 background: rgba(0, 255, 255, 0.9);
                 color: #0d1421;
-                padding: 15px 25px;
-                border-radius: 25px;
+                padding: 12px 20px; /* 15px 25px'ten küçültüldü */
+                border-radius: 20px; /* 25px'ten küçültüldü */
                 font-weight: 700;
-                font-size: 0.9rem;
+                font-size: 0.85rem; /* 0.9rem'den küçültüldü */
                 opacity: 0;
                 transition: all 0.3s ease;
                 z-index: 10;
                 backdrop-filter: blur(10px);
                 border: 2px solid var(--neon-orange);
-                box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
+                box-shadow: 0 8px 24px rgba(0, 255, 255, 0.6); /* Gölge küçültüldü */
             }
 
             .project-horizontal a:hover::before {
                 opacity: 1;
-                transform: translate(-50%, -50%) scale(1.1);
+                transform: translate(-50%, -50%) scale(1.05); /* 1.1'den küçültüldü */
             }
 
             .project-horizontal a:hover img {
-                filter: brightness(0.7) blur(2px);
+                filter: brightness(0.7) blur(2px) contrast(1.1);
             }
 
             /* Responsive Design */
@@ -435,14 +422,14 @@
                 .project-horizontal {
                     flex-direction: column;
                     text-align: center;
-                    padding: 20px;
+                    padding: 15px; /* 20px'ten küçültüldü */
                 }
                 
                 .project-horizontal img {
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 240px; /* 300px'ten küçültüldü */
                     margin-right: 0;
-                    margin-bottom: 20px;
+                    margin-bottom: 15px; /* 20px'ten küçültüldü */
                 }
                 
                 .projects-title::after {
@@ -456,7 +443,7 @@
                 }
                 
                 .projects-section {
-                    padding-top: 100px;
+                    padding-top: 130px; /* 100px'ten 130px'e artırıldı */
                 }
             }
 
@@ -556,6 +543,16 @@
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <!-- Proje 3 -->
+                            <div class="project-horizontal">
+                                <a href="#" target="_blank">
+                                    <img src="img/trafik.png" alt="Gerçek Zamanlı Trafik Tehlike Tahmin Sistemi (MOBESE Entegrasyonu)">
+                                </a>
+                                <div class="project-description">
+                                    <h3>Gerçek Zamanlı Trafik Tehlike Tahmin Sistemi (MOBESE Entegrasyonu)</h3>
+                                    <p>İstanbul'daki canlı MOBESE kameralarından gelen video akışını analiz eden, tarayıcı tabanlı gerçek zamanlı bir yapay zeka sistemi geliştirdim. Sistem, nesne tespiti, hız tahmini ve risk skorlama yaparak olası trafik tehlikelerini anlık olarak belirliyor.</p>
+                                </div>
+                            </div>
                             <!-- Proje 1 -->
                             <div class="project-horizontal">
                                 <a href="pdf/Convolutional-Neural-Networks-CNN-_Cat&Dog_cat-dog-cnn-3-model-acc-99-99.ipynb at main · Ozan-Mohurcu_Convolutional-Neural-Networks-CNN-.pdf" target="_blank">
@@ -645,7 +642,7 @@
             // AI hover effects for project cards
             document.querySelectorAll('.project-horizontal').forEach(project => {
                 project.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                    this.style.transform = 'translateY(-10px) scale(1.015)';
                 });
                 
                 project.addEventListener('mouseleave', function() {
@@ -681,14 +678,14 @@
                 type();
             }
 
-            // Initialize typing effect after page load
-            setTimeout(() => {
-                const projectTitle = document.querySelector('.projects-title span');
-                if (projectTitle) {
-                    const originalText = projectTitle.textContent;
-                    typeWriter(projectTitle, originalText, 80);
-                }
-            }, 1000);
+            // Initialize typing effect after page load - REMOVED
+            // setTimeout(() => {
+            //     const projectTitle = document.querySelector('.projects-title span');
+            //     if (projectTitle) {
+            //         const originalText = projectTitle.textContent;
+            //         typeWriter(projectTitle, originalText, 80);
+            //     }
+            // }, 1000);
 
             // Interactive neural network simulation
             function createNeuralConnection() {
@@ -854,7 +851,7 @@
                     border.style.right = '-2px';
                     border.style.bottom = '-2px';
                     border.style.background = 'conic-gradient(#00ffff, #bf00ff, #ff8c00, #00ffff)';
-                    border.style.borderRadius = '22px';
+                    border.style.borderRadius = '18px';
                     border.style.zIndex = '-1';
                     border.style.opacity = '0';
                     border.style.transition = 'opacity 0.3s ease';
@@ -1011,17 +1008,14 @@
 
             // Initialize all AI effects after page load
             window.addEventListener('load', function() {
-                // Stagger animation for project cards
+                // Remove stagger animation for project cards - they appear immediately
                 const projects = document.querySelectorAll('.project-horizontal');
-                projects.forEach((project, index) => {
-                    project.style.animationDelay = (index * 0.3) + 's';
-                });
                 
                 // Add viewport intersection observer for animations
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            entry.target.style.animationPlayState = 'running';
+                            entry.target.style.opacity = '1';
                         }
                     });
                 });
