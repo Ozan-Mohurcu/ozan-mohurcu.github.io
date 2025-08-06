@@ -70,6 +70,405 @@
                 100% { transform: translateX(50px) translateY(50px); }
             }
 
+            /* Revolutionary AI Data Science Background */
+            .data-science-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(255, 140, 0, 0.12) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(191, 0, 255, 0.1) 0%, transparent 50%);
+                overflow: hidden;
+                pointer-events: none;
+            }
+
+            /* Giant AI Brain Visualization */
+            .ai-brain {
+                position: absolute;
+                top: 10%;
+                left: 60%;
+                width: 400px;
+                height: 300px;
+                opacity: 0.25;
+                background: 
+                    radial-gradient(ellipse at 30% 40%, rgba(0, 255, 255, 0.3) 0%, transparent 40%),
+                    radial-gradient(ellipse at 70% 60%, rgba(255, 140, 0, 0.25) 0%, transparent 40%);
+                border-radius: 50% 50% 40% 60%;
+                animation: brain-pulse 4s ease-in-out infinite;
+                transform: rotate(-15deg);
+                filter: blur(1px);
+            }
+
+            .ai-brain::before {
+                content: '🧠';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 8rem;
+                opacity: 0.3;
+                animation: brain-glow 3s ease-in-out infinite;
+                filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.6));
+            }
+
+            @keyframes brain-pulse {
+                0%, 100% { 
+                    transform: rotate(-15deg) scale(1);
+                    opacity: 0.2;
+                }
+                50% { 
+                    transform: rotate(-10deg) scale(1.1);
+                    opacity: 0.35;
+                }
+            }
+
+            @keyframes brain-glow {
+                0%, 100% { 
+                    text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+                }
+                50% { 
+                    text-shadow: 0 0 40px rgba(0, 255, 255, 0.8), 0 0 60px rgba(255, 140, 0, 0.4);
+                }
+            }
+
+            /* Massive Data Visualization Dashboard */
+            .data-dashboard {
+                position: absolute;
+                top: 15%;
+                left: 5%;
+                width: 350px;
+                height: 250px;
+                opacity: 0.3;
+                background: rgba(13, 20, 33, 0.4);
+                border: 2px solid rgba(0, 255, 255, 0.3);
+                border-radius: 15px;
+                backdrop-filter: blur(5px);
+                transform: rotate(-8deg);
+                animation: dashboard-float 6s ease-in-out infinite;
+            }
+
+            .dashboard-header {
+                position: absolute;
+                top: 10px;
+                left: 15px;
+                right: 15px;
+                height: 30px;
+                background: linear-gradient(90deg, var(--neon-blue), var(--neon-orange));
+                border-radius: 5px;
+                opacity: 0.6;
+            }
+
+            .dashboard-charts {
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                height: 120px;
+                display: flex;
+                align-items: end;
+                gap: 8px;
+            }
+
+            .chart-bar {
+                flex: 1;
+                background: linear-gradient(to top, var(--neon-blue), transparent);
+                border-radius: 3px;
+                animation: chart-animate 3s ease-in-out infinite;
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            }
+
+            .chart-bar:nth-child(1) { 
+                height: 40%; 
+                animation-delay: 0s;
+                background: linear-gradient(to top, var(--neon-blue), transparent);
+            }
+            .chart-bar:nth-child(2) { 
+                height: 70%; 
+                animation-delay: 0.5s;
+                background: linear-gradient(to top, var(--neon-orange), transparent);
+            }
+            .chart-bar:nth-child(3) { 
+                height: 55%; 
+                animation-delay: 1s;
+                background: linear-gradient(to top, var(--neon-purple), transparent);
+            }
+            .chart-bar:nth-child(4) { 
+                height: 85%; 
+                animation-delay: 1.5s;
+                background: linear-gradient(to top, var(--neon-blue), transparent);
+            }
+            .chart-bar:nth-child(5) { 
+                height: 60%; 
+                animation-delay: 2s;
+                background: linear-gradient(to top, var(--neon-orange), transparent);
+            }
+            .chart-bar:nth-child(6) { 
+                height: 90%; 
+                animation-delay: 2.5s;
+                background: linear-gradient(to top, var(--neon-purple), transparent);
+            }
+
+            @keyframes dashboard-float {
+                0%, 100% { 
+                    transform: rotate(-8deg) translateY(0px);
+                }
+                50% { 
+                    transform: rotate(-5deg) translateY(-15px);
+                }
+            }
+
+            @keyframes chart-animate {
+                0%, 100% { 
+                    opacity: 0.6;
+                    transform: scaleY(0.8);
+                }
+                50% { 
+                    opacity: 1;
+                    transform: scaleY(1.2);
+                }
+            }
+
+            /* AI Code Terminal */
+            .ai-terminal {
+                position: absolute;
+                bottom: 20%;
+                right: 8%;
+                width: 320px;
+                height: 200px;
+                background: rgba(0, 0, 0, 0.6);
+                border: 2px solid var(--neon-blue);
+                border-radius: 10px;
+                opacity: 0.35;
+                font-family: 'Courier New', monospace;
+                color: var(--neon-blue);
+                padding: 15px;
+                font-size: 11px;
+                line-height: 1.3;
+                overflow: hidden;
+                transform: rotate(5deg);
+                animation: terminal-glow 4s ease-in-out infinite;
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.4),
+                    inset 0 0 20px rgba(0, 255, 255, 0.1);
+            }
+
+            .ai-terminal::before {
+                content: '$ python ai_model.py\n>>> Loading TensorFlow...\n>>> Building Neural Network...\n>>> Model: "sequential_ai"\n>>> Layer (Dense): 512 neurons\n>>> Layer (Dropout): 0.3\n>>> Layer (Dense): 256 neurons\n>>> Layer (Dense): 128 neurons\n>>> Output Layer: 10 classes\n>>> Compiling with Adam optimizer\n>>> Training on 50,000 samples\n>>> Epoch 1/100 - acc: 0.8943\n>>> Epoch 2/100 - acc: 0.9156\n>>> Epoch 3/100 - acc: 0.9298\n>>> Validation accuracy: 94.7%\n>>> Model saved successfully!\n>>> AI is ready for predictions 🤖';
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                animation: typing-effect 20s linear infinite;
+                text-shadow: 0 0 10px var(--neon-blue);
+            }
+
+            @keyframes terminal-glow {
+                0%, 100% { 
+                    box-shadow: 
+                        0 0 20px rgba(0, 255, 255, 0.3),
+                        inset 0 0 15px rgba(0, 255, 255, 0.1);
+                }
+                50% { 
+                    box-shadow: 
+                        0 0 40px rgba(0, 255, 255, 0.6),
+                        inset 0 0 25px rgba(0, 255, 255, 0.2);
+                }
+            }
+
+            @keyframes typing-effect {
+                0% { opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            /* Neural Network Connections */
+            .neural-connections {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.15;
+            }
+
+            .connection-line {
+                position: absolute;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+                animation: connection-pulse 4s ease-in-out infinite;
+                transform-origin: left;
+                box-shadow: 0 0 10px var(--neon-blue);
+            }
+
+            .connection-line:nth-child(1) {
+                top: 25%;
+                left: 20%;
+                width: 200px;
+                transform: rotate(15deg);
+                animation-delay: 0s;
+            }
+
+            .connection-line:nth-child(2) {
+                top: 45%;
+                left: 30%;
+                width: 150px;
+                transform: rotate(-10deg);
+                animation-delay: 1s;
+                background: linear-gradient(90deg, transparent, var(--neon-orange), transparent);
+                box-shadow: 0 0 10px var(--neon-orange);
+            }
+
+            .connection-line:nth-child(3) {
+                top: 65%;
+                left: 15%;
+                width: 180px;
+                transform: rotate(25deg);
+                animation-delay: 2s;
+                background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+                box-shadow: 0 0 10px var(--neon-purple);
+            }
+
+            .connection-line:nth-child(4) {
+                top: 35%;
+                right: 20%;
+                width: 120px;
+                transform: rotate(-20deg);
+                animation-delay: 1.5s;
+            }
+
+            @keyframes connection-pulse {
+                0%, 100% { 
+                    opacity: 0.1;
+                    transform-origin: left;
+                    transform: scaleX(0.3);
+                }
+                50% { 
+                    opacity: 0.8;
+                    transform: scaleX(1);
+                }
+            }
+
+            /* Floating Tech Icons */
+            .tech-icons {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+
+            .tech-icon {
+                position: absolute;
+                font-size: 3rem;
+                opacity: 0.2;
+                animation: float-tech 8s ease-in-out infinite;
+                filter: drop-shadow(0 0 15px currentColor);
+            }
+
+            .tech-icon:nth-child(1) {
+                top: 20%;
+                left: 10%;
+                color: var(--neon-blue);
+                animation-delay: 0s;
+            }
+
+            .tech-icon:nth-child(2) {
+                top: 30%;
+                right: 25%;
+                color: var(--neon-orange);
+                animation-delay: 2s;
+            }
+
+            .tech-icon:nth-child(3) {
+                bottom: 25%;
+                left: 25%;
+                color: var(--neon-purple);
+                animation-delay: 4s;
+            }
+
+            .tech-icon:nth-child(4) {
+                bottom: 35%;
+                right: 15%;
+                color: var(--neon-blue);
+                animation-delay: 6s;
+            }
+
+            @keyframes float-tech {
+                0%, 100% { 
+                    transform: translateY(0px) scale(1) rotate(0deg);
+                    opacity: 0.15;
+                }
+                50% { 
+                    transform: translateY(-20px) scale(1.2) rotate(10deg);
+                    opacity: 0.4;
+                }
+            }
+
+            /* Data Science Equations */
+            .ai-equations {
+                position: absolute;
+                bottom: 10%;
+                left: 10%;
+                font-family: 'Times New Roman', serif;
+                font-size: 16px;
+                color: var(--neon-blue);
+                opacity: 0.25;
+                transform: rotate(-5deg);
+                text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+                animation: equation-glow 5s ease-in-out infinite;
+            }
+
+            .ai-equations::before {
+                content: 'σ(z) = 1/(1+e^(-z))\n\nJ(θ) = -(1/m)Σ[y*log(h_θ(x)) + (1-y)*log(1-h_θ(x))]\n\n∇J(θ) = (1/m)X^T(h_θ(x) - y)\n\nAccuracy = (TP+TN)/(TP+TN+FP+FN)';
+                white-space: pre-line;
+                line-height: 1.8;
+            }
+
+            @keyframes equation-glow {
+                0%, 100% { 
+                    opacity: 0.2;
+                    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+                }
+                50% { 
+                    opacity: 0.4;
+                    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+                }
+            }
+
+            @keyframes grid-move {
+                0% { background-position: 0 0; }
+                100% { background-position: 50px 50px; }
+            }
+
+            @keyframes float-chart {
+                0%, 100% { transform: rotate(-12deg) translateY(0px); }
+                50% { transform: rotate(-12deg) translateY(-20px); }
+            }
+
+            @keyframes float-icons {
+                0%, 100% { transform: rotate(8deg) translateY(0px); }
+                50% { transform: rotate(8deg) translateY(-15px); }
+            }
+
+            @keyframes grid-move {
+                0% { background-position: 0 0; }
+                100% { background-position: 50px 50px; }
+            }
+
+            @keyframes float-chart {
+                0%, 100% { transform: rotate(-15deg) translateY(0px); }
+                50% { transform: rotate(-15deg) translateY(-20px); }
+            }
+
+            @keyframes float-icons {
+                0%, 100% { transform: rotate(5deg) translateY(0px); }
+                50% { transform: rotate(5deg) translateY(-15px); }
+            }
+
             /* Modern Glassmorphism Navigation */
             .navbar {
                 background: rgba(13, 20, 33, 0.9) !important;
@@ -81,6 +480,7 @@
                 width: 100%;
                 z-index: 1000;
                 transition: all 0.3s ease;
+                padding: 12px 0;
             }
 
             .navbar-brand {
@@ -116,15 +516,19 @@
             .navbar-nav .nav-link {
                 color: var(--neon-blue) !important;
                 font-weight: 600;
-                margin: 0 10px;
+                margin: 0 20px;
                 position: relative;
                 transition: all 0.3s ease;
+                padding: 8px 16px;
+                border-radius: 8px;
+                white-space: nowrap;
             }
 
             .navbar-nav .nav-link:hover {
                 transform: translateY(-3px);
                 color: white !important;
                 text-shadow: 0 0 10px var(--neon-blue);
+                background: rgba(0, 255, 255, 0.1);
             }
 
             .navbar-nav .nav-link::after {
@@ -249,29 +653,56 @@
                 }
             }
 
-            /* Modern AI Buttons */
+            /* Enhanced Modern AI Buttons Grid */
+            .buttons-container {
+                position: relative;
+                z-index: 5;
+            }
+
+            .button-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 30px 20px;
+            }
+
             .btn-modern {
                 background: rgba(0, 255, 255, 0.1);
                 border: 2px solid var(--neon-blue);
                 color: white;
-                padding: 15px 30px;
-                border-radius: 50px;
+                padding: 20px 25px;
+                border-radius: 20px;
                 font-weight: 600;
                 text-decoration: none;
-                display: inline-block;
-                margin: 10px;
-                transition: all 0.3s ease;
-                backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                backdrop-filter: blur(15px);
                 position: relative;
                 overflow: hidden;
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+                box-shadow: 
+                    0 8px 25px rgba(0, 255, 255, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                text-align: center;
+                min-height: 65px;
+                font-size: 1rem;
+            }
+
+            .btn-modern i {
+                font-size: 1.3em;
+                filter: drop-shadow(0 0 8px currentColor);
             }
 
             .btn-modern:hover {
-                transform: translateY(-5px) scale(1.05);
+                transform: translateY(-8px) scale(1.03);
                 box-shadow: 
                     0 20px 40px rgba(0, 255, 255, 0.4),
-                    0 0 30px rgba(0, 255, 255, 0.6);
+                    0 0 30px rgba(0, 255, 255, 0.6),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                 background: rgba(0, 255, 255, 0.2);
                 color: white;
                 text-decoration: none;
@@ -286,24 +717,52 @@
                 width: 100%;
                 height: 100%;
                 background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
-                transition: left 0.5s;
+                transition: left 0.6s;
             }
 
             .btn-modern:hover::before {
                 left: 100%;
             }
 
+            .btn-modern::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(0, 255, 255, 0.3);
+                transform: translate(-50%, -50%);
+                transition: all 0.6s ease;
+            }
+
+            .btn-modern:hover::after {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+
             .btn-primary-modern {
                 background: var(--gradient-accent);
                 border: 2px solid var(--neon-orange);
-                box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+                box-shadow: 
+                    0 8px 30px rgba(255, 140, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                position: relative;
+            }
+
+            .btn-primary-modern::before {
+                background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.4), transparent);
             }
 
             .btn-primary-modern:hover {
                 background: var(--gradient-secondary);
                 box-shadow: 
-                    0 20px 40px rgba(255, 140, 0, 0.5),
-                    0 0 40px rgba(255, 140, 0, 0.7);
+                    0 20px 50px rgba(255, 140, 0, 0.5),
+                    0 0 40px rgba(255, 140, 0, 0.7),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                border-color: var(--neon-blue);
             }
 
             /* AI Profile Section */
@@ -557,23 +1016,70 @@
             }
 
             /* Responsive Design */
+            @media (max-width: 1200px) {
+                .navbar-nav .nav-link {
+                    margin: 0 12px;
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .navbar-nav .nav-link {
+                    margin: 0 8px;
+                    padding: 6px 12px;
+                }
+            }
+
             @media (max-width: 768px) {
                 .hero-title {
                     font-size: 2.5rem;
                 }
                 
+                .button-grid {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                    padding: 20px 15px;
+                }
+                
                 .btn-modern {
-                    padding: 12px 25px;
+                    padding: 18px 20px;
                     font-size: 0.9rem;
+                    min-height: 60px;
                 }
                 
                 .navbar-nav .nav-link {
-                    margin: 5px 0;
+                    margin: 8px 0;
+                    text-align: center;
+                    padding: 12px 20px;
                 }
 
                 .about-title::after {
                     right: -40px;
                     font-size: 0.6em;
+                }
+
+                .data-science-bg::after {
+                    font-size: 1.8rem;
+                    letter-spacing: 15px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .button-grid {
+                    grid-template-columns: 1fr;
+                    max-width: 100%;
+                    padding: 15px 10px;
+                }
+                
+                .btn-modern {
+                    padding: 16px 15px;
+                    font-size: 0.85rem;
+                    border-radius: 15px;
+                }
+
+                .data-science-bg::after {
+                    font-size: 1.5rem;
+                    letter-spacing: 10px;
                 }
             }
 
@@ -638,6 +1144,51 @@
 
             <!-- Hero Section-->
             <section class="hero-section">
+                <!-- Professional Corporate AI Background -->
+                <div class="data-science-bg">
+                    <!-- Corporate AI Brain -->
+                    <div class="ai-brain">
+                        <div class="dashboard-metrics"></div>
+                    </div>
+                    
+                    <!-- Corporate Data Dashboard -->
+                    <div class="data-dashboard">
+                        <div class="dashboard-title"></div>
+                        <div class="dashboard-metrics"></div>
+                        <div class="dashboard-header"></div>
+                        <div class="dashboard-charts">
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional AI Terminal -->
+                    <div class="ai-terminal"></div>
+                    
+                    <!-- Corporate Neural Network Grid -->
+                    <div class="neural-connections">
+                        <div class="connection-line"></div>
+                        <div class="connection-line"></div>
+                        <div class="connection-line"></div>
+                    </div>
+                    
+                    <!-- Professional Tech Indicators -->
+                    <div class="tech-icons">
+                        <div class="tech-indicator"></div>
+                        <div class="tech-indicator"></div>
+                        <div class="tech-indicator"></div>
+                        <div class="tech-indicator"></div>
+                    </div>
+                    
+                    <!-- Corporate Mathematical Framework -->
+                    <div class="ai-equations"></div>
+                </div>
+                
                 <div class="container px-5 pb-5">
                     <div class="row gx-5 align-items-center">
                         <div class="col-xxl-6">
@@ -654,37 +1205,36 @@
                                     building intelligent systems that predict, analyze, and drive exponential business growth.
                                 </div>
                                 
-                                <!-- Button Grid -->
-                                <div class="d-flex flex-column align-items-center align-items-xxl-start">
-                                    <div class="d-flex flex-wrap justify-content-center justify-content-xxl-start mb-3">
+                                <!-- Enhanced Button Grid - 3 Columns -->
+                                <div class="buttons-container">
+                                    <div class="button-grid">
                                         <a class="btn-modern btn-primary-modern" href="resume.html">
-                                            <i class="bi bi-person-badge me-2"></i>Resume
+                                            <i class="bi bi-person-badge"></i>
+                                            Resume
                                         </a>
                                         <a class="btn-modern" href="Power BI Projects.html">
-                                            <i class="bi bi-bar-chart me-2"></i> Power Bi Data Visualization
+                                            <i class="bi bi-bar-chart"></i>
+                                            Power BI Projects
                                         </a>
-                                    </div>
-                                    <div class="d-flex flex-wrap justify-content-center justify-content-xxl-start">
                                         <a class="btn-modern" href="Python.html">
-                                            <i class="bi bi-code-square me-2"></i>Python  Projects
+                                            <i class="bi bi-code-square"></i>
+                                            Python Projects
                                         </a>
                                         <a class="btn-modern" href="ML Projects.html">
-                                            <i class="bi bi-cpu me-2"></i>ML Algorithms
+                                            <i class="bi bi-cpu"></i>
+                                            ML Algorithms
                                         </a>
-                                    </div>
-                                    <div class="d-flex justify-content-center justify-content-xxl-start">
                                         <a class="btn-modern" href="ComputerVision.html">
-                                            <i class="bi bi-eye me-2"></i>Neural Networks (CNN)
+                                            <i class="bi bi-eye"></i>
+                                            Neural Networks (CNN)
                                         </a>
-                                    </div>
-                                    <div class="d-flex justify-content-center justify-content-xxl-start">
                                         <a class="btn-modern" href="NLP.html">
-                                            <i class="bi bi-eye me-2"></i>NLP Projects
+                                            <i class="bi bi-chat-text"></i>
+                                            NLP Projects
                                         </a>
-                                    </div>
-                                    <div class="d-flex justify-content-center justify-content-xxl-start">
                                         <a class="btn-modern" href="LiveProjects.html">
-                                            <i class="bi bi-eye me-2"></i>Live Projects
+                                            <i class="bi bi-broadcast"></i>
+                                            Live Projects
                                         </a>
                                     </div>
                                 </div>
@@ -858,7 +1408,7 @@
             // Interactive hover effects for buttons
             document.querySelectorAll('.btn-modern').forEach(button => {
                 button.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                    this.style.transform = 'translateY(-8px) scale(1.03)';
                 });
                 
                 button.addEventListener('mouseleave', function() {
@@ -898,6 +1448,20 @@
                 document.querySelectorAll('.floating-element').forEach((element, index) => {
                     const speed = (index + 1) * 0.5;
                     element.style.transform = `translateY(${parallax * speed}px)`;
+                });
+            });
+
+            // Button staggered animation on load
+            window.addEventListener('load', function() {
+                const buttons = document.querySelectorAll('.btn-modern');
+                buttons.forEach((button, index) => {
+                    button.style.opacity = '0';
+                    button.style.transform = 'translateY(30px)';
+                    setTimeout(() => {
+                        button.style.transition = 'all 0.6s ease';
+                        button.style.opacity = '1';
+                        button.style.transform = 'translateY(0)';
+                    }, index * 100 + 600);
                 });
             });
                     </script>
