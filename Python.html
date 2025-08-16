@@ -49,21 +49,24 @@
         --dark-surface: #1a2332;
       }
 
-      /* page setup */
+      /* page setup with background image */
       html,
       body {
         font-family: "Plus Jakarta Sans", sans-serif;
-        background: var(--gradient-matrix);
+        background: 
+          linear-gradient(135deg, rgba(15, 52, 117, 0.8) 0%, rgba(50, 130, 184, 0.6) 50%, rgba(187, 225, 250, 0.4) 100%),
+          url('ai-background.jpg') center/cover no-repeat fixed;
         min-height: 100vh;
         overflow-x: hidden;
+        position: relative;
       }
 
-      /* AI Circuit Background Animation */
+      /* AI Circuit Background Animation - updated for new background */
       .ai-background {
         position: fixed;
         inset: 0;
         z-index: -1;
-        opacity: 0.1;
+        opacity: 0.12;
         background-image: radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
           radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
           radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px);
@@ -80,12 +83,12 @@
         }
       }
 
-      /* glassy navbar */
+      /* glassy navbar - enhanced transparency */
       .navbar {
         backdrop-filter: blur(20px);
-        background: rgba(13, 20, 33, 0.9) !important;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-        box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+        background: rgba(13, 20, 33, 0.85) !important;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+        box-shadow: 0 8px 32px rgba(0, 255, 255, 0.15);
         transition: all 0.3s ease;
       }
       .navbar-brand {
@@ -156,14 +159,14 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
       }
       .hero-description {
         color: rgba(255, 255, 255, 0.9);
         font-size: 1.1rem;
       }
       .badge-modern {
-        background: rgba(0, 255, 255, 0.2);
+        background: rgba(0, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         border: 2px solid var(--neon-blue);
         color: white;
@@ -172,35 +175,41 @@
         font-weight: 600;
         font-size: 0.95rem;
         animation: neon-pulse 2s infinite;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 20px rgba(0, 255, 255, 0.08);
       }
       @keyframes neon-pulse {
         0%,
         100% {
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.25), inset 0 0 20px rgba(0, 255, 255, 0.08);
         }
         50% {
-          box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.5), inset 0 0 30px rgba(0, 255, 255, 0.2);
+          box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 60px rgba(0, 255, 255, 0.4), inset 0 0 30px rgba(0, 255, 255, 0.15);
         }
       }
 
-      /* project cards horizontal */
+      /* Make "Click an image..." text white */
+      .text-muted {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      /* project cards horizontal - enhanced transparency */
       .project-horizontal {
         display: flex;
         gap: 25px;
         padding: 25px;
         border-radius: 20px;
-        background: rgba(13, 20, 33, 0.8);
+        background: rgba(13, 20, 33, 0.7);
         backdrop-filter: blur(15px);
-        border: 2px solid rgba(0, 255, 255, 0.2);
+        border: 2px solid rgba(0, 255, 255, 0.15);
         transition: 0.3s ease;
         margin-bottom: 35px;
-        box-shadow: 0 6px 20px rgba(0, 255, 255, 0.15);
+        box-shadow: 0 6px 20px rgba(0, 255, 255, 0.12);
       }
       .project-horizontal:hover {
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.35), 0 0 30px rgba(0, 255, 255, 0.4);
+        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.35);
         border-color: var(--neon-orange);
+        background: rgba(13, 20, 33, 0.8);
       }
       
       /* Enhanced Image with Hover Effect */
@@ -227,7 +236,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba(0, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
         color: #0d1421;
         padding: 15px 25px;
         border-radius: 25px;
@@ -238,7 +247,7 @@
         z-index: 10;
         backdrop-filter: blur(10px);
         border: 2px solid var(--neon-orange);
-        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.8);
         white-space: nowrap;
       }
 
@@ -274,11 +283,12 @@
       ::-webkit-scrollbar-thumb {
         background: var(--gradient-accent);
         border-radius: 6px;
-        border: 2px solid rgba(0, 255, 255, 0.3);
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        border: 2px solid rgba(0, 255, 255, 0.25);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
       }
       ::-webkit-scrollbar-thumb:hover {
         background: var(--gradient-secondary);
+        box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
       }
 
       /* responsive */
@@ -444,16 +454,16 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-4 mt-auto" style="background: rgba(13, 20, 33, 0.95); backdrop-filter: blur(10px); border-top: 2px solid var(--neon-blue); color: white; box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);">
+    <footer class="py-4 mt-auto" style="background: rgba(13, 20, 33, 0.9); backdrop-filter: blur(10px); border-top: 2px solid var(--neon-blue); color: white; box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.25);">
       <div class="container px-5">
         <div class="row align-items-center justify-content-between flex-column flex-sm-row">
           <div class="col-auto"><div class="small m-0">© Ozan M. |  Portfolio</div></div>
           <div class="col-auto">
-            <a class="small" href="#">Privacy</a>
+            <a class="small" href="#" style="color: var(--neon-blue); transition: all 0.3s ease;">Privacy</a>
             <span class="mx-1">&middot;</span>
-            <a class="small" href="#">Terms</a>
+            <a class="small" href="#" style="color: var(--neon-blue); transition: all 0.3s ease;">Terms</a>
             <span class="mx-1">&middot;</span>
-            <a class="small" href="contact.html">Contact</a>
+            <a class="small" href="contact.html" style="color: var(--neon-blue); transition: all 0.3s ease;">Contact</a>
           </div>
         </div>
       </div>
@@ -466,11 +476,11 @@
       window.addEventListener("scroll", () => {
         const nav = document.querySelector(".navbar");
         if (window.scrollY > 50) {
-          nav.style.background = "rgba(13, 20, 33, 0.98)";
-          nav.style.boxShadow = "0 5px 30px rgba(0, 255, 255, 0.4)";
+          nav.style.background = "rgba(13, 20, 33, 0.95)";
+          nav.style.boxShadow = "0 5px 30px rgba(0, 255, 255, 0.35)";
         } else {
-          nav.style.background = "rgba(13, 20, 33, 0.9)";
-          nav.style.boxShadow = "0 8px 32px rgba(0, 255, 255, 0.2)";
+          nav.style.background = "rgba(13, 20, 33, 0.85)";
+          nav.style.boxShadow = "0 8px 32px rgba(0, 255, 255, 0.15)";
         }
       });
 
@@ -490,6 +500,49 @@
           document.body.style.opacity = "1";
         }, 100);
       });
+
+      // Dynamic AI background particles
+      function createAIParticle() {
+        const particle = document.createElement('div');
+        particle.style.position = 'fixed';
+        particle.style.width = Math.random() * 4 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = `rgba(0, 255, 255, ${Math.random() * 0.5})`;
+        particle.style.borderRadius = '50%';
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.top = window.innerHeight + 'px';
+        particle.style.pointerEvents = 'none';
+        particle.style.zIndex = '-1';
+        particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px rgba(0, 255, 255, 0.5)`;
+        
+        document.body.appendChild(particle);
+        
+        const duration = Math.random() * 3000 + 2000;
+        const drift = (Math.random() - 0.5) * 100;
+        
+        particle.animate([
+          { 
+            transform: `translateY(0px) translateX(0px)`,
+            opacity: 0
+          },
+          { 
+            transform: `translateY(-${window.innerHeight + 100}px) translateX(${drift}px)`,
+            opacity: 1
+          },
+          { 
+            transform: `translateY(-${window.innerHeight + 200}px) translateX(${drift * 2}px)`,
+            opacity: 0
+          }
+        ], {
+          duration: duration,
+          easing: 'linear'
+        }).onfinish = () => {
+          particle.remove();
+        };
+      }
+
+      // Create AI particles periodically
+      setInterval(createAIParticle, 800);
     </script>
   </body>
 </html>
