@@ -88,12 +88,6 @@
                 pointer-events: none;
             }
 
-
-
-
-
-
-
             /* Neural Network Connections */
             .neural-connections {
                 position: absolute;
@@ -218,8 +212,6 @@
                 }
             }
 
-
-
             /* Modern Glassmorphism Navigation */
             .navbar {
                 background: rgba(13, 20, 33, 0.85) !important;
@@ -299,38 +291,13 @@
                 width: 100%;
             }
 
-            /* Hero Section with AI Theme */
+            /* Hero Section with AI Theme - TURUNCU ANİMASYON KALDIRILDI */
             .hero-section {
                 padding-top: 120px;
                 min-height: 100vh;
                 background: transparent;
                 position: relative;
                 overflow: hidden;
-            }
-
-            .hero-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    linear-gradient(90deg, transparent 0%, rgba(0, 255, 255, 0.08) 50%, transparent 100%),
-                    linear-gradient(0deg, transparent 0%, rgba(191, 0, 255, 0.08) 50%, transparent 100%);
-                animation: matrix-scan 4s infinite;
-                pointer-events: none;
-            }
-
-            @keyframes matrix-scan {
-                0%, 100% { 
-                    opacity: 0;
-                    transform: translateX(-100%);
-                }
-                50% { 
-                    opacity: 1;
-                    transform: translateX(100%);
-                }
             }
 
             .hero-content {
@@ -524,10 +491,10 @@
 
             @keyframes float-ai {
                 0%, 100% { 
-                    transform: translateY(0px) rotateY(0deg);
+                    transform: translateY(0px);
                 }
                 50% { 
-                    transform: translateY(-20px) rotateY(5deg);
+                    transform: translateY(-20px);
                 }
             }
 
@@ -538,21 +505,11 @@
                 box-shadow: 
                     0 0 50px rgba(0, 255, 255, 0.5),
                     0 0 100px rgba(191, 0, 255, 0.3);
-                background: var(--gradient-ai);
+                background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #00d2ff 100%);
                 padding: 15px;
                 border: 3px solid var(--neon-blue);
-            }
-
-            .profile::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: conic-gradient(var(--neon-blue), var(--neon-purple), var(--neon-orange), var(--neon-blue));
-                animation: rotate-ai 3s linear infinite;
-                z-index: -1;
+                width: 400px;
+                height: 400px;
             }
 
             @keyframes rotate-ai {
@@ -570,11 +527,10 @@
                 z-index: 2;
             }
 
-            .profile:hover .profile-img {
-                transform: scale(1.1);
-            }
-
-
+            /* PROFİL KAYMA EFEKTİ KALDIRILDI - Bu kısmı kaldırdık */
+            /* .profile:hover .profile-img {
+                transform: scale(1.05);
+            } */
 
             /* AI-Themed About Section */
             .about-section {
@@ -832,7 +788,6 @@
             </nav>
 
             <!-- Hero Section-->
-            <section class="hero-section">
             <section class="hero-section">
                 <!-- Professional Corporate AI Background -->
                 <div class="data-science-bg">
