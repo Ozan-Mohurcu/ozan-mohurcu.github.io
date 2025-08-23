@@ -318,76 +318,6 @@
                 text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
             }
 
-            /* Form Container */
-            .form-container {
-                background: rgba(0, 0, 0, 0.3);
-                backdrop-filter: blur(10px);
-                border: 2px solid rgba(0, 255, 255, 0.2);
-                border-radius: 20px;
-                padding: 2rem;
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-                transition: all 0.3s ease;
-            }
-
-            .form-container:hover {
-                border-color: var(--neon-orange);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            }
-
-            /* Google Form Iframe */
-            iframe {
-                border-radius: 15px !important;
-                box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2) !important;
-                background: rgba(255, 255, 255, 0.95) !important;
-                transition: all 0.3s ease;
-            }
-
-            iframe:hover {
-                box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3) !important;
-                transform: scale(1.01);
-            }
-
-            /* Success Message */
-            .success-message {
-                background: rgba(0, 255, 0, 0.1);
-                border: 2px solid #00ff00;
-                color: #00ff00;
-                padding: 1rem;
-                border-radius: 10px;
-                text-align: center;
-                font-weight: 600;
-                box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-                animation: pulse-success 2s infinite;
-            }
-
-            @keyframes pulse-success {
-                0%, 100% { 
-                    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
-                }
-                50% { 
-                    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
-                }
-            }
-
-            /* Footer */
-            footer {
-                background: rgba(13, 20, 33, 0.95) !important;
-                backdrop-filter: blur(10px);
-                border-top: 2px solid var(--neon-blue);
-                color: white !important;
-                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
-            }
-
-            footer a {
-                color: var(--neon-blue) !important;
-                transition: all 0.3s ease;
-            }
-
-            footer a:hover {
-                color: var(--neon-orange) !important;
-                text-shadow: 0 0 10px var(--neon-orange);
-            }
-
             /* Contact Info Cards */
             .contact-info-card {
                 background: rgba(0, 255, 255, 0.1);
@@ -425,15 +355,170 @@
                 font-weight: 500;
             }
 
+            .contact-info-card a {
+                color: var(--neon-blue);
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .contact-info-card a:hover {
+                color: var(--neon-orange);
+                text-shadow: 0 0 10px var(--neon-orange);
+            }
+
+            /* Custom Contact Form */
+            .custom-form {
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 255, 255, 0.2);
+                border-radius: 20px;
+                padding: 2rem;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .custom-form:hover {
+                border-color: var(--neon-orange);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .form-label {
+                color: var(--neon-blue);
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                display: block;
+                text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+            }
+
+            .form-control {
+                background: rgba(255, 255, 255, 0.1) !important;
+                border: 2px solid rgba(0, 255, 255, 0.3) !important;
+                border-radius: 10px !important;
+                color: white !important;
+                font-weight: 500;
+                padding: 12px 16px;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(5px);
+            }
+
+            .form-control:focus {
+                background: rgba(255, 255, 255, 0.15) !important;
+                border-color: var(--neon-orange) !important;
+                box-shadow: 0 0 20px rgba(255, 140, 0, 0.3) !important;
+                color: white !important;
+            }
+
+            .form-control::placeholder {
+                color: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            textarea.form-control {
+                min-height: 120px;
+                resize: vertical;
+            }
+
+            .btn-submit {
+                background: var(--gradient-ai) !important;
+                border: 2px solid var(--neon-blue);
+                color: white !important;
+                font-weight: 700;
+                padding: 12px 40px;
+                border-radius: 15px;
+                font-size: 1.1rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-submit::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: left 0.5s;
+            }
+
+            .btn-submit:hover {
+                transform: translateY(-3px);
+                border-color: var(--neon-orange);
+                box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4);
+                color: white !important;
+            }
+
+            .btn-submit:hover::before {
+                left: 100%;
+            }
+
+            .btn-submit:active {
+                transform: translateY(-1px);
+            }
+
+            /* Success Message */
+            .success-message {
+                background: rgba(0, 255, 0, 0.1);
+                border: 2px solid #00ff00;
+                color: #00ff00;
+                padding: 1rem;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: 600;
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+                animation: pulse-success 2s infinite;
+                margin-top: 1rem;
+            }
+
+            .error-message {
+                background: rgba(255, 0, 0, 0.1);
+                border: 2px solid #ff0000;
+                color: #ff0000;
+                padding: 1rem;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: 600;
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+                margin-top: 1rem;
+            }
+
+            @keyframes pulse-success {
+                0%, 100% { 
+                    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+                }
+                50% { 
+                    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+                }
+            }
+
+            /* Footer */
+            footer {
+                background: rgba(13, 20, 33, 0.95) !important;
+                backdrop-filter: blur(10px);
+                border-top: 2px solid var(--neon-blue);
+                color: white !important;
+                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
+            }
+
+            footer a {
+                color: var(--neon-blue) !important;
+                transition: all 0.3s ease;
+            }
+
+            footer a:hover {
+                color: var(--neon-orange) !important;
+                text-shadow: 0 0 10px var(--neon-orange);
+            }
+
             /* Responsive Design */
             @media (max-width: 768px) {
                 .page-title {
                     font-size: 2.5rem;
-                }
-                
-                .page-title::after {
-                    right: -40px;
-                    font-size: 0.6em;
                 }
 
                 .contact-container {
@@ -478,12 +563,6 @@
         <!-- AI Background -->
         <div class="ai-background"></div>
         
-        <!-- AI Floating Elements -->
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
         <main class="flex-shrink-0">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg py-3">
@@ -514,7 +593,7 @@
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
                         <h1 class="display-5 fw-bolder mb-0 page-title">
-                            <span class="d-inline">Get in Touch</span>
+                            <span class="d-inline">İletişime Geçin</span>
                         </h1>
                         <p class="subtitle">Let's work together and create something amazing!</p>
                     </div>
@@ -524,10 +603,19 @@
                         <div class="col-md-4 mb-4">
                             <div class="contact-info-card">
                                 <div class="contact-info-icon">
-                                    <i class="bi bi-envelope-fill"></i>
+                                    <svg width="48" height="48" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M304.2 501.5L158.4 320.3L7.8 501.5h136.5l14.1-22.3l45.9 22.3z" fill="#20beff"/>
+                                        <path d="M158.4 320.3L304.2 501.5h-48.8L165.8 370.9l-7.4-50.6z" fill="#00ffff" opacity="0.8"/>
+                                        <path d="M7.8 501.5h136.5l14.1-22.3l-31.7-15.4L7.8 501.5z" fill="#20beff" opacity="0.6"/>
+                                        <g transform="scale(1.2) translate(20, 20)">
+                                            <path d="M50 150L150 50L250 150L150 250Z" fill="currentColor"/>
+                                            <circle cx="150" cy="150" r="20" fill="white"/>
+                                        </g>
+                                    </svg>
                                 </div>
-                                <h4 class="contact-info-title">Email</h4>
-                                <p class="contact-info-text">Ready to discuss your data projects</p>
+                                <h4 class="contact-info-title">Kaggle</h4>
+                                <a href="https://www.kaggle.com/analyticaobscura" target="_blank">View Profile</a>
+                                <p class="contact-info-text">Check out my data science competitions</p>
                             </div>
                         </div>
                         <div class="col-md-4 mb-4">
@@ -536,7 +624,7 @@
                                     <i class="bi bi-linkedin"></i>
                                 </div>
                                 <h4 class="contact-info-title">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/ozanmhrc/" target="_blank" title="LinkedIn"></a>
+                                <a href="https://www.linkedin.com/in/ozanmhrc/" target="_blank">Connect</a>
                                 <p class="contact-info-text">Connect for professional networking</p>
                             </div>
                         </div>
@@ -546,7 +634,7 @@
                                     <i class="bi bi-github"></i>
                                 </div>
                                 <h4 class="contact-info-title">GitHub</h4>
-                                <a href="https://github.com/Ozan-Mohurcu" target="_blank" title="GitHub"></a>
+                                <a href="https://github.com/Ozan-Mohurcu" target="_blank">View Code</a>
                                 <p class="contact-info-text">Check out my code repositories</p>
                             </div>
                         </div>
@@ -560,29 +648,58 @@
                                     <div class="contact-icon">
                                         <i class="bi bi-chat-dots-fill text-white"></i>
                                     </div>
-                                    <h2 class="contact-title">Contact Form</h2>
+                                    <h2 class="contact-title">İletişim Formu</h2>
                                     <p class="contact-description">
-                                        Fill out the form below and I'll get back to you as soon as possible. 
-                                        Whether you have a project in mind, need data analysis services, or just want to connect!
+                                        Aşağıdaki formu doldurun, en kısa sürede size geri dönüş yapacağım. 
+                                        Aklınızda bir proje mi var, veri analizi hizmetlerine mi ihtiyacınız var, yoksa sadece bağlantı kurmak mı istiyorsunuz?
                                     </p>
                                 </div>
 
-                                <div class="form-container">
-                                    <iframe 
-                                        src="https://docs.google.com/forms/d/e/1FAIpQLSdeF8KmUzU4VwRMvtRTaFE3F_IiXZV1oLbPjhfWD6EdvdMgOg/viewform?embedded=true" 
-                                        width="100%" 
-                                        height="700" 
-                                        frameborder="0" 
-                                        marginheight="0" 
-                                        marginwidth="0">
-                                        Loading...
-                                    </iframe>
-                                </div>
+                                <div class="custom-form">
+                                    <form id="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstName" class="form-label">İsim</label>
+                                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Adınızı girin" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastName" class="form-label">Soyisim</label>
+                                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Soyadınızı girin" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="message" class="form-label">Mesaj</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                                        </div>
+                                        
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-submit">
+                                                <i class="bi bi-send-fill me-2"></i>
+                                                Gönder
+                                            </button>
+                                        </div>
+                                    </form>
 
-                                <!-- Success message -->
-                                <div id="successMessage" class="success-message mt-4" style="display: none;">
-                                    <i class="bi bi-check-circle-fill me-2"></i>
-                                    Your message has been successfully submitted! I'll get back to you soon.
+                                    <!-- Messages -->
+                                    <div id="successMessage" class="success-message" style="display: none;">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        Mesajınız başarıyla gönderildi! En kısa sürede size geri dönüş yapacağım.
+                                    </div>
+
+                                    <div id="errorMessage" class="error-message" style="display: none;">
+                                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                        Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -613,8 +730,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- EmailJS-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         
         <script>
+            // Initialize EmailJS
+            (function() {
+                emailjs.init("a980Eo8-kE9tB5yv9");
+            })();
+
             // Add scrolling effect to navbar
             window.addEventListener('scroll', function() {
                 const navbar = document.querySelector('.navbar');
@@ -693,14 +817,68 @@
                 }, 500);
             }, 2000);
 
-            // Form submission handler
-            window.addEventListener('message', function(event) {
-                if (event.data && event.data.type === 'form-submitted') {
+            // Contact form submission handler with EmailJS
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Hide previous messages
+                document.getElementById('successMessage').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                // Change button text to loading
+                const submitBtn = document.querySelector('.btn-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Gönderiliyor...';
+                submitBtn.disabled = true;
+                
+                // Prepare template params
+                const templateParams = {
+                    from_name: firstName + ' ' + lastName,
+                    reply_to: email,
+                    message: message
+                };
+                
+                // Send email using EmailJS
+                emailjs.send('service_54o95xk', 'template_rtl61ti', templateParams)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response.status, response.text);
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show success message
                     document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Hide success message after 5 seconds
                     setTimeout(() => {
                         document.getElementById('successMessage').style.display = 'none';
                     }, 5000);
-                }
+                    
+                }, function(error) {
+                    console.log('Email failed to send:', error);
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show error message
+                    document.getElementById('errorMessage').style.display = 'block';
+                    
+                    // Hide error message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('errorMessage').style.display = 'none';
+                    }, 5000);
+                });
             });
 
             // Add smooth scrolling for navigation links
@@ -713,6 +891,17 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // Form field animations
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
                 });
             });
         </script>
