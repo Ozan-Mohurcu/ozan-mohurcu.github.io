@@ -289,7 +289,7 @@
                 }
             }
 
-            /* AI Power BI Project Cards - Yeniden Tasarlandı */
+            /* AI Power BI Project Cards - Redesigned */
             .card {
                 background: rgba(26, 35, 50, 0.8) !important;
                 backdrop-filter: blur(15px);
@@ -303,36 +303,6 @@
                 animation: slideInUp 1s ease-out;
                 border-radius: 20px !important;
                 margin-bottom: 40px !important;
-            }
-
-            .card::before {
-                content: '';
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                background: conic-gradient(
-                    var(--neon-blue) 0deg,
-                    var(--neon-green) 90deg,
-                    var(--neon-purple) 180deg,
-                    var(--neon-orange) 270deg,
-                    var(--neon-blue) 360deg
-                );
-                border-radius: 20px;
-                z-index: -1;
-                opacity: 0;
-                transition: opacity 0.4s ease;
-                animation: data-rotate 10s linear infinite;
-            }
-
-            .card:hover::before {
-                opacity: 0.7;
-            }
-
-            @keyframes data-rotate {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
             }
 
             .card:hover {
@@ -381,8 +351,9 @@
                     0 0 40px rgba(0, 255, 255, 0.2);
                 transition: all 0.4s ease;
                 position: relative;
+                cursor: pointer;
             }
-
+ 
             .card .image-container::before {
                 content: '';
                 position: absolute;
@@ -399,14 +370,6 @@
                 z-index: 1;
             }
 
-            .card:hover .image-container {
-                transform: scale(1.05) rotateY(5deg);
-                border-color: var(--neon-green);
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 65, 0.4),
-                    0 0 60px rgba(0, 255, 65, 0.3);
-            }
-
             .card:hover .image-container::before {
                 opacity: 1;
             }
@@ -419,11 +382,6 @@
                 transition: all 0.4s ease;
                 position: relative;
                 z-index: 0;
-            }
-
-            .card:hover img {
-                transform: scale(1.1);
-                filter: brightness(1.1) contrast(1.05) saturate(1.1);
             }
 
             /* AI Project Titles */
@@ -567,139 +525,61 @@
                     text-shadow: 0 0 15px var(--neon-green), 0 0 25px var(--neon-green);
                 }
             }
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                .card .d-flex {
-                    flex-direction: column !important;
-                    gap: 20px !important;
-                    padding: 25px !important;
-                    min-height: auto !important;
-                }
-
-                .card .content-area {
-                    padding-right: 0;
-                    text-align: center;
-                }
-
-                .card .image-container {
-                    width: 100%;
-                    height: 200px;
-                    order: -1;
-                }
-
-                .card h2 {
-                    font-size: 1.4rem;
-                }
-
-                .card h2::after {
-                    right: -25px;
-                    font-size: 0.6em;
-                }
-
-                .projects-section {
-                    padding-top: 100px;
-                }
-
-                .button-container {
-                    justify-content: center;
-                }
-            }
-
-            @media (max-width: 576px) {
-                .card .d-flex {
-                    padding: 20px !important;
-                }
-
-                .card h2 {
-                    font-size: 1.3rem;
-                }
-
-                .card p {
-                    font-size: 0.95rem;
-                }
-
-                .like-button {
-                    padding: 8px 16px;
-                    font-size: 0.85rem;
-                }
-            }
-
-            /* CTA Section AI Theme */
-            .bg-gradient-primary-to-secondary {
-                background: var(--gradient-data) !important;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .bg-gradient-primary-to-secondary::before {
-                content: '';
-                position: absolute;
+            
+            /* Styles for Image Zoom on Hover */
+            #image-zoom-backdrop {
+                position: fixed;
                 top: 0;
                 left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
-                    radial-gradient(circle at 70% 30%, rgba(191, 0, 255, 0.2) 0%, transparent 50%);
-                animation: cta-glow 6s ease-in-out infinite;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(13, 20, 33, 0.85); /* Match the theme */
+                backdrop-filter: blur(10px);
+                z-index: 1999; /* Below the image */
+                opacity: 0;
                 pointer-events: none;
+                transition: opacity 0.4s ease;
             }
 
-            @keyframes cta-glow {
-                0%, 100% { opacity: 0.5; }
-                50% { opacity: 0.8; }
+            #image-zoom-backdrop.visible {
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            img.zoomed-image-clone {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 60vw;
+                height: auto;
+                max-height: 80vh;
+                object-fit: contain;
+                z-index: 2000;
+                border-radius: 15px;
+                border: 3px solid var(--neon-green);
+                box-shadow: 0 0 80px rgba(0, 255, 65, 0.6);
+                animation: zoom-fade-in 0.4s ease;
+                cursor: pointer;
             }
 
-            .bg-gradient-primary-to-secondary h2 {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-                animation: slideInUp 1s ease-out;
+            @keyframes zoom-fade-in {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
             }
 
-            .btn-outline-light {
-                border: 3px solid var(--neon-blue) !important;
-                color: var(--neon-blue) !important;
-                background: rgba(0, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                transition: all 0.4s ease;
-                box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-                animation: slideInUp 1s ease-out 0.2s both;
+            @media (max-width: 992px) {
+                .image-container.zoomed .img-fluid {
+                    width: 80vw;
+                }
             }
 
-            .btn-outline-light:hover {
-                background: var(--neon-blue) !important;
-                color: var(--dark-bg) !important;
-                border-color: var(--neon-green) !important;
-                transform: translateY(-5px) scale(1.05);
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 255, 0.5),
-                    0 0 60px rgba(0, 255, 65, 0.4);
-            }
-
-            /* AI Footer */
-            footer {
-                background: rgba(13, 20, 33, 0.95) !important;
-                backdrop-filter: blur(10px);
-                border-top: 2px solid var(--neon-blue);
-                color: white !important;
-                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
-            }
-
-            footer .small {
-                color: rgba(255, 255, 255, 0.8) !important;
-            }
-
-            footer a {
-                color: var(--neon-blue) !important;
-                transition: all 0.3s ease;
-            }
-
-            footer a:hover {
-                color: var(--neon-orange) !important;
-                text-shadow: 0 0 10px var(--neon-orange);
-            }
-
-            /* Responsive Design */
             @media (max-width: 768px) {
                 .card .d-flex {
                     flex-direction: column !important;
@@ -741,7 +621,10 @@
                 .card .d-flex {
                     padding: 20px !important;
                 }
-
+                img.zoomed-image-clone {
+                    width: 95vw;
+                    max-height: 70vh;
+                }
                 .card h2 {
                     font-size: 1.3rem;
                 }
@@ -912,55 +795,6 @@
                 50% { background-position: 100% 50%; }
             }
 
-            /* Custom AI Scrollbar */
-            ::-webkit-scrollbar {
-                width: 14px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: rgba(13, 20, 33, 0.8);
-                border-radius: 7px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: var(--gradient-data);
-                border-radius: 7px;
-                border: 2px solid rgba(0, 255, 255, 0.3);
-                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: var(--gradient-secondary);
-                box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
-            }
-
-            /* Data Visualization Effects */
-            .data-particle {
-                position: fixed;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: -1;
-                animation: data-stream 10s infinite linear;
-            }
-
-            @keyframes data-stream {
-                0% {
-                    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                    transform: translateY(90vh) translateX(10px) rotate(36deg) scale(1);
-                }
-                90% {
-                    opacity: 1;
-                    transform: translateY(-10vh) translateX(100px) rotate(324deg) scale(1);
-                }
-                100% {
-                    transform: translateY(-20vh) translateX(120px) rotate(360deg) scale(0);
-                    opacity: 0;
-                }
-            }
         </style>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
@@ -1126,7 +960,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="content-area">
                                             <h2 class="fw-bolder">TITANIC YOLCU ANALİZİ</h2>
-                                            <p>Titanic Yolcu Analizi (Power BI) projesi, yaş, sınıf, cinsiyet ve hayatta kalma oranları gibi temel yolcu verilerini görselleştirir. Hayatta kalmayı etkileyen faktörler hakkında bilgi sağlar ve trajik Titanic felaketi sırasında yolcu demografisinin anlaşılmasına yardımcı olur.</p>
+                                            <p>Titanic Yolcu Analizi (Power BI) projesi, yaş, sınıf, cinsiyet ve hayatta kalma oranları gibi temel yolcu verilerini görselleştirir. Hayatta kalmayı etkileşen faktörler hakkında bilgi sağlar ve trajik Titanic felaketi sırasında yolcu demografisinin anlaşılmasına yardımcı olur.</p>
                                             <div class="button-container">
                                                 <button class="like-button">Beğen</button>
                                                 <span class="like-count">0 beğeni</span>
@@ -1178,7 +1012,9 @@
                             
                                     </div>
                                 </div>
-                            </div
+                            </div>
+                        </div>
+            </section>
             <!-- Call to action section-->
             <section class="py-5 bg-gradient-primary-to-secondary text-white">
                 <div class="container px-5 my-5">
@@ -1210,7 +1046,7 @@
         
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS - ORİJİNAL BEĞEN BUTONU SCRIPTI KORUNDU -->
+        <!-- Core theme JS - ORIGINAL LIKE BUTTON SCRIPT PRESERVED -->
         <script src="js/projects.js"></script>
         
         <script>
@@ -1268,17 +1104,6 @@
                 document.querySelectorAll('.floating-element').forEach((element, index) => {
                     const speed = (index + 1) * 0.4;
                     element.style.transform = `translateY(${parallax * speed}px) rotate(${scrolled * 0.1}deg)`;
-                });
-            });
-
-            // Enhanced card hover effects with 3D transforms
-            document.querySelectorAll('.card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-20px) scale(1.02) rotateX(2deg)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
                 });
             });
 
@@ -1418,48 +1243,6 @@
             // Create matrix rain periodically
             setInterval(createMatrixRain, 300);
 
-            // Power BI themed cursor trail
-            let cursorTrail = [];
-            document.addEventListener('mousemove', function(e) {
-                cursorTrail.push({x: e.clientX, y: e.clientY});
-                if (cursorTrail.length > 10) {
-                    cursorTrail.shift();
-                }
-                
-                const trail = document.createElement('div');
-                trail.innerHTML = '📊';
-                trail.style.position = 'fixed';
-                trail.style.left = e.clientX + 'px';
-                trail.style.top = e.clientY + 'px';
-                trail.style.fontSize = '12px';
-                trail.style.pointerEvents = 'none';
-                trail.style.zIndex = '9999';
-                trail.style.opacity = '0.6';
-                trail.style.animation = 'cursor-trail 0.8s ease-out forwards';
-                
-                document.body.appendChild(trail);
-                
-                setTimeout(() => {
-                    trail.remove();
-                }, 800);
-            });
-
-            // Add cursor trail animation
-            const cursorStyle = document.createElement('style');
-            cursorStyle.textContent = `
-                @keyframes cursor-trail {
-                    0% {
-                        transform: translate(-50%, -50%) scale(1);
-                        opacity: 0.6;
-                    }
-                    100% {
-                        transform: translate(-50%, -50%) scale(0);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(cursorStyle);
-
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1557,6 +1340,53 @@
                     this.style.textShadow = '0 0 30px rgba(0, 255, 255, 0.5)';
                 });
             });
+
+            // --- NEW & IMPROVED: Image Zoom on Hover Logic ---
+            document.addEventListener('DOMContentLoaded', () => {
+                // Create and append the backdrop element to the body
+                const backdrop = document.createElement('div');
+                backdrop.id = 'image-zoom-backdrop';
+                document.body.appendChild(backdrop);
+                let zoomTimeout;
+
+                const closeZoom = () => {
+                    backdrop.classList.remove('visible');
+                    const existingClone = document.querySelector('.zoomed-image-clone');
+                    if (existingClone) {
+                        existingClone.remove();
+                    }
+                };
+                
+                document.querySelectorAll('.image-container').forEach(container => {
+                    container.addEventListener('mouseenter', () => {
+                        const originalImage = container.querySelector('img');
+                        clearTimeout(zoomTimeout);
+
+                        zoomTimeout = setTimeout(() => {
+                            closeZoom(); // Close any existing zoom before opening a new one
+                            
+                            const zoomedImageClone = originalImage.cloneNode();
+                            zoomedImageClone.className = 'zoomed-image-clone';
+                            document.body.appendChild(zoomedImageClone);
+                            backdrop.classList.add('visible');
+
+                            // Add listeners to the new elements to close them
+                            zoomedImageClone.addEventListener('mouseleave', closeZoom);
+                            backdrop.addEventListener('mouseleave', closeZoom);
+                            zoomedImageClone.addEventListener('click', closeZoom);
+                            backdrop.addEventListener('click', closeZoom);
+
+                        }, 150);
+                    });
+
+                    container.addEventListener('mouseleave', () => {
+                        clearTimeout(zoomTimeout);
+                    });
+                });
+            });
+
         </script>
     </body>
 </html>
+
+
