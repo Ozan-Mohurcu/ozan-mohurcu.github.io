@@ -226,53 +226,141 @@
                 z-index: 2;
             }
 
-            /* Time Badge */
-            .time-badge {
-                background: rgba(0, 212, 255, 0.1);
-                border: 2px solid var(--ai-blue);
-                border-radius: 12px;
-                padding: 1rem;
-                text-align: center;
-                position: relative;
-                backdrop-filter: blur(10px);
-                box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-                margin-bottom: 1rem;
+            /* Card Header - Compact Info Row */
+            .card-header-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 1.25rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
 
-            .time-text {
+            .card-header-left {
+                flex: 1;
+                min-width: 200px;
+            }
+
+            .card-header-right {
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0.25rem;
+            }
+
+            .time-badge {
+                background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 255, 0.05));
+                border: 1px solid var(--ai-blue);
+                border-radius: 20px;
+                padding: 0.4rem 0.9rem;
+                font-size: 0.8rem;
+                font-weight: 600;
                 color: var(--ai-blue);
-                font-weight: 700;
-                font-size: 0.9rem;
-                margin-bottom: 0.5rem;
-                text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+            }
+
+            .time-badge i {
+                font-size: 0.75rem;
+            }
+
+            .location-badge {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.8rem;
+                font-weight: 500;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.3rem;
+            }
+
+            .location-badge i {
+                color: var(--ai-blue);
+                font-size: 0.7rem;
             }
 
             .position-title {
                 color: white;
                 font-weight: 700;
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+                font-size: 1.2rem;
+                margin-bottom: 0.35rem;
+                line-height: 1.3;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
             }
 
             .company-name {
                 color: var(--ai-blue);
                 font-weight: 600;
-                font-size: 0.9rem;
-                margin-bottom: 0.25rem;
+                font-size: 1rem;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
             }
 
-            .location-text {
-                color: rgba(255, 255, 255, 0.7);
+            .company-name i {
                 font-size: 0.8rem;
+                opacity: 0.8;
             }
 
+            /* Description with bullet points */
             .description-text {
-                color: rgba(255, 255, 255, 0.9);
-                line-height: 1.6;
-                font-size: 0.9rem;
-                text-align: justify;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+                color: rgba(255, 255, 255, 0.85);
+                line-height: 1.75;
+                font-size: 0.92rem;
+            }
+
+            .description-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .description-list li {
+                position: relative;
+                padding-left: 1.5rem;
+                margin-bottom: 0.75rem;
+                color: rgba(255, 255, 255, 0.85);
+                line-height: 1.65;
+                font-size: 0.92rem;
+            }
+
+            .description-list li:last-child {
+                margin-bottom: 0;
+            }
+
+            .description-list li::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0.55rem;
+                width: 6px;
+                height: 6px;
+                background: var(--ai-blue);
+                border-radius: 50%;
+                box-shadow: 0 0 8px var(--ai-blue);
+            }
+
+            .highlight-text {
+                color: var(--ai-blue);
+                font-weight: 600;
+            }
+
+            .degree-name {
+                color: var(--ai-blue);
+                font-weight: 700;
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+            }
+
+            .degree-name i {
+                font-size: 0.85rem;
             }
 
             /* Professional AI Download Button */
@@ -329,47 +417,78 @@
                 margin-bottom: 3rem;
             }
 
+            .skill-category {
+                margin-bottom: 1.5rem;
+            }
+
+            .skill-category:last-child {
+                margin-bottom: 0;
+            }
+
+            .skill-category-title {
+                color: white;
+                font-weight: 600;
+                font-size: 0.95rem;
+                margin-bottom: 0.75rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+            }
+
+            .skill-category-title i {
+                color: var(--ai-blue);
+                font-size: 1rem;
+            }
+
             .tech-skills {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 0.5rem;
-                margin-top: 1rem;
             }
 
             .tech-skill {
-                background: rgba(0, 212, 255, 0.1);
+                background: rgba(0, 212, 255, 0.08);
                 color: var(--ai-blue);
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.85rem;
+                padding: 0.45rem 0.9rem;
+                border-radius: 8px;
+                font-size: 0.82rem;
                 font-weight: 500;
-                border: 1px solid rgba(0, 212, 255, 0.3);
+                border: 1px solid rgba(0, 212, 255, 0.25);
                 transition: all 0.3s ease;
                 backdrop-filter: blur(10px);
                 display: inline-flex;
                 align-items: center;
-                gap: 0.5rem;
+                gap: 0.4rem;
             }
 
             .tech-skill i {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                opacity: 0.85;
             }
 
             .tech-skill:hover {
                 background: var(--ai-blue);
                 color: white;
                 transform: translateY(-2px);
-                box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+                box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
             }
 
-            /* Certificate Section */
+            /* Certificate Section - Grid Layout */
+            .certificates-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
             .certificate-item {
                 background: rgba(15, 60, 117, 0.08);
                 backdrop-filter: blur(15px);
                 border: 1px solid var(--card-border);
                 border-radius: 12px;
-                padding: 1rem;
-                margin-bottom: 1rem;
+                padding: 1.1rem;
                 transition: all 0.3s ease;
                 display: flex;
                 align-items: center;
@@ -377,64 +496,68 @@
             }
 
             .certificate-item:hover {
-                transform: translateY(-2px);
-                box-shadow: var(--shadow-medium);
+                transform: translateY(-3px);
+                box-shadow: var(--shadow-medium), 0 0 20px rgba(0, 212, 255, 0.15);
                 border-color: var(--ai-blue);
             }
 
             .certificate-logo {
-                width: 50px;
-                height: 50px;
-                background: var(--gradient-primary);
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
                 border-radius: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-weight: 700;
-                color: white;
-                font-size: 1rem;
-                border: 2px solid var(--ai-blue);
-                box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+                border: 1px solid rgba(0, 212, 255, 0.3);
+                box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
                 overflow: hidden;
             }
 
             .logo-img {
-                width: 35px;
-                height: 35px;
+                width: 32px;
+                height: 32px;
                 object-fit: contain;
-                border-radius: 6px;
             }
 
             .certificate-info {
                 flex: 1;
+                min-width: 0;
             }
 
             .certificate-title {
                 color: white;
                 font-weight: 600;
-                font-size: 0.95rem;
-                margin-bottom: 0.25rem;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+                font-size: 0.9rem;
+                margin-bottom: 0.2rem;
+                line-height: 1.3;
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
             }
 
             .certificate-issuer {
                 color: var(--ai-blue);
                 font-weight: 500;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
+                opacity: 0.9;
             }
 
             .certificate-link {
                 color: var(--ai-blue);
                 text-decoration: none;
-                font-size: 0.85rem;
-                font-weight: 500;
+                font-size: 0.75rem;
+                font-weight: 600;
                 transition: all 0.3s ease;
-                opacity: 0.8;
+                background: rgba(0, 212, 255, 0.1);
+                padding: 0.35rem 0.7rem;
+                border-radius: 6px;
+                border: 1px solid rgba(0, 212, 255, 0.3);
+                white-space: nowrap;
             }
 
             .certificate-link:hover {
+                background: var(--ai-blue);
                 color: white;
-                opacity: 1;
                 text-decoration: none;
             }
 
@@ -467,14 +590,16 @@
             }
 
             /* Responsive Design */
-            @media (max-width: 768px) {
-                .page-title {
-                    font-size: 2.5rem;
-                }
-
+            @media (max-width: 992px) {
                 .two-column {
                     grid-template-columns: 1fr;
-                    gap: 1.5rem;
+                    gap: 2rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .page-title {
+                    font-size: 2.2rem;
                 }
 
                 .main-container {
@@ -482,7 +607,49 @@
                 }
 
                 .skills-section {
-                    padding: 1.5rem;
+                    padding: 1.25rem;
+                }
+
+                .card-header-row {
+                    flex-direction: column;
+                    gap: 0.75rem;
+                }
+
+                .card-header-right {
+                    text-align: left;
+                    align-items: flex-start;
+                }
+
+                .certificates-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .certificate-item {
+                    flex-wrap: wrap;
+                }
+
+                .certificate-link {
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 0.5rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .page-title {
+                    font-size: 1.8rem;
+                }
+
+                .section-header {
+                    font-size: 1.4rem;
+                }
+
+                .position-title {
+                    font-size: 1.05rem;
+                }
+
+                .card-body {
+                    padding: 1.25rem;
                 }
             }
 
@@ -549,72 +716,98 @@
 
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">10.2025 - Present</div>
-                                        <div class="position-title">Data Scientist / Automation Engineer</div>
-                                        <div class="company-name">BuzzTech Yazılım A.Ş.</div>
-                                        <div class="location-text">Istanbul, Turkey</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Data Scientist / Automation Engineer</div>
+                                            <div class="company-name"><i class="fas fa-building"></i> BuzzTech Yazılım A.Ş.</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Oct 2025 - Present</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        • Business Intelligence: Built Power BI dashboards for logistics operations,converting complex datasets into actionable KPIs for operational optimization.
-                                        • AI Process Automation: Designed and deployed AI agents to automate logisticsworkflows, reducing manual effort and improving process efficiency
-                                        • Production Planning: Applied time series forecasting models to support year-endproduction planning and demand allocation
-                                    </div>
+                                    <ul class="description-list">
+                                        <li><span class="highlight-text">Business Intelligence:</span> Built Power BI dashboards for logistics operations, converting complex datasets into actionable KPIs for operational optimization.</li>
+                                        <li><span class="highlight-text">AI Process Automation:</span> Designed and deployed AI agents to automate logistics workflows, reducing manual effort and improving process efficiency.</li>
+                                        <li><span class="highlight-text">Production Planning:</span> Applied time series forecasting models to support year-end production planning and demand allocation.</li>
+                                    </ul>
                                 </div>
                             </div>
                             
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">12.2025 - 09.2025</div>
-                                        <div class="position-title">Data Scientist</div>
-                                        <div class="company-name">IMEBrands</div>
-                                        <div class="location-text">Schaumburg, USA</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Data Scientist</div>
+                                            <div class="company-name"><i class="fas fa-building"></i> IMEBrands</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Dec 2024 - Sep 2025</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Schaumburg, USA</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        • Forecasting: Built deep learning time series models to forecast revenue and Amazon Buy Box performance, improving inventory and PPC efficiency.
-                                        • Customer Analytics: Applied RFM and cohort analysis to estimate CLV and ran A/B tests to drive data-driven marketing improvements.
-                                        • AI Systems: Developed RAG-based chatbots and agentic AI systems for automated insights and proactive decision support
-                                    </div>
+                                    <ul class="description-list">
+                                        <li><span class="highlight-text">Forecasting:</span> Built deep learning time series models to forecast revenue and Amazon Buy Box performance, improving inventory and PPC efficiency.</li>
+                                        <li><span class="highlight-text">Customer Analytics:</span> Applied RFM and cohort analysis to estimate CLV and ran A/B tests to drive data-driven marketing improvements.</li>
+                                        <li><span class="highlight-text">AI Systems:</span> Developed RAG-based chatbots and agentic AI systems for automated insights and proactive decision support.</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">05.2024 - 12.2024</div>
-                                        <div class="position-title">Data Analyst</div>
-                                        <div class="company-name">E-Commerce Company</div>
-                                        <div class="location-text">Istanbul, Turkey</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Data Analyst</div>
+                                            <div class="company-name"><i class="fas fa-shopping-cart"></i> E-Commerce Company</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> May 2024 - Dec 2024</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        Analyzed 100K+ e-commerce transactions with Python to uncover 3 key purchasing patterns. Developed 12 interactive visualizations and insights that drove a 15% sales increase. Delivered 8 data-driven recommendations, reducing operational costs by 12%.
-                                    </div>
+                                    <ul class="description-list">
+                                        <li>Analyzed <span class="highlight-text">100K+ e-commerce transactions</span> with Python to uncover 3 key purchasing patterns.</li>
+                                        <li>Developed <span class="highlight-text">12 interactive visualizations</span> and insights that drove a <span class="highlight-text">15% sales increase</span>.</li>
+                                        <li>Delivered 8 data-driven recommendations, reducing operational costs by <span class="highlight-text">12%</span>.</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">09.2024 - Present </div>
-                                        <div class="position-title">Data Scientist & Kaggle Grandmaster</div>
-                                        <div class="company-name">Kaggle</div>
-                                        <div class="location-text">Global</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Data Scientist & Kaggle Grandmaster</div>
+                                            <div class="company-name"><i class="fab fa-kaggle"></i> Kaggle</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Sep 2024 - Present</span>
+                                            <span class="location-badge"><i class="fas fa-globe"></i> Global</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        Reached global Kaggle rank #52/60K+ through 20+ ML notebooks (~95% avg. accuracy) and 1K+ upvoted open-source projects. Proven skills in ensemble methods, deep learning, and feature engineering.
-                                    </div>
+                                    <ul class="description-list">
+                                        <li>Reached <span class="highlight-text">global Kaggle rank #32/60K+</span> through 20+ ML notebooks (~95% avg. accuracy).</li>
+                                        <li>Created <span class="highlight-text">1K+ upvoted</span> open-source projects and contributions.</li>
+                                        <li>Proven skills in <span class="highlight-text">ensemble methods, deep learning,</span> and feature engineering.</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">2019 - 2024</div>
-                                        <div class="position-title">Combat Medical Specialist</div>
-                                        <div class="company-name">Naval Forces Command</div>
-                                        <div class="location-text">Izmir, Turkey</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Combat Medical Specialist</div>
+                                            <div class="company-name"><i class="fas fa-anchor"></i> Naval Forces Command</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> 2019 - 2024</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Izmir, Turkey</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        In addition to my overseas assignments at the Naval Forces Command, I worked in offices preparing official documents such as daily reports and attendance sheets. I analyzed health data and prepared risk assessment reports during operational preparations.
-                                    </div>
+                                    <ul class="description-list">
+                                        <li>Managed overseas assignments and prepared official documents including daily reports and attendance sheets.</li>
+                                        <li>Analyzed <span class="highlight-text">health data</span> and prepared risk assessment reports during operational preparations.</li>
+                                        <li>Developed strong organizational and analytical skills in high-pressure environments.</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -625,46 +818,58 @@
                             
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">02.2025 - Present</div>
-                                        <div class="position-title">Master's Degree</div>
-                                        <div class="company-name">Beykent University</div>
-                                        <div class="location-text">Istanbul, Turkey</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Master's Degree</div>
+                                            <div class="company-name"><i class="fas fa-university"></i> Beykent University</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Feb 2025 - Present</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        <strong>Industrial Engineering</strong><br>
-                                        In the Master's program in Industrial Engineering at Beykent University, I am focusing on data mining and simulation modeling to deepen my knowledge in data analysis and data science.
-                                    </div>
+                                    <div class="degree-name"><i class="fas fa-graduation-cap"></i> Industrial Engineering</div>
+                                    <p class="description-text">
+                                        Focusing on <span class="highlight-text">data mining</span> and <span class="highlight-text">simulation modeling</span> to deepen knowledge in data analysis and data science applications in industrial settings.
+                                    </p>
                                 </div>
                             </div>
                             
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">09.2024 - Present </div>
-                                        <div class="position-title">Bachelor's Degree</div>
-                                        <div class="company-name">Istanbul University</div>
-                                        <div class="location-text">Istanbul, Turkey</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Bachelor's Degree</div>
+                                            <div class="company-name"><i class="fas fa-university"></i> Istanbul University</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Sep 2024 - Present</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        <strong>Management Information Systems</strong><br>
-                                        I am expanding my expertise in data-driven decision-making by studying information systems, business intelligence, and digital transformation. This program complements my technical background by strengthening my understanding of organizational structures and strategic IT management.
-                                    </div>
+                                    <div class="degree-name"><i class="fas fa-graduation-cap"></i> Management Information Systems</div>
+                                    <p class="description-text">
+                                        Expanding expertise in <span class="highlight-text">data-driven decision-making</span> through studies in information systems, business intelligence, and digital transformation. Strengthening understanding of organizational structures and strategic IT management.
+                                    </p>
                                 </div>
                             </div>
                             
                             <div class="professional-card">
                                 <div class="card-body">
-                                    <div class="time-badge">
-                                        <div class="time-text">2013 - 2017</div>
-                                        <div class="position-title">Bachelor's Degree</div>
-                                        <div class="company-name">Mugla Sıtkı Kocman University</div>
-                                        <div class="location-text">Mugla, Turkey</div>
+                                    <div class="card-header-row">
+                                        <div class="card-header-left">
+                                            <div class="position-title">Bachelor's Degree</div>
+                                            <div class="company-name"><i class="fas fa-university"></i> Muğla Sıtkı Koçman University</div>
+                                        </div>
+                                        <div class="card-header-right">
+                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> 2013 - 2017</span>
+                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Muğla, Turkey</span>
+                                        </div>
                                     </div>
-                                    <div class="description-text">
-                                        <strong>Sports Sciences</strong><br>
-                                        Studied Sports Sciences, gaining knowledge in areas such as physical performance analysis, sports psychology, and health management.
-                                    </div>
+                                    <div class="degree-name"><i class="fas fa-graduation-cap"></i> Sports Sciences</div>
+                                    <p class="description-text">
+                                        Studied <span class="highlight-text">physical performance analysis</span>, sports psychology, and health management. Developed strong analytical and problem-solving skills.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -674,34 +879,56 @@
                     <div class="fade-in">
                         <div class="skills-section">
                             <h2 class="section-header">Technical Skills</h2>
-                            <div class="tech-skills">
-                                <span class="tech-skill"><i class="fab fa-python"></i> Python</span>
-                                <span class="tech-skill"><i class="fas fa-database"></i> SQL</span>
-                                <span class="tech-skill"><i class="fas fa-chart-line"></i> Power BI</span>
-                                <span class="tech-skill"><i class="fas fa-chart-area"></i> Tableau</span>
-                                <span class="tech-skill"><i class="fas fa-file-excel"></i> Excel</span>
-                                <span class="tech-skill"><i class="fas fa-chart-bar"></i> SPSS</span>
-                                <span class="tech-skill"><i class="fas fa-table"></i> Pandas</span>
-                                <span class="tech-skill"><i class="fas fa-square-root-alt"></i> NumPy</span>
-                                <span class="tech-skill"><i class="fas fa-chart-line"></i> Matplotlib</span>
-                                <span class="tech-skill"><i class="fas fa-chart-pie"></i> Seaborn</span>
-                                <span class="tech-skill"><i class="fas fa-project-diagram"></i> Plotly</span>
-                                <span class="tech-skill"><i class="fas fa-brain"></i> Scikit-learn</span>
-                                <span class="tech-skill"><i class="fas fa-network-wired"></i> TensorFlow</span>
-                                <span class="tech-skill"><i class="fas fa-layer-group"></i> Keras</span>
-                                <span class="tech-skill"><i class="fas fa-fire"></i> PyTorch</span>
-                                <span class="tech-skill"><i class="fas fa-language"></i> NLTK</span>
-                                <span class="tech-skill"><i class="fas fa-comments"></i> spaCy</span>
-                                <span class="tech-skill"><i class="fas fa-robot"></i> Transformers</span>
-                                <span class="tech-skill"><i class="fas fa-eye"></i> OpenCV</span>
-                                <span class="tech-skill"><i class="fas fa-brain"></i> Hugging Face</span>
-                                <span class="tech-skill"><i class="fas fa-code"></i> LangChain</span>
-                                <span class="tech-skill"><i class="fas fa-database"></i> MySQL</span>
-                                <span class="tech-skill"><i class="fas fa-database"></i> PostgreSQL</span>
-                                <span class="tech-skill"><i class="fab fa-git-alt"></i> Git</span>
-                                <span class="tech-skill"><i class="fab fa-docker"></i> Docker</span>
-                                <span class="tech-skill"><i class="fab fa-aws"></i> AWS</span>
-                                <span class="tech-skill"><i class="fab fa-microsoft"></i> Azure</span>
+                            
+                            <div class="skill-category">
+                                <div class="skill-category-title"><i class="fas fa-chart-bar"></i> Data Analysis & Visualization</div>
+                                <div class="tech-skills">
+                                    <span class="tech-skill"><i class="fab fa-python"></i> Python</span>
+                                    <span class="tech-skill"><i class="fas fa-database"></i> SQL</span>
+                                    <span class="tech-skill"><i class="fas fa-chart-line"></i> Power BI</span>
+                                    <span class="tech-skill"><i class="fas fa-chart-area"></i> Tableau</span>
+                                    <span class="tech-skill"><i class="fas fa-file-excel"></i> Excel</span>
+                                    <span class="tech-skill"><i class="fas fa-chart-bar"></i> SPSS</span>
+                                    <span class="tech-skill"><i class="fas fa-table"></i> Pandas</span>
+                                    <span class="tech-skill"><i class="fas fa-square-root-alt"></i> NumPy</span>
+                                    <span class="tech-skill"><i class="fas fa-chart-line"></i> Matplotlib</span>
+                                    <span class="tech-skill"><i class="fas fa-chart-pie"></i> Seaborn</span>
+                                    <span class="tech-skill"><i class="fas fa-project-diagram"></i> Plotly</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <div class="skill-category-title"><i class="fas fa-brain"></i> Machine Learning & AI</div>
+                                <div class="tech-skills">
+                                    <span class="tech-skill"><i class="fas fa-brain"></i> Scikit-learn</span>
+                                    <span class="tech-skill"><i class="fas fa-network-wired"></i> TensorFlow</span>
+                                    <span class="tech-skill"><i class="fas fa-layer-group"></i> Keras</span>
+                                    <span class="tech-skill"><i class="fas fa-fire"></i> PyTorch</span>
+                                    <span class="tech-skill"><i class="fas fa-robot"></i> Hugging Face</span>
+                                    <span class="tech-skill"><i class="fas fa-code"></i> LangChain</span>
+                                    <span class="tech-skill"><i class="fas fa-robot"></i> Transformers</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <div class="skill-category-title"><i class="fas fa-language"></i> NLP & Computer Vision</div>
+                                <div class="tech-skills">
+                                    <span class="tech-skill"><i class="fas fa-language"></i> NLTK</span>
+                                    <span class="tech-skill"><i class="fas fa-comments"></i> spaCy</span>
+                                    <span class="tech-skill"><i class="fas fa-eye"></i> OpenCV</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <div class="skill-category-title"><i class="fas fa-cloud"></i> Databases & Cloud</div>
+                                <div class="tech-skills">
+                                    <span class="tech-skill"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="tech-skill"><i class="fas fa-database"></i> PostgreSQL</span>
+                                    <span class="tech-skill"><i class="fab fa-git-alt"></i> Git</span>
+                                    <span class="tech-skill"><i class="fab fa-docker"></i> Docker</span>
+                                    <span class="tech-skill"><i class="fab fa-aws"></i> AWS</span>
+                                    <span class="tech-skill"><i class="fab fa-microsoft"></i> Azure</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -710,81 +937,83 @@
                     <div class="fade-in">
                         <h2 class="section-header">Certificates</h2>
                         
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                        <div class="certificates-grid">
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">IBM Data Scientist Professional</div>
+                                    <div class="certificate-issuer">IBM</div>
+                                </div>
+                                <a href="https://www.coursera.org/account/accomplishments/professional-cert/MWCG8A71KARH" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">IBM Data Scientist</div>
-                                <div class="certificate-issuer">IBM</div>
+                            
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/google.png" alt="Google Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">Google Advanced Data Analytics</div>
+                                    <div class="certificate-issuer">Google</div>
+                                </div>
+                                <a href="https://www.coursera.org/account/accomplishments/professional-cert/CDYVK4XQMJI9" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/MWCG8A71KARH" class="certificate-link">View Certificate</a>
-                        </div>
-                        
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/google.png" alt="Google Logo" class="logo-img">
+                            
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/google.png" alt="Google Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">Google Data Analytics Capstone</div>
+                                    <div class="certificate-issuer">Google</div>
+                                </div>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/QU2LF4VIYQT5" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">Google Advanced Data Analytics</div>
-                                <div class="certificate-issuer">Google</div>
+                            
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">IBM Data Analysis with Python</div>
+                                    <div class="certificate-issuer">IBM SkillsBuild</div>
+                                </div>
+                                <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/bb79187404414c2d9fcbd62d85ca61d4" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/CDYVK4XQMJI9" class="certificate-link">View Certificate</a>
-                        </div>
-                        
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/google.png" alt="Google Logo" class="logo-img">
+                            
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">Data Analysis Using Python</div>
+                                    <div class="certificate-issuer">IBM (Credly)</div>
+                                </div>
+                                <a href="https://www.credly.com/badges/fcc4b563-50e5-4aa1-b8a2-a7045fb950ed/public_url" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">Google Data Analytics Capstone</div>
-                                <div class="certificate-issuer">Google</div>
+                            
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">Data Fundamentals</div>
+                                    <div class="certificate-issuer">IBM (Credly)</div>
+                                </div>
+                                <a href="https://www.credly.com/badges/cc9dd5a4-9f2b-4e23-9867-f7e470112a17/public_url" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <a href="https://www.coursera.org/account/accomplishments/verify/QU2LF4VIYQT5?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" class="certificate-link">View Certificate</a>
-                        </div>
-                        
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                            
+                            <div class="certificate-item">
+                                <div class="certificate-logo">
+                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
+                                </div>
+                                <div class="certificate-info">
+                                    <div class="certificate-title">Python for Data Science</div>
+                                    <div class="certificate-issuer">IBM (Credly)</div>
+                                </div>
+                                <a href="https://www.credly.com/badges/ee9a1649-5336-4c3a-9c18-0ef7253c3ca2/public_url" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
                             </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">IBM Data Analysis with Python</div>
-                                <div class="certificate-issuer">IBM</div>
-                            </div>
-                            <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/bb79187404414c2d9fcbd62d85ca61d4" class="certificate-link">View Certificate</a>
-                        </div>
-                        
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                            </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">Data Analysis Using Python</div>
-                                <div class="certificate-issuer">IBM</div>
-                            </div>
-                            <a href="https://www.credly.com/badges/fcc4b563-50e5-4aa1-b8a2-a7045fb950ed/public_url" class="certificate-link">View Certificate</a>
-                        </div>
-                        
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                            </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">Data Fundamentals</div>
-                                <div class="certificate-issuer">IBM</div>
-                            </div>
-                            <a href="https://www.credly.com/badges/cc9dd5a4-9f2b-4e23-9867-f7e470112a17/public_url" class="certificate-link">View Certificate</a>
-                        </div>
-                        
-                        <div class="certificate-item">
-                            <div class="certificate-logo">
-                                <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                            </div>
-                            <div class="certificate-info">
-                                <div class="certificate-title">Python for Data Science</div>
-                                <div class="certificate-issuer">IBM</div>
-                            </div>
-                            <a href="https://www.credly.com/badges/ee9a1649-5336-4c3a-9c18-0ef7253c3ca2/public_url" class="certificate-link">View Certificate</a>
                         </div>
                     </div>
                 </div>
