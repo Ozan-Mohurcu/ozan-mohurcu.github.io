@@ -399,6 +399,40 @@
         border: none; box-shadow: none; border-radius: 0;
       }
     }
+
+    /* ===== Mobile responsiveness (≤ 768px) ===== */
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 16px;
+      }
+      .nav-links {
+        width: 100%;
+        gap: 16px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 2px;
+        justify-content: flex-start;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { white-space: nowrap; flex-shrink: 0; }
+      .lang-switch { flex-shrink: 0; }
+      .brand { font-size: 0.95rem; }
+      .hero { padding: 36px 20px 16px !important; }
+      .cards, .explore, main.contact, main.cv, .page-main {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+      .page-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 22px 18px 30px;
+      }
+    }
   </style>
 </head>
 

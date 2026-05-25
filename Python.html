@@ -362,6 +362,40 @@
     }
     .page-footer .footer-links { display: flex; gap: 18px; }
     .page-footer .footer-links a:hover { color: var(--text); }
+
+    /* ===== Mobile responsiveness (≤ 768px) ===== */
+    @media (max-width: 768px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 16px;
+      }
+      .nav-links {
+        width: 100%;
+        gap: 16px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 2px;
+        justify-content: flex-start;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { white-space: nowrap; flex-shrink: 0; }
+      .lang-switch { flex-shrink: 0; }
+      .brand { font-size: 0.95rem; }
+      .hero { padding: 36px 20px 16px !important; }
+      .cards, .explore, main.contact, main.cv, .page-main {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+      .page-footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 22px 18px 30px;
+      }
+    }
   </style>
 </head>
 
@@ -777,16 +811,18 @@ plt.show()`
     function typeStep() {
       const snippet = SNIPPETS[snippetIdx].code;
       if (charIdx < snippet.length) {
-        typed += snippet[charIdx];
-        charIdx++;
+        // Type 2-3 chars per tick for a much faster "live coding" feel
+        const burst = 2 + Math.floor(Math.random() * 2);
+        for (let k = 0; k < burst && charIdx < snippet.length; k++) {
+          typed += snippet[charIdx];
+          charIdx++;
+        }
         renderPane();
-        const ch = snippet[charIdx - 1];
+        const last = snippet[charIdx - 1];
         let delay;
-        if (ch === '\n') delay = 90 + Math.random() * 80;
-        else if (ch === ' ') delay = 18 + Math.random() * 18;
-        else delay = 24 + Math.random() * 32;
-        // Occasional pause as if thinking
-        if (Math.random() < 0.02) delay += 200;
+        if (last === '\n') delay = 28 + Math.random() * 24;
+        else if (last === ' ') delay = 6 + Math.random() * 6;
+        else delay = 8 + Math.random() * 10;
         setTimeout(typeStep, delay);
       } else {
         // Pause, then clear and start next snippet
@@ -805,11 +841,11 @@ plt.show()`
     renderPane();
     setTimeout(typeStep, 600);
 
-    /* Recede 1.5s after load */
+    /* Recede 5s after load so the live-coding effect can be enjoyed */
     setTimeout(() => {
       document.querySelector('.vscode-bg').classList.add('recede');
       document.querySelector('.vignette').classList.add('recede');
-    }, 1500);
+    }, 5000);
 
     /* Cards reveal */
     const revealObserver = new IntersectionObserver((entries) => {
@@ -832,7 +868,7 @@ plt.show()`
     setTimeout(() => {
       document.querySelector('.cards').classList.add('ready');
       document.querySelectorAll('[data-fx]').forEach(c => revealObserver.observe(c));
-    }, 1500);
+    }, 5000);
   </script>
 
 </body>
