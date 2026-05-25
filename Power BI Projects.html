@@ -1,1426 +1,900 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Power BI Projects</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XL6YG0LSV2');
-        </script>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="css/styles.css">
-        <!-- Firebase SDK -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-        <script>
-            window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
-        </script>
-        
-        <style>
-            :root {
-                --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
-                --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
-                --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-                --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-                --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
-                --gradient-data: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
-                --neon-blue: #00ffff;
-                --neon-purple: #bf00ff;
-                --neon-orange: #ff8c00;
-                --neon-green: #00ff41;
-                --dark-bg: #0d1421;
-                --dark-surface: #1a2332;
-            }
-
-            body {
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                background: var(--gradient-matrix);
-                min-height: 100vh;
-                overflow-x: hidden;
-            }
-
-            /* AI Circuit Background Animation */
-            .ai-background {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                opacity: 0.1;
-                background-image: 
-                    radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
-                    radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
-                    radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px),
-                    radial-gradient(circle at 60% 20%, var(--neon-green) 1px, transparent 1px);
-                background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px;
-                animation: data-flow 20s infinite linear;
-            }
-
-            @keyframes data-flow {
-                0% { transform: translateX(-50px) translateY(-50px); }
-                100% { transform: translateX(50px) translateY(50px); }
-            }
-
-            /* Modern Glassmorphism Navigation */
-            .navbar {
-                background: rgba(13, 20, 33, 0.9) !important;
-                backdrop-filter: blur(20px);
-                border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-                box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000;
-                transition: all 0.3s ease;
-            }
-
-            .navbar-brand {
-                font-weight: 800;
-                font-size: 1.3rem;
-                background: var(--gradient-data);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                position: relative;
-            }
-
-            .navbar-brand::after {
-                content: '📊';
-                position: absolute;
-                right: -35px;
-                top: 0;
-                color: var(--neon-orange);
-                animation: chart-pulse 2s infinite;
-            }
-
-            @keyframes chart-pulse {
-                0%, 100% { 
-                    text-shadow: 0 0 5px var(--neon-orange);
-                    transform: scale(1) rotate(0deg);
-                }
-                50% { 
-                    text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange);
-                    transform: scale(1.1) rotate(5deg);
-                }
-            }
-
-            .navbar-nav .nav-link {
-                color: var(--neon-blue) !important;
-                font-weight: 600;
-                margin: 0 10px;
-                position: relative;
-                transition: all 0.3s ease;
-            }
-
-            .navbar-nav .nav-link:hover {
-                transform: translateY(-3px);
-                color: white !important;
-                text-shadow: 0 0 10px var(--neon-blue);
-            }
-
-            .navbar-nav .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: -5px;
-                left: 50%;
-                background: var(--gradient-data);
-                transition: all 0.3s ease;
-                transform: translateX(-50%);
-                box-shadow: 0 0 10px var(--neon-blue);
-            }
-
-            .navbar-nav .nav-link:hover::after {
-                width: 100%;
-            }
-
-            /* AI Floating Elements */
-            .floating-element {
-                position: fixed;
-                border-radius: 50%;
-                animation: floatUpDown 8s ease-in-out infinite;
-                z-index: -1;
-            }
-
-            .floating-element:nth-child(1) {
-                width: 90px;
-                height: 90px;
-                top: 20%;
-                left: 5%;
-                background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
-                animation-delay: 0s;
-                box-shadow: 0 0 40px var(--neon-blue);
-            }
-
-            .floating-element:nth-child(2) {
-                width: 70px;
-                height: 70px;
-                top: 60%;
-                right: 8%;
-                background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
-                animation-delay: 2s;
-                box-shadow: 0 0 35px var(--neon-purple);
-            }
-
-            .floating-element:nth-child(3) {
-                width: 110px;
-                height: 110px;
-                bottom: 20%;
-                left: 2%;
-                background: radial-gradient(circle, var(--neon-orange) 0%, transparent 70%);
-                animation-delay: 4s;
-                box-shadow: 0 0 45px var(--neon-orange);
-            }
-
-            .floating-element:nth-child(4) {
-                width: 80px;
-                height: 80px;
-                top: 40%;
-                right: 15%;
-                background: radial-gradient(circle, var(--neon-green) 0%, transparent 70%);
-                animation-delay: 6s;
-                box-shadow: 0 0 35px var(--neon-green);
-            }
-
-            @keyframes floatUpDown {
-                0%, 100% { 
-                    transform: translateY(0px) scale(1) rotate(0deg);
-                    opacity: 0.7;
-                }
-                50% { 
-                    transform: translateY(-40px) scale(1.1) rotate(180deg);
-                    opacity: 1;
-                }
-            }
-
-            /* Projects Section with AI Theme */
-            .projects-section {
-                padding-top: 120px;
-                background: linear-gradient(135deg, 
-                    rgba(13, 20, 33, 0.95) 0%, 
-                    rgba(26, 35, 50, 0.95) 30%,
-                    rgba(30, 60, 114, 0.95) 70%, 
-                    rgba(15, 52, 117, 0.95) 100%);
-                backdrop-filter: blur(20px);
-                position: relative;
-                min-height: 100vh;
-            }
-
-            .projects-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 15% 25%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
-                    radial-gradient(circle at 85% 75%, rgba(191, 0, 255, 0.15) 0%, transparent 50%),
-                    radial-gradient(circle at 45% 45%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 70% 20%, rgba(0, 255, 65, 0.1) 0%, transparent 50%);
-                animation: data-glow 12s ease-in-out infinite;
-                pointer-events: none;
-            }
-
-            @keyframes data-glow {
-                0%, 100% { opacity: 0.4; }
-                50% { opacity: 0.7; }
-            }
-
-            .projects-title {
-                background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-green) 30%, var(--neon-purple) 70%, var(--neon-orange) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 900;
-                text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-                position: relative;
-                animation: slideInUp 1s ease-out;
-            }
-
-            .projects-title::after {
-                content: '💹';
-                position: absolute;
-                right: -60px;
-                top: 0;
-                font-size: 0.8em;
-                animation: analytics-bounce 3s ease-in-out infinite;
-            }
-
-            @keyframes analytics-bounce {
-                0%, 100% { 
-                    transform: translateY(0px) scale(1) rotateY(0deg);
-                    filter: hue-rotate(0deg);
-                }
-                33% { 
-                    transform: translateY(-8px) scale(1.05) rotateY(120deg);
-                    filter: hue-rotate(120deg);
-                }
-                66% { 
-                    transform: translateY(-4px) scale(1.1) rotateY(240deg);
-                    filter: hue-rotate(240deg);
-                }
-            }
-
-            @keyframes slideInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* AI Power BI Project Cards - Redesigned */
-            .card {
-                background: rgba(26, 35, 50, 0.8) !important;
-                backdrop-filter: blur(15px);
-                border: 2px solid rgba(0, 255, 255, 0.3) !important;
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 255, 0.2),
-                    0 0 60px rgba(191, 0, 255, 0.1);
-                transition: all 0.4s ease;
-                position: relative;
-                overflow: hidden;
-                animation: slideInUp 1s ease-out;
-                border-radius: 20px !important;
-                margin-bottom: 40px !important;
-            }
-
-            .card:hover {
-                transform: translateY(-15px) scale(1.01);
-                border-color: var(--neon-green) !important;
-                box-shadow: 
-                    0 30px 60px rgba(0, 255, 255, 0.3),
-                    0 0 80px rgba(0, 255, 65, 0.2);
-            }
-
-            /* Card Layout - Flex Container */
-            .card-body {
-                position: relative;
-                z-index: 2;
-                background: transparent;
-                padding: 0 !important;
-            }
-
-            .card .d-flex {
-                display: flex !important;
-                align-items: center !important;
-                gap: 30px !important;
-                padding: 30px !important;
-                min-height: 280px !important;
-            }
-
-            /* Text Content Area */
-            .card .content-area {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                padding-right: 20px;
-            }
-
-            /* Image Container */
-            .card .image-container {
-                flex-shrink: 0;
-                width: 380px;
-                height: 220px;
-                border-radius: 15px;
-                overflow: hidden;
-                border: 3px solid var(--neon-blue);
-                box-shadow: 
-                    0 15px 30px rgba(0, 255, 255, 0.3),
-                    0 0 40px rgba(0, 255, 255, 0.2);
-                transition: all 0.4s ease;
-                position: relative;
-                cursor: pointer;
-            }
- 
-            .card .image-container::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(45deg, 
-                    rgba(0, 255, 255, 0.1) 0%, 
-                    transparent 50%, 
-                    rgba(0, 255, 255, 0.1) 100%);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                z-index: 1;
-            }
-
-            .card:hover .image-container::before {
-                opacity: 1;
-            }
-
-            /* Image Styling */
-            .card img {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-                transition: all 0.4s ease;
-                position: relative;
-                z-index: 0;
-            }
-
-            /* AI Project Titles */
-            .card h2 {
-                background: linear-gradient(135deg, var(--neon-orange) 0%, var(--neon-blue) 50%, var(--neon-green) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 800;
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-                position: relative;
-                animation: slideInUp 1s ease-out 0.2s both;
-                line-height: 1.3;
-            }
-
-            .card h2::after {
-                content: '🎯';
-                position: absolute;
-                right: -30px;
-                top: 0;
-                font-size: 0.7em;
-                animation: target-analysis 4s linear infinite;
-            }
-
-            @keyframes target-analysis {
-                0% { 
-                    transform: rotate(0deg) scale(1);
-                    filter: hue-rotate(0deg);
-                }
-                25% { 
-                    transform: rotate(90deg) scale(1.05);
-                    filter: hue-rotate(90deg);
-                }
-                50% { 
-                    transform: rotate(180deg) scale(1.1);
-                    filter: hue-rotate(180deg);
-                }
-                75% { 
-                    transform: rotate(270deg) scale(1.05);
-                    filter: hue-rotate(270deg);
-                }
-                100% { 
-                    transform: rotate(360deg) scale(1);
-                    filter: hue-rotate(360deg);
-                }
-            }
-
-            .card p {
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 1rem;
-                line-height: 1.6;
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-                animation: slideInUp 1s ease-out 0.4s both;
-                margin-bottom: 20px;
-                text-align: justify;
-            }
-
-            /* Button Container */
-            .card .button-container {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                margin-top: auto;
-            }
-
-            /* Enhanced Like Button with AI Theme */
-            .like-button {
-                background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
-                border: 2px solid var(--neon-green);
-                color: white;
-                padding: 10px 20px;
-                border-radius: 25px;
-                font-weight: 700;
-                font-size: 0.9rem;
-                transition: all 0.4s ease;
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 
-                    0 8px 20px rgba(0, 255, 255, 0.3),
-                    0 0 30px rgba(191, 0, 255, 0.2);
-                animation: slideInUp 1s ease-out 0.6s both;
-            }
-
-            .like-button::before {
-                content: '💖';
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%) scale(0);
-                transition: transform 0.3s ease;
-                font-size: 1.1em;
-            }
-
-            .like-button:hover {
-                transform: translateY(-3px) scale(1.05);
-                background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-orange) 100%);
-                border-color: var(--neon-blue);
-                box-shadow: 
-                    0 15px 30px rgba(0, 255, 65, 0.4),
-                    0 0 50px rgba(255, 140, 0, 0.3);
-                text-shadow: 0 0 10px white;
-            }
-
-            .like-button:hover::before {
-                transform: translate(-50%, -50%) scale(1);
-            }
-
-            .like-button:active {
-                transform: translateY(-1px) scale(1.02);
-                animation: like-pulse 0.3s ease;
-            }
-
-            @keyframes like-pulse {
-                0%, 100% { transform: translateY(-1px) scale(1.02); }
-                50% { transform: translateY(-3px) scale(1.08); }
-            }
-
-            /* AI Like Counter */
-            .like-count {
-                color: var(--neon-green);
-                font-weight: 700;
-                font-size: 0.95rem;
-                text-shadow: 0 0 10px var(--neon-green);
-                position: relative;
-                animation: slideInUp 1s ease-out 0.8s both;
-            }
-
-            .like-count::before {
-                content: '📊 ';
-                font-size: 0.9em;
-                animation: count-glow 2s ease-in-out infinite;
-            }
-
-            @keyframes count-glow {
-                0%, 100% { 
-                    text-shadow: 0 0 5px var(--neon-green);
-                }
-                50% { 
-                    text-shadow: 0 0 15px var(--neon-green), 0 0 25px var(--neon-green);
-                }
-            }
-            
-            /* Styles for Image Zoom on Hover */
-            #image-zoom-backdrop {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                background-color: rgba(13, 20, 33, 0.85); /* Match the theme */
-                backdrop-filter: blur(10px);
-                z-index: 1999; /* Below the image */
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.4s ease;
-            }
-
-            #image-zoom-backdrop.visible {
-                opacity: 1;
-                pointer-events: all;
-            }
-            
-            img.zoomed-image-clone {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 60vw;
-                height: auto;
-                max-height: 80vh;
-                object-fit: contain;
-                z-index: 2000;
-                border-radius: 15px;
-                border: 3px solid var(--neon-green);
-                box-shadow: 0 0 80px rgba(0, 255, 65, 0.6);
-                animation: zoom-fade-in 0.4s ease;
-                cursor: pointer;
-            }
-
-            @keyframes zoom-fade-in {
-                from {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(0.8);
-                }
-                to {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1);
-                }
-            }
-
-            @media (max-width: 992px) {
-                .image-container.zoomed .img-fluid {
-                    width: 80vw;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .card .d-flex {
-                    flex-direction: column !important;
-                    gap: 20px !important;
-                    padding: 25px !important;
-                    min-height: auto !important;
-                }
-
-                .card .content-area {
-                    padding-right: 0;
-                    text-align: center;
-                }
-
-                .card .image-container {
-                    width: 100%;
-                    height: 200px;
-                    order: -1;
-                }
-
-                .card h2 {
-                    font-size: 1.4rem;
-                }
-
-                .card h2::after {
-                    right: -25px;
-                    font-size: 0.6em;
-                }
-
-                .projects-section {
-                    padding-top: 100px;
-                }
-
-                .button-container {
-                    justify-content: center;
-                }
-            }
-
-            @media (max-width: 576px) {
-                .card .d-flex {
-                    padding: 20px !important;
-                }
-                img.zoomed-image-clone {
-                    width: 95vw;
-                    max-height: 70vh;
-                }
-                .card h2 {
-                    font-size: 1.3rem;
-                }
-
-                .card p {
-                    font-size: 0.95rem;
-                }
-
-                .like-button {
-                    padding: 8px 16px;
-                    font-size: 0.85rem;
-                }
-            }
-
-            /* CTA Section AI Theme */
-            .bg-gradient-primary-to-secondary {
-                background: var(--gradient-data) !important;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .bg-gradient-primary-to-secondary::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
-                    radial-gradient(circle at 70% 30%, rgba(191, 0, 255, 0.2) 0%, transparent 50%);
-                animation: cta-glow 6s ease-in-out infinite;
-                pointer-events: none;
-            }
-
-            @keyframes cta-glow {
-                0%, 100% { opacity: 0.5; }
-                50% { opacity: 0.8; }
-            }
-
-            .bg-gradient-primary-to-secondary h2 {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-                animation: slideInUp 1s ease-out;
-            }
-
-            .btn-outline-light {
-                border: 3px solid var(--neon-blue) !important;
-                color: var(--neon-blue) !important;
-                background: rgba(0, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                transition: all 0.4s ease;
-                box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-                animation: slideInUp 1s ease-out 0.2s both;
-            }
-
-            .btn-outline-light:hover {
-                background: var(--neon-blue) !important;
-                color: var(--dark-bg) !important;
-                border-color: var(--neon-green) !important;
-                transform: translateY(-5px) scale(1.05);
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 255, 0.5),
-                    0 0 60px rgba(0, 255, 65, 0.4);
-            }
-
-            /* AI Footer */
-            footer {
-                background: rgba(13, 20, 33, 0.95) !important;
-                backdrop-filter: blur(10px);
-                border-top: 2px solid var(--neon-blue);
-                color: white !important;
-                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
-            }
-
-            footer .small {
-                color: rgba(255, 255, 255, 0.8) !important;
-            }
-
-            footer a {
-                color: var(--neon-blue) !important;
-                transition: all 0.3s ease;
-            }
-
-            footer a:hover {
-                color: var(--neon-orange) !important;
-                text-shadow: 0 0 10px var(--neon-orange);
-            }
-
-            /* Custom AI Scrollbar */
-            ::-webkit-scrollbar {
-                width: 14px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: rgba(13, 20, 33, 0.8);
-                border-radius: 7px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: var(--gradient-data);
-                border-radius: 7px;
-                border: 2px solid rgba(0, 255, 255, 0.3);
-                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: var(--gradient-secondary);
-                box-shadow: 0 0 25px rgba(255, 140, 0, 0.7);
-            }
-
-            /* Data Visualization Effects */
-            .data-particle {
-                position: fixed;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: -1;
-                animation: data-stream 10s infinite linear;
-            }
-
-            @keyframes data-stream {
-                0% {
-                    transform: translateY(100vh) translateX(0px) rotate(0deg) scale(0);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 1;
-                    transform: translateY(90vh) translateX(10px) rotate(36deg) scale(1);
-                }
-                90% {
-                    opacity: 1;
-                    transform: translateY(-10vh) translateX(100px) rotate(324deg) scale(1);
-                }
-                100% {
-                    transform: translateY(-20vh) translateX(120px) rotate(360deg) scale(0);
-                    opacity: 0;
-                }
-            }
-
-            /* Loading Animation */
-            .card {
-                opacity: 0;
-                animation: cardFadeIn 0.8s ease-out forwards;
-            }
-
-            @keyframes cardFadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* Holographic Text Effect */
-            .holographic-text {
-                background: linear-gradient(45deg, #ff0080, #00ffff, #ff8000, #8000ff);
-                background-size: 300% 300%;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                animation: holographic 3s ease-in-out infinite;
-            }
-
-            @keyframes holographic {
-                0%, 100% { background-position: 0% 50%; }
-                50% { background-position: 100% 50%; }
-            }
-
-        </style>
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <!-- AI Background -->
-        <div class="ai-background"></div>
-        
-        <!-- AI Floating Elements -->
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">
-                        <span class="fw-bolder text-primary">Welcome to the Power BI Project Page</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="NLP.html">NLP Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="LiveProjects.html">Live Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            
-            <!-- Projects Section -->
-            <section class="projects-section py-5">
-                <div class="container px-5 mb-5">
-                    <div class="text-center mb-5">
-                        <h1 class="display-5 fw-bolder mb-0 projects-title">
-                            <span class="text-gradient d-inline">Projects</span>
-                        </h1>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-11 col-xl-9 col-xxl-8">
-                            <!-- Project Card 1 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-9">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">NİJERYA ARABA PAZARI</h2>
-                                            <p>Nijerya Otomobil Pazarı Pano, stratejik pazar analizi için marka performansı, pazar payı ve tüketici eğilimleri gibi temel otomotiv metriklerini etkileşimli görseller aracılığıyla görselleştirir.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/dashboard.png" alt="Car Sales Dashboard" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- New Project Card 8 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-8">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">Kahve Satış Panosu</h2>
-                                            <p>Kahve satış performansını, trendleri ve kategori dağılımlarını temiz ve görsel bir tasarımla analiz etmek için etkileşimli Power BI panosu.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="page1.png" alt="Coffee Sales Dashboard" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 7 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-7">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">Akıllı Saat Performans İzleyici</h2>
-                                            <p>Akıllı Saat Performans Takip Panosu, akıllı saat satış verilerini görselleştirerek satış performansını gerçek zamanlı olarak takip etmenizi sağlar. Satış trendlerini çeşitli ölçümler ve grafiklerle analiz ederek stratejik kararlar almanıza ve büyüme fırsatlarını keşfetmenize yardımcı olur.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/smart1.png" alt="Smartwatch Performance Tracker" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Project Card 1 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" data-id="project-1">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">ARAÇ SATIŞ GÖSTERGE PANELİ</h2>
-                                            <p>Satış Panosu (Power BI), satış verilerini gerçek zamanlı analiz için görselleştirir. Satış hedefleri, gelir, ürün performansı ve müşteri sayısı gibi temel metrikler, etkili görsellerle görüntülenerek, gelişmiş satış stratejileri için karar alma süreçlerini destekler.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/car1.png" alt="Car Sales Dashboard" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 2 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-0" data-id="project-2">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">GLOBAL SÜPERMARKET PROJESİ</h2>
-                                            <p>Küresel Süpermarket Projesi, bir perakende mağazasının satış verilerini Power BI kullanarak analiz edip görselleştirdiğimiz bir projedir. Amacımız, iş kararlarını desteklemek için satış trendlerini, müşteri davranışlarını ve popüler ürünleri belirlemekti.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/global1.png" alt="Global Superstore Project" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 3 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-3">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">WASHINGTON D.C. SUÇLARI</h2>
-                                            <p>Washington D.C. Crime Power BI Pano, suç verilerini türe, konuma ve zamana göre görselleştirerek güvenlik stratejilerini geliştirmek için içgörüler sağlar.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/crime1.png" alt="Washington D.C. Crimes" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 4 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-4">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">TITANIC YOLCU ANALİZİ</h2>
-                                            <p>Titanic Yolcu Analizi (Power BI) projesi, yaş, sınıf, cinsiyet ve hayatta kalma oranları gibi temel yolcu verilerini görselleştirir. Hayatta kalmayı etkileşen faktörler hakkında bilgi sağlar ve trajik Titanic felaketi sırasında yolcu demografisinin anlaşılmasına yardımcı olur.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/titanic.png" alt="Titanic Passenger Analysis" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project Card 11 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project1">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">Operasyon ve Lojistik Performans Dashboard’u</h2>
-                                            <p>Bu dashboard, operasyon ve lojistik süreçlerini KPI’lar, stok durumu, teslimat süreleri ve tedarik zinciri performansını interaktif grafiklerle görselleştirir. Yöneticiler, süreçleri hızlıca izleyebilir ve verimliliği artıracak stratejik kararlar alabilir.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/Lojistic.png" alt="Titanic Passenger Analysis" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 10 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-10">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">Mobil Uygulama Performans ve Analiz Dashboard’u</h2>
-                                            <p>Bu dashboard, Play Store’daki mobil uygulamanın performansını KPI’lar, indirme sayıları, kullanıcı yorumları, değerlendirme puanları ve gelir trendleriyle interaktif grafiklerde gösterir. Ürün ve pazarlama ekipleri uygulama performansını hızlıca izleyebilir ve stratejik kararlar alabilir.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/appstore.png" alt="Titanic Passenger Analysis" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 5 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">İnsan Kaynakları Performans ve Analiz Dashboard’u</h2>
-                                            <p>Bu dashboard, çalışan performansı, devamsızlık oranları, turnover, eğitim ve yetkinlik gelişimi gibi temel İnsan Kaynakları metriklerini görselleştirir. Veriler, yöneticilerin stratejik karar almasını kolaylaştıracak şekilde KPI’lar, grafikler ve interaktif filtrelerle sunulmuştur. Çalışan memnuniyeti ve organizasyonel verimlilik trendlerini tek bakışta takip etmenizi sağlar.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/hr.png" alt="Laptop Price Analysis" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Project Card 6 -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mt-5" data-id="project-6">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="content-area">
-                                            <h2 class="fw-bolder">Havayolu Gecikme ve Operasyon Analizi Dashboard’u</h2>
-                                            <p>Bu dashboard, havayolu uçuşlarındaki gecikme verilerini detaylı olarak görselleştirir. Uçuş bazlı gecikme süreleri, havaalanı performansları, gecikme nedenleri ve zaman dilimleri KPI’lar ve interaktif grafiklerle sunulur. Yöneticiler, operasyonel darboğazları hızlıca tespit edebilir, gecikme trendlerini analiz edebilir ve stratejik aksiyonlar alabilir.</p>
-                                            <div class="button-container">
-                                                <button class="like-button">Beğen</button>
-                                                <span class="like-count">0 beğeni</span>
-                                            </div>
-                                        </div>
-                                        <div class="image-container">
-                                            <img class="img-fluid" src="img/airline.png" alt="Supermarket Sales Analysis" />
-                                        </div>
-                                    </div>
-                                </div>
-
-            </section>
-            <!-- Call to action section-->
-            <section class="py-5 bg-gradient-primary-to-secondary text-white">
-                <div class="container px-5 my-5">
-                    <div class="text-center">
-                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <!-- Footer-->
-        <footer class="py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto">
-                        <div class="small m-0">Copyright &copy; Ozan M.</div>
-                    </div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS - ORIGINAL LIKE BUTTON SCRIPT PRESERVED -->
-        <script src="js/projects.js"></script>
-        
-        <script>
-            // Enhanced navbar scroll effect with AI theme
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(13, 20, 33, 0.98)';
-                    navbar.style.boxShadow = '0 5px 30px rgba(0, 255, 255, 0.4)';
-                } else {
-                    navbar.style.background = 'rgba(13, 20, 33, 0.9)';
-                    navbar.style.boxShadow = '0 8px 32px rgba(0, 255, 255, 0.2)';
-                }
-            });
-
-            // AI-themed loading animation
-            window.addEventListener('load', function() {
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.8s ease-in-out';
-                setTimeout(() => {
-                    document.body.style.opacity = '1';
-                }, 100);
-            });
-
-            // Dynamic Data Visualization Particles
-            function createDataParticle() {
-                const particle = document.createElement('div');
-                const colors = ['#00ffff', '#bf00ff', '#ff8c00', '#00ff41'];
-                const shapes = ['📊', '📈', '📉', '💹', '🔢', '📋'];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-                
-                particle.className = 'data-particle';
-                particle.innerHTML = randomShape;
-                particle.style.fontSize = Math.random() * 10 + 15 + 'px';
-                particle.style.color = randomColor;
-                particle.style.left = Math.random() * window.innerWidth + 'px';
-                particle.style.textShadow = `0 0 ${Math.random() * 20 + 10}px ${randomColor}`;
-                
-                document.body.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 10000);
-            }
-
-            // Create data particles periodically
-            setInterval(createDataParticle, 400);
-
-            // Parallax effect for floating elements
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallax = scrolled * 0.3;
-                
-                document.querySelectorAll('.floating-element').forEach((element, index) => {
-                    const speed = (index + 1) * 0.4;
-                    element.style.transform = `translateY(${parallax * speed}px) rotate(${scrolled * 0.1}deg)`;
-                });
-            });
-
-            // AI Processing indicator for interactions
-            function showAIProcessing(message = '🤖 AI Processing Data...') {
-                const indicator = document.createElement('div');
-                indicator.innerHTML = message;
-                indicator.style.position = 'fixed';
-                indicator.style.top = '50%';
-                indicator.style.left = '50%';
-                indicator.style.transform = 'translate(-50%, -50%)';
-                indicator.style.background = 'rgba(0, 255, 255, 0.95)';
-                indicator.style.color = '#0d1421';
-                indicator.style.padding = '20px 40px';
-                indicator.style.borderRadius = '30px';
-                indicator.style.fontSize = '1.2rem';
-                indicator.style.fontWeight = 'bold';
-                indicator.style.zIndex = '9999';
-                indicator.style.backdropFilter = 'blur(10px)';
-                indicator.style.border = '3px solid #00ff41';
-                indicator.style.boxShadow = '0 20px 40px rgba(0, 255, 255, 0.6)';
-                indicator.style.animation = 'ai-processing 1.5s ease-in-out infinite';
-                
-                document.body.appendChild(indicator);
-                
-                setTimeout(() => {
-                    indicator.remove();
-                }, 2000);
-            }
-
-            // Add AI processing animation
-            const aiStyle = document.createElement('style');
-            aiStyle.textContent = `
-                @keyframes ai-processing {
-                    0%, 100% { 
-                        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
-                        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.6);
-                    }
-                    50% { 
-                        transform: translate(-50%, -50%) scale(1.05) rotateY(5deg);
-                        box-shadow: 0 25px 50px rgba(0, 255, 65, 0.8);
-                    }
-                }
-            `;
-            document.head.appendChild(aiStyle);
-
-            // Enhanced like button effects with AI processing
-            document.querySelectorAll('.like-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    showAIProcessing('💖 Processing Like...');
-                    
-                    // Add special like effect
-                    const rect = this.getBoundingClientRect();
-                    const x = rect.left + rect.width / 2;
-                    const y = rect.top + rect.height / 2;
-                    
-                    for (let i = 0; i < 6; i++) {
-                        setTimeout(() => {
-                            createLikeExplosion(x, y);
-                        }, i * 100);
-                    }
-                });
-            });
-
-            // Like explosion effect
-            function createLikeExplosion(x, y) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '💖';
-                heart.style.position = 'fixed';
-                heart.style.left = x + 'px';
-                heart.style.top = y + 'px';
-                heart.style.fontSize = '24px';
-                heart.style.pointerEvents = 'none';
-                heart.style.zIndex = '9999';
-                heart.style.animation = 'like-explosion 1s ease-out forwards';
-                
-                document.body.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 1000);
-            }
-
-            // Add like explosion animation
-            const likeStyle = document.createElement('style');
-            likeStyle.textContent = `
-                @keyframes like-explosion {
-                    0% {
-                        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-                        opacity: 1;
-                    }
-                    100% {
-                        transform: translate(-50%, -50%) translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px) scale(2) rotate(360deg);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(likeStyle);
-
-            // Matrix digital rain effect
-            function createMatrixRain() {
-                const chars = '10101010';
-                const rainDrop = document.createElement('div');
-                rainDrop.textContent = chars[Math.floor(Math.random() * chars.length)];
-                rainDrop.style.position = 'fixed';
-                rainDrop.style.top = '-20px';
-                rainDrop.style.left = Math.random() * window.innerWidth + 'px';
-                rainDrop.style.color = '#00ffff';
-                rainDrop.style.fontSize = Math.random() * 12 + 8 + 'px';
-                rainDrop.style.fontFamily = 'monospace';
-                rainDrop.style.fontWeight = 'bold';
-                rainDrop.style.opacity = Math.random() * 0.7 + 0.3;
-                rainDrop.style.pointerEvents = 'none';
-                rainDrop.style.zIndex = '-1';
-                rainDrop.style.textShadow = '0 0 10px #00ffff';
-                rainDrop.style.animation = `matrix-fall ${Math.random() * 3 + 2}s linear forwards`;
-                
-                document.body.appendChild(rainDrop);
-                
-                setTimeout(() => {
-                    rainDrop.remove();
-                }, 5000);
-            }
-
-            // Add matrix fall animation
-            const matrixStyle = document.createElement('style');
-            matrixStyle.textContent = `
-                @keyframes matrix-fall {
-                    to {
-                        transform: translateY(calc(100vh + 50px));
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(matrixStyle);
-
-            // Create matrix rain periodically
-            setInterval(createMatrixRain, 300);
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Initialize staggered animations for cards
-            window.addEventListener('load', function() {
-                const cards = document.querySelectorAll('.card');
-                cards.forEach((card, index) => {
-                    card.style.animationDelay = (index * 0.2) + 's';
-                });
-                
-                // Intersection Observer for card animations
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.animationPlayState = 'running';
-                            entry.target.classList.add('animate-in');
-                        }
-                    });
-                }, {
-                    threshold: 0.1
-                });
-                
-                cards.forEach(card => {
-                    observer.observe(card);
-                });
-            });
-
-            // AI voice simulation (visual feedback)
-            function simulateAIVoice() {
-                const voiceIndicator = document.createElement('div');
-                voiceIndicator.innerHTML = '🔊 AI Analytics Active';
-                voiceIndicator.style.position = 'fixed';
-                voiceIndicator.style.bottom = '30px';
-                voiceIndicator.style.right = '30px';
-                voiceIndicator.style.background = 'rgba(0, 255, 255, 0.9)';
-                voiceIndicator.style.color = '#0d1421';
-                voiceIndicator.style.padding = '15px 25px';
-                voiceIndicator.style.borderRadius = '25px';
-                voiceIndicator.style.fontSize = '0.9rem';
-                voiceIndicator.style.fontWeight = 'bold';
-                voiceIndicator.style.zIndex = '9999';
-                voiceIndicator.style.backdropFilter = 'blur(10px)';
-                voiceIndicator.style.border = '2px solid #00ff41';
-                voiceIndicator.style.boxShadow = '0 10px 30px rgba(0, 255, 255, 0.6)';
-                voiceIndicator.style.animation = 'voice-pulse 2s ease-in-out infinite';
-                
-                document.body.appendChild(voiceIndicator);
-                
-                setTimeout(() => {
-                    voiceIndicator.remove();
-                }, 4000);
-            }
-
-            // Add voice pulse animation
-            const voiceStyle = document.createElement('style');
-            voiceStyle.textContent = `
-                @keyframes voice-pulse {
-                    0%, 100% { 
-                        transform: scale(1);
-                        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
-                    }
-                    50% { 
-                        transform: scale(1.05);
-                        box-shadow: 0 15px 40px rgba(0, 255, 65, 0.8);
-                    }
-                }
-            `;
-            document.head.appendChild(voiceStyle);
-
-            // Trigger AI voice simulation on page interactions
-            setTimeout(simulateAIVoice, 3000);
-            
-            // Holographic project titles
-            document.querySelectorAll('.card h2').forEach(title => {
-                title.addEventListener('mouseenter', function() {
-                    this.style.textShadow = `
-                        2px 0 #ff0000,
-                        -2px 0 #00ffff,
-                        0 2px #ff8c00,
-                        0 -2px #00ff41
-                    `;
-                });
-                
-                title.addEventListener('mouseleave', function() {
-                    this.style.textShadow = '0 0 30px rgba(0, 255, 255, 0.5)';
-                });
-            });
-
-            // --- NEW & IMPROVED: Image Zoom on Hover Logic ---
-            document.addEventListener('DOMContentLoaded', () => {
-                // Create and append the backdrop element to the body
-                const backdrop = document.createElement('div');
-                backdrop.id = 'image-zoom-backdrop';
-                document.body.appendChild(backdrop);
-                let zoomTimeout;
-
-                const closeZoom = () => {
-                    backdrop.classList.remove('visible');
-                    const existingClone = document.querySelector('.zoomed-image-clone');
-                    if (existingClone) {
-                        existingClone.remove();
-                    }
-                };
-                
-                document.querySelectorAll('.image-container').forEach(container => {
-                    container.addEventListener('mouseenter', () => {
-                        const originalImage = container.querySelector('img');
-                        clearTimeout(zoomTimeout);
-
-                        zoomTimeout = setTimeout(() => {
-                            closeZoom(); // Close any existing zoom before opening a new one
-                            
-                            const zoomedImageClone = originalImage.cloneNode();
-                            zoomedImageClone.className = 'zoomed-image-clone';
-                            document.body.appendChild(zoomedImageClone);
-                            backdrop.classList.add('visible');
-
-                            // Add listeners to the new elements to close them
-                            zoomedImageClone.addEventListener('mouseleave', closeZoom);
-                            backdrop.addEventListener('mouseleave', closeZoom);
-                            zoomedImageClone.addEventListener('click', closeZoom);
-                            backdrop.addEventListener('click', closeZoom);
-
-                        }, 150);
-                    });
-
-                    container.addEventListener('mouseleave', () => {
-                        clearTimeout(zoomTimeout);
-                    });
-                });
-            });
-
-        </script>
-    </body>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Power BI projects by Ozan M. — interactive business dashboards." />
+  <meta name="author" content="Ozan M." />
+  <title>Power BI Projects — Ozan M.</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XL6YG0LSV2');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --bg-soft: #0d0d12;
+      --surface: rgba(255, 255, 255, 0.035);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #f4f4f5;
+      --text-dim: #a1a1aa;
+      --text-mute: #71717a;
+      --violet: #3b82f6;
+      --indigo: #0ea5e9;
+      --cyan: #22d3ee;
+      --pink: #06b6d4;
+      --emerald: #10b981;
+      --grad-1: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #22d3ee 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); }
+    body {
+      background: transparent;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    #bg-canvas {
+      position: fixed; inset: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0; pointer-events: none;
+      opacity: 0.9;
+      transition: opacity 1.8s cubic-bezier(.2,.8,.2,1);
+    }
+    #bg-canvas.recede { opacity: 0.18; }
+    .vignette {
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 30%, transparent 40%, rgba(7,7,10,0.55) 100%);
+      z-index: 0; pointer-events: none;
+      transition: background 1.8s ease;
+    }
+    .vignette.recede {
+      background: radial-gradient(ellipse 90% 80% at 50% 50%,
+                                  rgba(7,7,10,0.78) 0%,
+                                  rgba(7,7,10,0.6) 50%,
+                                  rgba(7,7,10,0.4) 100%);
+    }
+
+    .nav, .hero, .cards, .page-footer { position: relative; z-index: 1; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 7, 10, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); position: relative; }
+    .nav-links a.active::after {
+      content: ""; position: absolute;
+      left: 0; right: 0; bottom: -6px; height: 2px;
+      background: var(--grad-1); border-radius: 2px;
+    }
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      margin-left: 6px;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: var(--text); color: var(--bg); }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 56px 32px 32px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.05;
+    }
+    .hero h1 .accent {
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .cards {
+      max-width: 1200px; margin: 0 auto;
+      padding: 40px 32px 80px;
+      display: flex; flex-direction: column; gap: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s cubic-bezier(.2,.8,.2,1),
+                  transform 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+    .cards.ready { opacity: 1; transform: translateY(0); }
+    .card-wrap { position: relative; }
+    .card {
+      position: relative;
+      padding: 32px;
+      border-radius: 24px;
+      background: rgba(13, 13, 18, 0.72);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      align-items: center;
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 0; border-radius: 24px;
+      background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%),
+        rgba(59,130,246,0.18), transparent 40%);
+      opacity: 0; transition: opacity 0.4s;
+      pointer-events: none; z-index: 1;
+    }
+    .card:hover::before { opacity: 1; }
+    .card:hover {
+      border-color: rgba(59,130,246,0.3);
+      box-shadow: 0 30px 60px -25px rgba(59,130,246,0.4);
+    }
+    .card::after {
+      content: ""; position: absolute;
+      top: 0; left: 0; height: 2px; width: 0;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      transition: width 1.2s cubic-bezier(.2,.8,.2,1);
+      z-index: 2;
+    }
+    .card.in-view::after { width: 100%; }
+
+    .image-frame {
+      position: relative;
+      width: 100%; aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      z-index: 2;
+    }
+    .image-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+    }
+    .card:hover .image-frame img { transform: scale(1.08); }
+
+    .content { position: relative; z-index: 2; }
+    .card h3 {
+      font-size: 1.45rem; font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .card h3 .underline { position: relative; display: inline-block; }
+    .card h3 .underline::after {
+      content: ""; position: absolute;
+      left: 0; bottom: -4px; height: 2px; width: 100%;
+      background: var(--violet);
+      transform-origin: left; transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+    .card:hover h3 .underline::after { transform: scaleX(1); }
+    .card p {
+      color: var(--text-dim); line-height: 1.65;
+      font-size: 0.94rem;
+      margin-bottom: 0;
+    }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .tag {
+      padding: 4px 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--text-dim);
+    }
+
+    .card .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(8px);
+      transition: opacity 0.8s cubic-bezier(.2,.8,.2,1),
+                  transform 0.8s cubic-bezier(.2,.8,.2,1),
+                  filter 0.8s ease;
+    }
+    .card.in-view .reveal-item {
+      opacity: 1; transform: translateY(0); filter: blur(0);
+    }
+    .card.in-view .reveal-item:nth-child(1) { transition-delay: 0s; }
+    .card.in-view .reveal-item:nth-child(2) { transition-delay: 0.12s; }
+    .card.in-view .reveal-item:nth-child(3) { transition-delay: 0.24s; }
+    .card.in-view .reveal-item:nth-child(4) { transition-delay: 0.36s; }
+
+    @media (max-width: 768px) {
+      .card { grid-template-columns: 1fr; padding: 24px; }
+      .image-frame { max-width: 280px; margin: 0 auto; }
+    }
+
+    .page-footer {
+      max-width: 1320px; margin: 0 auto;
+      padding: 30px 32px 50px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--text-mute); font-size: 0.82rem;
+    }
+    .page-footer .footer-links { display: flex; gap: 18px; }
+    .page-footer .footer-links a:hover { color: var(--text); }
+
+    /* ===== Dashboard hover preview (full-screen tooltip) ===== */
+    .img-preview-overlay {
+      position: fixed; inset: 0;
+      background: rgba(2, 4, 10, 0.88);
+      backdrop-filter: blur(28px) saturate(140%);
+      -webkit-backdrop-filter: blur(28px) saturate(140%);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+      padding: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .img-preview-overlay.show { opacity: 1; }
+    .img-preview-img {
+      max-width: 94vw;
+      max-height: 88vh;
+      width: auto; height: auto;
+      border-radius: 16px;
+      box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 0 60px rgba(59, 130, 246, 0.18);
+      transform: scale(0.94);
+      transition: transform 0.45s cubic-bezier(.2,.8,.2,1);
+    }
+    .img-preview-overlay.show .img-preview-img { transform: scale(1); }
+    .img-preview-caption {
+      position: absolute;
+      bottom: 22px; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 6px 14px;
+      background: rgba(13, 13, 18, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    /* Make small image hint that it expands */
+    .card .image-frame { cursor: zoom-in; }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Ozan M. · Data Scientist</a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="resume.html" data-i18n="nav.resume">Resume</a>
+        <a href="ML Projects.html" data-i18n="nav.ml">ML</a>
+        <a href="Power BI Projects.html" class="active" data-i18n="nav.powerbi">Power BI</a>
+        <a href="Python.html" data-i18n="nav.python">Python</a>
+        <a href="ComputerVision.html" data-i18n="nav.cnn">CNN</a>
+        <a href="NLP.html" data-i18n="nav.nlp">NLP</a>
+        <a href="LiveProjects.html" data-i18n="nav.live">Live</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="tr" type="button">TR</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1><span data-i18n="bi.title.pre">Power BI</span> <span class="accent" data-i18n="bi.title.accent">Projects</span></h1>
+  </section>
+
+  <section class="cards">
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/dashboard.png" alt="Nigeria Auto Market" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Market Analysis</span><span class="tag">Auto</span><span class="tag">KPI</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.nigeria.title">Nijerya Araba Pazarı</span></h3>
+        <p class="reveal-item" data-i18n="bi.nigeria.desc">Nijerya Otomobil Pazarı Pano — stratejik pazar analizi için marka performansı, pazar payı ve tüketici eğilimleri gibi temel otomotiv metriklerini etkileşimli görsellerle sunar.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="page1.png" alt="Coffee Sales" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Sales</span><span class="tag">Trends</span><span class="tag">Category Mix</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.coffee.title">Kahve Satış Panosu</span></h3>
+        <p class="reveal-item" data-i18n="bi.coffee.desc">Kahve satış performansını, trendleri ve kategori dağılımlarını temiz ve görsel bir tasarımla analiz eden etkileşimli Power BI panosu.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/smart1.png" alt="Smartwatch Performance" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Sales Tracking</span><span class="tag">Wearables</span><span class="tag">Real-time</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.smart.title">Akıllı Saat Performans İzleyici</span></h3>
+        <p class="reveal-item" data-i18n="bi.smart.desc">Akıllı saat satış verilerini görselleştirerek satış performansını gerçek zamanlı takip eden pano. Satış trendlerini çeşitli ölçümler ve grafiklerle analiz ederek stratejik kararlar almanıza yardımcı olur.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/car1.png" alt="Car Sales Dashboard" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Sales</span><span class="tag">Targets</span><span class="tag">Revenue</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.car.title">Araç Satış Gösterge Paneli</span></h3>
+        <p class="reveal-item" data-i18n="bi.car.desc">Satış verilerini gerçek zamanlı analiz için görselleştiren Power BI panosu. Satış hedefleri, gelir, ürün performansı ve müşteri sayısı gibi temel metrikleri etkili görsellerle sunar.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/global1.png" alt="Global Superstore" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Retail</span><span class="tag">Customer Behavior</span><span class="tag">Trends</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.global.title">Global Süpermarket Projesi</span></h3>
+        <p class="reveal-item" data-i18n="bi.global.desc">Bir perakende mağazasının satış verilerini Power BI ile analiz edip görselleştirdiğimiz proje. Amaç, iş kararlarını desteklemek için satış trendlerini, müşteri davranışlarını ve popüler ürünleri belirlemekti.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/crime1.png" alt="Washington D.C. Crimes" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Geo-Analytics</span><span class="tag">Crime</span><span class="tag">Time-Series</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.crime.title">Washington D.C. Suçları</span></h3>
+        <p class="reveal-item" data-i18n="bi.crime.desc">Washington D.C. suç verilerini türe, konuma ve zamana göre görselleştirerek güvenlik stratejilerini geliştirmek için içgörüler sağlayan pano.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/titanic.png" alt="Titanic Analysis" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Demographics</span><span class="tag">Survival</span><span class="tag">EDA</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.titanic.title">Titanic Yolcu Analizi</span></h3>
+        <p class="reveal-item" data-i18n="bi.titanic.desc">Yaş, sınıf, cinsiyet ve hayatta kalma oranları gibi temel yolcu verilerini görselleştiren Power BI panosu. Hayatta kalmayı etkileyen faktörler hakkında bilgi sağlar.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/Lojistic.png" alt="Logistics Operations" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Operations</span><span class="tag">Supply Chain</span><span class="tag">KPI</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.logistics.title">Operasyon &amp; Lojistik Performans</span></h3>
+        <p class="reveal-item" data-i18n="bi.logistics.desc">Operasyon ve lojistik süreçlerini KPI'lar, stok durumu, teslimat süreleri ve tedarik zinciri performansıyla interaktif grafiklerle görselleştiren dashboard.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/appstore.png" alt="Mobile App Analytics" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Mobile</span><span class="tag">Play Store</span><span class="tag">Reviews</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.mobile.title">Mobil Uygulama Performans Dashboard'u</span></h3>
+        <p class="reveal-item" data-i18n="bi.mobile.desc">Play Store mobil uygulama performansını KPI'lar, indirme sayıları, kullanıcı yorumları, değerlendirme puanları ve gelir trendleriyle interaktif grafiklerde sunan dashboard.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/hr.png" alt="HR Performance" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">HR Analytics</span><span class="tag">Turnover</span><span class="tag">Engagement</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.hr.title">İnsan Kaynakları Performans Dashboard'u</span></h3>
+        <p class="reveal-item" data-i18n="bi.hr.desc">Çalışan performansı, devamsızlık, turnover, eğitim ve yetkinlik gelişimi gibi İK metriklerini görselleştiren dashboard. KPI'lar, grafikler ve interaktif filtrelerle stratejik karar desteği.</p>
+      </div>
+    </div></div>
+
+    <div class="card-wrap"><div class="card" data-fx>
+      <div class="image-frame reveal-item"><img src="img/airline.png" alt="Airline Delays" /></div>
+      <div class="content">
+        <div class="tags reveal-item"><span class="tag">Aviation</span><span class="tag">Delay Analysis</span><span class="tag">Operations</span></div>
+        <h3 class="reveal-item"><span class="underline" data-i18n="bi.airline.title">Havayolu Gecikme &amp; Operasyon Dashboard'u</span></h3>
+        <p class="reveal-item" data-i18n="bi.airline.desc">Havayolu uçuşlarındaki gecikme verilerini detaylı görselleştiren dashboard. Uçuş bazlı gecikme süreleri, havaalanı performansları, gecikme nedenleri ve zaman dilimleri interaktif grafiklerle sunulur.</p>
+      </div>
+    </div></div>
+
+  </section>
+
+  <footer class="page-footer">
+    <div data-i18n="footer.copy">© Ozan M. · Portfolio</div>
+    <div class="footer-links">
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="resume.html" data-i18n="footer.resume">Resume</a>
+      <a href="ML Projects.html" data-i18n="footer.projects">Projects</a>
+    </div>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    console.log('[bi-bg] Three.js loaded:', THREE.REVISION);
+
+    /* ============================================================
+       i18n
+       ============================================================ */
+    const i18n = {
+      tr: {
+        'nav.home':'Ana Sayfa','nav.resume':'Özgeçmiş','nav.ml':'ML',
+        'nav.powerbi':'Power BI','nav.python':'Python','nav.cnn':'CNN',
+        'nav.nlp':'NLP','nav.live':'Canlı','nav.contact':'İletişim',
+
+        'bi.title.pre': 'Power BI',
+        'bi.title.accent': 'Projeleri',
+
+        'bi.nigeria.title': 'Nijerya Araba Pazarı',
+        'bi.nigeria.desc': 'Nijerya Otomobil Pazarı Pano — stratejik pazar analizi için marka performansı, pazar payı ve tüketici eğilimleri gibi temel otomotiv metriklerini etkileşimli görsellerle sunar.',
+
+        'bi.coffee.title': 'Kahve Satış Panosu',
+        'bi.coffee.desc': 'Kahve satış performansını, trendleri ve kategori dağılımlarını temiz ve görsel bir tasarımla analiz eden etkileşimli Power BI panosu.',
+
+        'bi.smart.title': 'Akıllı Saat Performans İzleyici',
+        'bi.smart.desc': 'Akıllı saat satış verilerini görselleştirerek satış performansını gerçek zamanlı takip eden pano. Trendler grafiklerle analiz edilip stratejik kararlar destekleniyor.',
+
+        'bi.car.title': 'Araç Satış Gösterge Paneli',
+        'bi.car.desc': 'Satış verilerini gerçek zamanlı analiz için görselleştiren Power BI panosu. Satış hedefleri, gelir, ürün performansı ve müşteri sayısı gibi metrikleri etkili görsellerle sunar.',
+
+        'bi.global.title': 'Global Süpermarket Projesi',
+        'bi.global.desc': 'Bir perakende mağazasının satış verilerini Power BI ile analiz edip görselleştirdiğimiz proje. Satış trendleri, müşteri davranışları ve popüler ürünler belirlendi.',
+
+        'bi.crime.title': 'Washington D.C. Suçları',
+        'bi.crime.desc': 'Washington D.C. suç verilerini türe, konuma ve zamana göre görselleştiren pano. Güvenlik stratejileri için içgörüler sağlar.',
+
+        'bi.titanic.title': 'Titanic Yolcu Analizi',
+        'bi.titanic.desc': 'Yaş, sınıf, cinsiyet ve hayatta kalma oranları gibi temel yolcu verilerini görselleştiren Power BI panosu.',
+
+        'bi.logistics.title': 'Operasyon & Lojistik Performans',
+        'bi.logistics.desc': "Operasyon ve lojistik süreçlerini KPI'lar, stok, teslimat süreleri ve tedarik zinciri performansıyla interaktif görselleştiren dashboard.",
+
+        'bi.mobile.title': "Mobil Uygulama Performans Dashboard'u",
+        'bi.mobile.desc': "Play Store mobil uygulama performansını KPI'lar, indirme sayıları, kullanıcı yorumları ve gelir trendleriyle interaktif sunan dashboard.",
+
+        'bi.hr.title': "İnsan Kaynakları Performans Dashboard'u",
+        'bi.hr.desc': "Çalışan performansı, devamsızlık, turnover, eğitim ve yetkinlik metriklerini görselleştiren İK dashboard'u. Stratejik karar desteği için interaktif filtreler.",
+
+        'bi.airline.title': "Havayolu Gecikme & Operasyon Dashboard'u",
+        'bi.airline.desc': 'Havayolu gecikme verilerini detaylı görselleştiren dashboard. Uçuş bazlı süreler, havaalanı performansları, gecikme nedenleri ve zaman dilimleri interaktif grafiklerle sunulur.',
+
+        'footer.copy':'© Ozan M. · Portfolyo',
+        'footer.contact':'İletişim',
+        'footer.resume':'Özgeçmiş',
+        'footer.projects':'Projeler'
+      },
+      en: {
+        'nav.home':'Home','nav.resume':'Resume','nav.ml':'ML',
+        'nav.powerbi':'Power BI','nav.python':'Python','nav.cnn':'CNN',
+        'nav.nlp':'NLP','nav.live':'Live','nav.contact':'Contact',
+
+        'bi.title.pre': 'Power BI',
+        'bi.title.accent': 'Projects',
+
+        'bi.nigeria.title': 'Nigeria Auto Market',
+        'bi.nigeria.desc': 'Nigeria Automotive Market dashboard — strategic market analysis with brand performance, market share and consumer trend metrics presented through interactive visuals.',
+
+        'bi.coffee.title': 'Coffee Sales Dashboard',
+        'bi.coffee.desc': 'Interactive Power BI dashboard analysing coffee sales performance, trends and category distribution with a clean visual design.',
+
+        'bi.smart.title': 'Smartwatch Performance Tracker',
+        'bi.smart.desc': 'Dashboard visualising smartwatch sales data for real-time performance tracking. Sales trends are analysed through metrics and charts to support strategic decisions.',
+
+        'bi.car.title': 'Car Sales Dashboard',
+        'bi.car.desc': 'Power BI dashboard visualising sales data for real-time analysis. Sales targets, revenue, product performance and customer count are surfaced via effective visuals.',
+
+        'bi.global.title': 'Global Superstore Project',
+        'bi.global.desc': "Retail sales analysis built with Power BI. Identified sales trends, customer behaviour and top-selling products to support business decisions.",
+
+        'bi.crime.title': 'Washington D.C. Crime',
+        'bi.crime.desc': 'Power BI dashboard visualising D.C. crime data by type, location and time, providing insights for security strategy.',
+
+        'bi.titanic.title': 'Titanic Passenger Analysis',
+        'bi.titanic.desc': 'Power BI dashboard visualising passenger data including age, class, gender and survival rates — surfacing factors affecting survival.',
+
+        'bi.logistics.title': 'Operations & Logistics Performance',
+        'bi.logistics.desc': 'Dashboard visualising operations and logistics processes with KPIs, inventory status, delivery times and supply chain performance through interactive charts.',
+
+        'bi.mobile.title': 'Mobile App Performance Dashboard',
+        'bi.mobile.desc': "Dashboard showing Play Store app performance through KPIs, downloads, reviews, ratings and revenue trends with interactive charts.",
+
+        'bi.hr.title': 'Human Resources Performance Dashboard',
+        'bi.hr.desc': 'HR dashboard visualising employee performance, absence, turnover, training and competency growth. KPIs, charts and interactive filters for strategic decisions.',
+
+        'bi.airline.title': 'Airline Delay & Operations Dashboard',
+        'bi.airline.desc': 'Detailed dashboard visualising airline delay data. Flight-level delays, airport performance, delay causes and time windows are presented through interactive charts.',
+
+        'footer.copy':'© Ozan M. · Portfolio',
+        'footer.contact':'Contact',
+        'footer.resume':'Resume',
+        'footer.projects':'Projects'
+      }
+    };
+
+    function applyLang(lang) {
+      if (!i18n[lang]) lang = 'tr';
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n'); const v = i18n[lang][k];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+    }
+    applyLang(localStorage.getItem('lang') || 'tr');
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.addEventListener('click', () => applyLang(b.dataset.lang));
+    });
+
+    /* ============================================================
+       BACKGROUND — 3D BAR GRID + FLOATING DASHBOARD PANELS
+       A 10×10 grid of animated bars with simplex-driven height
+       plus 4 translucent dashboard panels orbiting above.
+       ============================================================ */
+    const canvas = document.getElementById('bg-canvas');
+    const vignetteEl = document.querySelector('.vignette');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 200);
+    camera.position.set(0, 14, 22);
+    camera.lookAt(0, 2, 0);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+    /* === 3D BAR GRID === */
+    const GRID = 10;
+    const BAR_SIZE = 0.7;
+    const BAR_SPACING = 1.1;
+    const barColors = [0x3b82f6, 0x0ea5e9, 0x22d3ee, 0x06b6d4, 0x10b981];
+
+    const bars = [];
+    for (let x = 0; x < GRID; x++) {
+      for (let z = 0; z < GRID; z++) {
+        const color = barColors[(x + z) % barColors.length];
+        const mesh = new THREE.Mesh(
+          new THREE.BoxGeometry(BAR_SIZE, 1, BAR_SIZE),
+          new THREE.MeshBasicMaterial({
+            color, transparent: true, opacity: 0.78,
+            blending: THREE.AdditiveBlending
+          })
+        );
+        const wireMesh = new THREE.LineSegments(
+          new THREE.EdgesGeometry(new THREE.BoxGeometry(BAR_SIZE, 1, BAR_SIZE)),
+          new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.25 })
+        );
+        mesh.add(wireMesh);
+        const px = (x - (GRID - 1) / 2) * BAR_SPACING;
+        const pz = (z - (GRID - 1) / 2) * BAR_SPACING;
+        mesh.position.set(px, 0, pz);
+        scene.add(mesh);
+        bars.push({ mesh, x, z, px, pz });
+      }
+    }
+
+    /* === FLOATING DASHBOARD PANELS ===
+       Each panel is a textured plane drawn with canvas (mini chart sketch). */
+    function makePanelCanvas(kind, accentHex) {
+      const c = document.createElement('canvas');
+      c.width = 512; c.height = 320;
+      const ctx = c.getContext('2d');
+
+      // panel background — frosted glass dark
+      ctx.fillStyle = 'rgba(13, 13, 18, 0.78)';
+      ctx.fillRect(0, 0, c.width, c.height);
+      // border
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(4, 4, c.width - 8, c.height - 8);
+      // header bar
+      ctx.fillStyle = 'rgba(255,255,255,0.06)';
+      ctx.fillRect(4, 4, c.width - 8, 40);
+      // header dots
+      ['#ff5f57','#febc2e','#28c840'].forEach((col, i) => {
+        ctx.fillStyle = col;
+        ctx.beginPath();
+        ctx.arc(22 + i * 18, 24, 5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      // title text
+      ctx.fillStyle = 'rgba(244,244,245,0.85)';
+      ctx.font = 'bold 16px Inter, sans-serif';
+      ctx.fillText(['REVENUE', 'CONVERSION', 'KPI BOARD', 'TREND'][kind % 4], 90, 30);
+
+      // chart area
+      const cx = 30, cy = 70, cw = c.width - 60, ch = c.height - 110;
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1;
+      // gridlines
+      for (let i = 1; i < 5; i++) {
+        ctx.beginPath();
+        ctx.moveTo(cx, cy + (ch / 5) * i);
+        ctx.lineTo(cx + cw, cy + (ch / 5) * i);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = accentHex;
+      ctx.strokeStyle = accentHex;
+      ctx.lineWidth = 3;
+
+      if (kind === 0) {
+        // Line chart
+        ctx.beginPath();
+        const pts = 12;
+        for (let i = 0; i < pts; i++) {
+          const px = cx + (cw / (pts - 1)) * i;
+          const py = cy + ch * (0.3 + Math.sin(i * 0.7) * 0.3 + (i / pts) * 0.2);
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        // area fill below
+        ctx.lineTo(cx + cw, cy + ch);
+        ctx.lineTo(cx, cy + ch);
+        ctx.closePath();
+        ctx.globalAlpha = 0.18;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      } else if (kind === 1) {
+        // Bar chart
+        const bars = 8;
+        const bw = cw / bars * 0.7;
+        for (let i = 0; i < bars; i++) {
+          const h = ch * (0.25 + Math.abs(Math.sin(i * 1.3)) * 0.65);
+          const x = cx + (cw / bars) * i + (cw / bars - bw) / 2;
+          const y = cy + ch - h;
+          ctx.fillRect(x, y, bw, h);
+        }
+      } else if (kind === 2) {
+        // Donut chart on the left, KPI numbers on the right
+        const ddraw = (centerX, centerY, r, val) => {
+          ctx.beginPath();
+          ctx.arc(centerX, centerY, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * val);
+          ctx.strokeStyle = accentHex;
+          ctx.lineWidth = 14;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(centerX, centerY, r, -Math.PI / 2 + Math.PI * 2 * val, -Math.PI / 2 + Math.PI * 2);
+          ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+          ctx.lineWidth = 14;
+          ctx.stroke();
+        };
+        ddraw(cx + 70, cy + ch / 2, 50, 0.74);
+        // KPI numbers
+        ctx.fillStyle = 'rgba(244,244,245,0.85)';
+        ctx.font = 'bold 36px Inter';
+        ctx.fillText('74%', cx + 50, cy + ch / 2 + 12);
+        ctx.fillStyle = 'rgba(160,160,170,0.8)';
+        ctx.font = '14px Inter';
+        ctx.fillText('GROWTH', cx + 180, cy + 50);
+        ctx.fillStyle = accentHex;
+        ctx.font = 'bold 26px Inter';
+        ctx.fillText('+12.4%', cx + 180, cy + 80);
+        ctx.fillStyle = 'rgba(160,160,170,0.8)';
+        ctx.font = '14px Inter';
+        ctx.fillText('CONVERSION', cx + 180, cy + 120);
+        ctx.fillStyle = accentHex;
+        ctx.font = 'bold 26px Inter';
+        ctx.fillText('38.6%', cx + 180, cy + 150);
+      } else {
+        // Mountain trend (filled area)
+        ctx.beginPath();
+        const pts = 20;
+        for (let i = 0; i < pts; i++) {
+          const px = cx + (cw / (pts - 1)) * i;
+          const py = cy + ch * (0.2 + Math.sin(i * 0.4) * 0.2 + Math.cos(i * 0.7) * 0.2 + 0.2);
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.lineTo(cx + cw, cy + ch);
+        ctx.lineTo(cx, cy + ch);
+        ctx.closePath();
+        ctx.globalAlpha = 0.35;
+        ctx.fillStyle = accentHex;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.stroke();
+      }
+
+      const tex = new THREE.CanvasTexture(c);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = 4;
+      return tex;
+    }
+
+    const panelAccents = ['#22d3ee', '#3b82f6', '#0ea5e9', '#10b981'];
+    const panels = [];
+    for (let i = 0; i < 4; i++) {
+      const tex = makePanelCanvas(i, panelAccents[i]);
+      const mat = new THREE.MeshBasicMaterial({
+        map: tex, transparent: true, opacity: 0.85, depthWrite: false
+      });
+      const panel = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 2.6), mat);
+      panel.userData = {
+        baseAngle: (i / 4) * Math.PI * 2,
+        radius: 8 + (i % 2) * 1.5,
+        height: 5 + i * 1.2,
+        spinSpeed: 0.08 + i * 0.02,
+        bobPhase: i * 1.3
+      };
+      panels.push(panel);
+      scene.add(panel);
+    }
+
+    /* === Ambient particles === */
+    const dustGeo = new THREE.BufferGeometry();
+    const dustVerts = [];
+    for (let i = 0; i < 250; i++) {
+      dustVerts.push(
+        (Math.random() - 0.5) * 36,
+        Math.random() * 18,
+        (Math.random() - 0.5) * 36
+      );
+    }
+    dustGeo.setAttribute('position', new THREE.Float32BufferAttribute(dustVerts, 3));
+    const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+      color: 0x22d3ee, size: 0.05,
+      transparent: true, opacity: 0.55,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    }));
+    scene.add(dust);
+
+    /* Mouse parallax */
+    let mouseX = 0, mouseY = 0;
+    window.addEventListener('mousemove', e => {
+      mouseX = (e.clientX / innerWidth)  - 0.5;
+      mouseY = (e.clientY / innerHeight) - 0.5;
+    });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+
+    /* Animate */
+    const clock = new THREE.Clock();
+    function animate() {
+      const t = clock.getElapsedTime();
+
+      // Bar heights — simplex-like noise via combined sin/cos
+      for (const b of bars) {
+        const h = 0.5 + Math.abs(
+          Math.sin(t * 0.6 + b.x * 0.45) * Math.cos(t * 0.4 + b.z * 0.55) +
+          Math.sin(t * 0.3 - b.z * 0.3) * 0.5
+        ) * 4;
+        b.mesh.scale.y = h;
+        b.mesh.position.y = h / 2 - 1; // base sits at y=-1 (floor level)
+      }
+
+      // Panels — orbit around the bar grid
+      panels.forEach(p => {
+        const u = p.userData;
+        const a = u.baseAngle + t * u.spinSpeed;
+        p.position.x = Math.cos(a) * u.radius;
+        p.position.z = Math.sin(a) * u.radius;
+        p.position.y = u.height + Math.sin(t * 0.5 + u.bobPhase) * 0.4;
+        p.lookAt(0, p.position.y, 0); // face the center
+      });
+
+      // Subtle scene tilt with mouse parallax
+      scene.rotation.y = Math.sin(t * 0.03) * 0.2 + mouseX * 0.3;
+      scene.rotation.x = Math.sin(t * 0.05) * 0.05 - mouseY * 0.15;
+
+      // Dust drift
+      dust.rotation.y += 0.0005;
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    /* Recede after 1.5s + reveal cards */
+    setTimeout(() => {
+      canvas.classList.add('recede');
+      vignetteEl.classList.add('recede');
+    }, 1500);
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+        else entry.target.classList.remove('in-view');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-fx]').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        card.style.setProperty('--mx', `${x}%`);
+        card.style.setProperty('--my', `${y}%`);
+      });
+    });
+
+    setTimeout(() => {
+      document.querySelector('.cards').classList.add('ready');
+      document.querySelectorAll('[data-fx]').forEach(c => revealObserver.observe(c));
+    }, 1500);
+
+    /* ============================================================
+       Dashboard hover preview — small image hover opens full-size
+       overlay in the center of the screen (tooltip / lightbox).
+       ============================================================ */
+    const preview = document.createElement('div');
+    preview.className = 'img-preview-overlay';
+    preview.innerHTML = `
+      <img class="img-preview-img" alt="" />
+      <div class="img-preview-caption" id="img-preview-caption"></div>
+    `;
+    document.body.appendChild(preview);
+    const previewImg = preview.querySelector('.img-preview-img');
+    const previewCaption = preview.querySelector('#img-preview-caption');
+
+    document.querySelectorAll('.card .image-frame').forEach(frame => {
+      const img = frame.querySelector('img');
+      const titleEl = frame.closest('.card').querySelector('h3');
+      frame.addEventListener('mouseenter', () => {
+        previewImg.src = img.src;
+        previewImg.alt = img.alt || '';
+        previewCaption.textContent = titleEl ? titleEl.textContent.trim() : '';
+        preview.classList.add('show');
+      });
+      frame.addEventListener('mouseleave', () => {
+        preview.classList.remove('show');
+      });
+    });
+  </script>
+
+  <script src="chatbot.js"></script>
+</body>
 </html>
-
-

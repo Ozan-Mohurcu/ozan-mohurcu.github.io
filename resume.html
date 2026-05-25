@@ -1,1180 +1,857 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Ozan M. - Resume</title>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XL6YG0LSV2');
-        </script>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Font Awesome for additional icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        
-        <style>
-            :root {
-                --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
-                --gradient-secondary: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
-                --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
-                --ai-blue: #00d4ff;
-                --deep-blue: #0f4c75;
-                --navy: #0f172a;
-                --slate: #334155;
-                --gray: #64748b;
-                --light-gray: #f1f5f9;
-                --white: #ffffff;
-                --card-bg: rgba(15, 60, 117, 0.05);
-                --card-border: rgba(0, 212, 255, 0.2);
-                --shadow-light: 0 4px 6px -1px rgba(15, 76, 117, 0.1);
-                --shadow-medium: 0 10px 15px -3px rgba(15, 76, 117, 0.1);
-                --shadow-heavy: 0 20px 25px -5px rgba(15, 76, 117, 0.1);
-            }
-
-            body {
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                background: var(--gradient-matrix);
-                color: var(--slate);
-                line-height: 1.6;
-                font-size: 16px;
-                min-height: 100vh;
-            }
-
-            /* Subtle AI background pattern */
-            body::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: 
-                    radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
-                    radial-gradient(circle at 75% 75%, rgba(15, 76, 117, 0.03) 0%, transparent 50%);
-                z-index: -1;
-                pointer-events: none;
-            }
-
-            /* Professional AI Navigation */
-            .navbar {
-                background: rgba(15, 23, 42, 0.95) !important;
-                backdrop-filter: blur(15px);
-                border-bottom: 1px solid rgba(0, 212, 255, 0.3);
-                box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000;
-                transition: all 0.3s ease;
-            }
-
-            .navbar-brand {
-                font-weight: 700;
-                font-size: 1.2rem;
-                background: var(--gradient-primary);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-decoration: none;
-            }
-
-            .navbar-nav .nav-link {
-                color: var(--ai-blue) !important;
-                font-weight: 500;
-                margin: 0 8px;
-                transition: all 0.3s ease;
-                position: relative;
-            }
-
-            .navbar-nav .nav-link:hover {
-                color: white !important;
-                text-shadow: 0 0 10px var(--ai-blue);
-            }
-
-            .navbar-nav .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: -5px;
-                left: 50%;
-                background: var(--ai-blue);
-                transition: all 0.3s ease;
-                transform: translateX(-50%);
-                box-shadow: 0 0 10px var(--ai-blue);
-            }
-
-            .navbar-nav .nav-link:hover::after {
-                width: 100%;
-            }
-
-            /* Main Container */
-            .main-container {
-                padding-top: 100px;
-                min-height: 100vh;
-            }
-
-            /* Professional AI Page Title */
-            .page-title {
-                background: linear-gradient(135deg, var(--ai-blue) 0%, white 50%, var(--deep-blue) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 800;
-                font-size: 3rem;
-                margin-bottom: 2rem;
-                position: relative;
-                text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            }
-
-            .page-title::after {
-                content: '';
-                position: absolute;
-                bottom: -10px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80px;
-                height: 4px;
-                background: var(--gradient-primary);
-                border-radius: 2px;
-                box-shadow: 0 0 15px var(--ai-blue);
-            }
-
-            /* Section Headers */
-            .section-header {
-                background: linear-gradient(135deg, var(--ai-blue) 0%, white 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 700;
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-                position: relative;
-                padding-bottom: 0.5rem;
-            }
-
-            .section-header::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 50px;
-                height: 3px;
-                background: var(--ai-blue);
-                border-radius: 2px;
-                box-shadow: 0 0 10px var(--ai-blue);
-            }
-
-            /* Professional AI Cards */
-            .professional-card {
-                background: rgba(15, 60, 117, 0.08);
-                backdrop-filter: blur(15px);
-                border: 1px solid var(--card-border);
-                border-radius: 15px;
-                box-shadow: var(--shadow-medium);
-                transition: all 0.4s ease;
-                margin-bottom: 1.5rem;
-                overflow: hidden;
-                position: relative;
-            }
-
-            .professional-card::before {
-                content: '';
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                background: linear-gradient(135deg, 
-                    rgba(0, 212, 255, 0.3) 0%, 
-                    transparent 50%, 
-                    rgba(15, 76, 117, 0.3) 100%);
-                border-radius: 15px;
-                z-index: -1;
-                opacity: 0;
-                transition: opacity 0.4s ease;
-            }
-
-            .professional-card:hover {
-                transform: translateY(-5px);
-                box-shadow: var(--shadow-heavy);
-                border-color: var(--ai-blue);
-            }
-
-            .professional-card:hover::before {
-                opacity: 1;
-            }
-
-            .card-body {
-                padding: 1.5rem;
-                position: relative;
-                z-index: 2;
-            }
-
-            /* Card Header - Compact Info Row */
-            .card-header-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin-bottom: 1.25rem;
-                padding-bottom: 1rem;
-                border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-
-            .card-header-left {
-                flex: 1;
-                min-width: 200px;
-            }
-
-            .card-header-right {
-                text-align: right;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                gap: 0.25rem;
-            }
-
-            .time-badge {
-                background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 255, 0.05));
-                border: 1px solid var(--ai-blue);
-                border-radius: 20px;
-                padding: 0.4rem 0.9rem;
-                font-size: 0.8rem;
-                font-weight: 600;
-                color: var(--ai-blue);
-                display: inline-flex;
-                align-items: center;
-                gap: 0.4rem;
-                box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
-            }
-
-            .time-badge i {
-                font-size: 0.75rem;
-            }
-
-            .location-badge {
-                color: rgba(255, 255, 255, 0.6);
-                font-size: 0.8rem;
-                font-weight: 500;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.3rem;
-            }
-
-            .location-badge i {
-                color: var(--ai-blue);
-                font-size: 0.7rem;
-            }
-
-            .position-title {
-                color: white;
-                font-weight: 700;
-                font-size: 1.2rem;
-                margin-bottom: 0.35rem;
-                line-height: 1.3;
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-            }
-
-            .company-name {
-                color: var(--ai-blue);
-                font-weight: 600;
-                font-size: 1rem;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.4rem;
-            }
-
-            .company-name i {
-                font-size: 0.8rem;
-                opacity: 0.8;
-            }
-
-            /* Description with bullet points */
-            .description-text {
-                color: rgba(255, 255, 255, 0.85);
-                line-height: 1.75;
-                font-size: 0.92rem;
-            }
-
-            .description-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            .description-list li {
-                position: relative;
-                padding-left: 1.5rem;
-                margin-bottom: 0.75rem;
-                color: rgba(255, 255, 255, 0.85);
-                line-height: 1.65;
-                font-size: 0.92rem;
-            }
-
-            .description-list li:last-child {
-                margin-bottom: 0;
-            }
-
-            .description-list li::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0.55rem;
-                width: 6px;
-                height: 6px;
-                background: var(--ai-blue);
-                border-radius: 50%;
-                box-shadow: 0 0 8px var(--ai-blue);
-            }
-
-            .highlight-text {
-                color: var(--ai-blue);
-                font-weight: 600;
-            }
-
-            .degree-name {
-                color: var(--ai-blue);
-                font-weight: 700;
-                font-size: 0.95rem;
-                margin-bottom: 0.5rem;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.4rem;
-            }
-
-            .degree-name i {
-                font-size: 0.85rem;
-            }
-
-            /* Professional AI Download Button */
-            .download-btn {
-                background: var(--gradient-primary);
-                border: 2px solid var(--ai-blue);
-                color: white;
-                padding: 12px 24px;
-                border-radius: 25px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.4s ease;
-                box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                position: relative;
-                overflow: hidden;
-                margin-bottom: 3rem;
-            }
-
-            .download-btn::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-                transition: left 0.5s;
-            }
-
-            .download-btn:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-                background: var(--gradient-secondary);
-                color: white;
-                text-decoration: none;
-            }
-
-            .download-btn:hover::before {
-                left: 100%;
-            }
-
-            /* Skills Section */
-            .skills-section {
-                background: rgba(15, 60, 117, 0.08);
-                backdrop-filter: blur(15px);
-                border: 1px solid var(--card-border);
-                border-radius: 15px;
-                padding: 2rem;
-                box-shadow: var(--shadow-medium);
-                position: relative;
-                margin-bottom: 3rem;
-            }
-
-            .skill-category {
-                margin-bottom: 1.5rem;
-            }
-
-            .skill-category:last-child {
-                margin-bottom: 0;
-            }
-
-            .skill-category-title {
-                color: white;
-                font-weight: 600;
-                font-size: 0.95rem;
-                margin-bottom: 0.75rem;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                padding-bottom: 0.5rem;
-                border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-            }
-
-            .skill-category-title i {
-                color: var(--ai-blue);
-                font-size: 1rem;
-            }
-
-            .tech-skills {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-
-            .tech-skill {
-                background: rgba(0, 212, 255, 0.08);
-                color: var(--ai-blue);
-                padding: 0.45rem 0.9rem;
-                border-radius: 8px;
-                font-size: 0.82rem;
-                font-weight: 500;
-                border: 1px solid rgba(0, 212, 255, 0.25);
-                transition: all 0.3s ease;
-                backdrop-filter: blur(10px);
-                display: inline-flex;
-                align-items: center;
-                gap: 0.4rem;
-            }
-
-            .tech-skill i {
-                font-size: 0.9rem;
-                opacity: 0.85;
-            }
-
-            .tech-skill:hover {
-                background: var(--ai-blue);
-                color: white;
-                transform: translateY(-2px);
-                box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
-            }
-
-            /* Certificate Section - Grid Layout */
-            .certificates-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                gap: 1rem;
-                margin-top: 1rem;
-            }
-
-            .certificate-item {
-                background: rgba(15, 60, 117, 0.08);
-                backdrop-filter: blur(15px);
-                border: 1px solid var(--card-border);
-                border-radius: 12px;
-                padding: 1.1rem;
-                transition: all 0.3s ease;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .certificate-item:hover {
-                transform: translateY(-3px);
-                box-shadow: var(--shadow-medium), 0 0 20px rgba(0, 212, 255, 0.15);
-                border-color: var(--ai-blue);
-            }
-
-            .certificate-logo {
-                width: 48px;
-                height: 48px;
-                min-width: 48px;
-                background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid rgba(0, 212, 255, 0.3);
-                box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
-                overflow: hidden;
-            }
-
-            .logo-img {
-                width: 32px;
-                height: 32px;
-                object-fit: contain;
-            }
-
-            .certificate-info {
-                flex: 1;
-                min-width: 0;
-            }
-
-            .certificate-title {
-                color: white;
-                font-weight: 600;
-                font-size: 0.9rem;
-                margin-bottom: 0.2rem;
-                line-height: 1.3;
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-            }
-
-            .certificate-issuer {
-                color: var(--ai-blue);
-                font-weight: 500;
-                font-size: 0.8rem;
-                opacity: 0.9;
-            }
-
-            .certificate-link {
-                color: var(--ai-blue);
-                text-decoration: none;
-                font-size: 0.75rem;
-                font-weight: 600;
-                transition: all 0.3s ease;
-                background: rgba(0, 212, 255, 0.1);
-                padding: 0.35rem 0.7rem;
-                border-radius: 6px;
-                border: 1px solid rgba(0, 212, 255, 0.3);
-                white-space: nowrap;
-            }
-
-            .certificate-link:hover {
-                background: var(--ai-blue);
-                color: white;
-                text-decoration: none;
-            }
-
-            /* Two column layout */
-            .two-column {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-                margin-bottom: 3rem;
-            }
-
-            /* Footer */
-            footer {
-                background: rgba(15, 23, 42, 0.95);
-                color: white;
-                border-top: 1px solid rgba(0, 212, 255, 0.3);
-                backdrop-filter: blur(15px);
-                box-shadow: 0 -5px 20px rgba(0, 212, 255, 0.1);
-            }
-
-            footer a {
-                color: var(--ai-blue);
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            footer a:hover {
-                color: white;
-                text-shadow: 0 0 10px var(--ai-blue);
-            }
-
-            /* Responsive Design */
-            @media (max-width: 992px) {
-                .two-column {
-                    grid-template-columns: 1fr;
-                    gap: 2rem;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .page-title {
-                    font-size: 2.2rem;
-                }
-
-                .main-container {
-                    padding-top: 80px;
-                }
-
-                .skills-section {
-                    padding: 1.25rem;
-                }
-
-                .card-header-row {
-                    flex-direction: column;
-                    gap: 0.75rem;
-                }
-
-                .card-header-right {
-                    text-align: left;
-                    align-items: flex-start;
-                }
-
-                .certificates-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .certificate-item {
-                    flex-wrap: wrap;
-                }
-
-                .certificate-link {
-                    width: 100%;
-                    text-align: center;
-                    margin-top: 0.5rem;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .page-title {
-                    font-size: 1.8rem;
-                }
-
-                .section-header {
-                    font-size: 1.4rem;
-                }
-
-                .position-title {
-                    font-size: 1.05rem;
-                }
-
-                .card-body {
-                    padding: 1.25rem;
-                }
-            }
-
-            /* Smooth animations */
-            .fade-in {
-                opacity: 0;
-                animation: fadeIn 0.6s ease-out forwards;
-            }
-
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        </style>
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">
-                        <span class="fw-bolder">Data Analyst & Data Scientist</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="NLP.html">NLP Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="LiveProjects.html">Live Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Page Content-->
-            <div class="main-container">
-                <div class="container px-5 my-5">
-                    <div class="text-center mb-5">
-                        <h1 class="page-title">Resume</h1>
-                        <a class="download-btn" href="#!">
-                            <i class="bi bi-download"></i>
-                            Download Resume
-                        </a>
-                    </div>
-                    
-                    <!-- Experience & Education -->
-                    <div class="two-column">
-                        <!-- Experience -->
-                        <div class="fade-in">
-                            <h2 class="section-header">Experience</h2>
-
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Data Scientist / Automation Engineer</div>
-                                            <div class="company-name"><i class="fas fa-building"></i> BuzzTech Yazılım A.Ş.</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Oct 2025 - Present</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                                        </div>
-                                    </div>
-                                    <ul class="description-list">
-                                        <li><span class="highlight-text">Business Intelligence:</span> Built Power BI dashboards for logistics operations, converting complex datasets into actionable KPIs for operational optimization.</li>
-                                        <li><span class="highlight-text">AI Process Automation:</span> Designed and deployed AI agents to automate logistics workflows, reducing manual effort and improving process efficiency.</li>
-                                        <li><span class="highlight-text">Production Planning:</span> Applied time series forecasting models to support year-end production planning and demand allocation.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Data Scientist</div>
-                                            <div class="company-name"><i class="fas fa-building"></i> IMEBrands</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Dec 2024 - Sep 2025</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Schaumburg, USA</span>
-                                        </div>
-                                    </div>
-                                    <ul class="description-list">
-                                        <li><span class="highlight-text">Forecasting:</span> Built deep learning time series models to forecast revenue and Amazon Buy Box performance, improving inventory and PPC efficiency.</li>
-                                        <li><span class="highlight-text">Customer Analytics:</span> Applied RFM and cohort analysis to estimate CLV and ran A/B tests to drive data-driven marketing improvements.</li>
-                                        <li><span class="highlight-text">AI Systems:</span> Developed RAG-based chatbots and agentic AI systems for automated insights and proactive decision support.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Data Analyst</div>
-                                            <div class="company-name"><i class="fas fa-shopping-cart"></i> E-Commerce Company</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> May 2024 - Dec 2024</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                                        </div>
-                                    </div>
-                                    <ul class="description-list">
-                                        <li>Analyzed <span class="highlight-text">100K+ e-commerce transactions</span> with Python to uncover 3 key purchasing patterns.</li>
-                                        <li>Developed <span class="highlight-text">12 interactive visualizations</span> and insights that drove a <span class="highlight-text">15% sales increase</span>.</li>
-                                        <li>Delivered 8 data-driven recommendations, reducing operational costs by <span class="highlight-text">12%</span>.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Data Scientist & Kaggle Grandmaster</div>
-                                            <div class="company-name"><i class="fab fa-kaggle"></i> Kaggle</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Sep 2024 - Present</span>
-                                            <span class="location-badge"><i class="fas fa-globe"></i> Global</span>
-                                        </div>
-                                    </div>
-                                    <ul class="description-list">
-                                        <li>Reached <span class="highlight-text">global Kaggle rank #32/60K+</span> through 20+ ML notebooks (~95% avg. accuracy).</li>
-                                        <li>Created <span class="highlight-text">1K+ upvoted</span> open-source projects and contributions.</li>
-                                        <li>Proven skills in <span class="highlight-text">ensemble methods, deep learning,</span> and feature engineering.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Combat Medical Specialist</div>
-                                            <div class="company-name"><i class="fas fa-anchor"></i> Naval Forces Command</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> 2019 - 2024</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Izmir, Turkey</span>
-                                        </div>
-                                    </div>
-                                    <ul class="description-list">
-                                        <li>Managed overseas assignments and prepared official documents including daily reports and attendance sheets.</li>
-                                        <li>Analyzed <span class="highlight-text">health data</span> and prepared risk assessment reports during operational preparations.</li>
-                                        <li>Developed strong organizational and analytical skills in high-pressure environments.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Education -->
-                        <div class="fade-in">
-                            <h2 class="section-header">Education</h2>
-                            
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Master's Degree</div>
-                                            <div class="company-name"><i class="fas fa-university"></i> Beykent University</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Feb 2025 - Present</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                                        </div>
-                                    </div>
-                                    <div class="degree-name"><i class="fas fa-graduation-cap"></i> Industrial Engineering</div>
-                                    <p class="description-text">
-                                        Focusing on <span class="highlight-text">data mining</span> and <span class="highlight-text">simulation modeling</span> to deepen knowledge in data analysis and data science applications in industrial settings.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Bachelor's Degree</div>
-                                            <div class="company-name"><i class="fas fa-university"></i> Istanbul University</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> Sep 2024 - Present</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
-                                        </div>
-                                    </div>
-                                    <div class="degree-name"><i class="fas fa-graduation-cap"></i> Management Information Systems</div>
-                                    <p class="description-text">
-                                        Expanding expertise in <span class="highlight-text">data-driven decision-making</span> through studies in information systems, business intelligence, and digital transformation. Strengthening understanding of organizational structures and strategic IT management.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="professional-card">
-                                <div class="card-body">
-                                    <div class="card-header-row">
-                                        <div class="card-header-left">
-                                            <div class="position-title">Bachelor's Degree</div>
-                                            <div class="company-name"><i class="fas fa-university"></i> Muğla Sıtkı Koçman University</div>
-                                        </div>
-                                        <div class="card-header-right">
-                                            <span class="time-badge"><i class="fas fa-calendar-alt"></i> 2013 - 2017</span>
-                                            <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Muğla, Turkey</span>
-                                        </div>
-                                    </div>
-                                    <div class="degree-name"><i class="fas fa-graduation-cap"></i> Sports Sciences</div>
-                                    <p class="description-text">
-                                        Studied <span class="highlight-text">physical performance analysis</span>, sports psychology, and health management. Developed strong analytical and problem-solving skills.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skills -->
-                    <div class="fade-in">
-                        <div class="skills-section">
-                            <h2 class="section-header">Technical Skills</h2>
-                            
-                            <div class="skill-category">
-                                <div class="skill-category-title"><i class="fas fa-chart-bar"></i> Data Analysis & Visualization</div>
-                                <div class="tech-skills">
-                                    <span class="tech-skill"><i class="fab fa-python"></i> Python</span>
-                                    <span class="tech-skill"><i class="fas fa-database"></i> SQL</span>
-                                    <span class="tech-skill"><i class="fas fa-chart-line"></i> Power BI</span>
-                                    <span class="tech-skill"><i class="fas fa-chart-area"></i> Tableau</span>
-                                    <span class="tech-skill"><i class="fas fa-file-excel"></i> Excel</span>
-                                    <span class="tech-skill"><i class="fas fa-chart-bar"></i> SPSS</span>
-                                    <span class="tech-skill"><i class="fas fa-table"></i> Pandas</span>
-                                    <span class="tech-skill"><i class="fas fa-square-root-alt"></i> NumPy</span>
-                                    <span class="tech-skill"><i class="fas fa-chart-line"></i> Matplotlib</span>
-                                    <span class="tech-skill"><i class="fas fa-chart-pie"></i> Seaborn</span>
-                                    <span class="tech-skill"><i class="fas fa-project-diagram"></i> Plotly</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category">
-                                <div class="skill-category-title"><i class="fas fa-brain"></i> Machine Learning & AI</div>
-                                <div class="tech-skills">
-                                    <span class="tech-skill"><i class="fas fa-brain"></i> Scikit-learn</span>
-                                    <span class="tech-skill"><i class="fas fa-network-wired"></i> TensorFlow</span>
-                                    <span class="tech-skill"><i class="fas fa-layer-group"></i> Keras</span>
-                                    <span class="tech-skill"><i class="fas fa-fire"></i> PyTorch</span>
-                                    <span class="tech-skill"><i class="fas fa-robot"></i> Hugging Face</span>
-                                    <span class="tech-skill"><i class="fas fa-code"></i> LangChain</span>
-                                    <span class="tech-skill"><i class="fas fa-robot"></i> Transformers</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category">
-                                <div class="skill-category-title"><i class="fas fa-language"></i> NLP & Computer Vision</div>
-                                <div class="tech-skills">
-                                    <span class="tech-skill"><i class="fas fa-language"></i> NLTK</span>
-                                    <span class="tech-skill"><i class="fas fa-comments"></i> spaCy</span>
-                                    <span class="tech-skill"><i class="fas fa-eye"></i> OpenCV</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category">
-                                <div class="skill-category-title"><i class="fas fa-cloud"></i> Databases & Cloud</div>
-                                <div class="tech-skills">
-                                    <span class="tech-skill"><i class="fas fa-database"></i> MySQL</span>
-                                    <span class="tech-skill"><i class="fas fa-database"></i> PostgreSQL</span>
-                                    <span class="tech-skill"><i class="fab fa-git-alt"></i> Git</span>
-                                    <span class="tech-skill"><i class="fab fa-docker"></i> Docker</span>
-                                    <span class="tech-skill"><i class="fab fa-aws"></i> AWS</span>
-                                    <span class="tech-skill"><i class="fab fa-microsoft"></i> Azure</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Certificates -->
-                    <div class="fade-in">
-                        <h2 class="section-header">Certificates</h2>
-                        
-                        <div class="certificates-grid">
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">IBM Data Scientist Professional</div>
-                                    <div class="certificate-issuer">IBM</div>
-                                </div>
-                                <a href="https://www.coursera.org/account/accomplishments/professional-cert/MWCG8A71KARH" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                            
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/google.png" alt="Google Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">Google Advanced Data Analytics</div>
-                                    <div class="certificate-issuer">Google</div>
-                                </div>
-                                <a href="https://www.coursera.org/account/accomplishments/professional-cert/CDYVK4XQMJI9" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                            
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/google.png" alt="Google Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">Google Data Analytics Capstone</div>
-                                    <div class="certificate-issuer">Google</div>
-                                </div>
-                                <a href="https://www.coursera.org/account/accomplishments/verify/QU2LF4VIYQT5" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                            
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">IBM Data Analysis with Python</div>
-                                    <div class="certificate-issuer">IBM SkillsBuild</div>
-                                </div>
-                                <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/bb79187404414c2d9fcbd62d85ca61d4" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                            
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">Data Analysis Using Python</div>
-                                    <div class="certificate-issuer">IBM (Credly)</div>
-                                </div>
-                                <a href="https://www.credly.com/badges/fcc4b563-50e5-4aa1-b8a2-a7045fb950ed/public_url" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                            
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">Data Fundamentals</div>
-                                    <div class="certificate-issuer">IBM (Credly)</div>
-                                </div>
-                                <a href="https://www.credly.com/badges/cc9dd5a4-9f2b-4e23-9867-f7e470112a17/public_url" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                            
-                            <div class="certificate-item">
-                                <div class="certificate-logo">
-                                    <img src="img/ibm.png" alt="IBM Logo" class="logo-img">
-                                </div>
-                                <div class="certificate-info">
-                                    <div class="certificate-title">Python for Data Science</div>
-                                    <div class="certificate-issuer">IBM (Credly)</div>
-                                </div>
-                                <a href="https://www.credly.com/badges/ee9a1649-5336-4c3a-9c18-0ef7253c3ca2/public_url" class="certificate-link" target="_blank">View <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ozan M. resume — Data Scientist, ML Engineer. Experience, education, technical skills and certifications." />
+  <meta name="author" content="Ozan M." />
+  <title>Resume — Ozan M.</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XL6YG0LSV2');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <style>
+    :root {
+      --page-bg:   #f4f6f9;
+      --card-bg:   #ffffff;
+      --sidebar-bg:#fbfcfd;
+      --ink:       #0f172a;   /* primary text */
+      --ink-dim:   #475569;   /* secondary */
+      --ink-mute:  #94a3b8;   /* tertiary */
+      --line:      #e2e8f0;
+      --line-soft: #eef2f7;
+      --accent:    #1e40af;   /* deep blue */
+      --accent-2:  #0891b2;   /* teal */
+      --accent-soft: #eff6ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--page-bg); }
+    body {
+      background: var(--page-bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== Navbar (light, minimal) ===== */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1180px; margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-weight: 800; font-size: 1rem; letter-spacing: -0.01em;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+    .nav-links a {
+      font-size: 0.84rem; font-weight: 500; color: var(--ink-dim);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--accent); font-weight: 600; }
+    .lang-switch {
+      display: inline-flex;
+      background: var(--line-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px;
+      margin-left: 4px;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      color: var(--ink-dim);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: var(--ink); color: white; }
+    .lang-btn:not(.active):hover { color: var(--ink); }
+
+    /* ===== CV page ===== */
+    .cv {
+      max-width: 1180px;
+      margin: 28px auto 50px;
+      padding: 0 24px;
+    }
+
+    /* Top action bar (print / download) */
+    .cv-actions {
+      display: flex; justify-content: flex-end; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .action-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-dim);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.08);
+    }
+
+    /* CV header — name + photo + contact */
+    .cv-header {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 124px 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .cv-photo {
+      width: 124px; height: 124px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--card-bg);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1), 0 0 0 1px var(--line);
+    }
+    .cv-identity h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .cv-identity .title {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .cv-contact-row {
+      display: flex; flex-wrap: wrap; gap: 14px 22px;
+      font-size: 0.85rem;
+      color: var(--ink-dim);
+    }
+    .cv-contact-row a, .cv-contact-row .item {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--ink-dim);
+      transition: color 0.2s;
+    }
+    .cv-contact-row a:hover { color: var(--accent); }
+    .cv-contact-row i { color: var(--accent); font-size: 0.95rem; }
+
+    /* CV body — sidebar + main */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .cv-sidebar, .cv-main {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 26px 28px;
+    }
+
+    .cv-sidebar { background: var(--sidebar-bg); }
+
+    /* Sections */
+    .sec { margin-bottom: 24px; }
+    .sec:last-child { margin-bottom: 0; }
+    .sec-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+    .cv-main .sec-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+
+    /* Sidebar specific styles */
+    .about-text {
+      font-size: 0.85rem;
+      color: var(--ink-dim);
+      line-height: 1.6;
+    }
+    .info-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+      font-size: 0.85rem;
+    }
+    .info-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      color: var(--ink-dim);
+    }
+    .info-list li i {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-top: 1px;
+      width: 16px; flex-shrink: 0;
+    }
+    .info-list li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .info-list li span.dim { color: var(--ink-mute); font-size: 0.78rem; }
+
+    .skill-group { margin-bottom: 14px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group .name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .skill-group .items {
+      font-size: 0.82rem;
+      color: var(--ink-dim);
+      line-height: 1.55;
+    }
+
+    .cert-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+      font-size: 0.83rem;
+    }
+    .cert-list li {
+      display: flex; align-items: flex-start; gap: 8px;
+      line-height: 1.4;
+    }
+    .cert-list li i {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .cert-list li .cert-logo-sm {
+      width: 28px; height: 28px;
+      flex-shrink: 0;
+      object-fit: contain;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 3px;
+    }
+    .cert-list a {
+      color: var(--ink-dim);
+      transition: color 0.2s;
+    }
+    .cert-list a:hover { color: var(--accent); }
+    .cert-list .issuer {
+      color: var(--ink-mute);
+      font-size: 0.74rem;
+      display: block;
+      margin-top: 1px;
+    }
+
+    /* Main column — timeline-like cards */
+    .entry {
+      position: relative;
+      padding: 0 0 22px 0;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .entry-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .entry .position {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .entry .meta-right {
+      font-size: 0.78rem;
+      color: var(--ink-mute);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .entry .org {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .entry .org .loc {
+      color: var(--ink-mute);
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+    .entry .org .loc::before { content: "·"; margin: 0 6px; }
+    .entry ul.bullets {
+      list-style: none;
+      padding: 0; margin: 8px 0 0;
+    }
+    .entry ul.bullets li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 5px;
+      font-size: 0.88rem;
+      color: var(--ink-dim);
+      line-height: 1.55;
+    }
+    .entry ul.bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 4px; top: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .entry ul.bullets li:last-child { margin-bottom: 0; }
+    .entry .highlight { color: var(--ink); font-weight: 600; }
+    .entry .degree {
+      font-size: 0.86rem;
+      color: var(--ink);
+      font-weight: 500;
+      margin: 6px 0;
+    }
+    .entry .degree i { color: var(--accent); margin-right: 4px; }
+    .entry .desc {
+      font-size: 0.88rem;
+      color: var(--ink-dim);
+      line-height: 1.6;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .cv-header { grid-template-columns: 1fr; text-align: center; }
+      .cv-photo { margin: 0 auto; }
+      .cv-contact-row { justify-content: center; }
+      .cv-body { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .cv-header { padding: 22px; }
+      .cv-sidebar, .cv-main { padding: 20px 22px; }
+      .entry-head { flex-direction: column; gap: 4px; }
+      .entry .meta-right { font-size: 0.74rem; }
+    }
+
+    /* ===== Footer ===== */
+    .page-footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 24px 36px;
+      border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+      color: var(--ink-mute); font-size: 0.8rem;
+    }
+    .page-footer .footer-links { display: flex; gap: 18px; }
+    .page-footer .footer-links a:hover { color: var(--accent); }
+
+    /* ===== Print styles ===== */
+    @media print {
+      .nav, .cv-actions, .page-footer { display: none; }
+      body, html { background: white; }
+      .cv { margin: 0; padding: 0; max-width: 100%; }
+      .cv-header, .cv-sidebar, .cv-main {
+        border: none; box-shadow: none; border-radius: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Ozan M. · Data Scientist</a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="resume.html" class="active" data-i18n="nav.resume">Resume</a>
+        <a href="ML Projects.html" data-i18n="nav.ml">ML</a>
+        <a href="Power BI Projects.html" data-i18n="nav.powerbi">Power BI</a>
+        <a href="Python.html" data-i18n="nav.python">Python</a>
+        <a href="ComputerVision.html" data-i18n="nav.cnn">CNN</a>
+        <a href="NLP.html" data-i18n="nav.nlp">NLP</a>
+        <a href="LiveProjects.html" data-i18n="nav.live">Live</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="tr" type="button">TR</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="cv">
+
+    <div class="cv-actions">
+      <button class="action-btn" id="print-btn">
+        <i class="bi bi-printer"></i>
+        <span data-i18n="cv.print">Print / PDF</span>
+      </button>
+    </div>
+
+    <!-- HEADER: photo + identity + contact -->
+    <header class="cv-header">
+      <img class="cv-photo" src="1774271379706.jpg" alt="Ozan Mohurcu" />
+      <div class="cv-identity">
+        <h1>Ozan Mohurcu</h1>
+        <div class="title" data-i18n="cv.title">Data Scientist · ML Engineer</div>
+        <div class="cv-contact-row">
+          <span class="item"><i class="bi bi-geo-alt-fill"></i> <span data-i18n="cv.location">Istanbul, Turkey</span></span>
+          <a href="https://github.com/Ozan-Mohurcu" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/ozanmhrc/" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
+          <a href="https://www.kaggle.com/analyticaobscura" target="_blank"><i class="bi bi-trophy-fill"></i> Kaggle</a>
+          <a href="contact.html"><i class="bi bi-envelope-fill"></i> <span data-i18n="cv.email">Contact</span></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="cv-body">
+
+      <!-- SIDEBAR -->
+      <aside class="cv-sidebar">
+
+        <div class="sec">
+          <div class="sec-title" data-i18n="cv.about">About</div>
+          <p class="about-text" data-i18n="cv.about.text">
+            Data Scientist and ML Engineer with experience across e-commerce, logistics and analytics.
+            Specialised in machine learning, deep learning, computer vision and predictive analytics.
+            Top 8 at İNG HUB Datathon, Top 4 at Haier Europe Datathon.
+          </p>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title" data-i18n="cv.languages">Languages</div>
+          <ul class="info-list">
+            <li>
+              <i class="bi bi-translate"></i>
+              <span><strong data-i18n="cv.lang.tr">Turkish</strong> <span class="dim" data-i18n="cv.lang.native">Native</span></span>
+            </li>
+            <li>
+              <i class="bi bi-translate"></i>
+              <span><strong data-i18n="cv.lang.en">English</strong> <span class="dim" data-i18n="cv.lang.adv">A2</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title" data-i18n="cv.skills">Technical Skills</div>
+
+          <div class="skill-group">
+            <div class="name" data-i18n="cv.skills.data">Data &amp; Analytics</div>
+            <div class="items">Python · SQL · Power BI · Tableau · Excel · Pandas · NumPy · Matplotlib · Seaborn · Plotly · SPSS</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="name" data-i18n="cv.skills.ml">Machine Learning &amp; AI</div>
+            <div class="items">Scikit-learn · TensorFlow · Keras · PyTorch · Hugging Face · LangChain · Transformers</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="name" data-i18n="cv.skills.nlpcv">NLP &amp; Computer Vision</div>
+            <div class="items">NLTK · spaCy · OpenCV</div>
+          </div>
+
+          <div class="skill-group">
+            <div class="name" data-i18n="cv.skills.cloud">Databases &amp; Cloud</div>
+            <div class="items">MySQL · PostgreSQL · Git · Docker · AWS · Azure</div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title" data-i18n="cv.certs">Certifications</div>
+          <ul class="cert-list">
+            <li>
+              <img class="cert-logo-sm" src="img/ibm.png" alt="IBM" />
+              <div>
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/MWCG8A71KARH" target="_blank">IBM Data Scientist Professional</a>
+                <span class="issuer">IBM · Coursera</span>
+              </div>
+            </li>
+            <li>
+              <img class="cert-logo-sm" src="img/google.png" alt="Google" />
+              <div>
+                <a href="https://www.coursera.org/account/accomplishments/professional-cert/CDYVK4XQMJI9" target="_blank">Google Advanced Data Analytics</a>
+                <span class="issuer">Google · Coursera</span>
+              </div>
+            </li>
+            <li>
+              <img class="cert-logo-sm" src="img/google.png" alt="Google" />
+              <div>
+                <a href="https://www.coursera.org/account/accomplishments/verify/QU2LF4VIYQT5" target="_blank">Google Data Analytics Capstone</a>
+                <span class="issuer">Google · Coursera</span>
+              </div>
+            </li>
+            <li>
+              <img class="cert-logo-sm" src="img/ibm.png" alt="IBM" />
+              <div>
+                <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/bb79187404414c2d9fcbd62d85ca61d4" target="_blank">IBM Data Analysis with Python</a>
+                <span class="issuer">IBM SkillsBuild</span>
+              </div>
+            </li>
+            <li>
+              <img class="cert-logo-sm" src="img/ibm.png" alt="IBM" />
+              <div>
+                <a href="https://www.credly.com/badges/fcc4b563-50e5-4aa1-b8a2-a7045fb950ed/public_url" target="_blank">Data Analysis Using Python</a>
+                <span class="issuer">IBM · Credly</span>
+              </div>
+            </li>
+            <li>
+              <img class="cert-logo-sm" src="img/ibm.png" alt="IBM" />
+              <div>
+                <a href="https://www.credly.com/badges/cc9dd5a4-9f2b-4e23-9867-f7e470112a17/public_url" target="_blank">Data Fundamentals</a>
+                <span class="issuer">IBM · Credly</span>
+              </div>
+            </li>
+            <li>
+              <img class="cert-logo-sm" src="img/ibm.png" alt="IBM" />
+              <div>
+                <a href="https://www.credly.com/badges/ee9a1649-5336-4c3a-9c18-0ef7253c3ca2/public_url" target="_blank">Python for Data Science</a>
+                <span class="issuer">IBM · Credly</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- MAIN -->
+      <div class="cv-main">
+
+        <div class="sec">
+          <div class="sec-title" data-i18n="cv.experience">Experience</div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position">Data Scientist / Automation Engineer</div>
+              <div class="meta-right">Oct 2025 — <span data-i18n="cv.present">Present</span></div>
             </div>
-        </main>
+            <div class="org">BuzzTech Yazılım A.Ş.<span class="loc">Istanbul, Turkey</span></div>
+            <ul class="bullets">
+              <li><span class="highlight" data-i18n="cv.exp.bi.tag">Business Intelligence:</span> <span data-i18n="cv.exp.bi.desc">Built Power BI dashboards for logistics operations, converting complex datasets into actionable KPIs.</span></li>
+              <li><span class="highlight" data-i18n="cv.exp.auto.tag">AI Process Automation:</span> <span data-i18n="cv.exp.auto.desc">Designed and deployed AI agents to automate logistics workflows, reducing manual effort.</span></li>
+              <li><span class="highlight" data-i18n="cv.exp.fc.tag">Production Planning:</span> <span data-i18n="cv.exp.fc.desc">Applied time-series forecasting models to support year-end production planning and demand allocation.</span></li>
+            </ul>
+          </div>
 
-        <!-- Footer-->
-        <footer class="py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto">
-                        <div class="small m-0">Copyright &copy; Ozan M. | Professional Portfolio</div>
-                    </div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
-                    </div>
-                </div>
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position">Data Scientist</div>
+              <div class="meta-right">Dec 2024 — Sep 2025</div>
             </div>
-        </footer>
+            <div class="org">IMEBrands<span class="loc">Schaumburg, USA</span></div>
+            <ul class="bullets">
+              <li><span class="highlight" data-i18n="cv.exp.fc2.tag">Forecasting:</span> <span data-i18n="cv.exp.fc2.desc">Built deep-learning time-series models for revenue and Amazon Buy Box performance, improving inventory and PPC efficiency.</span></li>
+              <li><span class="highlight" data-i18n="cv.exp.ca.tag">Customer Analytics:</span> <span data-i18n="cv.exp.ca.desc">Applied RFM and cohort analysis to estimate CLV, ran A/B tests to drive data-driven marketing.</span></li>
+              <li><span class="highlight" data-i18n="cv.exp.ai.tag">AI Systems:</span> <span data-i18n="cv.exp.ai.desc">Developed RAG-based chatbots and agentic AI systems for automated insights and proactive decision support.</span></li>
+            </ul>
+          </div>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        
-        <script>
-            // Professional page animations
-            window.addEventListener('load', function() {
-                const elements = document.querySelectorAll('.fade-in');
-                elements.forEach((element, index) => {
-                    element.style.animationDelay = (index * 0.1) + 's';
-                });
-            });
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position">Data Analyst</div>
+              <div class="meta-right">May 2024 — Dec 2024</div>
+            </div>
+            <div class="org" data-i18n-html="cv.exp.ecom.org">E-Commerce Company<span class="loc">Istanbul, Turkey</span></div>
+            <ul class="bullets">
+              <li data-i18n-html="cv.exp.ecom.1">Analysed <span class="highlight">100K+ e-commerce transactions</span> with Python to uncover 3 key purchasing patterns.</li>
+              <li data-i18n-html="cv.exp.ecom.2">Developed <span class="highlight">12 interactive visualisations</span> driving a <span class="highlight">15% sales increase</span>.</li>
+              <li data-i18n-html="cv.exp.ecom.3">Delivered 8 data-driven recommendations, reducing operational costs by <span class="highlight">12%</span>.</li>
+            </ul>
+          </div>
 
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position">Data Scientist &amp; Kaggle Top Contributor</div>
+              <div class="meta-right">Sep 2024 — <span data-i18n="cv.present">Present</span></div>
+            </div>
+            <div class="org">Kaggle<span class="loc">Global</span></div>
+            <ul class="bullets">
+              <li data-i18n-html="cv.kaggle.1"><span class="highlight">Global Kaggle rank #32 / 60K+</span> with 30+ published ML notebooks.</li>
+              <li data-i18n-html="cv.kaggle.2"><span class="highlight">3K+ upvotes</span> and <span class="highlight">1,200+ forks</span> on open-source notebooks and contributions.</li>
+              <li data-i18n-html="cv.kaggle.3">Hands-on focus on <span class="highlight">ensemble methods, deep learning</span> and feature engineering.</li>
+            </ul>
+          </div>
 
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
-                    navbar.style.boxShadow = '0 4px 12px rgba(0, 212, 255, 0.2)';
-                } else {
-                    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-                    navbar.style.boxShadow = '0 8px 32px rgba(0, 212, 255, 0.1)';
-                }
-            });
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position" data-i18n="cv.exp.navy.title">Combat Medical Specialist</div>
+              <div class="meta-right">2019 — 2024</div>
+            </div>
+            <div class="org" data-i18n-html="cv.exp.navy.org">Naval Forces Command<span class="loc">Izmir, Turkey</span></div>
+            <ul class="bullets">
+              <li data-i18n="cv.exp.navy.1">Managed overseas assignments and prepared official documents including daily reports and attendance sheets.</li>
+              <li data-i18n-html="cv.exp.navy.2">Analysed <span class="highlight">health data</span> and prepared risk-assessment reports during operational preparations.</li>
+              <li data-i18n="cv.exp.navy.3">Developed strong organisational and analytical skills in high-pressure environments.</li>
+            </ul>
+          </div>
+        </div>
 
-            // Professional card hover effects
-            document.querySelectorAll('.professional-card, .certificate-item').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    if (this.classList.contains('professional-card')) {
-                        this.style.transform = 'translateY(-5px)';
-                    } else {
-                        this.style.transform = 'translateY(-2px)';
-                    }
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
+        <div class="sec">
+          <div class="sec-title" data-i18n="cv.education">Education</div>
 
-            // Download button functionality
-            document.querySelector('.download-btn').addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Create professional notification
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
-                    color: white;
-                    padding: 15px 25px;
-                    border-radius: 12px;
-                    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-                    z-index: 9999;
-                    font-weight: 500;
-                    animation: slideIn 0.4s ease-out;
-                    border: 1px solid rgba(0, 212, 255, 0.3);
-                `;
-                notification.innerHTML = `
-                    <i class="bi bi-check-circle-fill me-2"></i>
-                    Resume download will be available soon
-                `;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.4s ease-out';
-                    setTimeout(() => {
-                        notification.remove();
-                    }, 400);
-                }, 3000);
-            });
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position" data-i18n="cv.edu.bachelor">Bachelor's Degree</div>
+              <div class="meta-right">Sep 2024 — <span data-i18n="cv.present">Present</span></div>
+            </div>
+            <div class="org">Istanbul University<span class="loc">Istanbul, Turkey</span></div>
+            <div class="degree"><i class="bi bi-mortarboard-fill"></i> <span data-i18n="cv.edu.mis">Management Information Systems</span></div>
+          </div>
 
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position" data-i18n="cv.edu.associate">Associate's Degree</div>
+              <div class="meta-right">2024 — 2026</div>
+            </div>
+            <div class="org">Anadolu Üniversitesi<span class="loc" data-i18n="cv.edu.eskisehir">Eskişehir, Turkey</span></div>
+            <div class="degree"><i class="bi bi-mortarboard-fill"></i> <span data-i18n="cv.edu.programming">Computer Programming</span></div>
+          </div>
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
-                        entry.target.style.opacity = '1';
-                    }
-                });
-            }, observerOptions);
+          <div class="entry">
+            <div class="entry-head">
+              <div class="position" data-i18n="cv.edu.bachelor">Bachelor's Degree</div>
+              <div class="meta-right">2013 — 2017</div>
+            </div>
+            <div class="org">Muğla Sıtkı Koçman University<span class="loc">Muğla, Turkey</span></div>
+            <div class="degree"><i class="bi bi-mortarboard-fill"></i> <span data-i18n="cv.edu.sport">Sports Sciences</span></div>
+            <p class="desc" data-i18n-html="cv.edu.sport.desc">
+              Studied <span class="highlight">physical performance analysis</span>, sports psychology and health management. Developed strong analytical and problem-solving skills.
+            </p>
+          </div>
+        </div>
 
-            // Observe all cards and sections
-            document.querySelectorAll('.fade-in').forEach(element => {
-                element.style.opacity = '0';
-                observer.observe(element);
-            });
+      </div>
+    </div>
 
-            // Add CSS for slideIn/slideOut animations
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                
-                @keyframes slideOut {
-                    from {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                    to {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-        </script>
-    </body>
+  </main>
+
+  <footer class="page-footer">
+    <div data-i18n="footer.copy">© Ozan M. · Portfolio</div>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="footer.home">Home</a>
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="ML Projects.html" data-i18n="footer.projects">Projects</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       i18n
+       ============================================================ */
+    const i18n = {
+      tr: {
+        'nav.home':'Ana Sayfa', 'nav.resume':'Özgeçmiş', 'nav.ml':'ML',
+        'nav.powerbi':'Power BI', 'nav.python':'Python', 'nav.cnn':'CNN',
+        'nav.nlp':'NLP', 'nav.live':'Canlı', 'nav.contact':'İletişim',
+
+        'cv.print': 'Yazdır / PDF',
+        'cv.title': 'Data Scientist · ML Engineer',
+        'cv.location': 'İstanbul, Türkiye',
+        'cv.email': 'İletişim',
+
+        'cv.about': 'Hakkımda',
+        'cv.about.text': 'E-ticaret, lojistik ve analitik alanlarında deneyimli Data Scientist ve ML Engineer. Makine öğrenmesi, derin öğrenme, computer vision ve tahminsel analitik konularında uzmanlık. İNG HUB Datathon Top 8, Haier Europe Datathon Top 4.',
+
+        'cv.languages': 'Diller',
+        'cv.lang.tr': 'Türkçe',
+        'cv.lang.native': 'Ana Dil',
+        'cv.lang.en': 'İngilizce',
+        'cv.lang.adv': 'A2',
+
+        'cv.skills': 'Teknik Beceriler',
+        'cv.skills.data': 'Veri & Analitik',
+        'cv.skills.ml': 'Makine Öğrenmesi & AI',
+        'cv.skills.nlpcv': 'NLP & Computer Vision',
+        'cv.skills.cloud': 'Veritabanları & Bulut',
+
+        'cv.certs': 'Sertifikalar',
+        'cv.experience': 'Deneyim',
+        'cv.education': 'Eğitim',
+        'cv.present': 'Devam Ediyor',
+
+        'cv.exp.bi.tag': 'Business Intelligence:',
+        'cv.exp.bi.desc': "Lojistik operasyonlar için Power BI dashboard'ları geliştirdim, karmaşık veriyi operasyonel KPI'lara dönüştürdüm.",
+        'cv.exp.auto.tag': 'AI Süreç Otomasyonu:',
+        'cv.exp.auto.desc': 'Lojistik iş akışlarını otomatikleştiren AI agent\'lar tasarladım ve devreye aldım; manuel eforu önemli ölçüde azalttım.',
+        'cv.exp.fc.tag': 'Üretim Planlama:',
+        'cv.exp.fc.desc': 'Yıl sonu üretim planlaması ve talep dağıtımı için time-series forecasting modelleri uyguladım.',
+
+        'cv.exp.fc2.tag': 'Tahminleme:',
+        'cv.exp.fc2.desc': 'Gelir ve Amazon Buy Box performansı için deep learning time-series modelleri kurdum; envanter ve PPC verimliliğini iyileştirdim.',
+        'cv.exp.ca.tag': 'Müşteri Analitiği:',
+        'cv.exp.ca.desc': "CLV tahmini için RFM ve cohort analizi uyguladım, veri odaklı pazarlama için A/B testleri yürüttüm.",
+        'cv.exp.ai.tag': 'AI Sistemleri:',
+        'cv.exp.ai.desc': 'Otomatik içgörü ve proaktif karar desteği için RAG tabanlı chatbot ve agentic AI sistemleri geliştirdim.',
+
+        'cv.exp.ecom.org': 'E-Ticaret Şirketi<span class="loc">İstanbul, Türkiye</span>',
+        'cv.exp.ecom.1': 'Python ile <span class="highlight">100B+ e-ticaret işlemini</span> analiz ettim, 3 temel satın alma örüntüsü tespit ettim.',
+        'cv.exp.ecom.2': '<span class="highlight">12 interaktif görselleştirme</span> ve içgörü geliştirdim, <span class="highlight">%15 satış artışı</span> sağladı.',
+        'cv.exp.ecom.3': '8 veri odaklı öneri sundum, operasyonel maliyetleri <span class="highlight">%12</span> düşürdüm.',
+
+        'cv.kaggle.1': '<span class="highlight">Global Kaggle sıralamasında #32 / 60B+</span>, 30+ yayımlanmış ML notebook.',
+        'cv.kaggle.2': '<span class="highlight">3B+ upvote</span> ve <span class="highlight">1.200+ fork</span> alan açık kaynak notebook ve katkılar.',
+        'cv.kaggle.3': '<span class="highlight">Ensemble yöntemleri, deep learning</span> ve feature engineering konularında uygulamalı odak.',
+
+        'cv.exp.navy.title': 'Muharebe Sağlık Uzmanı',
+        'cv.exp.navy.org': 'Deniz Kuvvetleri Komutanlığı<span class="loc">İzmir, Türkiye</span>',
+        'cv.exp.navy.1': 'Yurtdışı görevleri yönettim, günlük rapor ve yoklama dahil resmi belgeleri hazırladım.',
+        'cv.exp.navy.2': 'Operasyonel hazırlıklar süresince <span class="highlight">sağlık verilerini</span> analiz ettim ve risk değerlendirme raporları hazırladım.',
+        'cv.exp.navy.3': 'Yüksek baskılı ortamlarda güçlü organizasyon ve analitik beceriler geliştirdim.',
+
+        'cv.edu.bachelor': 'Lisans',
+        'cv.edu.associate': 'Ön Lisans',
+        'cv.edu.mis': 'Yönetim Bilişim Sistemleri',
+        'cv.edu.programming': 'Bilgisayar Programcılığı',
+        'cv.edu.eskisehir': 'Eskişehir, Türkiye',
+        'cv.edu.sport': 'Spor Bilimleri',
+        'cv.edu.sport.desc': '<span class="highlight">Fiziksel performans analizi</span>, spor psikolojisi ve sağlık yönetimi alanlarında çalışıldı. Güçlü analitik ve problem çözme becerileri kazanıldı.',
+
+        'footer.copy':'© Ozan M. · Portfolyo', 'footer.contact':'İletişim', 'footer.home':'Ana Sayfa', 'footer.projects':'Projeler'
+      },
+
+      en: {
+        'nav.home':'Home', 'nav.resume':'Resume', 'nav.ml':'ML',
+        'nav.powerbi':'Power BI', 'nav.python':'Python', 'nav.cnn':'CNN',
+        'nav.nlp':'NLP', 'nav.live':'Live', 'nav.contact':'Contact',
+
+        'cv.print': 'Print / PDF',
+        'cv.title': 'Data Scientist · ML Engineer',
+        'cv.location': 'Istanbul, Turkey',
+        'cv.email': 'Contact',
+
+        'cv.about': 'About',
+        'cv.about.text': 'Data Scientist and ML Engineer with experience across e-commerce, logistics and analytics. Specialised in machine learning, deep learning, computer vision and predictive analytics. Top 8 at İNG HUB Datathon, Top 4 at Haier Europe Datathon.',
+
+        'cv.languages': 'Languages',
+        'cv.lang.tr': 'Turkish',
+        'cv.lang.native': 'Native',
+        'cv.lang.en': 'English',
+        'cv.lang.adv': 'A2',
+
+        'cv.skills': 'Technical Skills',
+        'cv.skills.data': 'Data & Analytics',
+        'cv.skills.ml': 'Machine Learning & AI',
+        'cv.skills.nlpcv': 'NLP & Computer Vision',
+        'cv.skills.cloud': 'Databases & Cloud',
+
+        'cv.certs': 'Certifications',
+        'cv.experience': 'Experience',
+        'cv.education': 'Education',
+        'cv.present': 'Present',
+
+        'cv.exp.bi.tag': 'Business Intelligence:',
+        'cv.exp.bi.desc': 'Built Power BI dashboards for logistics operations, converting complex datasets into actionable KPIs.',
+        'cv.exp.auto.tag': 'AI Process Automation:',
+        'cv.exp.auto.desc': 'Designed and deployed AI agents to automate logistics workflows, reducing manual effort.',
+        'cv.exp.fc.tag': 'Production Planning:',
+        'cv.exp.fc.desc': 'Applied time-series forecasting models to support year-end production planning and demand allocation.',
+
+        'cv.exp.fc2.tag': 'Forecasting:',
+        'cv.exp.fc2.desc': 'Built deep-learning time-series models for revenue and Amazon Buy Box performance, improving inventory and PPC efficiency.',
+        'cv.exp.ca.tag': 'Customer Analytics:',
+        'cv.exp.ca.desc': 'Applied RFM and cohort analysis to estimate CLV, ran A/B tests to drive data-driven marketing.',
+        'cv.exp.ai.tag': 'AI Systems:',
+        'cv.exp.ai.desc': 'Developed RAG-based chatbots and agentic AI systems for automated insights and proactive decision support.',
+
+        'cv.exp.ecom.org': 'E-Commerce Company<span class="loc">Istanbul, Turkey</span>',
+        'cv.exp.ecom.1': 'Analysed <span class="highlight">100K+ e-commerce transactions</span> with Python to uncover 3 key purchasing patterns.',
+        'cv.exp.ecom.2': 'Developed <span class="highlight">12 interactive visualisations</span> driving a <span class="highlight">15% sales increase</span>.',
+        'cv.exp.ecom.3': 'Delivered 8 data-driven recommendations, reducing operational costs by <span class="highlight">12%</span>.',
+
+        'cv.kaggle.1': '<span class="highlight">Global Kaggle rank #32 / 60K+</span> with 30+ published ML notebooks.',
+        'cv.kaggle.2': '<span class="highlight">3K+ upvotes</span> and <span class="highlight">1,200+ forks</span> on open-source notebooks and contributions.',
+        'cv.kaggle.3': 'Hands-on focus on <span class="highlight">ensemble methods, deep learning</span> and feature engineering.',
+
+        'cv.exp.navy.title': 'Combat Medical Specialist',
+        'cv.exp.navy.org': 'Naval Forces Command<span class="loc">Izmir, Turkey</span>',
+        'cv.exp.navy.1': 'Managed overseas assignments and prepared official documents including daily reports and attendance sheets.',
+        'cv.exp.navy.2': 'Analysed <span class="highlight">health data</span> and prepared risk-assessment reports during operational preparations.',
+        'cv.exp.navy.3': 'Developed strong organisational and analytical skills in high-pressure environments.',
+
+        'cv.edu.bachelor': "Bachelor's Degree",
+        'cv.edu.associate': "Associate's Degree",
+        'cv.edu.mis': 'Management Information Systems',
+        'cv.edu.programming': 'Computer Programming',
+        'cv.edu.eskisehir': 'Eskişehir, Turkey',
+        'cv.edu.sport': 'Sports Sciences',
+        'cv.edu.sport.desc': 'Studied <span class="highlight">physical performance analysis</span>, sports psychology and health management. Developed strong analytical and problem-solving skills.',
+
+        'footer.copy':'© Ozan M. · Portfolio', 'footer.contact':'Contact', 'footer.home':'Home', 'footer.projects':'Projects'
+      }
+    };
+
+    function applyLang(lang) {
+      if (!i18n[lang]) lang = 'tr';
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const v = i18n[lang][key];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        const v = i18n[lang][key];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+    applyLang(localStorage.getItem('lang') || 'tr');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+
+    /* Print button */
+    document.getElementById('print-btn').addEventListener('click', () => window.print());
+  </script>
+
+  <script src="chatbot.js"></script>
+</body>
 </html>

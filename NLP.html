@@ -1,476 +1,765 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="NLP portfolio projects by Ozan" />
-    <meta name="author" content="Ozan M." />
-    <title>NLP Projects – Ozan M.</title>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NLP projects by Ozan M. — sentiment analysis, topic modeling, machine translation, transformer fine-tuning." />
+  <meta name="author" content="Ozan M." />
+  <title>NLP Projects — Ozan M.</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XL6YG0LSV2");
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XL6YG0LSV2');
+  </script>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    <!-- Custom Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+  <style>
+    :root {
+      --bg: #07070a;
+      --bg-soft: #0d0d12;
+      --surface: rgba(255, 255, 255, 0.035);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #f4f4f5;
+      --text-dim: #a1a1aa;
+      --text-mute: #71717a;
+      --violet: #3b82f6;
+      --indigo: #0ea5e9;
+      --cyan: #22d3ee;
+      --pink: #06b6d4;
+      --emerald: #10b981;
+      --grad-1: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #22d3ee 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Bootstrap icons & core CSS  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css" />
+    html { background: var(--bg); }
+    body {
+      background: transparent;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
 
-    <!-- ================  THEME OVERRIDE ================ -->
-    <style>
-      :root {
-        /* colour schema */
-        --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
-        --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
-        --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-        --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
-        --neon-blue: #00ffff;
-        --neon-purple: #bf00ff;
-        --neon-orange: #ff8c00;
-        --dark-bg: #0d1421;
-        --dark-surface: #1a2332;
-      }
+    #bg-canvas {
+      position: fixed; inset: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0; pointer-events: none;
+      opacity: 0.9;
+      transition: opacity 1.8s cubic-bezier(.2,.8,.2,1);
+    }
+    #bg-canvas.recede { opacity: 0.16; }
+    .vignette {
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 30%, transparent 40%, rgba(7,7,10,0.55) 100%);
+      z-index: 0; pointer-events: none;
+      transition: background 1.8s ease;
+    }
+    .vignette.recede {
+      background: radial-gradient(ellipse 90% 80% at 50% 50%,
+                                  rgba(7,7,10,0.78) 0%,
+                                  rgba(7,7,10,0.6) 50%,
+                                  rgba(7,7,10,0.4) 100%);
+    }
 
-      /* page setup with background image */
-      html,
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        background: 
-          linear-gradient(135deg, rgba(15, 52, 117, 0.8) 0%, rgba(50, 130, 184, 0.6) 50%, rgba(187, 225, 250, 0.4) 100%),
-          url('ai-background.jpg') center/cover no-repeat fixed;
-        min-height: 100vh;
-        overflow-x: hidden;
-        position: relative;
-      }
+    .nav, .hero, .cards, .page-footer { position: relative; z-index: 1; }
 
-      /* AI Circuit Background Animation - updated to work with new background */
-      .ai-background {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        opacity: 0.12;
-        background-image: radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
-          radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
-          radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px);
-        background-size: 100px 100px, 150px 150px, 200px 200px;
-        animation: circuit-flow 15s linear infinite;
-      }
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 7, 10, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); position: relative; }
+    .nav-links a.active::after {
+      content: ""; position: absolute;
+      left: 0; right: 0; bottom: -6px; height: 2px;
+      background: var(--grad-1); border-radius: 2px;
+    }
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      margin-left: 6px;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: var(--text); color: var(--bg); }
+    .lang-btn:not(.active):hover { color: var(--text); }
 
-      @keyframes circuit-flow {
-        0% {
-          transform: translate(-50px, -50px);
-        }
-        100% {
-          transform: translate(50px, 50px);
-        }
-      }
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 56px 32px 32px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.05;
+    }
+    .hero h1 .accent {
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
 
-      /* glassy navbar - enhanced transparency */
-      .navbar {
-        backdrop-filter: blur(20px);
-        background: rgba(13, 20, 33, 0.85) !important;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-        box-shadow: 0 8px 32px rgba(0, 255, 255, 0.15);
-        transition: all 0.3s ease;
-      }
-      .navbar-brand {
-        font-weight: 800;
-        font-size: 1.5rem;
-        background: var(--gradient-accent);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        position: relative;
-      }
-      .navbar-brand::after {
-        content: "⚡";
-        position: absolute;
-        right: -25px;
-        color: var(--neon-orange);
-        animation: pulse-glow 2s infinite;
-      }
-      @keyframes pulse-glow {
-        0%,
-        100% {
-          text-shadow: 0 0 5px var(--neon-orange);
-          transform: scale(1);
-        }
-        50% {
-          text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange);
-          transform: scale(1.1);
-        }
-      }
-      .navbar-nav .nav-link {
-        color: var(--neon-blue) !important;
-        font-weight: 600;
-        margin: 0 10px;
-        position: relative;
-        transition: 0.3s;
-      }
-      .navbar-nav .nav-link:hover {
-        color: white !important;
-        text-shadow: 0 0 10px var(--neon-blue);
-        transform: translateY(-3px);
-      }
-      .navbar-nav .nav-link::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 50%;
-        background: var(--gradient-accent);
-        transition: 0.3s;
-        transform: translateX(-50%);
-        box-shadow: 0 0 10px var(--neon-blue);
-      }
-      .navbar-nav .nav-link:hover::after {
-        width: 100%;
-      }
+    .cards {
+      max-width: 1200px; margin: 0 auto;
+      padding: 40px 32px 80px;
+      display: flex; flex-direction: column; gap: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s cubic-bezier(.2,.8,.2,1),
+                  transform 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+    .cards.ready { opacity: 1; transform: translateY(0); }
+    .card-wrap { position: relative; }
+    .card {
+      position: relative;
+      padding: 32px;
+      border-radius: 24px;
+      background: rgba(13, 13, 18, 0.72);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      align-items: center;
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 0; border-radius: 24px;
+      background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%),
+        rgba(59,130,246,0.18), transparent 40%);
+      opacity: 0; transition: opacity 0.4s;
+      pointer-events: none; z-index: 1;
+    }
+    .card:hover::before { opacity: 1; }
+    .card:hover {
+      border-color: rgba(59,130,246,0.3);
+      box-shadow: 0 30px 60px -25px rgba(59,130,246,0.4);
+    }
+    .card::after {
+      content: ""; position: absolute;
+      top: 0; left: 0; height: 2px; width: 0;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      transition: width 1.2s cubic-bezier(.2,.8,.2,1);
+      z-index: 2;
+    }
+    .card.in-view::after { width: 100%; }
 
-      /* hero */
-      .hero-section {
-        padding-top: 120px;
-        min-height: 60vh;
-        position: relative;
-      }
-      .hero-title {
-        font-size: 3.5rem;
-        font-weight: 900;
-        background: linear-gradient(135deg, #00ffff 0%, #ffffff 50%, #ff8c00 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-      }
-      .hero-description {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.1rem;
-      }
-      .badge-modern {
-        background: rgba(0, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        border: 2px solid var(--neon-blue);
-        color: white;
-        padding: 10px 25px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        animation: neon-pulse 2s infinite;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 20px rgba(0, 255, 255, 0.08);
-      }
-      @keyframes neon-pulse {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.25), inset 0 0 20px rgba(0, 255, 255, 0.08);
-        }
-        50% {
-          box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 60px rgba(0, 255, 255, 0.4), inset 0 0 30px rgba(0, 255, 255, 0.15);
-        }
-      }
+    .image-frame {
+      position: relative;
+      width: 100%; aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      z-index: 2;
+    }
+    .image-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+    }
+    .card:hover .image-frame img { transform: scale(1.08); }
 
-      /* project cards horizontal - enhanced transparency */
-      .project-horizontal {
-        display: flex;
-        gap: 25px;
-        padding: 25px;
-        border-radius: 20px;
-        background: rgba(13, 20, 33, 0.7);
-        backdrop-filter: blur(15px);
-        border: 2px solid rgba(0, 255, 255, 0.15);
-        transition: 0.3s ease;
-        margin-bottom: 35px;
-        box-shadow: 0 6px 20px rgba(0, 255, 255, 0.12);
-      }
-      .project-horizontal:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.35);
-        border-color: var(--neon-orange);
-        background: rgba(13, 20, 33, 0.8);
-      }
-      
-      /* Enhanced Image with Hover Effect */
-      .project-horizontal a {
-        text-decoration: none;
-        display: block;
-        position: relative;
-      }
+    .content { position: relative; z-index: 2; }
+    .card h3 {
+      font-size: 1.625rem; font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .card h3 .underline { position: relative; display: inline-block; }
+    .card h3 .underline::after {
+      content: ""; position: absolute;
+      left: 0; bottom: -4px; height: 2px; width: 100%;
+      background: var(--violet);
+      transform-origin: left; transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+    .card:hover h3 .underline::after { transform: scaleX(1); }
+    .card p {
+      color: var(--text-dim); line-height: 1.65;
+      font-size: 0.975rem;
+      margin-bottom: 20px;
+    }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tag {
+      padding: 4px 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; color: var(--text-dim);
+    }
+    .tag.rank {
+      color: #0a0a0a;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      border-color: transparent;
+      font-weight: 700;
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 10px;
+      font-weight: 600; font-size: 0.875rem;
+      transition: transform 0.15s cubic-bezier(.2,.8,.2,1),
+                  background 0.2s, color 0.2s, box-shadow 0.2s;
+      cursor: pointer; width: fit-content;
+    }
+    .cta:hover {
+      background: var(--violet);
+      color: white;
+      box-shadow: 0 12px 30px rgba(59,130,246,0.45);
+    }
+    .cta svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .cta:hover svg { transform: translateX(3px); }
 
-      .project-horizontal img {
-        width: 160px;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 15px;
-        border: 3px solid var(--neon-blue);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-        transition: all 0.3s ease;
-      }
+    .card .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(8px);
+      transition: opacity 0.8s cubic-bezier(.2,.8,.2,1),
+                  transform 0.8s cubic-bezier(.2,.8,.2,1),
+                  filter 0.8s ease;
+    }
+    .card.in-view .reveal-item {
+      opacity: 1; transform: translateY(0); filter: blur(0);
+    }
+    .card.in-view .reveal-item:nth-child(1) { transition-delay: 0s; }
+    .card.in-view .reveal-item:nth-child(2) { transition-delay: 0.15s; }
+    .card.in-view .reveal-item:nth-child(3) { transition-delay: 0.3s; }
+    .card.in-view .reveal-item:nth-child(4) { transition-delay: 0.45s; }
+    .card.in-view .reveal-item:nth-child(5) { transition-delay: 0.6s; }
 
-      /* Hover overlay effect */
-      .project-horizontal a::before {
-        content: '🚀 Click to Explore NLP Analysis';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 255, 255, 0.9);
-        color: #0d1421;
-        padding: 15px 25px;
-        border-radius: 25px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 10;
-        backdrop-filter: blur(10px);
-        border: 2px solid var(--neon-orange);
-        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
-        white-space: nowrap;
-      }
+    @media (max-width: 768px) {
+      .card { grid-template-columns: 1fr; padding: 24px; }
+      .image-frame { max-width: 280px; margin: 0 auto; }
+    }
 
-      .project-horizontal a:hover::before {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
-      }
+    .page-footer {
+      max-width: 1320px; margin: 0 auto;
+      padding: 30px 32px 50px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--text-mute); font-size: 0.82rem;
+    }
+    .page-footer .footer-links { display: flex; gap: 18px; }
+    .page-footer .footer-links a:hover { color: var(--text); }
+  </style>
+</head>
 
-      .project-horizontal a:hover img {
-        filter: brightness(0.7) blur(2px);
-      }
+<body>
 
-      .project-description h3 {
-        background: var(--gradient-accent);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 800;
-      }
-      .project-description p {
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.6;
-      }
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
 
-      /* scrollbar */
-      ::-webkit-scrollbar {
-        width: 12px;
-      }
-      ::-webkit-scrollbar-track {
-        background: rgba(13, 20, 33, 0.8);
-        border-radius: 6px;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--gradient-accent);
-        border-radius: 6px;
-        border: 2px solid rgba(0, 255, 255, 0.25);
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--gradient-secondary);
-        box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
-      }
-
-      /* responsive */
-      @media (max-width: 991px) {
-        .project-horizontal {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-        .project-horizontal img {
-          width: 220px;
-          height: 220px;
-        }
-        
-        .project-horizontal a::before {
-          font-size: 0.8rem;
-          padding: 12px 20px;
-          white-space: normal;
-          text-align: center;
-          max-width: 200px;
-        }
-      }
-    </style>
-
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script>
-      window.FIREBASE_API_KEY = "AIzaSyDt-YuYCFTpbVmBvHFIcLtCXowgKiBgX8w";
-    </script>
-  </head>
-
-  <body class="d-flex flex-column h-100">
-    <!-- AI background grid -->
-    <div class="ai-background"></div>
-
-    <main class="flex-shrink-0">
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg py-3">
-        <div class="container px-5">
-          <a class="navbar-brand" href="index.html"><span class="fw-bolder">Data Analyst & Data Scientist</span></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-              <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="LiveProjects.html">Live Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <section class="hero-section text-center text-white">
-        <div class="container px-5">
-          <h1 class="hero-title mb-3">Natural Language Processing</h1>
-            <p class="mt-2" style="color: rgba(255, 255, 255, 0.9);">Tam PDF raporunu açmak için bir resme tıklayın.</p>
-            <div class="mt-4"><span class="badge-modern">NLP Projects</span></div>
-          </div>
-    
-
-          <div class="row gx-5 justify-content-center">
-            <div class="col-lg-11 col-xl-9 col-xxl-8">
-              <!-- Project items injected as‑is from original HTML -->
-              <!-- 1 Stroke -->
-              <div class="project-horizontal">
-                <a href="https://github.com/Ozan-Mohurcu/NLP-Projects" target="_blank"><img src="img/saglık.png" alt="Health analysis" /></a>
-                <div class="project-description">
-                  <h3>Türkiye Sağlık Turizmi NLP Analizi Reddit Yorumları</h3>
-                  <p>Türkiye'nin sağlık turizmi hakkındaki Reddit yorumları, temel temaları ve kullanıcı algılarını ortaya çıkarmak için duygu analizi ve konu modellemesi kullanılarak analiz edildi.</p>
-          </div>
-        </div>
-              <div class="project-horizontal">
-                <a href="https://github.com/Ozan-Mohurcu/yangin-tweet-analizi-nlp" target="_blank">
-                  <img src="img/yangın.png" alt="Yangın Tweet Analizi" />
-                </a>
-                <div class="project-description">
-                  <h3>Yangın Tweet'leri Üzerine NLP Analizi</h3>
-                  <p>Afet anlarında sosyal medya verilerini analiz ederek lokasyon, duygu durumu ve bilgi akışını ortaya çıkarmaya yönelik bir çalışma.</p>
-                </div>
-              </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-4 mt-auto" style="background: rgba(13, 20, 33, 0.9); backdrop-filter: blur(10px); border-top: 2px solid var(--neon-blue); color: white; box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.25);">
-      <div class="container px-5">
-        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-          <div class="col-auto"><div class="small m-0">© Ozan M. |  Portfolio</div></div>
-          <div class="col-auto">
-            <a class="small" href="#" style="color: var(--neon-blue); transition: all 0.3s ease;">Privacy</a>
-            <span class="mx-1">&middot;</span>
-            <a class="small" href="#" style="color: var(--neon-blue); transition: all 0.3s ease;">Terms</a>
-            <span class="mx-1">&middot;</span>
-            <a class="small" href="contact.html" style="color: var(--neon-blue); transition: all 0.3s ease;">Contact</a>
-          </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Ozan M. · Data Scientist</a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="resume.html" data-i18n="nav.resume">Resume</a>
+        <a href="ML Projects.html" data-i18n="nav.ml">ML</a>
+        <a href="Power BI Projects.html" data-i18n="nav.powerbi">Power BI</a>
+        <a href="Python.html" data-i18n="nav.python">Python</a>
+        <a href="ComputerVision.html" data-i18n="nav.cnn">CNN</a>
+        <a href="NLP.html" class="active" data-i18n="nav.nlp">NLP</a>
+        <a href="LiveProjects.html" data-i18n="nav.live">Live</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="tr" type="button">TR</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
         </div>
       </div>
-    </footer>
+    </div>
+  </nav>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const nav = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          nav.style.background = "rgba(13, 20, 33, 0.95)";
-          nav.style.boxShadow = "0 5px 30px rgba(0, 255, 255, 0.35)";
-        } else {
-          nav.style.background = "rgba(13, 20, 33, 0.85)";
-          nav.style.boxShadow = "0 8px 32px rgba(0, 255, 255, 0.15)";
+  <section class="hero">
+    <h1><span data-i18n="nlp.title.pre">NLP</span> <span class="accent" data-i18n="nlp.title.accent">Projects</span></h1>
+  </section>
+
+  <section class="cards">
+
+    <!-- 01 — Akkadian Machine Translation (ByT5) -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <img src="img/akkadian.png" alt="Akkadian Machine Translation ByT5" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag rank">🏅 Top 32 · Kaggle</span>
+            <span class="tag">ByT5</span>
+            <span class="tag">Fine-tuning</span>
+            <span class="tag">Machine Translation</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="nlp.akkadian.title.pre">Akkadian Machine Translation —</span> <span class="underline" data-i18n="nlp.akkadian.title.accent">ByT5 Fine-tuning</span></h3>
+          <p class="reveal-item" data-i18n="nlp.akkadian.desc">
+            Deep Past Initiative Akad dili makine çevirisi yarışmasında ByT5-base modelini fine-tune ederek 32. sırayı aldık. LLM veya sentetik veri kullanmadan, sadece byte-level transformer ile çiviyazısı metinlerini Modern İngilizceye çeviren çözüm.
+          </p>
+          <a class="cta reveal-item" href="https://www.kaggle.com/competitions/deep-past-initiative-machine-translation/writeups/32nd-byt5-base-fine-tuning-no-llms-no-synthet" target="_blank">
+            <span data-i18n="nlp.cta.writeup">Read Write-up</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 — Health Tourism Reddit -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <img src="img/saglık.png" alt="Türkiye Sağlık Turizmi NLP" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">Reddit</span>
+            <span class="tag">Sentiment</span>
+            <span class="tag">Topic Modeling</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="nlp.health.title.pre">Türkiye Sağlık Turizmi —</span> <span class="underline" data-i18n="nlp.health.title.accent">Reddit NLP Analizi</span></h3>
+          <p class="reveal-item" data-i18n="nlp.health.desc">
+            Türkiye'nin sağlık turizmi hakkındaki Reddit yorumlarını duygu analizi ve konu modellemesi ile inceledim. Temel temaları, kullanıcı algılarını ve sektörel içgörüleri çıkardım.
+          </p>
+          <a class="cta reveal-item" href="https://github.com/Ozan-Mohurcu/NLP-Projects" target="_blank">
+            <span data-i18n="nlp.cta.github">View on GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 — Wildfire Tweets -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <img src="img/yangın.png" alt="Yangın Tweet Analizi" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">Twitter</span>
+            <span class="tag">Crisis NLP</span>
+            <span class="tag">Geo + Sentiment</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="nlp.fire.title.pre">Yangın Tweet'leri</span> <span class="underline" data-i18n="nlp.fire.title.accent">NLP Analizi</span></h3>
+          <p class="reveal-item" data-i18n="nlp.fire.desc">
+            Afet anlarında sosyal medya verilerini analiz ederek lokasyon, duygu durumu ve bilgi akışını ortaya çıkaran kriz iletişimi NLP çalışması.
+          </p>
+          <a class="cta reveal-item" href="https://github.com/Ozan-Mohurcu/yangin-tweet-analizi-nlp" target="_blank">
+            <span data-i18n="nlp.cta.github">View on GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="page-footer">
+    <div data-i18n="footer.copy">© Ozan M. · Portfolio</div>
+    <div class="footer-links">
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="resume.html" data-i18n="footer.resume">Resume</a>
+      <a href="ML Projects.html" data-i18n="footer.projects">Projects</a>
+    </div>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    console.log('[nlp-bg] Three.js loaded:', THREE.REVISION);
+
+    /* ============================================================
+       i18n
+       ============================================================ */
+    const i18n = {
+      tr: {
+        'nav.home':'Ana Sayfa','nav.resume':'Özgeçmiş','nav.ml':'ML',
+        'nav.powerbi':'Power BI','nav.python':'Python','nav.cnn':'CNN',
+        'nav.nlp':'NLP','nav.live':'Canlı','nav.contact':'İletişim',
+
+        'nlp.title.pre': 'NLP',
+        'nlp.title.accent': 'Projeleri',
+
+        'nlp.health.title.pre': 'Türkiye Sağlık Turizmi —',
+        'nlp.health.title.accent': 'Reddit NLP Analizi',
+        'nlp.health.desc': "Türkiye'nin sağlık turizmi hakkındaki Reddit yorumlarını duygu analizi ve konu modellemesi ile inceledim. Temel temaları, kullanıcı algılarını ve sektörel içgörüleri çıkardım.",
+
+        'nlp.fire.title.pre': "Yangın Tweet'leri",
+        'nlp.fire.title.accent': 'NLP Analizi',
+        'nlp.fire.desc': "Afet anlarında sosyal medya verilerini analiz ederek lokasyon, duygu durumu ve bilgi akışını ortaya çıkaran kriz iletişimi NLP çalışması.",
+
+        'nlp.akkadian.title.pre': 'Akad Dili Makine Çevirisi —',
+        'nlp.akkadian.title.accent': 'ByT5 Fine-tuning',
+        'nlp.akkadian.desc': 'Deep Past Initiative Akad dili makine çevirisi yarışmasında ByT5-base modelini fine-tune ederek 32. sırayı aldık. LLM veya sentetik veri kullanmadan, sadece byte-level transformer ile çiviyazısı metinlerini Modern İngilizceye çeviren çözüm.',
+
+        'nlp.cta.github': 'GitHub',
+        'nlp.cta.writeup': 'Yazıyı Oku',
+
+        'footer.copy':'© Ozan M. · Portfolyo',
+        'footer.contact':'İletişim',
+        'footer.resume':'Özgeçmiş',
+        'footer.projects':'Projeler'
+      },
+      en: {
+        'nav.home':'Home','nav.resume':'Resume','nav.ml':'ML',
+        'nav.powerbi':'Power BI','nav.python':'Python','nav.cnn':'CNN',
+        'nav.nlp':'NLP','nav.live':'Live','nav.contact':'Contact',
+
+        'nlp.title.pre': 'NLP',
+        'nlp.title.accent': 'Projects',
+
+        'nlp.health.title.pre': 'Turkey Health Tourism —',
+        'nlp.health.title.accent': 'Reddit NLP Analysis',
+        'nlp.health.desc': "Analysed Reddit comments about Turkey's health tourism using sentiment analysis and topic modeling. Extracted key themes, user perceptions and sectoral insights.",
+
+        'nlp.fire.title.pre': 'Wildfire Tweets',
+        'nlp.fire.title.accent': 'NLP Analysis',
+        'nlp.fire.desc': 'Crisis NLP study analysing social media data during disasters to surface location, sentiment and information-flow signals.',
+
+        'nlp.akkadian.title.pre': 'Akkadian Machine Translation —',
+        'nlp.akkadian.title.accent': 'ByT5 Fine-tuning',
+        'nlp.akkadian.desc': 'Ranked 32nd at the Deep Past Initiative Akkadian Machine Translation competition by fine-tuning ByT5-base. No LLMs, no synthetic data — a pure byte-level transformer solution translating cuneiform texts into modern English.',
+
+        'nlp.cta.github': 'View on GitHub',
+        'nlp.cta.writeup': 'Read Write-up',
+
+        'footer.copy':'© Ozan M. · Portfolio',
+        'footer.contact':'Contact',
+        'footer.resume':'Resume',
+        'footer.projects':'Projects'
+      }
+    };
+
+    function applyLang(lang) {
+      if (!i18n[lang]) lang = 'tr';
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n'); const v = i18n[lang][k];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const k = el.getAttribute('data-i18n-html'); const v = i18n[lang][k];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+    }
+    applyLang(localStorage.getItem('lang') || 'tr');
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.addEventListener('click', () => applyLang(b.dataset.lang));
+    });
+
+    /* ============================================================
+       3D ROTATING WORD CLOUD — NLP-themed words orbit a sphere
+       ============================================================ */
+    const canvas = document.getElementById('bg-canvas');
+    const vignetteEl = document.querySelector('.vignette');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 16);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+    /* NLP & data-science vocabulary */
+    const words = [
+      "Transformer", "Attention", "BERT", "GPT", "T5", "ByT5",
+      "Embedding", "Tokenize", "Encoder", "Decoder", "Sentiment",
+      "Topic Model", "Context", "Corpus", "Word2Vec", "GloVe",
+      "fastText", "tf-idf", "n-gram", "Lemma", "Stem",
+      "POS Tag", "NER", "Parser", "Syntax", "Semantic",
+      "Discourse", "Summarize", "Translate", "Classify", "Extract",
+      "Generate", "Language", "Model", "LSTM", "GRU",
+      "biLSTM", "Softmax", "Logits", "Loss", "Epoch",
+      "Batch", "Fine-tune", "Pre-train", "Zero-shot", "Few-shot",
+      "Prompt", "BPE", "WordPiece", "SentencePiece", "Subword",
+      "Chatbot", "RAG", "Agent", "Vector", "Cosine",
+      "Cluster", "LDA", "BERTopic", "spaCy", "NLTK",
+      "HuggingFace", "PyTorch", "TensorFlow", "Datasets",
+      "Tokenizer", "Trainer", "Evaluate", "Perplexity",
+      "BLEU", "ROUGE", "F1", "Accuracy", "Akkadian",
+      "Cuneiform", "Reddit", "Tweet", "Crisis",
+      "Türkçe", "İngilizce", "Multilingual", "Cross-lingual",
+      "Self-attention", "Multi-head", "Positional", "Layer Norm"
+    ];
+
+    /* Create a sprite for each word with a canvas texture */
+    function makeWordSprite(word, importance = 1) {
+      const c = document.createElement('canvas');
+      const padding = 20;
+      const fontSize = 48;
+      c.width = 1024;
+      c.height = 160;
+      const ctx = c.getContext('2d');
+
+      ctx.font = `bold ${fontSize}px "JetBrains Mono", "Inter", monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      // gradient fill — cyan/blue brand
+      const grad = ctx.createLinearGradient(0, 0, c.width, 0);
+      grad.addColorStop(0,    '#3b82f6');
+      grad.addColorStop(0.5,  '#0ea5e9');
+      grad.addColorStop(1,    '#22d3ee');
+      ctx.fillStyle = grad;
+
+      // subtle glow underneath
+      ctx.shadowColor = 'rgba(34, 211, 238, 0.55)';
+      ctx.shadowBlur = 18;
+
+      ctx.fillText(word, c.width / 2, c.height / 2);
+
+      const tex = new THREE.CanvasTexture(c);
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+      tex.anisotropy = 4;
+
+      const mat = new THREE.SpriteMaterial({
+        map: tex,
+        transparent: true,
+        opacity: 0.85,
+        depthWrite: false
+      });
+
+      const sprite = new THREE.Sprite(mat);
+      // wider than tall — preserve text aspect
+      const baseW = 2.4 * importance;
+      const baseH = baseW * (160 / 1024);
+      sprite.scale.set(baseW, baseH * 2.6, 1); // boost height for legibility
+      return sprite;
+    }
+
+    /* Distribute sprites on a sphere using Fibonacci lattice */
+    const wordCloud = new THREE.Group();
+    const N = words.length;
+    const radius = 9;
+    const sprites = []; // for animation
+    for (let i = 0; i < N; i++) {
+      const phi   = Math.acos(1 - 2 * (i + 0.5) / N);
+      const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
+
+      // bigger sprites for hero terms
+      const big = ["Transformer", "Attention", "BERT", "GPT", "ByT5", "Akkadian"].includes(words[i]);
+      const importance = big ? 1.7 : 1.0;
+
+      const sprite = makeWordSprite(words[i], importance);
+      const x = radius * Math.sin(phi) * Math.cos(theta);
+      const y = radius * Math.sin(phi) * Math.sin(theta);
+      const z = radius * Math.cos(phi);
+      sprite.position.set(x, y, z);
+
+      // Animation data per word
+      sprite.userData = {
+        basePos: new THREE.Vector3(x, y, z),
+        baseScale: sprite.scale.clone(),
+        bobPhase: Math.random() * Math.PI * 2,
+        bobAmp:   0.15 + Math.random() * 0.2,
+        pulseUntil: 0,
+        importance
+      };
+      wordCloud.add(sprite);
+      sprites.push(sprite);
+    }
+    scene.add(wordCloud);
+
+    /* Connection lines between nearby words (embedding-style graph).
+       BufferGeometry with all line segments in one mesh — fast. */
+    const linePositions = [];
+    const linePairs = []; // store pairs for animation
+    const linkThreshold = 4.0;
+    for (let i = 0; i < sprites.length; i++) {
+      for (let j = i + 1; j < sprites.length; j++) {
+        const d = sprites[i].position.distanceTo(sprites[j].position);
+        if (d < linkThreshold) {
+          linePairs.push({ i, j, d });
+          linePositions.push(
+            sprites[i].position.x, sprites[i].position.y, sprites[i].position.z,
+            sprites[j].position.x, sprites[j].position.y, sprites[j].position.z
+          );
         }
-      });
+      }
+    }
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+    const lineMat = new THREE.LineBasicMaterial({
+      color: 0x22d3ee,
+      transparent: true,
+      opacity: 0.18,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+    const wordLines = new THREE.LineSegments(lineGeo, lineMat);
+    wordCloud.add(wordLines);
 
-      // smooth internal links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
-        });
-      });
+    /* Periodically pulse a random word — like a vocabulary scan */
+    function triggerWordPulse() {
+      const s = sprites[Math.floor(Math.random() * sprites.length)];
+      s.userData.pulseUntil = performance.now() + 800;
+    }
+    setInterval(triggerWordPulse, 350);
 
-      // simple fade‑in load
-      window.addEventListener("load", () => {
-        document.body.style.opacity = "0";
-        document.body.style.transition = "opacity 0.8s ease-in-out";
-        setTimeout(() => {
-          document.body.style.opacity = "1";
-        }, 100);
-      });
+    /* Tiny background particles for depth */
+    const dustGeo = new THREE.BufferGeometry();
+    const dustVerts = [];
+    for (let i = 0; i < 200; i++) {
+      dustVerts.push(
+        (Math.random() - 0.5) * 40,
+        (Math.random() - 0.5) * 30,
+        (Math.random() - 0.5) * 20 - 5
+      );
+    }
+    dustGeo.setAttribute('position', new THREE.Float32BufferAttribute(dustVerts, 3));
+    const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+      color: 0x3b82f6, size: 0.05,
+      transparent: true, opacity: 0.5,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    }));
+    scene.add(dust);
 
-      // Dynamic AI background particles
-      function createAIParticle() {
-        const particle = document.createElement('div');
-        particle.style.position = 'fixed';
-        particle.style.width = Math.random() * 4 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.background = `rgba(0, 255, 255, ${Math.random() * 0.5})`;
-        particle.style.borderRadius = '50%';
-        particle.style.left = Math.random() * window.innerWidth + 'px';
-        particle.style.top = window.innerHeight + 'px';
-        particle.style.pointerEvents = 'none';
-        particle.style.zIndex = '-1';
-        particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px rgba(0, 255, 255, 0.5)`;
-        
-        document.body.appendChild(particle);
-        
-        const duration = Math.random() * 3000 + 2000;
-        const drift = (Math.random() - 0.5) * 100;
-        
-        particle.animate([
-          { 
-            transform: `translateY(0px) translateX(0px)`,
-            opacity: 0
-          },
-          { 
-            transform: `translateY(-${window.innerHeight + 100}px) translateX(${drift}px)`,
-            opacity: 1
-          },
-          { 
-            transform: `translateY(-${window.innerHeight + 200}px) translateX(${drift * 2}px)`,
-            opacity: 0
-          }
-        ], {
-          duration: duration,
-          easing: 'linear'
-        }).onfinish = () => {
-          particle.remove();
-        };
+    /* Mouse parallax */
+    let mouseX = 0, mouseY = 0;
+    window.addEventListener('mousemove', e => {
+      mouseX = (e.clientX / innerWidth)  - 0.5;
+      mouseY = (e.clientY / innerHeight) - 0.5;
+    });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+
+    /* Animate */
+    const clock = new THREE.Clock();
+    function animate() {
+      const t  = clock.getElapsedTime();
+      const now = performance.now();
+
+      // slow continuous rotation of the whole cloud
+      wordCloud.rotation.y = t * 0.07;
+      wordCloud.rotation.x = Math.sin(t * 0.05) * 0.18;
+      wordCloud.rotation.z = Math.cos(t * 0.04) * 0.06;
+
+      // breathe + pulse per word
+      let i = 0;
+      for (const s of sprites) {
+        const u = s.userData;
+        // per-word vertical bob — words "float in wind"
+        const bob = Math.sin(t * 1.2 + u.bobPhase) * u.bobAmp;
+        s.position.copy(u.basePos);
+        s.position.y += bob;
+
+        // pulse scale up if recently triggered
+        if (now < u.pulseUntil) {
+          const k = (u.pulseUntil - now) / 800;
+          const boost = 1 + Math.sin(k * Math.PI) * 0.6;
+          s.scale.copy(u.baseScale).multiplyScalar(boost);
+          s.material.opacity = Math.min(1, 0.85 + (1 - k) * 0.3);
+        } else {
+          s.scale.copy(u.baseScale);
+          s.material.opacity = 0.85;
+        }
+        i++;
       }
 
-      // Create AI particles periodically
-      setInterval(createAIParticle, 800);
-    </script>
-  </body>
+      // breathe the connection lines opacity (subtle wave)
+      lineMat.opacity = 0.16 + Math.sin(t * 1.3) * 0.06;
+
+      // dust drift
+      dust.rotation.y -= 0.0005;
+      dust.rotation.x = Math.sin(t * 0.08) * 0.05;
+
+      // mouse parallax — small camera shift
+      camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.03;
+      camera.position.y += (-mouseY * 0.8 - camera.position.y) * 0.03;
+      camera.lookAt(0, 0, 0);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    /* Recede background 3s after load */
+    setTimeout(() => {
+      canvas.classList.add('recede');
+      vignetteEl.classList.add('recede');
+    }, 1500);
+
+    /* Scroll reveal + magnetic spotlight (3s delay so background plays first) */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+        else entry.target.classList.remove('in-view');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('[data-fx]').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        card.style.setProperty('--mx', `${x}%`);
+        card.style.setProperty('--my', `${y}%`);
+      });
+    });
+
+    setTimeout(() => {
+      document.querySelector('.cards').classList.add('ready');
+      document.querySelectorAll('[data-fx]').forEach(c => revealObserver.observe(c));
+    }, 1500);
+  </script>
+
+  <script src="chatbot.js"></script>
+</body>
 </html>

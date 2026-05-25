@@ -1,1088 +1,1250 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Ozan Mhrc</title>
-         <!-- Google tag (gtag.js) -->
-         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-         <script>
-           window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);}
-           gtag('js', new Date());
-       
-           gtag('config', 'G-XL6YG0LSV2');
-         </script>
-         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        
-        <style>
-            :root {
-                --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
-                --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
-                --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-                --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-                --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
-                --neon-blue: #00ffff;
-                --neon-purple: #bf00ff;
-                --neon-orange: #ff8c00;
-                --dark-bg: #0d1421;
-                --dark-surface: #1a2332;
-            }
-
-            body {
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                background: 
-                    linear-gradient(135deg, rgba(15, 52, 117, 0.8) 0%, rgba(50, 130, 184, 0.6) 50%, rgba(187, 225, 250, 0.4) 100%),
-                    url('ai-background.jpg') center/cover no-repeat fixed;
-                min-height: 100vh;
-                overflow-x: hidden;
-                position: relative;
-            }
-
-            /* AI Circuit Background Animation - updated to work with new background */
-            .ai-background {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                opacity: 0.15;
-                background-image: 
-                    radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
-                    radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
-                    radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px);
-                background-size: 100px 100px, 150px 150px, 200px 200px;
-                animation: circuit-flow 15s infinite linear;
-            }
-
-            @keyframes circuit-flow {
-                0% { transform: translateX(-50px) translateY(-50px); }
-                100% { transform: translateX(50px) translateY(50px); }
-            }
-
-            /* Revolutionary AI Data Science Background */
-            .data-science-bg {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.12) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 70%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 80%, rgba(191, 0, 255, 0.08) 0%, transparent 50%);
-                overflow: hidden;
-                pointer-events: none;
-            }
-
-            /* Neural Network Connections */
-            .neural-connections {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0.12;
-            }
-
-            .connection-line {
-                position: absolute;
-                height: 2px;
-                background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
-                animation: connection-pulse 4s ease-in-out infinite;
-                transform-origin: left;
-                box-shadow: 0 0 10px var(--neon-blue);
-            }
-
-            .connection-line:nth-child(1) {
-                top: 25%;
-                left: 20%;
-                width: 200px;
-                transform: rotate(15deg);
-                animation-delay: 0s;
-            }
-
-            .connection-line:nth-child(2) {
-                top: 45%;
-                left: 30%;
-                width: 150px;
-                transform: rotate(-10deg);
-                animation-delay: 1s;
-                background: linear-gradient(90deg, transparent, var(--neon-orange), transparent);
-                box-shadow: 0 0 10px var(--neon-orange);
-            }
-
-            .connection-line:nth-child(3) {
-                top: 65%;
-                left: 15%;
-                width: 180px;
-                transform: rotate(25deg);
-                animation-delay: 2s;
-                background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
-                box-shadow: 0 0 10px var(--neon-purple);
-            }
-
-            .connection-line:nth-child(4) {
-                top: 35%;
-                right: 20%;
-                width: 120px;
-                transform: rotate(-20deg);
-                animation-delay: 1.5s;
-            }
-
-            @keyframes connection-pulse {
-                0%, 100% { 
-                    opacity: 0.08;
-                    transform-origin: left;
-                    transform: scaleX(0.3);
-                }
-                50% { 
-                    opacity: 0.6;
-                    transform: scaleX(1);
-                }
-            }
-
-            /* Floating Tech Icons */
-            .tech-icons {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-            }
-
-            .tech-icon {
-                position: absolute;
-                font-size: 3rem;
-                opacity: 0.15;
-                animation: float-tech 8s ease-in-out infinite;
-                filter: drop-shadow(0 0 15px currentColor);
-            }
-
-            .tech-icon:nth-child(1) {
-                top: 20%;
-                left: 10%;
-                color: var(--neon-blue);
-                animation-delay: 0s;
-            }
-
-            .tech-icon:nth-child(2) {
-                top: 30%;
-                right: 25%;
-                color: var(--neon-orange);
-                animation-delay: 2s;
-            }
-
-            .tech-icon:nth-child(3) {
-                bottom: 25%;
-                left: 25%;
-                color: var(--neon-purple);
-                animation-delay: 4s;
-            }
-
-            .tech-icon:nth-child(4) {
-                bottom: 35%;
-                right: 15%;
-                color: var(--neon-blue);
-                animation-delay: 6s;
-            }
-
-            @keyframes float-tech {
-                0%, 100% { 
-                    transform: translateY(0px) scale(1) rotate(0deg);
-                    opacity: 0.12;
-                }
-                50% { 
-                    transform: translateY(-20px) scale(1.2) rotate(10deg);
-                    opacity: 0.3;
-                }
-            }
-
-            /* Modern Glassmorphism Navigation */
-            .navbar {
-                background: rgba(13, 20, 33, 0.85) !important;
-                backdrop-filter: blur(20px);
-                border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-                box-shadow: 0 8px 32px rgba(0, 255, 255, 0.15);
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000;
-                transition: all 0.3s ease;
-                padding: 12px 0;
-            }
-
-            .navbar-brand {
-                font-weight: 800;
-                font-size: 1.5rem;
-                background: var(--gradient-accent);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                position: relative;
-            }
-
-            .navbar-brand::after {
-                content: '⚡';
-                position: absolute;
-                right: -25px;
-                top: 0;
-                color: var(--neon-orange);
-                animation: pulse-glow 2s infinite;
-            }
-
-            @keyframes pulse-glow {
-                0%, 100% { 
-                    text-shadow: 0 0 5px var(--neon-orange);
-                    transform: scale(1);
-                }
-                50% { 
-                    text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange);
-                    transform: scale(1.1);
-                }
-            }
-
-            .navbar-nav .nav-link {
-                color: var(--neon-blue) !important;
-                font-weight: 600;
-                margin: 0 20px;
-                position: relative;
-                transition: all 0.3s ease;
-                padding: 8px 16px;
-                border-radius: 8px;
-                white-space: nowrap;
-            }
-
-            .navbar-nav .nav-link:hover {
-                transform: translateY(-3px);
-                color: white !important;
-                text-shadow: 0 0 10px var(--neon-blue);
-                background: rgba(0, 255, 255, 0.1);
-            }
-
-            .navbar-nav .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: -5px;
-                left: 50%;
-                background: var(--gradient-accent);
-                transition: all 0.3s ease;
-                transform: translateX(-50%);
-                box-shadow: 0 0 10px var(--neon-blue);
-            }
-
-            .navbar-nav .nav-link:hover::after {
-                width: 100%;
-            }
-
-            /* Hero Section with AI Theme - TURUNCU ANİMASYON KALDIRILDI */
-            .hero-section {
-                padding-top: 120px;
-                min-height: 100vh;
-                background: transparent;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .hero-content {
-                position: relative;
-                z-index: 2;
-            }
-
-            .badge-modern {
-                background: rgba(0, 255, 255, 0.15);
-                backdrop-filter: blur(10px);
-                border: 2px solid var(--neon-blue);
-                color: white;
-                padding: 15px 30px;
-                border-radius: 50px;
-                font-weight: 600;
-                font-size: 1rem;
-                animation: neon-pulse 2s infinite;
-                box-shadow: 
-                    0 0 20px rgba(0, 255, 255, 0.4),
-                    inset 0 0 20px rgba(0, 255, 255, 0.08);
-            }
-
-            @keyframes neon-pulse {
-                0%, 100% { 
-                    box-shadow: 
-                        0 0 20px rgba(0, 255, 255, 0.4),
-                        0 0 40px rgba(0, 255, 255, 0.25),
-                        inset 0 0 20px rgba(0, 255, 255, 0.08);
-                }
-                50% { 
-                    box-shadow: 
-                        0 0 30px rgba(0, 255, 255, 0.7),
-                        0 0 60px rgba(0, 255, 255, 0.4),
-                        inset 0 0 30px rgba(0, 255, 255, 0.15);
-                }
-            }
-
-            .hero-title {
-                font-size: 4rem;
-                font-weight: 900;
-                background: linear-gradient(135deg, #00ffff 0%, #ffffff 50%, #ff8c00 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-                animation: slideInUp 1s ease-out;
-            }
-
-            .hero-subtitle {
-                color: var(--neon-blue);
-                font-size: 1.5rem;
-                font-weight: 300;
-                animation: slideInUp 1s ease-out 0.2s both;
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.25);
-            }
-
-            .hero-description {
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 1.2rem;
-                animation: slideInUp 1s ease-out 0.4s both;
-            }
-
-            @keyframes slideInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* Enhanced Modern AI Buttons Grid */
-            .buttons-container {
-                position: relative;
-                z-index: 5;
-            }
-
-            .button-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 25px;
-                max-width: 900px;
-                margin: 0 auto;
-                padding: 30px 20px;
-            }
-
-            .btn-modern {
-                background: rgba(0, 255, 255, 0.08);
-                border: 2px solid var(--neon-blue);
-                color: white;
-                padding: 20px 25px;
-                border-radius: 20px;
-                font-weight: 600;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                backdrop-filter: blur(15px);
-                position: relative;
-                overflow: hidden;
-                box-shadow: 
-                    0 8px 25px rgba(0, 255, 255, 0.2),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-                text-align: center;
-                min-height: 65px;
-                font-size: 1rem;
-            }
-
-            .btn-modern i {
-                font-size: 1.3em;
-                filter: drop-shadow(0 0 8px currentColor);
-            }
-
-            .btn-modern:hover {
-                transform: translateY(-8px) scale(1.03);
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 255, 0.35),
-                    0 0 30px rgba(0, 255, 255, 0.5),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-                background: rgba(0, 255, 255, 0.15);
-                color: white;
-                text-decoration: none;
-                border-color: var(--neon-orange);
-            }
-
-            .btn-modern::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
-                transition: left 0.6s;
-            }
-
-            .btn-modern:hover::before {
-                left: 100%;
-            }
-
-            .btn-modern::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(0, 255, 255, 0.25);
-                transform: translate(-50%, -50%);
-                transition: all 0.6s ease;
-            }
-
-            .btn-modern:hover::after {
-                width: 300px;
-                height: 300px;
-                opacity: 0;
-            }
-
-            .btn-primary-modern {
-                background: var(--gradient-accent);
-                border: 2px solid var(--neon-orange);
-                box-shadow: 
-                    0 8px 30px rgba(255, 140, 0, 0.25),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-                position: relative;
-            }
-
-            .btn-primary-modern::before {
-                background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.3), transparent);
-            }
-
-            .btn-primary-modern:hover {
-                background: var(--gradient-secondary);
-                box-shadow: 
-                    0 20px 50px rgba(255, 140, 0, 0.4),
-                    0 0 40px rgba(255, 140, 0, 0.6),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.25);
-                border-color: var(--neon-blue);
-            }
-
-            /* AI Profile Section */
-            .profile-container {
-                position: relative;
-                animation: float-ai 4s ease-in-out infinite;
-            }
-
-            @keyframes float-ai {
-                0%, 100% { 
-                    transform: translateY(0px);
-                }
-                50% { 
-                    transform: translateY(-20px);
-                }
-            }
-
-            .profile {
-                position: relative;
-                border-radius: 50%;
-                overflow: hidden;
-                box-shadow: 
-                    0 0 50px rgba(0, 255, 255, 0.5),
-                    0 0 100px rgba(191, 0, 255, 0.3);
-                background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #00d2ff 100%);
-                padding: 15px;
-                border: 3px solid var(--neon-blue);
-                width: 400px;
-                height: 400px;
-            }
-
-            @keyframes rotate-ai {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-
-            .profile-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 50%;
-                transition: transform 0.3s ease;
-                position: relative;
-                z-index: 2;
-            }
-
-            /* PROFİL KAYMA EFEKTİ KALDIRILDI - Bu kısmı kaldırdık */
-            /* .profile:hover .profile-img {
-                transform: scale(1.05);
-            } */
-
-            /* AI-Themed About Section */
-            .about-section {
-                background: linear-gradient(135deg, 
-                    rgba(13, 20, 33, 0.9) 0%, 
-                    rgba(26, 35, 50, 0.9) 50%, 
-                    rgba(15, 52, 117, 0.9) 100%);
-                backdrop-filter: blur(20px);
-                position: relative;
-                z-index: 10;
-                border-top: 2px solid var(--neon-blue);
-                box-shadow: 0 -10px 30px rgba(0, 255, 255, 0.25);
-            }
-
-            .about-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(191, 0, 255, 0.08) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 60%, rgba(255, 140, 0, 0.08) 0%, transparent 50%);
-                animation: ai-glow 8s ease-in-out infinite;
-                pointer-events: none;
-            }
-
-            @keyframes ai-glow {
-                0%, 100% { opacity: 0.25; }
-                50% { opacity: 0.5; }
-            }
-
-            .about-title {
-                background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 50%, var(--neon-orange) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 900;
-                text-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-                position: relative;
-            }
-
-            .about-title::after {
-                content: '🤖';
-                position: absolute;
-                right: -60px;
-                top: 0;
-                font-size: 0.8em;
-                animation: robot-bounce 2s ease-in-out infinite;
-            }
-
-            @keyframes robot-bounce {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                50% { transform: translateY(-10px) rotate(10deg); }
-            }
-
-            .about-content {
-                position: relative;
-                z-index: 2;
-            }
-
-            .about-text {
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 1.1rem;
-                line-height: 1.8;
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
-            }
-
-            .about-name {
-                background: linear-gradient(135deg, var(--neon-orange) 0%, var(--neon-blue) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 800;
-                font-size: 1.8rem;
-            }
-
-            /* AI Social Links */
-            .social-links a {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 70px;
-                height: 70px;
-                border-radius: 50%;
-                background: var(--gradient-ai);
-                color: white;
-                text-decoration: none;
-                margin: 0 15px;
-                transition: all 0.4s ease;
-                box-shadow: 
-                    0 10px 25px rgba(0, 255, 255, 0.25),
-                    0 0 30px rgba(191, 0, 255, 0.15);
-                border: 2px solid var(--neon-blue);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .social-links a::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: conic-gradient(var(--neon-blue), var(--neon-purple), var(--neon-orange), var(--neon-blue));
-                opacity: 0;
-                transition: opacity 0.3s;
-                z-index: -1;
-            }
-
-            .social-links a:hover {
-                transform: translateY(-15px) scale(1.2) rotateY(360deg);
-                box-shadow: 
-                    0 25px 50px rgba(0, 255, 255, 0.4),
-                    0 0 60px rgba(191, 0, 255, 0.3);
-                border-color: var(--neon-orange);
-            }
-
-            .social-links a:hover::before {
-                opacity: 1;
-                animation: rotate-ai 1s linear infinite;
-            }
-
-            /* AI Footer */
-            footer {
-                background: rgba(13, 20, 33, 0.9) !important;
-                backdrop-filter: blur(10px);
-                border-top: 2px solid var(--neon-blue);
-                color: white;
-                box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.25);
-            }
-
-            footer a {
-                color: var(--neon-blue);
-                transition: all 0.3s ease;
-            }
-
-            footer a:hover {
-                color: var(--neon-orange);
-                text-shadow: 0 0 10px var(--neon-orange);
-            }
-
-            /* Responsive Design */
-            @media (max-width: 1200px) {
-                .navbar-nav .nav-link {
-                    margin: 0 12px;
-                    font-size: 0.9rem;
-                }
-            }
-
-            @media (max-width: 1024px) {
-                .navbar-nav .nav-link {
-                    margin: 0 8px;
-                    padding: 6px 12px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .hero-title {
-                    font-size: 2.5rem;
-                }
-                
-                .button-grid {
-                    grid-template-columns: 1fr;
-                    gap: 15px;
-                    padding: 20px 15px;
-                }
-                
-                .btn-modern {
-                    padding: 18px 20px;
-                    font-size: 0.9rem;
-                    min-height: 60px;
-                }
-                
-                .navbar-nav .nav-link {
-                    margin: 8px 0;
-                    text-align: center;
-                    padding: 12px 20px;
-                }
-
-                .about-title::after {
-                    right: -40px;
-                    font-size: 0.6em;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .button-grid {
-                    grid-template-columns: 1fr;
-                    max-width: 100%;
-                    padding: 15px 10px;
-                }
-                
-                .btn-modern {
-                    padding: 16px 15px;
-                    font-size: 0.85rem;
-                    border-radius: 15px;
-                }
-            }
-
-            /* Custom AI Scrollbar */
-            ::-webkit-scrollbar {
-                width: 12px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: rgba(13, 20, 33, 0.8);
-                border-radius: 6px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: var(--gradient-accent);
-                border-radius: 6px;
-                border: 2px solid rgba(0, 255, 255, 0.25);
-                box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: var(--gradient-secondary);
-                box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
-            }
-            
-        </style>
-    </head>
-    <body class="d-flex flex-column h-100">
-        <!-- AI Background -->
-        <div class="ai-background"></div>
-        
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">
-                        <span class="fw-bolder">Data Analyst & Data Scientist</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="NLP.html">NLP Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="LiveProjects.html">Live Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Hero Section-->
-            <section class="hero-section">
-                <!-- Professional Corporate AI Background -->
-                <div class="data-science-bg">
-                    <!-- Corporate Neural Network Grid -->
-                    <div class="neural-connections">
-                        <div class="connection-line"></div>
-                        <div class="connection-line"></div>
-                        <div class="connection-line"></div>
-                    </div>
-                    
-                    <!-- Professional Tech Indicators -->
-                    <div class="tech-icons">
-                        <div class="tech-indicator"></div>
-                        <div class="tech-indicator"></div>
-                        <div class="tech-indicator"></div>
-                        <div class="tech-indicator"></div>
-                    </div>
-                </div>
-                
-                <div class="container px-5 pb-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-xxl-6">
-                            <div class="hero-content text-center text-xxl-start">
-                                <div class="badge-modern mb-4">
-                                    <div class="text-uppercase">📈 Data Analyst 🚀 Data Scientist 🧠 Neural Network Expert</div>
-                                </div>
-                                <div class="hero-subtitle mb-3">I can help your business to</div>
-                                <h1 class="hero-title mb-4">
-                                    <span class="d-inline">Transform Data into AI Intelligence</span>
-                                </h1>
-                                <div class="hero-description mb-5">
-                                    Leveraging cutting-edge AI and machine learning to unlock hidden patterns in your data, 
-                                    building intelligent systems that predict, analyze, and drive exponential business growth.
-                                </div>
-                                
-                                <!-- Enhanced Button Grid - 3 Columns -->
-                                <div class="buttons-container">
-                                    <div class="button-grid">
-                                        <a class="btn-modern btn-primary-modern" href="resume.html">
-                                            <i class="bi bi-person-badge"></i>
-                                            Resume
-                                        </a>
-                                        <a class="btn-modern" href="Power BI Projects.html">
-                                            <i class="bi bi-bar-chart"></i>
-                                            Power BI Projects
-                                        </a>
-                                        <a class="btn-modern" href="Python.html">
-                                            <i class="bi bi-code-square"></i>
-                                            Python Projects
-                                        </a>
-                                        <a class="btn-modern" href="ML Projects.html">
-                                            <i class="bi bi-cpu"></i>
-                                            ML Algorithms
-                                        </a>
-                                        <a class="btn-modern" href="ComputerVision.html">
-                                            <i class="bi bi-eye"></i>
-                                            Neural Networks (CNN)
-                                        </a>
-                                        <a class="btn-modern" href="NLP.html">
-                                            <i class="bi bi-chat-text"></i>
-                                            NLP Projects
-                                        </a>
-                                        <a class="btn-modern" href="LiveProjects.html">
-                                            <i class="bi bi-broadcast"></i>
-                                            Live Projects
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xxl-6">
-                            <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                <div class="profile-container">
-                                    <div class="profile bg-gradient-primary-to-secondary">
-                                        <img class="profile-img" src="img2.png" alt="Ozan Profile Picture" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Section-->
-            <section class="about-section py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-xxl-8">
-                            <div class="about-content text-center my-5">
-                                <h2 class="display-5 fw-bolder about-title mb-4">
-                                    <span class="d-inline">About Me</span>
-                                </h2>
-                                <p class="about-name mb-4">
-                                    Hi, I'm <strong>Ozan</strong> 
-                                </p>
-                                <p class="about-text mb-5">
-                                    I transform businesses through the power of artificial intelligence and advanced data science. 
-                                    Raw data becomes intelligent insights when processed through sophisticated machine learning algorithms. 
-                                    My expertise spans deep learning, neural networks, computer vision, and predictive analytics - 
-                                    creating AI-driven solutions that don't just analyze the past, but predict and shape the future. 
-                                    I build intelligent systems that learn, adapt, and continuously improve, giving businesses 
-                                    a competitive edge in the age of artificial intelligence.
-                                </p>
-                                
-                                <div class="social-links d-flex justify-content-center mb-4">
-                                    <a href="https://github.com/Ozan-Mohurcu" target="_blank" title="GitHub">
-                                        <i class="bi bi-github"></i>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/ozanmhrc/" target="_blank" title="LinkedIn">
-                                        <i class="bi bi-linkedin"></i>
-                                    </a>
-                                    <a href="https://www.kaggle.com/analyticaobscura" target="_blank" title="Kaggle">
-                                        <span style="font-weight: bold; font-size: 1.4em;">K</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer-->
-        <footer class="py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto">
-                        <div class="small m-0">Copyright &copy; Ozan M. | Portfolio</div>
-                    </div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <script src="chatbot.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <div id="chat-icon" aria-label="Chat with us" role="button" tabindex="0">
-            🤖
-            <div class="ai-eyes">••</div>
-            <!-- İsteğe bağlı bildirim rozeti -->
-            <!-- <div class="chat-notification">3</div> -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ozan M. portfolio. Data Scientist, ML Engineer. Machine learning, deep learning, Power BI, NLP and computer vision projects." />
+  <meta name="author" content="Ozan M." />
+  <title>Ozan M. · Data Scientist &amp; ML Engineer</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XL6YG0LSV2');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Premium Dark theme
+       ============================================================ */
+    :root {
+      --bg: #07070a;
+      --bg-soft: #0d0d12;
+      --surface: rgba(255, 255, 255, 0.035);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #f4f4f5;
+      --text-dim: #a1a1aa;
+      --text-mute: #71717a;
+
+      /* Cyan + blue palette (no purple/pink) */
+      --violet: #3b82f6;     /* blue (kept var name for backwards compat) */
+      --indigo: #0ea5e9;     /* sky blue */
+      --cyan:   #22d3ee;     /* cyan accent */
+      --pink:   #06b6d4;     /* deep cyan (kept var name) */
+      --emerald: #10b981;    /* status / success */
+
+      --grad-1: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #22d3ee 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); }
+    body {
+      background: transparent;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .nav, .hero, .page-footer { position: relative; z-index: 1; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       BACKGROUND ANIMATION — 3D Neural Network visualization
+       Bright initially, fades to subtle backdrop after 3s.
+       ============================================================ */
+    #neural-canvas {
+      position: fixed; inset: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.9;
+      transition: opacity 1.8s cubic-bezier(.2,.8,.2,1);
+    }
+    #neural-canvas.recede { opacity: 0.14; }
+
+    /* Static vignette so text remains readable when canvas is bright */
+    .vignette {
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%,
+                                  rgba(7,7,10,0.55) 0%,
+                                  rgba(7,7,10,0.25) 40%,
+                                  transparent 80%);
+      z-index: 0; pointer-events: none;
+      transition: background 1.8s ease;
+    }
+    /* After recede: strong dark overlay so text reads cleanly over background */
+    .vignette.recede {
+      background: radial-gradient(ellipse 90% 80% at 50% 50%,
+                                  rgba(7,7,10,0.78) 0%,
+                                  rgba(7,7,10,0.65) 50%,
+                                  rgba(7,7,10,0.45) 100%);
+    }
+
+    /* Subtle grid overlay */
+    body::after {
+      content: ""; position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 80%);
+              mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 80%);
+      z-index: 0; pointer-events: none;
+    }
+
+    /* ===== Navbar ===== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 7, 10, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 26px; flex-wrap: wrap; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); position: relative; }
+    .nav-links a.active::after {
+      content: ""; position: absolute;
+      left: 0; right: 0; bottom: -6px; height: 2px;
+      background: var(--grad-1); border-radius: 2px;
+    }
+
+    /* ============================================================
+       HERO — single-viewport, 3-column layout
+       [explore list] | [content] | [photo]
+       ============================================================ */
+    .hero {
+      max-width: 1320px; margin: 0 auto;
+      padding: 30px 32px 30px;
+      min-height: calc(100vh - 70px);
+      display: flex; align-items: center;
+    }
+    .hero-layout {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 240px 1fr 320px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* === LEFT: explore list === */
+    .explore-list .section-label {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--text-mute);
+      text-transform: uppercase; letter-spacing: 0.15em;
+    }
+    .explore-list .section-label .num {
+      padding: 3px 9px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text); font-weight: 600;
+    }
+    .list-nav { display: flex; flex-direction: column; gap: 8px; }
+    /* Alpha oval pill background for each portfolio item */
+    .list-nav a {
+      position: relative;
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: color 0.25s ease, background 0.25s ease,
+                  border-color 0.25s ease, transform 0.25s ease;
+    }
+    .list-nav a .arrow {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-mute);
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+    .list-nav a:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(59, 130, 246, 0.5);
+      color: var(--text);
+      transform: translateX(3px);
+    }
+    .list-nav a:hover .arrow {
+      color: var(--cyan);
+      transform: translateX(2px);
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      margin-left: 6px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .lang-btn.active {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .lang-btn:not(.active):hover {
+      color: var(--text);
+    }
+
+    /* === MIDDLE: hero content === */
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 18px;
+    }
+    .hero-eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 12px var(--emerald);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.4; } }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.06;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.7);
+    }
+    .hero-eyebrow, .hi-tag, .hero p.bio,
+    .explore-list .section-label, .list-nav a {
+      text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+    }
+
+    /* Title entrance — smooth fade-down (no crash, no bounce) */
+    .hero-title {
+      transform: translateY(-40px);
+      opacity: 0;
+      filter: blur(4px);
+      animation: title-enter 1.2s cubic-bezier(.2, .8, .2, 1) 0.2s forwards;
+    }
+    @keyframes title-enter {
+      0%   { transform: translateY(-40px); opacity: 0; filter: blur(4px); }
+      100% { transform: translateY(0);     opacity: 1; filter: blur(0); }
+    }
+
+    /* Everything below the title stays hidden until impact (so the title is the show) */
+    .hero .hi-tag, .hero p.bio, .hero .social-row, .hero .hero-ctas,
+    .hero .hero-photo, .hero .explore-list {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .hero.revealed .hi-tag,
+    .hero.revealed p.bio,
+    .hero.revealed .social-row,
+    .hero.revealed .hero-ctas,
+    .hero.revealed .hero-photo,
+    .hero.revealed .explore-list {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero.revealed .hi-tag     { transition-delay: 0.05s; }
+    .hero.revealed p.bio       { transition-delay: 0.15s; }
+    .hero.revealed .social-row { transition-delay: 0.25s; }
+    .hero.revealed .hero-ctas  { transition-delay: 0.35s; }
+    .hero.revealed .hero-photo { transition-delay: 0.10s; }
+    .hero.revealed .explore-list { transition-delay: 0.20s; }
+    .hero h1 .accent {
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hi-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--text-mute);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .hi-tag strong { color: var(--text); font-weight: 700; }
+
+    .hero p.bio {
+      font-size: 0.97rem; color: var(--text-dim);
+      line-height: 1.6; margin-bottom: 22px;
+      max-width: 540px;
+    }
+
+    /* Social icons — rotating ring + DISK spin on hover */
+    .social-row {
+      display: flex; gap: 14px;
+      margin-bottom: 24px;
+    }
+    .social-row a {
+      position: relative;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--text);
+      isolation: isolate;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .social-row a::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        var(--violet), var(--cyan), var(--pink), var(--emerald), var(--violet));
+      z-index: -2;
+      animation: spin-ring 6s linear infinite;
+    }
+    .social-row a::after {
+      content: "";
+      position: absolute; inset: 3px;
+      border-radius: 50%;
+      background: rgba(13, 13, 18, 0.95);
+      z-index: -1;
+    }
+    @keyframes spin-ring { to { transform: rotate(360deg); } }
+    .social-row a:hover {
+      transform: translateY(-3px);
+    }
+    .social-row a:hover::before { animation-duration: 2s; }
+    .social-row a svg,
+    .social-row a .k-text {
+      transition: transform 0.3s ease;
+    }
+    /* Disk spin — icon rotates continuously while hovered */
+    .social-row a:hover svg,
+    .social-row a:hover .k-text {
+      animation: disk-spin 1.1s linear infinite;
+    }
+    @keyframes disk-spin { to { transform: rotate(360deg); } }
+    .social-row a svg { width: 22px; height: 22px; }
+    .social-row a .k-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 900; font-size: 1.25rem;
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+      display: inline-block;
+    }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary, .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 600; font-size: 0.88rem;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--text); color: var(--bg);
+      border: 1px solid var(--text);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255,255,255,0.15);
+    }
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+    .btn-ghost:hover {
+      background: var(--surface-2);
+      border-color: var(--violet);
+      box-shadow: 0 8px 24px rgba(139,92,246,0.25);
+    }
+    .btn-primary svg, .btn-ghost svg {
+      width: 14px; height: 14px; transition: transform 0.2s;
+    }
+    .btn-primary:hover svg, .btn-ghost:hover svg { transform: translateX(3px); }
+
+    /* === RIGHT: photo with rotating conic ring === */
+    .hero-photo {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .photo-wrap {
+      position: relative;
+      width: 300px; height: 300px;
+    }
+    .photo-wrap img {
+      position: relative;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.12);
+      z-index: 2;
+      transition: transform 0.5s cubic-bezier(.2, .8, .2, 1),
+                  box-shadow 0.5s ease;
+      cursor: pointer;
+    }
+    .photo-wrap:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.45);
+    }
+    .photo-wrap::before {
+      content: "";
+      position: absolute; inset: -10px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        var(--violet), var(--cyan), var(--pink), var(--emerald), var(--violet));
+      z-index: 1;
+      animation: spin-ring 7s linear infinite;
+      filter: blur(2px);
+      opacity: 0.85;
+    }
+    .photo-wrap::after {
+      content: "";
+      position: absolute; inset: -28px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg,
+        rgba(139,92,246,0.4), rgba(34,211,238,0.4), rgba(236,72,153,0.4), rgba(139,92,246,0.4));
+      z-index: 0;
+      animation: spin-ring 14s linear infinite reverse;
+      filter: blur(28px);
+      opacity: 0.7;
+    }
+
+    /* Responsive — collapse to single column on narrower screens */
+    @media (max-width: 1100px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+      .hero { padding-top: 40px; padding-bottom: 60px; }
+      .social-row, .hero-ctas { justify-content: center; }
+      .hero p.bio { margin-left: auto; margin-right: auto; }
+      .photo-wrap { width: 240px; height: 240px; margin: 0 auto; }
+      .explore-list .section-label { justify-content: center; }
+    }
+
+    /* ===== Page footer (very minimal) ===== */
+    .page-footer {
+      max-width: 1320px; margin: 0 auto;
+      padding: 14px 32px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--text-mute); font-size: 0.78rem;
+    }
+    .page-footer .footer-links { display: flex; gap: 18px; }
+    .page-footer .footer-links a:hover { color: var(--text); }
+
+    /* ============================================================
+       CHATBOT STYLES (chatbot.js injected elements)
+       ============================================================ */
+    #chat-icon {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 82px; height: 82px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 60;
+      box-shadow: 0 14px 40px rgba(59,130,246,0.55);
+      overflow: hidden;
+      border: 2.5px solid rgba(255,255,255,0.18);
+      background: var(--grad-1);
+      animation: chat-bob 3.5s ease-in-out infinite;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    #chat-icon:hover {
+      transform: scale(1.08);
+      box-shadow: 0 18px 48px rgba(59,130,246,0.75);
+    }
+    #chat-icon .chat-icon-image {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @keyframes chat-bob {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    #chat-nudge {
+      position: fixed; bottom: 130px; right: 30px;
+      max-width: 240px;
+      padding: 14px 18px;
+      background: rgba(13, 13, 18, 0.92);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      z-index: 59;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      display: none;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #chat-nudge.show {
+      display: block; opacity: 1; transform: translateY(0);
+    }
+    #chat-nudge strong {
+      display: block;
+      font-size: 0.95rem; font-weight: 700;
+      margin-bottom: 4px;
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #chat-nudge span {
+      display: block;
+      font-size: 0.82rem; color: var(--text-dim);
+    }
+    #chat-box {
+      position: fixed; bottom: 130px; right: 30px;
+      width: 380px; max-width: calc(100vw - 48px);
+      height: 540px; max-height: calc(100vh - 140px);
+      background: rgba(13, 13, 18, 0.95);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      display: none; flex-direction: column;
+      z-index: 70;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+    }
+    #chat-box.open { display: flex; animation: chatbox-pop 0.3s cubic-bezier(.2,.8,.2,1); }
+    @keyframes chatbox-pop {
+      from { opacity: 0; transform: translateY(12px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0)    scale(1);   }
+    }
+    #chat-header {
+      padding: 14px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+      font-size: 0.9rem; font-weight: 600;
+    }
+    #chat-header > div { display: flex; align-items: center; gap: 10px; }
+    .chat-status-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    #close-chat {
+      background: transparent; border: none;
+      color: var(--text-dim);
+      font-size: 1.4rem; line-height: 1;
+      cursor: pointer; padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    #close-chat:hover { background: var(--surface-2); color: var(--text); }
+    #chat-messages {
+      flex: 1; overflow-y: auto;
+      padding: 16px;
+      display: flex; flex-direction: column; gap: 10px;
+      font-size: 0.9rem; line-height: 1.5;
+    }
+    #chat-messages::-webkit-scrollbar { width: 8px; }
+    #chat-messages::-webkit-scrollbar-thumb {
+      background: var(--surface-2); border-radius: 4px;
+    }
+    /* chat-message bubble base (chatbot.js sets .chat-message + .bot / .user / .typing) */
+    #chat-messages .chat-message {
+      padding: 10px 14px;
+      border-radius: 14px;
+      max-width: 85%;
+      word-wrap: break-word;
+      line-height: 1.5;
+    }
+    #chat-messages .chat-message.bot {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      align-self: flex-start;
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+    #chat-messages .chat-message.user {
+      background: var(--grad-1);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    #chat-messages .chat-message p { margin: 0 0 6px; }
+    #chat-messages .chat-message p:last-child { margin-bottom: 0; }
+    #chat-messages .chat-message.typing {
+      display: inline-flex; gap: 4px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+    }
+    #chat-messages .chat-message.typing span {
+      width: 6px; height: 6px;
+      background: var(--text-dim);
+      border-radius: 50%;
+      animation: typing-bounce 1.2s infinite ease-in-out;
+    }
+    #chat-messages .chat-message.typing span:nth-child(2) { animation-delay: 0.15s; }
+    #chat-messages .chat-message.typing span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes typing-bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30%           { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* Suggestion chips (chatbot.js: .chat-suggestions > .chat-chip) */
+    #chat-messages .chat-suggestions {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 4px;
+      align-self: flex-start;
+      max-width: 100%;
+    }
+    #chat-messages .chat-chip {
+      padding: 7px 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      line-height: 1;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    #chat-messages .chat-chip:hover {
+      background: var(--violet);
+      color: white;
+      border-color: var(--violet);
+      transform: translateY(-1px);
+    }
+    #chat-messages a { color: var(--cyan); text-decoration: underline; }
+    #chat-form {
+      display: flex; gap: 8px;
+      padding: 12px 14px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.025);
+    }
+    #chat-input {
+      flex: 1;
+      padding: 10px 14px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit; font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #chat-input:focus { border-color: var(--violet); }
+    #chat-send {
+      padding: 10px 14px;
+      background: var(--grad-1);
+      border: none; border-radius: 10px;
+      color: white; font-size: 1rem; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    #chat-send:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(139,92,246,0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 3D neural network background + readability vignette -->
+  <canvas id="neural-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Ozan M. · Data Scientist</a>
+      <div class="nav-links">
+        <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+        <a href="resume.html" data-i18n="nav.resume">Resume</a>
+        <a href="ML Projects.html" data-i18n="nav.ml">ML</a>
+        <a href="Power BI Projects.html" data-i18n="nav.powerbi">Power BI</a>
+        <a href="Python.html" data-i18n="nav.python">Python</a>
+        <a href="ComputerVision.html" data-i18n="nav.cnn">CNN</a>
+        <a href="NLP.html" data-i18n="nav.nlp">NLP</a>
+        <a href="LiveProjects.html" data-i18n="nav.live">Live</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="tr" type="button">TR</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
         </div>
-        
-        <script>
-            // Enhanced navbar scroll effect with AI theme
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(13, 20, 33, 0.95)';
-                    navbar.style.boxShadow = '0 5px 30px rgba(0, 255, 255, 0.35)';
-                } else {
-                    navbar.style.background = 'rgba(13, 20, 33, 0.85)';
-                    navbar.style.boxShadow = '0 8px 32px rgba(0, 255, 255, 0.15)';
-                }
-            });
+      </div>
+    </div>
+  </nav>
 
-            // Chat icon AI effects
-            const chatIcon = document.getElementById('chat-icon');
-            
-            // AI active state when clicked
-            chatIcon.addEventListener('click', function() {
-                this.classList.add('ai-active');
-                setTimeout(() => {
-                    this.classList.remove('ai-active');
-                }, 2000);
-            });
+  <section class="hero">
+    <div class="hero-layout">
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
+      <!-- LEFT: explore portfolio as a vertical list -->
+      <aside class="explore-list">
+        <div class="section-label">
+          <span data-i18n="explore.label">Projects</span>
+        </div>
+        <nav class="list-nav">
+          <a href="ML Projects.html"><span class="arrow">→</span><span data-i18n="list.ml">Machine Learning</span></a>
+          <a href="Power BI Projects.html"><span class="arrow">→</span><span data-i18n="list.powerbi">Power BI</span></a>
+          <a href="Python.html"><span class="arrow">→</span><span data-i18n="list.python">Python</span></a>
+          <a href="ComputerVision.html"><span class="arrow">→</span><span data-i18n="list.cnn">Computer Vision</span></a>
+          <a href="NLP.html"><span class="arrow">→</span><span data-i18n="list.nlp">NLP</span></a>
+          <a href="LiveProjects.html"><span class="arrow">→</span><span data-i18n="list.live">Live Projects</span></a>
+          <a href="resume.html"><span class="arrow">→</span><span data-i18n="list.resume">Resume</span></a>
+          <a href="contact.html"><span class="arrow">→</span><span data-i18n="list.contact">Contact</span></a>
+        </nav>
+      </aside>
 
-            // AI-themed loading animation
-            window.addEventListener('load', function() {
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.8s ease-in-out';
-                setTimeout(() => {
-                    document.body.style.opacity = '1';
-                }, 100);
-            });
+      <!-- MIDDLE: hero content (title + bio + social + CTAs) -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span data-i18n="hero.subtitle">Data Analyst · Data Scientist · ML Engineer</span>
+        </div>
+        <h1 class="hero-title" data-i18n-html="hero.title">Transform Data into <span class="accent">AI Intelligence</span></h1>
+        <div class="hi-tag" data-i18n-html="hi.tag">Hi, I'm <strong>Ozan</strong></div>
+        <p class="bio" data-i18n="hero.bio">
+          Verinin gücüyle iş kararlarını dönüştüren bir Data Scientist ve ML Engineer'ım.
+          Makine öğrenmesi, derin öğrenme, computer vision ve tahminsel analitik üzerine çalışıyorum.
+          İNG HUB Datathon'da Top 8, Haier Europe Datathon'da Top 4 derecesi.
+        </p>
 
-            // Dynamic AI background particles
-            function createAIParticle() {
-                const particle = document.createElement('div');
-                particle.style.position = 'fixed';
-                particle.style.width = Math.random() * 4 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.background = `rgba(0, 255, 255, ${Math.random() * 0.6})`;
-                particle.style.borderRadius = '50%';
-                particle.style.left = Math.random() * window.innerWidth + 'px';
-                particle.style.top = window.innerHeight + 'px';
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '-1';
-                particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px rgba(0, 255, 255, 0.6)`;
-                
-                document.body.appendChild(particle);
-                
-                const duration = Math.random() * 3000 + 2000;
-                const drift = (Math.random() - 0.5) * 100;
-                
-                particle.animate([
-                    { 
-                        transform: `translateY(0px) translateX(0px)`,
-                        opacity: 0
-                    },
-                    { 
-                        transform: `translateY(-${window.innerHeight + 100}px) translateX(${drift}px)`,
-                        opacity: 1
-                    },
-                    { 
-                        transform: `translateY(-${window.innerHeight + 200}px) translateX(${drift * 2}px)`,
-                        opacity: 0
-                    }
-                ], {
-                    duration: duration,
-                    easing: 'linear'
-                }).onfinish = () => {
-                    particle.remove();
-                };
-            }
+        <div class="social-row">
+          <a href="https://github.com/Ozan-Mohurcu" target="_blank" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ozanmhrc/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM8 19H5V8h3v11zM6.5 6.7a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM19 19h-3v-5.6c0-3.4-4-3.1-4 0V19h-3V8h3v1.8c1.4-2.6 7-2.8 7 2.5V19z"/></svg>
+          </a>
+          <a href="https://www.kaggle.com/analyticaobscura" target="_blank" title="Kaggle" aria-label="Kaggle">
+            <span class="k-text">K</span>
+          </a>
+        </div>
 
-            // Create AI particles periodically
-            setInterval(createAIParticle, 500);
+        <div class="hero-ctas">
+          <a class="btn-primary" href="ML Projects.html">
+            <span data-i18n="hero.cta.work">View ML Work</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn-ghost" href="contact.html">
+            <span data-i18n="hero.cta.contact">Get in Touch</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
 
-            // Interactive hover effects for buttons
-            document.querySelectorAll('.btn-modern').forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.03)';
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
+      <!-- RIGHT: profile photo with rotating ring -->
+      <div class="hero-photo">
+        <div class="photo-wrap">
+          <img src="1774271379706.jpg" alt="Ozan M." />
+        </div>
+      </div>
 
-            // AI text typing effect for hero title
-            function typeWriter(element, text, speed = 100) {
-                let i = 0;
-                element.innerHTML = '';
-                
-                function type() {
-                    if (i < text.length) {
-                        element.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(type, speed);
-                    }
-                }
-                type();
-            }
+    </div>
+  </section>
 
-            // Initialize typing effect after page load
-            setTimeout(() => {
-                const heroTitle = document.querySelector('.hero-title span');
-                if (heroTitle) {
-                    const originalText = heroTitle.textContent;
-                    typeWriter(heroTitle, originalText, 80);
-                }
-            }, 1000);
+  <footer class="page-footer">
+    <div data-i18n="footer.copy">© Ozan M. · Portfolio</div>
+    <div class="footer-links">
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="resume.html" data-i18n="footer.resume">Resume</a>
+      <a href="ML Projects.html" data-i18n="footer.projects">Projects</a>
+    </div>
+  </footer>
 
-            // Parallax effect for floating elements
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallax = scrolled * 0.3;
-                
-                document.querySelectorAll('.floating-element').forEach((element, index) => {
-                    const speed = (index + 1) * 0.5;
-                    element.style.transform = `translateY(${parallax * speed}px)`;
-                });
-            });
+  <!-- Chatbot -->
+  <script src="chatbot.js"></script>
 
-            // Button staggered animation on load
-            window.addEventListener('load', function() {
-                const buttons = document.querySelectorAll('.btn-modern');
-                buttons.forEach((button, index) => {
-                    button.style.opacity = '0';
-                    button.style.transform = 'translateY(30px)';
-                    setTimeout(() => {
-                        button.style.transition = 'all 0.6s ease';
-                        button.style.opacity = '1';
-                        button.style.transform = 'translateY(0)';
-                    }, index * 100 + 600);
-                });
-            });
-        </script>
-    </body>
+  <!-- Three.js via import map -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    console.log('[home-bg] Three.js loaded:', THREE.REVISION);
+
+    /* ============================================================
+       i18n — Turkish (default) + English toggle.
+       Stored in localStorage so the choice sticks across pages.
+       ============================================================ */
+    const i18n = {
+      tr: {
+        'nav.home':    'Ana Sayfa',
+        'nav.resume':  'Özgeçmiş',
+        'nav.ml':      'ML',
+        'nav.powerbi': 'Power BI',
+        'nav.python':  'Python',
+        'nav.cnn':     'CNN',
+        'nav.nlp':     'NLP',
+        'nav.live':    'Canlı',
+        'nav.contact': 'İletişim',
+
+        'hero.subtitle':    'Veri Analisti · Data Scientist · ML Engineer',
+        'hero.title':       'Veriyi <span class="accent">AI Zekasına</span> Dönüştür',
+        'hi.tag':           "Merhaba, ben <strong>Ozan</strong>",
+        'hero.bio':         "Verinin gücüyle iş kararlarını dönüştüren bir Data Scientist ve ML Engineer'ım. Makine öğrenmesi, derin öğrenme, computer vision ve tahminsel analitik üzerine çalışıyorum. İNG HUB Datathon'da Top 8, Haier Europe Datathon'da Top 4 derecesi.",
+        'hero.cta.work':    'ML Çalışmalarını Gör',
+        'hero.cta.contact': 'İletişime Geç',
+
+        'explore.label':  'Projeler',
+        'list.ml':        'Makine Öğrenmesi',
+        'list.powerbi':   'Power BI',
+        'list.python':    'Python',
+        'list.cnn':       'Computer Vision',
+        'list.nlp':       'NLP',
+        'list.live':      'Canlı Projeler',
+        'list.resume':    'Özgeçmiş',
+        'list.contact':   'İletişim',
+
+        'footer.copy':     '© Ozan M. · Portfolyo',
+        'footer.contact':  'İletişim',
+        'footer.resume':   'Özgeçmiş',
+        'footer.projects': 'Projeler'
+      },
+      en: {
+        'nav.home':    'Home',
+        'nav.resume':  'Resume',
+        'nav.ml':      'ML',
+        'nav.powerbi': 'Power BI',
+        'nav.python':  'Python',
+        'nav.cnn':     'CNN',
+        'nav.nlp':     'NLP',
+        'nav.live':    'Live',
+        'nav.contact': 'Contact',
+
+        'hero.subtitle':    'Data Analyst · Data Scientist · ML Engineer',
+        'hero.title':       'Transform Data into <span class="accent">AI Intelligence</span>',
+        'hi.tag':           "Hi, I'm <strong>Ozan</strong>",
+        'hero.bio':         "I'm a Data Scientist and ML Engineer who transforms business decisions through the power of data. I work on machine learning, deep learning, computer vision and predictive analytics. Top 8 at İNG HUB Datathon, Top 4 at Haier Europe Datathon.",
+        'hero.cta.work':    'View ML Work',
+        'hero.cta.contact': 'Get in Touch',
+
+        'explore.label':  'Projects',
+        'list.ml':        'Machine Learning',
+        'list.powerbi':   'Power BI',
+        'list.python':    'Python',
+        'list.cnn':       'Computer Vision',
+        'list.nlp':       'NLP',
+        'list.live':      'Live Projects',
+        'list.resume':    'Resume',
+        'list.contact':   'Contact',
+
+        'footer.copy':     '© Ozan M. · Portfolio',
+        'footer.contact':  'Contact',
+        'footer.resume':   'Resume',
+        'footer.projects': 'Projects'
+      }
+    };
+
+    function applyLang(lang) {
+      if (!i18n[lang]) lang = 'tr';
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = i18n[lang][key];
+        if (val !== undefined) el.textContent = val;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        const val = i18n[lang][key];
+        if (val !== undefined) el.innerHTML = val;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    // Default to Turkish, but respect a previously chosen language.
+    applyLang(localStorage.getItem('lang') || 'tr');
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+
+    /* ============================================================
+       NEURAL SYNAPSE — soma + dendrites + axon with periodic
+       action potentials. Adapted from VoXelo CodePen NPRrZye.
+       UI panel / scanlines / custom cursor stripped (this is a
+       portfolio background). Auto-fires every 8s instead of click.
+       ============================================================ */
+    const canvas = document.getElementById('neural-canvas');
+    const vignetteEl = document.querySelector('.vignette');
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x00000f, 0.022);
+
+    const camera = new THREE.PerspectiveCamera(52, innerWidth / innerHeight, 0.1, 1000);
+    camera.position.set(0, 8, 45);
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas, antialias: false, powerPreference: 'high-performance'
+    });
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping   = true;
+    controls.dampingFactor   = 0.04;
+    controls.autoRotate      = true;
+    controls.autoRotateSpeed = 0.7;
+    controls.enableZoom      = false;
+    controls.enablePan       = false;
+    controls.enableRotate    = false;
+    controls.maxDistance     = 80;
+
+    const renderScene = new RenderPass(scene, camera);
+    const bloomPass = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 1.5, 0.4, 0.85);
+    bloomPass.threshold = 1.0;
+    bloomPass.strength  = 1.5;
+    bloomPass.radius    = 0.8;
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(renderScene);
+    composer.addPass(bloomPass);
+
+    const vertexShader = `
+      attribute float aIsInput;
+      varying vec2 vUv;
+      varying vec3 vWorldPos;
+      varying vec3 vNormal;
+      varying float vIsInput;
+      varying float vDist;
+      void main() {
+        vUv = uv;
+        vIsInput = aIsInput;
+        vec4 worldPos = modelMatrix * vec4(position, 1.0);
+        vWorldPos = worldPos.xyz;
+        vDist = length(worldPos.xyz);
+        vNormal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * viewMatrix * worldPos;
+      }
+    `;
+    const fragmentShader = `
+      uniform float uTime;
+      uniform float uPulseProgress;
+      uniform float uActivation;
+      uniform vec3 uCameraPos;
+      varying vec2 vUv;
+      varying vec3 vWorldPos;
+      varying vec3 vNormal;
+      varying float vIsInput;
+      varying float vDist;
+      float hash(vec3 p) {
+        p = fract(p * 0.3183099 + .1);
+        p *= 17.0;
+        return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
+      }
+      float noise(vec3 x) {
+        vec3 i = floor(x);
+        vec3 f = fract(x);
+        f = f*f*(3.0-2.0*f);
+        return mix(
+          mix(mix(hash(i+vec3(0,0,0)),hash(i+vec3(1,0,0)),f.x),
+              mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),
+          mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),
+              mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z);
+      }
+      vec3 palette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
+        return a + b * cos(6.28318*(c*t+d));
+      }
+      void main() {
+        vec3 viewDir = normalize(uCameraPos - vWorldPos);
+        float fresnel = pow(1.0 - max(dot(vNormal, viewDir), 0.0), 3.0);
+        float n1 = noise(vWorldPos * 0.5 + uTime * 0.2);
+        float n2 = noise(vWorldPos * 2.0 - uTime * 0.5);
+        vec3 baseColor = vec3(0.01, 0.018, 0.03) + (vec3(0.08, 0.22, 0.28) * fresnel * n1);
+        baseColor *= (0.5 + 0.5 * n2);
+
+        vec3 pulseColor = vec3(0.0);
+        if (vIsInput > 0.5 && uPulseProgress > -5.0) {
+          float pDist = abs(vDist - uPulseProgress);
+          float core  = exp(-pDist * pDist * 3.0);
+          float trail = smoothstep(6.0, 0.0, vDist - uPulseProgress) * smoothstep(-2.0, 0.0, uPulseProgress - vDist);
+          float pi    = max(core * 3.0, trail * 1.5);
+          pulseColor  = vec3(3.5, 1.0, 0.1) * pi * (0.8 + 0.2*n2);
+        }
+
+        vec3 actColor = vec3(0.0);
+        if (uActivation > 0.0) {
+          float dWave = vDist - uActivation;
+          float waveFront = exp(-pow(dWave, 2.0) * 0.2) * step(0.0, -dWave);
+          float residual  = smoothstep(uActivation, uActivation - 25.0, vDist);
+          float aI = waveFront * 4.0 + residual * 1.5;
+          aI *= (0.6 + 0.4 * noise(vWorldPos * 1.5 - uTime * 2.0));
+          vec3 dir = normalize(vWorldPos);
+          float angle = atan(dir.z, dir.x);
+          vec3 rainbow = palette(
+            angle * 0.15 + vDist * 0.05 - uTime * 0.5,
+            vec3(0.5,0.5,0.5), vec3(0.5,0.5,0.5),
+            vec3(1.0,1.0,1.0), vec3(0.00,0.33,0.67)
+          );
+          actColor = rainbow * aI * 1.5;
+          if (vDist < 4.0) {
+            float somaFlash = exp(-pow(uActivation * 0.2, 2.0)) * 2.5;
+            actColor += vec3(1.0, 0.9, 0.8) * somaFlash;
+          }
+        }
+        gl_FragColor = vec4(baseColor + pulseColor + actColor, 1.0);
+      }
+    `;
+
+    const material = new THREE.ShaderMaterial({
+      vertexShader, fragmentShader,
+      uniforms: {
+        uTime:          { value: 0 },
+        uPulseProgress: { value: -10.0 },
+        uActivation:    { value: 0 },
+        uCameraPos:     { value: new THREE.Vector3() }
+      },
+      transparent: false, depthWrite: true, side: THREE.FrontSide
+    });
+
+    const structureGroup = new THREE.Group();
+    scene.add(structureGroup);
+
+    function createWanderingPath(start, dir, length, segments, jitterScale, endPoint) {
+      let pts  = [start.clone()];
+      let curr = start.clone();
+      let cDir = dir.clone().normalize();
+      for (let i = 0; i < segments; i++) {
+        cDir.x += (Math.random() - 0.5) * jitterScale;
+        cDir.y += (Math.random() - 0.5) * jitterScale;
+        cDir.z += (Math.random() - 0.5) * jitterScale;
+        cDir.normalize();
+        curr = curr.clone().add(cDir.clone().multiplyScalar(length / segments));
+        pts.push(curr);
+      }
+      if (endPoint) {
+        const approach = endPoint.clone().add(new THREE.Vector3(-1.5, 0, 0));
+        pts[pts.length - 1] = approach;
+        pts.push(endPoint.clone());
+      }
+      return new THREE.CatmullRomCurve3(pts);
+    }
+
+    function taperGeometry(geo, baseRadius, isInput) {
+      const pos  = geo.attributes.position;
+      const norm = geo.attributes.normal;
+      const uv   = geo.attributes.uv;
+      for (let i = 0; i < pos.count; i++) {
+        const u = uv.getX(i);
+        let t = isInput ? 1.0 : (1.0 - u);
+        const taper  = Math.pow(t, 0.6);
+        const shrink = baseRadius * (1.0 - taper);
+        pos.setXYZ(i,
+          pos.getX(i) - norm.getX(i) * shrink,
+          pos.getY(i) - norm.getY(i) * shrink,
+          pos.getZ(i) - norm.getZ(i) * shrink
+        );
+      }
+      geo.computeVertexNormals();
+    }
+
+    function addBranch(curve, radius, isInput) {
+      const geo = new THREE.TubeGeometry(curve, Math.floor(curve.getLength() * 3), radius, 12, false);
+      taperGeometry(geo, radius, isInput);
+      const arr = new Float32Array(geo.attributes.position.count).fill(isInput ? 1.0 : 0.0);
+      geo.setAttribute('aIsInput', new THREE.BufferAttribute(arr, 1));
+      structureGroup.add(new THREE.Mesh(geo, material));
+      return { curve };
+    }
+
+    /* Soma — perturbed icosahedron */
+    const somaRadius = 3.3;
+    const somaGeo = new THREE.IcosahedronGeometry(somaRadius, 16);
+    const somaPos = somaGeo.attributes.position;
+    for (let i = 0; i < somaPos.count; i++) {
+      let v = new THREE.Vector3().fromBufferAttribute(somaPos, i);
+      let n = Math.sin(v.x*2)*Math.cos(v.y*2)*Math.sin(v.z*2)*0.5 + Math.sin(v.x*5+v.y*3)*0.2;
+      v.add(v.clone().normalize().multiplyScalar(n));
+      somaPos.setXYZ(i, v.x, v.y, v.z);
+    }
+    somaGeo.computeVertexNormals();
+    const somaIsInput = new Float32Array(somaPos.count).fill(0.0);
+    somaGeo.setAttribute('aIsInput', new THREE.BufferAttribute(somaIsInput, 1));
+    structureGroup.add(new THREE.Mesh(somaGeo, material));
+
+    /* Input axon — single long branch from the left */
+    const inputCurve = createWanderingPath(
+      new THREE.Vector3(-45, 0, 0),
+      new THREE.Vector3(1, 0, 0),
+      46, 30, 0.05,
+      new THREE.Vector3(-somaRadius * 0.1, 0, 0)
+    );
+    addBranch(inputCurve, 0.6, true);
+
+    /* 18 dendrites with 2-5 sub-branches each */
+    for (let i = 0; i < 18; i++) {
+      let phi   = Math.random() * Math.PI * 2;
+      let theta = Math.acos(Math.random() * 2 - 1);
+      if (Math.cos(phi) * Math.sin(theta) < -0.3)
+        phi = phi > Math.PI ? phi - Math.PI : phi + Math.PI;
+      let sd = new THREE.Vector3(
+        Math.cos(phi)*Math.sin(theta),
+        Math.sin(phi)*Math.sin(theta),
+        Math.cos(theta)
+      );
+      let start = sd.clone().multiplyScalar(somaRadius * 0.8);
+      let length = 20 + Math.random() * 30;
+      let mainR  = 0.4 + Math.random() * 0.3;
+      let { curve: mainCurve } = addBranch(
+        createWanderingPath(start, sd, length, 25, 0.4),
+        mainR, false
+      );
+      let numSec = Math.floor(Math.random() * 4) + 2;
+      for (let j = 0; j < numSec; j++) {
+        let t = 0.2 + Math.random() * 0.6;
+        let bStart = mainCurve.getPoint(t);
+        let tangent = mainCurve.getTangent(t);
+        let rv = new THREE.Vector3(Math.random()-.5, Math.random()-.5, Math.random()-.5).normalize();
+        let bDir = tangent.clone().cross(rv).normalize().add(tangent.multiplyScalar(0.5)).normalize();
+        addBranch(
+          createWanderingPath(bStart, bDir, (1-t)*length*(0.4+Math.random()*0.4), 15, 0.6),
+          mainR*(1-t)*0.8, false
+        );
+      }
+    }
+
+    /* 3 layers of dust for parallax */
+    function makeParticles(count, spread, colorHex, size, opacity) {
+      const geo = new THREE.BufferGeometry();
+      const pos = new Float32Array(count * 3);
+      for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * spread;
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const mat = new THREE.PointsMaterial({
+        color: colorHex, size, transparent: true, opacity,
+        blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
+      });
+      return new THREE.Points(geo, mat);
+    }
+    const dustA = makeParticles(1200, 120, 0x224466, 0.08, 0.25);
+    const dustB = makeParticles(400,   90, 0x003355, 0.16, 0.18);
+    const dustC = makeParticles(120,   60, 0x00aacc, 0.30, 0.12);
+    scene.add(dustA, dustB, dustC);
+
+    /* Auto-fire state machine */
+    let state = 0;            // 0 idle, 1 pulse traveling, 2 action potential firing
+    let pulseProg = -10.0;
+    let actProg   = 0.0;
+    const INPUT_LENGTH = 45.0;
+
+    function fireSynapse() {
+      if (state !== 0) return;
+      state = 1;
+      pulseProg = INPUT_LENGTH;
+      actProg = 0.0;
+      material.uniforms.uActivation.value = 0.0;
+    }
+
+    setTimeout(fireSynapse, 2200);
+    setInterval(fireSynapse, 8000);
+
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+      composer.setSize(innerWidth, innerHeight);
+    });
+
+    const clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+      controls.update();
+
+      dustA.rotation.y += delta * 0.008;
+      dustA.rotation.x += delta * 0.003;
+      dustB.rotation.y -= delta * 0.005;
+      dustB.rotation.z += delta * 0.002;
+      dustC.rotation.y += delta * 0.015;
+
+      material.uniforms.uTime.value += delta;
+      material.uniforms.uCameraPos.value.copy(camera.position);
+
+      if (state === 1) {
+        pulseProg -= delta * 35.0;
+        material.uniforms.uPulseProgress.value = pulseProg;
+        if (pulseProg <= 2.0) {
+          state = 2;
+          pulseProg = -10.0;
+          material.uniforms.uPulseProgress.value = -10.0;
+          actProg = 0.0;
+        }
+      } else if (state === 2) {
+        actProg += delta * 20.0;
+        material.uniforms.uActivation.value = actProg;
+        if (actProg > 75.0) {
+          state = 0;
+          material.uniforms.uActivation.value = 0.0;
+        }
+      }
+
+      composer.render();
+    }
+    animate();
+
+    /* 3 seconds after load, recede background so text takes focus */
+    setTimeout(() => {
+      canvas.classList.add('recede');
+      vignetteEl.classList.add('recede');
+    }, 3000);
+
+    /* Reveal the rest of the hero content shortly after the title settles */
+    const heroEl = document.querySelector('.hero');
+    setTimeout(() => heroEl.classList.add('revealed'), 1300);
+  </script>
+
+</body>
 </html>

@@ -1,1004 +1,876 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Live AI-powered applications and interactive demos by Ozan M." />
-        <meta name="author" content="Ozan M." />
-        <title>Live Projects - AI Applications</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XL6YG0LSV2');
-        </script>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link rel="stylesheet" href="css/styles.css">
-        
-        <style>
-            :root {
-                --gradient-primary: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
-                --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcd3c 100%);
-                --gradient-accent: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-                --gradient-ai: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-                --gradient-matrix: linear-gradient(135deg, #0f3460 0%, #0f4c75 50%, #3282b8 100%);
-                --neon-blue: #00ffff;
-                --neon-purple: #bf00ff;
-                --neon-orange: #ff8c00;
-                --neon-green: #00ff88;
-                --dark-bg: #0d1421;
-                --dark-surface: #1a2332;
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Live deployed projects by Ozan M." />
+  <meta name="author" content="Ozan M." />
+  <title>Live Projects — Ozan M.</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL6YG0LSV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XL6YG0LSV2');
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --bg-soft: #0d0d12;
+      --surface: rgba(255, 255, 255, 0.035);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #f4f4f5;
+      --text-dim: #a1a1aa;
+      --text-mute: #71717a;
+      --violet: #3b82f6;
+      --indigo: #0ea5e9;
+      --cyan: #22d3ee;
+      --pink: #06b6d4;
+      --emerald: #10b981;
+      --grad-1: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #22d3ee 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); }
+    body {
+      background: transparent;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    #bg-canvas {
+      position: fixed; inset: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0; pointer-events: none;
+      opacity: 0.95;
+      transition: opacity 1.8s cubic-bezier(.2,.8,.2,1);
+    }
+    #bg-canvas.recede { opacity: 0.22; }
+    .vignette {
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 30%, transparent 40%, rgba(0,16,32,0.55) 100%);
+      z-index: 0; pointer-events: none;
+      transition: background 1.8s ease;
+    }
+    .vignette.recede {
+      background: radial-gradient(ellipse 90% 80% at 50% 50%,
+                                  rgba(7,7,10,0.78) 0%,
+                                  rgba(7,7,10,0.6) 50%,
+                                  rgba(7,7,10,0.4) 100%);
+    }
+
+    .nav, .hero, .cards, .page-footer { position: relative; z-index: 1; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 7, 10, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-dim);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); position: relative; }
+    .nav-links a.active::after {
+      content: ""; position: absolute;
+      left: 0; right: 0; bottom: -6px; height: 2px;
+      background: var(--grad-1); border-radius: 2px;
+    }
+    .lang-switch {
+      display: inline-flex;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      margin-left: 6px;
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: var(--text); color: var(--bg); }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 32px 32px 16px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.05;
+    }
+    .hero h1 .accent {
+      background: var(--grad-1); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ====== Compact 3+2 grid, fits one viewport ====== */
+    .cards {
+      max-width: 1200px; margin: 0 auto;
+      padding: 12px 32px 24px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s cubic-bezier(.2,.8,.2,1),
+                  transform 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+    .cards.ready { opacity: 1; transform: translateY(0); }
+
+    .card-wrap { position: relative; grid-column: span 2; }
+    /* Center the 2 cards in the second row */
+    .card-wrap:nth-child(4) { grid-column: 2 / span 2; }
+    .card-wrap:nth-child(5) { grid-column: 4 / span 2; }
+
+    .card {
+      position: relative;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(13, 13, 18, 0.72);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+      height: 100%;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 0; border-radius: 16px;
+      background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%),
+        rgba(59,130,246,0.18), transparent 40%);
+      opacity: 0; transition: opacity 0.4s;
+      pointer-events: none; z-index: 1;
+    }
+    .card:hover::before { opacity: 1; }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(59,130,246,0.35);
+      box-shadow: 0 20px 40px -20px rgba(59,130,246,0.4);
+    }
+
+    .image-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      z-index: 2;
+    }
+    .image-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+    }
+    .card:hover .image-frame img { transform: scale(1.08); }
+    .live-badge {
+      position: absolute;
+      top: 8px; left: 8px;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 8px;
+      background: rgba(16, 185, 129, 0.22);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 700; letter-spacing: 0.12em;
+      color: #6ee7b7;
+      backdrop-filter: blur(8px);
+      z-index: 3;
+    }
+    .live-badge::before {
+      content: "";
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 6px #10b981;
+      animation: live-pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes live-pulse { 50% { opacity: 0.3; } }
+
+    .content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      flex: 1;
+      gap: 8px;
+    }
+    .card h3 {
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: -0.015em; line-height: 1.25;
+    }
+    .card h3 .underline { position: relative; display: inline-block; }
+    .card h3 .underline::after {
+      content: ""; position: absolute;
+      left: 0; bottom: -2px; height: 2px; width: 100%;
+      background: var(--violet);
+      transform-origin: left; transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+    .card:hover h3 .underline::after { transform: scaleX(1); }
+
+    .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+    .tag {
+      padding: 2px 7px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem; color: var(--text-dim);
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 12px;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 8px;
+      font-weight: 600; font-size: 0.74rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      cursor: pointer; width: fit-content;
+      margin-top: auto;
+    }
+    .cta:hover {
+      background: var(--violet);
+      color: white;
+      box-shadow: 0 8px 20px rgba(59,130,246,0.4);
+    }
+    .cta svg { width: 11px; height: 11px; transition: transform 0.2s; }
+    .cta:hover svg { transform: translateX(3px); }
+
+    .card .reveal-item {
+      opacity: 0;
+      transform: translateY(16px);
+      filter: blur(5px);
+      transition: opacity 0.6s cubic-bezier(.2,.8,.2,1),
+                  transform 0.6s cubic-bezier(.2,.8,.2,1),
+                  filter 0.6s ease;
+    }
+    .card.in-view .reveal-item {
+      opacity: 1; transform: translateY(0); filter: blur(0);
+    }
+    .card.in-view .reveal-item:nth-child(1) { transition-delay: 0s; }
+    .card.in-view .reveal-item:nth-child(2) { transition-delay: 0.08s; }
+    .card.in-view .reveal-item:nth-child(3) { transition-delay: 0.16s; }
+    .card.in-view .reveal-item:nth-child(4) { transition-delay: 0.24s; }
+
+    @media (max-width: 820px) {
+      .cards { grid-template-columns: 1fr; gap: 14px; }
+      .card-wrap, .card-wrap:nth-child(4), .card-wrap:nth-child(5) { grid-column: auto; }
+    }
+
+    .page-footer {
+      max-width: 1320px; margin: 0 auto;
+      padding: 30px 32px 50px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      color: var(--text-mute); font-size: 0.82rem;
+    }
+    .page-footer .footer-links { display: flex; gap: 18px; }
+    .page-footer .footer-links a:hover { color: var(--text); }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Ozan M. · Data Scientist</a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="resume.html" data-i18n="nav.resume">Resume</a>
+        <a href="ML Projects.html" data-i18n="nav.ml">ML</a>
+        <a href="Power BI Projects.html" data-i18n="nav.powerbi">Power BI</a>
+        <a href="Python.html" data-i18n="nav.python">Python</a>
+        <a href="ComputerVision.html" data-i18n="nav.cnn">CNN</a>
+        <a href="NLP.html" data-i18n="nav.nlp">NLP</a>
+        <a href="LiveProjects.html" class="active" data-i18n="nav.live">Live</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn" data-lang="tr" type="button">TR</button>
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1><span data-i18n="live.title.pre">Live</span> <span class="accent" data-i18n="live.title.accent">Projects</span></h1>
+  </section>
+
+  <section class="cards">
+
+    <!-- 01 — Crypto Hype Analyzer -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <span class="live-badge">LIVE</span>
+          <img src="img/crypto-coin.png" alt="Crypto Hype Analyzer" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">AWS Lambda</span>
+            <span class="tag">Reddit API</span>
+            <span class="tag">Serverless</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="live.crypto.title.pre">Crypto Hype</span> <span class="underline" data-i18n="live.crypto.title.accent">Analyzer</span></h3>
+          <a class="cta reveal-item" href="https://github.com/Ozan-Mohurcu/crypto-hype-analyzer" target="_blank">
+            <span data-i18n="live.cta.github">View on GitHub</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 — CV ATS Scanner -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <span class="live-badge">LIVE</span>
+          <img src="img/ats.png" alt="CV ATS Scanner" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">Streamlit</span>
+            <span class="tag">NLP</span>
+            <span class="tag">PDF</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="live.ats.title.pre">AI-Powered</span> <span class="underline" data-i18n="live.ats.title.accent">CV ATS Scanner</span></h3>
+          <a class="cta reveal-item" href="https://ats-skor-hesaplama.streamlit.app/" target="_blank">
+            <span data-i18n="live.cta.demo">Try the App</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 — Interview Simulator -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <span class="live-badge">LIVE</span>
+          <img src="img/interview.png" alt="Data Science Interview Simulator" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">JavaScript</span>
+            <span class="tag">50+ Questions</span>
+            <span class="tag">Adaptive</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="live.interview.title.pre">Data Science</span> <span class="underline" data-i18n="live.interview.title.accent">Interview Sim</span></h3>
+          <a class="cta reveal-item" href="https://ozan-mohurcu.github.io/interview-simulator/" target="_blank">
+            <span data-i18n="live.cta.demo">Try the App</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 — StatistikLab -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <span class="live-badge">LIVE</span>
+          <img src="img/ist.png" alt="StatistikLab" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">Chart.js</span>
+            <span class="tag">Statistics</span>
+            <span class="tag">Education</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="live.stat.title.pre">StatistikLab —</span> <span class="underline" data-i18n="live.stat.title.accent">Visual Stats</span></h3>
+          <a class="cta reveal-item" href="https://ozan-mohurcu.github.io/istatistik/" target="_blank">
+            <span data-i18n="live.cta.demo">Try the App</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 — Turkey Housing Prices (spans 2 cols) -->
+    <div class="card-wrap">
+      <div class="card" data-fx>
+        <div class="image-frame reveal-item">
+          <span class="live-badge">LIVE</span>
+          <img src="img/kira.png" alt="Turkey Housing Prices" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag">Plotly.js</span>
+            <span class="tag">Real Estate</span>
+            <span class="tag">Geographic</span>
+            <span class="tag">Trend Analysis</span>
+          </div>
+          <h3 class="reveal-item"><span data-i18n="live.housing.title.pre">Türkiye Konut</span> <span class="underline" data-i18n="live.housing.title.accent">Fiyatları</span></h3>
+          <a class="cta reveal-item" href="https://ozan-mohurcu.github.io/turkiye-konut-fiyatlari/" target="_blank">
+            <span data-i18n="live.cta.demo">Try the App</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="page-footer">
+    <div data-i18n="footer.copy">© Ozan M. · Portfolio</div>
+    <div class="footer-links">
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="resume.html" data-i18n="footer.resume">Resume</a>
+      <a href="ML Projects.html" data-i18n="footer.projects">Projects</a>
+    </div>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.182.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.182.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import * as BGU from 'three/addons/utils/BufferGeometryUtils.js';
+    console.log('[live-bg] Three.js loaded:', THREE.REVISION);
+
+    /* ============================================================
+       i18n
+       ============================================================ */
+    const i18n = {
+      tr: {
+        'nav.home':'Ana Sayfa','nav.resume':'Özgeçmiş','nav.ml':'ML',
+        'nav.powerbi':'Power BI','nav.python':'Python','nav.cnn':'CNN',
+        'nav.nlp':'NLP','nav.live':'Canlı','nav.contact':'İletişim',
+
+        'live.title.pre': 'Canlı',
+        'live.title.accent': 'Projeler',
+
+        'live.crypto.title.pre': 'Kripto Hype',
+        'live.crypto.title.accent': 'Analizör',
+        'live.crypto.desc': "AWS Lambda üzerinde çalışan serverless kripto analiz sistemi. Reddit verisi + CoinGecko fiyatları + özel hype skoru. CloudWatch ile günde 5 kez otomatik Twitter paylaşımı.",
+
+        'live.ats.title.pre': 'AI Destekli',
+        'live.ats.title.accent': 'CV ATS Tarayıcı',
+        'live.ats.desc': 'Yapay zeka ile özgeçmiş analiz eden ATS tarayıcı. Detaylı skor, anahtar kelime ve format önerileri sunar.',
+
+        'live.interview.title.pre': 'Data Science',
+        'live.interview.title.accent': 'Mülakat Simülatörü',
+        'live.interview.desc': "Data Science ve Analytics pozisyonları için AI destekli mülakat simülatörü. 50+ soru, gerçek zamanlı puanlama, uyarlanabilir zorluk.",
+
+        'live.stat.title.pre': 'StatistikLab —',
+        'live.stat.title.accent': 'Görsel İstatistik',
+        'live.stat.desc': "İnteraktif istatistik öğretim aracı. Histogram, box-plot, scatter ile sentetik veri kümeleri oluştur ve dağılımları analiz et.",
+
+        'live.housing.title.pre': 'Türkiye Konut',
+        'live.housing.title.accent': 'Fiyatları Analizi',
+        'live.housing.desc': "İstanbul, Ankara ve İzmir'in ilçe düzeyindeki konut fiyatlarını analiz eden proje. Metrekare başına fiyatlar, yıllık büyüme trendleri ve bölgesel farklılıklar veri görselleştirme ile öne çıkarıldı.",
+
+        'live.cta.github': 'GitHub',
+        'live.cta.demo': 'Uygulamayı Deneyin',
+
+        'footer.copy':'© Ozan M. · Portfolyo',
+        'footer.contact':'İletişim',
+        'footer.resume':'Özgeçmiş',
+        'footer.projects':'Projeler'
+      },
+      en: {
+        'nav.home':'Home','nav.resume':'Resume','nav.ml':'ML',
+        'nav.powerbi':'Power BI','nav.python':'Python','nav.cnn':'CNN',
+        'nav.nlp':'NLP','nav.live':'Live','nav.contact':'Contact',
+
+        'live.title.pre': 'Live',
+        'live.title.accent': 'Projects',
+
+        'live.crypto.title.pre': 'Crypto Hype',
+        'live.crypto.title.accent': 'Analyzer',
+        'live.crypto.desc': "Serverless crypto analysis system on AWS Lambda. Reddit data + CoinGecko prices + custom hype score. CloudWatch triggers auto Twitter posts 5x daily.",
+
+        'live.ats.title.pre': 'AI-Powered',
+        'live.ats.title.accent': 'CV ATS Scanner',
+        'live.ats.desc': "Advanced ATS scanner analysing resumes with AI. Detailed scoring, keyword and formatting suggestions.",
+
+        'live.interview.title.pre': 'Data Science',
+        'live.interview.title.accent': 'Interview Simulator',
+        'live.interview.desc': "AI-powered interview simulator for Data Science / Analytics roles. 50+ questions, real-time scoring, adaptive difficulty.",
+
+        'live.stat.title.pre': 'StatistikLab —',
+        'live.stat.title.accent': 'Visual Statistics',
+        'live.stat.desc': "Interactive statistics teaching tool. Generate synthetic datasets and explore distributions through histograms, box-plots and scatters.",
+
+        'live.housing.title.pre': 'Turkey Housing',
+        'live.housing.title.accent': 'Price Analytics',
+        'live.housing.desc': "District-level housing price analytics for Istanbul, Ankara and Izmir. Price per m², annual growth trends and regional differences surfaced through interactive visualisations.",
+
+        'live.cta.github': 'View on GitHub',
+        'live.cta.demo': 'Try the App',
+
+        'footer.copy':'© Ozan M. · Portfolio',
+        'footer.contact':'Contact',
+        'footer.resume':'Resume',
+        'footer.projects':'Projects'
+      }
+    };
+
+    function applyLang(lang) {
+      if (!i18n[lang]) lang = 'tr';
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n'); const v = i18n[lang][k];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const k = el.getAttribute('data-i18n-html'); const v = i18n[lang][k];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+    }
+    applyLang(localStorage.getItem('lang') || 'tr');
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.addEventListener('click', () => applyLang(b.dataset.lang));
+    });
+
+    /* ============================================================
+       UNDERWATER SCENE — manta-ray-like creature swimming over a
+       wavy seabed with drifting plankton. Adapted from the user-
+       provided CodePen (OrbitControls removed, auto camera orbit).
+       ============================================================ */
+    const noiseGLSL = `
+      vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
+      float snoise(vec2 v){
+        const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                 -0.577350269189626, 0.024390243902439);
+        vec2 i  = floor(v + dot(v, C.yy) );
+        vec2 x0 = v -   i + dot(i, C.xx);
+        vec2 i1;
+        i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+        vec4 x12 = x0.xyxy + C.xxzz;
+        x12.xy -= i1;
+        i = mod(i, 289.0);
+        vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+                        + i.x + vec3(0.0, i1.x, 1.0 ));
+        vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),
+                                dot(x12.zw,x12.zw)), 0.0);
+        m = m*m ; m = m*m ;
+        vec3 x = 2.0 * fract(p * C.www) - 1.0;
+        vec3 h = abs(x) - 0.5;
+        vec3 ox = floor(x + 0.5);
+        vec3 a0 = x - ox;
+        m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+        vec3 g;
+        g.x  = a0.x  * x0.x  + h.x  * x0.y;
+        g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+        return 130.0 * dot(m, g);
+      }
+    `;
+
+    const gu = { time: { value: 0 } };
+
+    const canvas = document.getElementById('bg-canvas');
+    const vignetteEl = document.querySelector('.vignette');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color("#024");
+    scene.fog = new THREE.Fog(scene.background, 8, 30);
+
+    const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 500);
+    camera.position.set(0.5, 0.25, -1).setLength(7.25);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(innerWidth, innerHeight);
+
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+
+    /* Wireframe quads helper */
+    const ToQuads = (g) => {
+      let p = g.parameters;
+      let segX = p.widthSegments || p.thetaSegments || 1;
+      let segY = p.heightSegments || p.phiSegments || p.segments || 1;
+      let indices = [];
+      for (let i = 0; i < segY + 1; i++) {
+        let i11 = 0, i12 = 0;
+        for (let j = 0; j < segX; j++) {
+          i11 = (segX + 1) * i + j;
+          i12 = i11 + 1;
+          let i21 = i11, i22 = i11 + (segX + 1);
+          indices.push(i11, i12);
+          if (i22 < ((segX + 1) * (segY + 1) - 1)) indices.push(i21, i22);
+        }
+        if ((i12 + segX + 1) <= ((segX + 1) * (segY + 1) - 1)) {
+          indices.push(i12, i12 + segX + 1);
+        }
+      }
+      g.setIndex(indices);
+    };
+
+    /* SeaBed */
+    const seaBedGeom = new THREE.PlaneGeometry(100, 100, 400, 400).rotateX(-Math.PI * 0.5).rotateY(Math.PI * 0.25);
+    ToQuads(seaBedGeom);
+    const seaBedMat = new THREE.MeshBasicMaterial({
+      color: '#048',
+      onBeforeCompile: shader => {
+        shader.uniforms.time = gu.time;
+        shader.vertexShader = `
+          uniform float time;
+          varying float vN;
+          varying vec3 vPos;
+          ${noiseGLSL}
+          ${shader.vertexShader}
+        `.replace(
+          `#include <begin_vertex>`,
+          `#include <begin_vertex>
+            float t = time;
+            float posX = position.x - mod(t, 2. * sqrt(2.));
+            transformed.x = posX;
+            float xShift = posX + t;
+            float n = snoise(vec2(xShift, position.z) * 0.1);
+            vN = n;
+            transformed.y = n * 1.;
+            vPos = transformed;
+          `
+        );
+        shader.fragmentShader = `
+          varying float vN;
+          varying vec3 vPos;
+          ${shader.fragmentShader}
+        `.replace(
+          `vec4 diffuseColor = vec4( diffuse, opacity );`,
+          `
+            vec3 col = mix(diffuse, vec3(0, 0.75, 1), 1. - smoothstep(-0.5, 0., vN));
+            col += vec3(0, 0.2, 0.1) * (1. - smoothstep(10., 15., length(vPos)));
+            vec4 diffuseColor = vec4( col, opacity );
+          `
+        );
+      }
+    });
+    const seaBed = new THREE.LineSegments(seaBedGeom, seaBedMat);
+    seaBed.position.y = -5;
+    scene.add(seaBed);
+
+    /* Background sphere with gradient */
+    const bgC = document.createElement('canvas');
+    bgC.width = 1; bgC.height = 1024;
+    const bgCtx = bgC.getContext('2d');
+    const grd = bgCtx.createLinearGradient(0, 0, 0, bgC.height);
+    grd.addColorStop(0.1, '#044');
+    grd.addColorStop(0.4, '#' + scene.background.getHexString());
+    bgCtx.fillStyle = grd;
+    bgCtx.fillRect(0, 0, bgC.width, bgC.height);
+    const bgTex = new THREE.CanvasTexture(bgC);
+    bgTex.colorSpace = THREE.SRGBColorSpace;
+    bgTex.anisotropy = 16;
+    const background = new THREE.Mesh(
+      new THREE.SphereGeometry(300),
+      new THREE.MeshBasicMaterial({ side: THREE.BackSide, fog: false, color: 'white', map: bgTex })
+    );
+    scene.add(background);
+
+    /* Drifting plankton (WaterStuff) */
+    class WaterStuff extends THREE.Group {
+      constructor() {
+        super();
+        this.items = Array.from({ length: 50 }, () => {
+          const item = new THREE.Mesh(
+            new THREE.CapsuleGeometry(0.25, 2, 3, 7, 3),
+            new THREE.MeshBasicMaterial({ wireframe: true, color: '#068' })
+          );
+          this.setRandom(item, 50 - Math.random() * 100);
+          this.add(item);
+          return item;
+        });
+      }
+      setRandom(o, x) {
+        const a = Math.PI * Math.random();
+        const r = 5 + Math.random() * 10;
+        o.position.set(x, Math.sin(a) * r, Math.cos(a) * r);
+        o.rotation.setFromVector3(new THREE.Vector3().random().multiplyScalar(Math.PI * 2));
+        o.scale.y = 1 + (Math.random() - 0.5) * 1.5;
+      }
+      update(dt) {
+        const lim = 50;
+        this.items.forEach(item => {
+          let iPos = item.position.x - dt;
+          item.position.x = iPos;
+          if (iPos < -lim) {
+            iPos = (iPos + lim) % 100;
+            this.setRandom(item, lim + iPos);
+          }
+        });
+      }
+    }
+    const waterStuff = new WaterStuff();
+    scene.add(waterStuff);
+
+    /* Swimming creature ("Thing") — body + wings sway */
+    class Thing extends THREE.Group {
+      constructor() {
+        super();
+        const gBase = new THREE.SphereGeometry(3, 64, 32);
+
+        const gLines = new THREE.EdgesGeometry(gBase, 0.5);
+        const mLines = new THREE.LineBasicMaterial({ color: '#8ff', transparent: true, opacity: 0.75 });
+        const lines = new THREE.LineSegments(gLines, mLines);
+        this.add(lines);
+
+        const gPoints = BGU.mergeVertices(gBase.clone().deleteAttribute('uv').deleteAttribute('normal'));
+        const mPoints = new THREE.PointsMaterial({ color: '#0ff', size: 0.1, transparent: true });
+        const points = new THREE.Points(gPoints, mPoints);
+        this.add(points);
+
+        [mLines, mPoints].forEach(m => {
+          m.onBeforeCompile = shader => {
+            shader.uniforms.time = gu.time;
+            shader.vertexShader = `
+              uniform float time;
+              varying vec3 vPos;
+              mat2 rot(float a){ return mat2(cos(a), sin(a), -sin(a), cos(a)); }
+              ${shader.vertexShader}
+            `.replace(
+              `#include <begin_vertex>`,
+              `#include <begin_vertex>
+                vec3 pos = position;
+                vPos = pos;
+                pos.y *= 0.05;
+                float a = atan(pos.z, pos.x);
+                float s = cos(a * 4.);
+                float r = s * 0.125 + 0.875;
+                pos.xz *= r;
+                pos.x -= (smoothstep(0., 3., pos.x)) * 0.75;
+                float syncWave = sin(time * 1.25 + pos.x);
+                float zSwaying = smoothstep(0.25, 2., abs(pos.z));
+                mat2 zRot = rot(PI * 0.1 * zSwaying * syncWave * sign(pos.z));
+                pos.yz *= zRot;
+                pos.y += syncWave * 0.5 * ((1. - smoothstep(-3., 3., position.x)) * 0.5 + 0.5);
+                transformed = pos;
+              `
+            );
+            if (m.type === 'PointsMaterial') {
+              shader.fragmentShader = `
+                varying vec3 vPos;
+                ${shader.fragmentShader}
+              `.replace(
+                `vec4 diffuseColor = vec4( diffuse, opacity );`,
+                `
+                  vec2 uv = gl_PointCoord - 0.5;
+                  float pl = length(uv);
+                  float fw = length(fwidth(uv));
+                  float f = 1. - smoothstep(0.5 - fw, 0.5, pl);
+                  if (pl > 0.5) discard;
+                  vec3 bodyColor = mix(vec3(1), diffuse, smoothstep(2., 1., vPos.x));
+                  vec3 col = mix(bodyColor, diffuse, smoothstep(0.5, 1.0, abs(vPos.z)));
+                  vec4 diffuseColor = vec4( col, opacity * f );
+                `
+              );
             }
-
-            body {
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                background: var(--gradient-matrix);
-                min-height: 100vh;
-                overflow-x: hidden;
-            }
-
-            /* AI Circuit Background Animation */
-            .ai-background {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                opacity: 0.1;
-                background-image: 
-                    radial-gradient(circle at 20% 50%, var(--neon-blue) 2px, transparent 2px),
-                    radial-gradient(circle at 80% 50%, var(--neon-purple) 1px, transparent 1px),
-                    radial-gradient(circle at 40% 80%, var(--neon-orange) 1px, transparent 1px);
-                background-size: 100px 100px, 150px 150px, 200px 200px;
-                animation: circuit-flow 15s infinite linear;
-            }
-
-            @keyframes circuit-flow {
-                0% { transform: translateX(-50px) translateY(-50px); }
-                100% { transform: translateX(50px) translateY(50px); }
-            }
-
-            /* Modern Glassmorphism Navigation */
-            .navbar {
-                background: rgba(13, 20, 33, 0.9) !important;
-                backdrop-filter: blur(20px);
-                border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-                box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000;
-                transition: all 0.3s ease;
-            }
-
-            .navbar-brand {
-                font-weight: 800;
-                font-size: 1.3rem;
-                background: var(--gradient-accent);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                position: relative;
-            }
-
-            .navbar-brand::after {
-                content: '🚀';
-                position: absolute;
-                right: -35px;
-                top: 0;
-                color: var(--neon-orange);
-                animation: rocket-pulse 2s infinite;
-            }
-
-            @keyframes rocket-pulse {
-                0%, 100% { 
-                    text-shadow: 0 0 5px var(--neon-orange);
-                    transform: scale(1) rotate(0deg);
-                }
-                50% { 
-                    text-shadow: 0 0 20px var(--neon-orange), 0 0 30px var(--neon-orange);
-                    transform: scale(1.1) rotate(15deg);
-                }
-            }
-
-            .navbar-nav .nav-link {
-                color: var(--neon-blue) !important;
-                font-weight: 600;
-                margin: 0 10px;
-                position: relative;
-                transition: all 0.3s ease;
-            }
-
-            .navbar-nav .nav-link:hover {
-                transform: translateY(-3px);
-                color: white !important;
-                text-shadow: 0 0 10px var(--neon-blue);
-            }
-
-            .navbar-nav .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: -5px;
-                left: 50%;
-                background: var(--gradient-accent);
-                transition: all 0.3s ease;
-                transform: translateX(-50%);
-                box-shadow: 0 0 10px var(--neon-blue);
-            }
-
-            .navbar-nav .nav-link:hover::after {
-                width: 100%;
-            }
-
-            /* AI Floating Elements */
-            .floating-element {
-                position: fixed;
-                border-radius: 50%;
-                animation: floatUpDown 6s ease-in-out infinite;
-                z-index: -1;
-            }
-
-            .floating-element:nth-child(1) {
-                width: 80px;
-                height: 80px;
-                top: 15%;
-                left: 8%;
-                background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
-                animation-delay: 0s;
-                box-shadow: 0 0 30px var(--neon-blue);
-            }
-
-            .floating-element:nth-child(2) {
-                width: 60px;
-                height: 60px;
-                top: 65%;
-                right: 12%;
-                background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
-                animation-delay: 1.5s;
-                box-shadow: 0 0 25px var(--neon-purple);
-            }
-
-            .floating-element:nth-child(3) {
-                width: 100px;
-                height: 100px;
-                bottom: 25%;
-                left: 3%;
-                background: radial-gradient(circle, var(--neon-orange) 0%, transparent 70%);
-                animation-delay: 3s;
-                box-shadow: 0 0 35px var(--neon-orange);
-            }
-
-            @keyframes floatUpDown {
-                0%, 100% { 
-                    transform: translateY(0px) scale(1);
-                    opacity: 0.7;
-                }
-                50% { 
-                    transform: translateY(-40px) scale(1.1);
-                    opacity: 1;
-                }
-            }
-
-            /* Projects Section with AI Theme */
-            .projects-section {
-                padding-top: 120px;
-                background: linear-gradient(135deg, 
-                    rgba(13, 20, 33, 0.95) 0%, 
-                    rgba(26, 35, 50, 0.95) 50%, 
-                    rgba(15, 52, 117, 0.95) 100%);
-                backdrop-filter: blur(20px);
-                position: relative;
-                min-height: 100vh;
-            }
-
-            .projects-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: 
-                    radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(191, 0, 255, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 60%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
-                animation: ai-glow 8s ease-in-out infinite;
-                pointer-events: none;
-            }
-
-            @keyframes ai-glow {
-                0%, 100% { opacity: 0.3; }
-                50% { opacity: 0.6; }
-            }
-
-            .projects-title {
-                background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 50%, var(--neon-orange) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 900;
-                text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-                position: relative;
-                animation: slideInUp 1s ease-out;
-            }
-
-            .projects-title::after {
-                content: '⚡';
-                position: absolute;
-                right: -60px;
-                top: 0;
-                font-size: 0.8em;
-                animation: lightning-pulse 2s ease-in-out infinite;
-            }
-
-            @keyframes lightning-pulse {
-                0%, 100% { 
-                    transform: translateY(0px) scale(1);
-                    filter: hue-rotate(0deg);
-                }
-                50% { 
-                    transform: translateY(-5px) scale(1.1);
-                    filter: hue-rotate(180deg);
-                }
-            }
-
-            .projects-subtitle {
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 1.2rem;
-                animation: slideInUp 1s ease-out 0.2s both;
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            }
-
-            @keyframes slideInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* AI Project Cards */
-            .project-horizontal {
-                display: flex;
-                align-items: center;
-                margin-bottom: 50px;
-                background: rgba(26, 35, 50, 0.6);
-                backdrop-filter: blur(15px);
-                border-radius: 20px;
-                padding: 25px;
-                border: 2px solid rgba(0, 255, 255, 0.3);
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 255, 0.2),
-                    0 0 60px rgba(191, 0, 255, 0.1);
-                transition: all 0.5s ease;
-                position: relative;
-                overflow: hidden;
-                animation: slideInUp 1s ease-out;
-            }
-
-            .project-horizontal::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: conic-gradient(
-                    rgba(0, 255, 255, 0.1) 0deg,
-                    rgba(191, 0, 255, 0.1) 90deg,
-                    rgba(255, 140, 0, 0.1) 180deg,
-                    rgba(0, 255, 136, 0.1) 270deg,
-                    rgba(0, 255, 255, 0.1) 360deg
-                );
-                animation: rotate-ai 12s linear infinite;
-                z-index: -1;
-                opacity: 0;
-                transition: opacity 0.4s;
-            }
-
-            .project-horizontal:hover::before {
-                opacity: 1;
-            }
-
-            @keyframes rotate-ai {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-
-            .project-horizontal:hover {
-                transform: translateY(-10px) scale(1.02);
-                border-color: var(--neon-green);
-                box-shadow: 
-                    0 25px 50px rgba(0, 255, 136, 0.4),
-                    0 0 80px rgba(191, 0, 255, 0.3),
-                    0 0 100px rgba(255, 140, 0, 0.2);
-            }
-
-            .project-horizontal img {
-                width: 280px;
-                height: 200px;
-                object-fit: cover;
-                border-radius: 15px;
-                margin-right: 25px;
-                border: 3px solid var(--neon-blue);
-                box-shadow: 
-                    0 15px 30px rgba(0, 255, 255, 0.4),
-                    0 0 40px rgba(0, 255, 255, 0.2);
-                transition: all 0.5s ease;
-                position: relative;
-            }
-
-            .project-horizontal:hover img {
-                transform: scale(1.05) rotateY(5deg);
-                border-color: var(--neon-green);
-                box-shadow: 
-                    0 20px 40px rgba(0, 255, 136, 0.5),
-                    0 0 60px rgba(0, 255, 136, 0.3);
-            }
-
-            .project-description {
-                flex: 1;
-                position: relative;
-                z-index: 2;
-            }
-
-            .project-description h3 {
-                background: linear-gradient(135deg, var(--neon-orange) 0%, var(--neon-green) 50%, var(--neon-blue) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: 800;
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-                position: relative;
-            }
-
-            .project-description h3::after {
-                content: '🎯';
-                position: absolute;
-                right: -50px;
-                top: 0;
-                font-size: 0.7em;
-                animation: target-spin 4s linear infinite;
-            }
-
-            @keyframes target-spin {
-                0% { transform: rotate(0deg) scale(1); }
-                50% { transform: rotate(180deg) scale(1.2); }
-                100% { transform: rotate(360deg) scale(1); }
-            }
-
-            .project-description p {
-                color: rgba(255, 255, 255, 0.9);
-                font-size: 1rem;
-                line-height: 1.6;
-                text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-                margin-bottom: 15px;
-            }
-
-            /* Live Application Button */
-            .live-demo-btn {
-                display: inline-block;
-                background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%);
-                color: var(--dark-bg);
-                padding: 12px 25px;
-                border-radius: 25px;
-                text-decoration: none;
-                font-weight: 700;
-                font-size: 1rem;
-                position: relative;
-                transition: all 0.3s ease;
-                margin-top: 15px;
-                box-shadow: 0 8px 20px rgba(0, 255, 136, 0.4);
-                overflow: hidden;
-            }
-
-            .live-demo-btn::before {
-                content: '🚀';
-                margin-right: 8px;
-                animation: rocket-bounce 1.5s ease-in-out infinite;
-            }
-
-            @keyframes rocket-bounce {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-3px); }
-            }
-
-            .live-demo-btn:hover {
-                transform: translateY(-5px) scale(1.05);
-                color: var(--dark-bg);
-                box-shadow: 0 15px 35px rgba(0, 255, 136, 0.6);
-                text-decoration: none;
-            }
-
-            .live-demo-btn::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-                transition: left 0.5s ease;
-            }
-
-            .live-demo-btn:hover::after {
-                left: 100%;
-            }
-
-            /* Status Badges */
-            .status-badge {
-                display: inline-block;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 0.9rem;
-                font-weight: 600;
-                margin-right: 15px;
-                margin-top: 15px;
-                position: relative;
-                animation: pulse-glow 2s ease-in-out infinite;
-            }
-
-            .status-live {
-                background: rgba(0, 255, 136, 0.2);
-                color: var(--neon-green);
-                border: 2px solid var(--neon-green);
-                box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-            }
-
-            .status-live::before {
-                content: '🟢';
-                margin-right: 8px;
-                animation: blink 1.5s ease-in-out infinite;
-            }
-
-            @keyframes blink {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.3; }
-            }
-
-            .tech-stack {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-                margin-top: 15px;
-            }
-
-            .tech-tag {
-                background: rgba(191, 0, 255, 0.2);
-                color: var(--neon-purple);
-                padding: 4px 10px;
-                border-radius: 12px;
-                font-size: 0.8rem;
-                font-weight: 600;
-                border: 1px solid var(--neon-purple);
-                box-shadow: 0 0 8px rgba(191, 0, 255, 0.3);
-                transition: all 0.3s ease;
-            }
-
-            .tech-tag:hover {
-                transform: scale(1.1);
-                box-shadow: 0 0 20px rgba(191, 0, 255, 0.6);
-            }
-
-            /* Project alternating layout */
-            .project-horizontal:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-
-            .project-horizontal:nth-child(even) img {
-                margin-right: 0;
-                margin-left: 25px;
-            }
-
-            .project-horizontal:nth-child(even) .project-description h3::after {
-                left: -50px;
-                right: auto;
-            }
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                .project-horizontal,
-                .project-horizontal:nth-child(even) {
-                    flex-direction: column;
-                    text-align: center;
-                    padding: 30px 20px;
-                }
-                
-                .project-horizontal img,
-                .project-horizontal:nth-child(even) img {
-                    width: 100%;
-                    max-width: 280px;
-                    margin: 0 0 20px 0;
-                }
-                
-                .projects-title::after {
-                    right: -40px;
-                    font-size: 0.6em;
-                }
-                
-                .project-description h3::after {
-                    right: -30px;
-                    left: auto;
-                    font-size: 0.6em;
-                }
-                
-                .projects-section {
-                    padding-top: 100px;
-                }
-
-                .navbar-brand::after {
-                    right: -25px;
-                    font-size: 0.8em;
-                }
-            }
-
-            /* Custom scrollbar */
-            ::-webkit-scrollbar {
-                width: 12px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: rgba(13, 20, 33, 0.8);
-                border-radius: 6px;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: var(--gradient-accent);
-                border-radius: 6px;
-                border: 2px solid rgba(0, 255, 255, 0.3);
-                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: var(--gradient-secondary);
-                box-shadow: 0 0 20px rgba(255, 140, 0, 0.7);
-            }
-        </style>
-    </head>
-    <body class="d-flex flex-column h-100">
-        <!-- AI Background -->
-        <div class="ai-background"></div>
-        
-        <!-- AI Floating Elements -->
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">
-                        <span class="fw-bolder">Live Projects Hub</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Power BI Projects.html">Power BI Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Python.html">Python Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ML Projects.html">Machine Learning Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ComputerVision.html">CNN Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="NLP.html">NLP Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            
-            <!-- Projects Section -->
-            <section class="projects-section py-5">
-                <div class="container px-5 mb-5">
-                    <div class="text-center mb-5">
-                        <h1 class="display-4 fw-bolder mb-0 projects-title">
-                            <span class="text-gradient d-inline">Live Projects</span>
-                        </h1>
-                        <p class="text-muted mt-4 projects-subtitle">
-                            Keşfedilmeye ve kullanılmaya hazır etkileşimli yapay zeka destekli uygulamalar
-                        </p>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-11 col-xl-10 col-xxl-9">
-                            <!-- Project 2: Crypto Hype Analyzer -->
-                            <div class="project-horizontal">
-                                <img src="img/crypto-coin.png" alt="Crypto Hype Analyzer">
-                                <div class="project-description">
-                                    <h3>Otomatik Kripto Hype Analiz Sistemi</h3>
-                                    <div class="status-badge status-live">LIVE</div>
-                                    <p>
-                                        Amazon Web Services (AWS) Lambda üzerinde çalışan serverless kripto analiz sistemi. 
-                                        Reddit API ile r/CryptoCurrency subreddit'inden gerçek zamanlı veri toplayarak ve CoinGecko API'den fiyat verilerini alarak, 
-                                        özel algoritma ile hype skorları hesaplıyor. Sistem günde 5 farklı saatte otomatik olarak en popüler coin'i belirleyip 
-                                        Twitter'da paylaşıyor. CloudWatch EventBridge ile zamanlama yapılarak tamamen hands-off otomasyon sağlanmış.
-                                    </p>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">AWS Lambda</span>
-                                        <span class="tech-tag">CloudWatch</span>
-                                        <span class="tech-tag">Reddit API</span>
-                                        <span class="tech-tag">Twitter API</span>
-                                        <span class="tech-tag">CoinGecko API</span>
-                                        <span class="tech-tag">Serverless</span>
-                                        <span class="tech-tag">Data Processing</span>
-                                    </div>
-                                    <a href="https://github.com/Ozan-Mohurcu/crypto-hype-analyzer" class="live-demo-btn" target="_blank">
-                                        GitHub'da İncele
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Project 1: CV ATS Scanner -->
-                            <div class="project-horizontal">
-                                <img src="img/ats.png" alt="CV ATS Scanner">
-                                <div class="project-description">
-                                    <h3>Yapay Zeka Destekli CV ATS Tarayıcı</h3>
-                                    <div class="status-badge status-live">LIVE</div>
-                                    <p>
-                                        Yapay zeka kullanarak özgeçmişleri analiz eden Gelişmiş Başvuru Takip Sistemi (ATS) tarayıcısı. 
-                                        Sistem, iş arayanların özgeçmişlerinin işe alım uzmanları tarafından kullanılan ATS sistemleriyle uyumluluğunu iyileştirmelerine yardımcı olmak için ayrıntılı puanlama, anahtar kelime optimizasyonu önerileri ve biçimlendirme önerileri sunar.
-                                    </p>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">NLP</span>
-                                        <span class="tech-tag">Machine Learning</span>
-                                        <span class="tech-tag">PDF Processing</span>
-                                        <span class="tech-tag">Streamlit</span>
-                                        <span class="tech-tag">AI Analysis</span>
-                                    </div>
-                                    <a href="https://ats-skor-hesaplama.streamlit.app/" class="live-demo-btn" target="_blank">
-                                        Uygulamayı deneyin
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Project 2: Interview Simulator -->
-                            <div class="project-horizontal">
-                                <img src="img/interview.png" alt="AI Interview Simulator">
-                                <div class="project-description">
-                                    <h3>Data Science Mülakat Simülatörü</h3>
-                                    <div class="status-badge status-live">LIVE</div>
-                                    <p>
-                                        Veri Bilimi ve Veri Analitiği pozisyonları için kapsamlı, yapay zeka destekli mülakat simülasyon platformu. 
-                                        50'den fazla uzman düzeyinde soru, gerçek zamanlı puanlama, ayrıntılı açıklamalar ve uyarlanabilir zorluk seviyesi sunar. 
-                                        Anında geri bildirim ve performans analitiği ile işe hazırlık için mükemmeldir.
-                                    </p>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">JavaScript</span>
-                                        <span class="tech-tag">HTML5</span>
-                                        <span class="tech-tag">CSS3</span>
-                                        <span class="tech-tag">AI Algorithms</span>
-                                        <span class="tech-tag">Responsive Design</span>
-                                        <span class="tech-tag">Interactive UI</span>
-                                    </div>
-                                    <a href="https://ozan-mohurcu.github.io/interview-simulator/" class="live-demo-btn" target="_blank">
-                                        Uygulamayı deneyin
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Project 4: Istatistik  -->
-                            <div class="project-horizontal">
-                                <img src="img/ist.png" alt="AI Interview Simulator">
-                                <div class="project-description">
-                                    <h3>StatistikLab – Visual Statistics Discovery Tool</h3>
-                                    <div class="status-badge status-live">LIVE</div>
-                                    <p>
-                                        Veri görselleştirmeye odaklanan bu etkileşimli uygulama, temel istatistiksel kavramları grafikler aracılığıyla öğretmeyi amaçlamaktadır. Kullanıcılar, çeşitli grafik türlerini (histogram, kutu grafiği, saçılım grafiği vb.) seçerek sentetik veri kümeleri oluşturabilir ve dağılımları, çarpıklıkları ve korelasyonları anında analiz edebilirler. Eğitim ve veri okuryazarlığı için tasarlanmıştır.
-                                    </p>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">JavaScript</span>
-                                            <span class="tech-tag">Chart.js</span>
-                                            <span class="tech-tag">HTML5</span>
-                                            <span class="tech-tag">CSS Grid</span>
-                                            <span class="tech-tag">Responsive UI</span>
-                                            <span class="tech-tag">Data Visualization</span>
-                                            <span class="tech-tag">Statistical Analysis</span>
-                                    </div>
-                                    <a href="https://ozan-mohurcu.github.io/istatistik/" class="live-demo-btn" target="_blank">
-                                        Uygulamayı deneyin
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Project 3: Housing Prices in Turkey -->
-                            <div class="project-horizontal">
-                                <img src="img/kira.png" alt="AI Interview Simulator">
-                                <div class="project-description">
-                                    <h3>Türkiye'de Konut Fiyatları</h3>
-                                    <div class="status-badge status-live">LIVE</div>
-                                    <p>
-                                        Bu proje, Türkiye'nin üç büyük şehri İstanbul, Ankara ve İzmir'deki ilçe düzeyindeki konut fiyatlarını analiz etmektedir. Metrekare başına fiyatları, yıllık büyüme eğilimlerini ve bölgesel farklılıkları incelemektedir. Amaç, veri görselleştirmeleri ve istatistiksel bilgiler kullanarak temel pazar dinamiklerini vurgulamak ve yatırım veya yaşam için öne çıkan alanları belirlemektir.
-                                    </p>
-                                    <div class="tech-stack">
-                                        <span class="tech-tag">Python</span>
-                                        <span class="tech-tag">Pandas</span>
-                                        <span class="tech-tag">Plotly.js</span>
-                                        <span class="tech-tag">HTML5</span>
-                                        <span class="tech-tag">CSS3</span>
-                                        <span class="tech-tag">Responsive Design</span>
-                                        <span class="tech-tag">Data-Driven Insights</span>
-                                    </div>
-                                    <a href="https://ozan-mohurcu.github.io/turkiye-konut-fiyatlari/" class="live-demo-btn" target="_blank">
-                                        Uygulamayı deneyin
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Bootstrap JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script>
-            // Enhanced navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(13, 20, 33, 0.98)';
-                    navbar.style.boxShadow = '0 5px 30px rgba(0, 255, 255, 0.4)';
-                } else {
-                    navbar.style.background = 'rgba(13, 20, 33, 0.9)';
-                    navbar.style.boxShadow = '0 8px 32px rgba(0, 255, 255, 0.2)';
-                }
-            });
-
-            // Loading animation
-            window.addEventListener('load', function() {
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.8s ease-in-out';
-                setTimeout(() => {
-                    document.body.style.opacity = '1';
-                }, 100);
-            });
-
-            // Dynamic particles
-            function createParticle() {
-                const particle = document.createElement('div');
-                const colors = ['#00ffff', '#bf00ff', '#ff8c00', '#00ff88'];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                particle.style.position = 'fixed';
-                particle.style.width = Math.random() * 6 + 3 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.background = randomColor;
-                particle.style.borderRadius = '50%';
-                particle.style.left = Math.random() * window.innerWidth + 'px';
-                particle.style.top = '100vh';
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '-1';
-                particle.style.boxShadow = `0 0 ${Math.random() * 20 + 10}px ${randomColor}`;
-                particle.style.animation = `particle-float ${Math.random() * 8 + 6}s linear forwards`;
-                
-                document.body.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 14000);
-            }
-
-            // Add particle animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes particle-float {
-                    0% {
-                        transform: translateY(0px) translateX(0px) rotate(0deg);
-                        opacity: 0;
-                    }
-                    10% {
-                        opacity: 1;
-                    }
-                    90% {
-                        opacity: 1;
-                    }
-                    100% {
-                        transform: translateY(-110vh) translateX(200px) rotate(360deg);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Create particles periodically
-            setInterval(createParticle, 400);
-
-            // Parallax effect
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallax = scrolled * 0.3;
-                
-                document.querySelectorAll('.floating-element').forEach((element, index) => {
-                    const speed = (index + 1) * 0.5;
-                    element.style.transform = `translateY(${parallax * speed}px)`;
-                });
-            });
-
-            // Project card hover effects
-            document.querySelectorAll('.project-horizontal').forEach(project => {
-                project.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                
-                project.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-
-            // Typing effect for title
-            function typeWriter(element, text, speed = 100) {
-                let i = 0;
-                element.innerHTML = '';
-                
-                function type() {
-                    if (i < text.length) {
-                        element.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(type, speed);
-                    }
-                }
-                type();
-            }
-
-            // Initialize typing effect
-            setTimeout(() => {
-                const projectTitle = document.querySelector('.projects-title span');
-                if (projectTitle) {
-                    const originalText = projectTitle.textContent;
-                    typeWriter(projectTitle, originalText, 80);
-                }
-            }, 1000);
-
-            // Matrix rain effect
-            function createMatrixRain() {
-                const chars = '01010101';
-                const rainDrop = document.createElement('div');
-                rainDrop.textContent = chars[Math.floor(Math.random() * chars.length)];
-                rainDrop.style.position = 'fixed';
-                rainDrop.style.top = '-20px';
-                rainDrop.style.left = Math.random() * window.innerWidth + 'px';
-                rainDrop.style.color = '#00ffff';
-                rainDrop.style.fontSize = Math.random() * 14 + 10 + 'px';
-                rainDrop.style.fontFamily = 'monospace';
-                rainDrop.style.fontWeight = 'bold';
-                rainDrop.style.opacity = Math.random() * 0.8 + 0.2;
-                rainDrop.style.pointerEvents = 'none';
-                rainDrop.style.zIndex = '-1';
-                rainDrop.style.textShadow = '0 0 10px #00ffff';
-                rainDrop.style.animation = `matrix-fall ${Math.random() * 3 + 2}s linear forwards`;
-                
-                document.body.appendChild(rainDrop);
-                
-                setTimeout(() => {
-                    rainDrop.remove();
-                }, 5000);
-            }
-
-            // Add matrix fall animation
-            const matrixStyle = document.createElement('style');
-            matrixStyle.textContent = `
-                @keyframes matrix-fall {
-                    to {
-                        transform: translateY(calc(100vh + 50px));
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(matrixStyle);
-
-            // Create matrix rain periodically
-            setInterval(createMatrixRain, 250);
-
-            // Sound wave effect for buttons
-            function createSoundWave(x, y) {
-                for (let i = 0; i < 3; i++) {
-                    const wave = document.createElement('div');
-                    wave.style.position = 'fixed';
-                    wave.style.left = x + 'px';
-                    wave.style.top = y + 'px';
-                    wave.style.width = '20px';
-                    wave.style.height = '20px';
-                    wave.style.border = '2px solid #00ff88';
-                    wave.style.borderRadius = '50%';
-                    wave.style.opacity = '0.7';
-                    wave.style.pointerEvents = 'none';
-                    wave.style.zIndex = '100';
-                    wave.style.animation = `sound-wave 1s ease-out forwards`;
-                    wave.style.animationDelay = i * 0.1 + 's';
-                    
-                    document.body.appendChild(wave);
-                    
-                    setTimeout(() => {
-                        wave.remove();
-                    }, 1000);
-                }
-            }
-
-            // Add sound wave animation
-            const soundStyle = document.createElement('style');
-            soundStyle.textContent = `
-                @keyframes sound-wave {
-                    0% {
-                        transform: scale(1);
-                        opacity: 0.7;
-                    }
-                    100% {
-                        transform: scale(3);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(soundStyle);
-
-            // Add sound wave effect to demo buttons
-            document.querySelectorAll('.live-demo-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = rect.left + rect.width / 2;
-                    const y = rect.top + rect.height / 2;
-                    createSoundWave(x, y);
-                });
-            });
-
-            // Initialize animations on load
-            window.addEventListener('load', function() {
-                const projects = document.querySelectorAll('.project-horizontal');
-                projects.forEach((project, index) => {
-                    project.style.animationDelay = (index * 0.4) + 's';
-                });
-                
-                // Intersection observer for animations
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.animationPlayState = 'running';
-                        }
-                    });
-                });
-                
-                projects.forEach(project => {
-                    observer.observe(project);
-                });
-            });
-
-            // Tech tag hover effects
-            document.querySelectorAll('.tech-tag').forEach(tag => {
-                tag.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1) rotate(2deg)';
-                });
-                
-                tag.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                });
-            });
-
-            // Status badge pulse effect
-            document.querySelectorAll('.status-live').forEach(badge => {
-                setInterval(() => {
-                    badge.style.transform = 'scale(1.05)';
-                    setTimeout(() => {
-                        badge.style.transform = 'scale(1)';
-                    }, 200);
-                }, 2000);
-            });
-        </script>
-    </body>
+          };
+        });
+
+        this.position.y = 1;
+      }
+    }
+    const thing = new Thing();
+    scene.add(thing);
+
+    /* Animate (no OrbitControls — auto camera orbit) */
+    const clock = new THREE.Clock();
+    let t = 0;
+    function animate() {
+      const dt = clock.getDelta();
+      t += dt;
+      gu.time.value = t * 1.25;
+
+      // Auto camera orbit around the creature
+      const radius = 7.25;
+      const angle = t * 0.05;
+      camera.position.x = Math.sin(angle) * radius * 0.6;
+      camera.position.z = -Math.cos(angle) * radius;
+      camera.position.y = 0.25 + Math.sin(t * 0.08) * 0.4;
+      camera.lookAt(0, 1, 0);
+
+      waterStuff.update(dt);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    /* Recede background 1.5s after load + reveal cards */
+    setTimeout(() => {
+      canvas.classList.add('recede');
+      vignetteEl.classList.add('recede');
+    }, 1500);
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+        else entry.target.classList.remove('in-view');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-fx]').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width) * 100;
+        const y = ((e.clientY - r.top) / r.height) * 100;
+        card.style.setProperty('--mx', `${x}%`);
+        card.style.setProperty('--my', `${y}%`);
+      });
+    });
+
+    setTimeout(() => {
+      document.querySelector('.cards').classList.add('ready');
+      document.querySelectorAll('[data-fx]').forEach(c => revealObserver.observe(c));
+    }, 1500);
+  </script>
+
+  <script src="chatbot.js"></script>
+</body>
 </html>
