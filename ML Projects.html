@@ -253,6 +253,24 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem; color: var(--text-dim);
     }
+    .card .tag.rank {
+      color: #0a0a0a;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      border-color: transparent;
+      font-weight: 700;
+    }
+    .card .cta-disabled {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      background: var(--surface-2);
+      color: var(--text-mute);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-weight: 600; font-size: 0.875rem;
+      width: fit-content;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+    }
     .card .cta {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 10px 18px;
@@ -445,7 +463,58 @@
 
   <section class="cards">
 
-    <!-- 01 — ING HUB DATATHON 2025 -->
+    <!-- 01 — BTK Datathon 2026 -->
+    <div class="card-wrap">
+      <div class="card card-fx" data-fx>
+        <div class="image-frame reveal-item">
+          <img src="img/btk.png" alt="BTK Datathon 2026" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag rank">🏅 Top 9 / 579</span>
+            <span class="tag">Career Prediction</span>
+            <span class="tag">Tabular ML</span>
+            <span class="tag">Feature Engineering</span>
+          </div>
+          <h3 class="reveal-item">BTK <span class="underline">Datathon 2026</span></h3>
+          <p class="reveal-item">
+            Öğrencilerin akademik, teknik, proje, portfolyo, mülakat ve kariyer hazırlık verilerinden
+            hedef kariyer rolünü tahmin eden makine öğrenmesi çözümü. 579 katılımcı arasında 9. sırayı aldık.
+          </p>
+          <a class="cta reveal-item" data-magnetic-btn href="https://github.com/Ozan-Mohurcu/BTK-Datathon2026" target="_blank">
+            View on GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 — Haier Europe Datathon -->
+    <div class="card-wrap">
+      <div class="card card-fx" data-fx>
+        <div class="image-frame reveal-item">
+          <img src="img/Haier.png" alt="Haier Europe Datathon" />
+        </div>
+        <div class="content">
+          <div class="tags reveal-item">
+            <span class="tag rank">🏅 Top 4 / 168</span>
+            <span class="tag">Demand Forecasting</span>
+            <span class="tag">Time Series</span>
+            <span class="tag">SKU-Level</span>
+          </div>
+          <h3 class="reveal-item">Haier Europe <span class="underline">Datathon</span></h3>
+          <p class="reveal-item">
+            Haier Europe ürün portföyü için 12 aylık SKU bazlı talep tahmin çözümü.
+            Faz-out ürünleri stok bitişine yakınsayan, satışı süren SKU'lar için ise sezonsallık,
+            trend ve kampanya etkilerini koruyan; line ve kategori bazında tutarlı, production-ready forecast.
+            168 takım arasında 4. sırayı aldık.
+          </p>
+          <span class="cta-disabled reveal-item">private · NDA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 — ING HUB DATATHON 2025 -->
     <div class="card-wrap">
       <div class="card card-fx" data-fx>
         <div class="image-frame reveal-item">
